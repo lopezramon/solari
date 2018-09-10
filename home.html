@@ -98,11 +98,11 @@
 	<section class="py-3">
 		<div class="container h-100 p-0">
 			<div class="row justify-content-center align-items-center">	
-				<form class="col-md-12 form-inline form-booking flex-column flex-md-row">
+				<form class="col-md-12 form-inline form-booking flex-column flex-md-row justify-content-center">
 					<div class="form-group">
 						<label for="inputRoom" class="sr-only">Cameera</label>
 						<select name="room" class="form-control">
-							<option selected>Cameera</option>
+							<option disabled selected>Cameera</option>
 							<option value="room101">Room 101</option>
 							<option value="room102">Room 102</option>
 							<option value="room103">Room 103</option>
@@ -110,25 +110,25 @@
 						</select>
 					</div>
 
-					<div class="hr d-md-none my-3"></div>
+					<div class="hr d-lg-none my-3"></div>
 					
 					<div class="form-group d-flex">
 						<div class="w-50">
-							<input type="date" class="form-control" placeholder="Check-in"/> 
+							<input type="text" class="form-control text-center" placeholder="Check-in"/> 
 						</div>
 						<div class="w-50">
-							<input type="date" class="form-control" placeholder="Check-out"/> 
+							<input type="text" class="form-control text-center" placeholder="Check-out"/> 
 						</div>
 					</div>
 
-					<div class="hr d-md-none my-3"></div>
+					<div class="hr d-lg-none my-3"></div>
 
 					<div class="form-group d-flex">
 
 						<div class="w-50">
 							<label for="inputMen" class="sr-only">Adulti</label>
 							<select name="adult" class="form-control">
-							<option selected>Adulti</option>
+							<option disabled selected>Adulti</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
 							</select>
@@ -137,14 +137,14 @@
 						<div class="w-50">
 							<label for="inputChild" class="sr-only">Bambino</label>
 							<select name="boys" class="form-control">
-								<option selected>Bambino</option>
+								<option disabled selected>Bambino</option>
 								<option value="1">0</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 							</select>
 						</div>
 					</div>
-					<div class="form-group text-center mt-3">
+					<div class="form-group text-center justify-content-center">
 						<button type="submit" class="btn btn-lg btn-primary">CERCA</button>
 					</div>
 
@@ -156,9 +156,23 @@
 <section class="about-us">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-6 col-md-6 col-sm-8"><img src="images/about-us.png" class="image-aboutus img-fluid">
+			<div class="col-12 col-lg-6"><img src="images/about-us.png" class="image-aboutus img-fluid">
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-8 top" ><h1>DOBLE LUXURY ROOM</h1><p></p><span style="font-size: 1rem; text-align: justify; ">double a luxury room si trova nel cuore di olbia in una delle più suggestive vie del centro storico. a soli 500 metri dal porto e 100 metri dalla stazione ferroviaria di olbia la nostra struttura è circondata da parcheggi, fermate di tutti gli autobus e tram. le nostre camere sono tutte rifinite con finiture di pregio in resina,  e di nuovissima costruzione  arredate con uno stile moderno e unico nel suo genere, dotate di tutti i comfort per regalarvi un soggiorno indimenticabile.</span>
+			<div class="col-12 col-lg-6 d-flex flex-column justify-content-center" >
+				<h1>DOBLE LUXURY ROOM</h1>
+				<p>Double A Luxury Room si trova nel 
+					cuore di olbia in una delle più suggestive 
+					vie del centro storico. 
+					a soli 500 metri dal porto e 100 metri dalla stazione ferroviaria di 
+					olbia la nostra struttura è circondata da parcheggi, 
+					fermate di tutti gli autobus e tram.
+
+					le nostre camere sono tutte rifinite con 
+					finiture di pregio in resina,  e di nuovissima costruzione  
+					arredate con uno stile moderno e unico nel 
+					suo genere, dotate di tutti i comfort per regalarvi 
+					un soggiorno indimenticabile.
+				</p>
 			</div>
 		</div>
 	</div>
@@ -248,10 +262,10 @@
 								<img src="images/slider-olbia-one.jpg">
 								<div class="content-text-slider">
 									<div class="container">
-										<div class="row">
-					      				<div class="col-12">
-											  <h2 class="text-center text-white content-middle-3">Tavolara con sus picinas naturales</h2>
-								      		<p class="text-left text-white content-middle-2">
+										<div class="row align-content-center">
+					      				<div class="col-12 mt-2">
+											  <h2 class="text-center content-middle-3 text-uppercase">Tavolara con sus picinas naturales</h2>
+								      			<p class="text-left content-middle-2 d-none d-lg-block">
 												  La isla de Tavolara es uno de los mejores lugares para avistar delfines en Cerdeña. El área marina que protege fauna y flora permite que numerosas especies en vías de extinción tengan aquí un oasis de protección.
 												  
 												</p>
@@ -265,10 +279,10 @@
 								<img src="images/slider-olbia-tree.jpg">
 								<div class="content-text-slider">
 									<div class="container">
-										<div class="row">
-											<div class="col-12">
-												<h2 class="text-center text-white content-middle-title">Caprera</h2>
-												<p class="text-left text-white content-middle-2">
+										<div class="row align-content-center">
+											<div class="col-12 mt-2">
+												<h2 class="text-center content-middle-title text-uppercase">Caprera</h2>
+												<p class="text-left content-middle-2 d-none d-lg-block">
 													La isla de Caprera forma parte del archipiélago de la Maddalena, en la costa noroccidental de Cerdeña. Se trata de una porción de tierra con apenas altura, con vegetación de macchia mediterránea y con playas de arena blanca en sus 34 km de costa.
 
 								      		</p>
@@ -281,10 +295,10 @@
 					      	<img src="images/slider-olbia-two.jpg">
 					      	<div class="content-text-slider">
 								  <div class="container">
-					      			<div class="row">
-										  <div class="col-12">
-											  <h2 class="text-center text-white content-middle-title">La Maddalena</h2>
-								      		<p class="text-left text-white content-middle-2">
+					      			<div class="row align-content-center">
+										  <div class="col-12 mt-2">
+											  <h2 class="text-center content-middle-title text-uppercase">La Maddalena</h2>
+								      		<p class="text-left content-middle-2 d-none d-lg-block">
 												  La Maddalena, la ciudad más grande en la isla más grande del archipiélago de Maddalena, es reconocida por sus hermosas playas y parque nacional. Alquila un barco privado para explorar las islas aledañas deshabitadas o simplemente relájate en las arenas café au lait de la Playa Spalmatore.
 												  
 												</p>
@@ -297,10 +311,10 @@
 								<img src="images/slider-olbia-four.jpg">
 								<div class="content-text-slider">
 									<div class="container">
-										<div class="row">
-											<div class="col-12">
-												<h2 class="text-center text-white content-middle-title">Visita Olbia, Italia</h2>
-												<p class="text-left text-white content-middle">
+										<div class="row align-content-center">
+											<div class="col-12 mt-2">
+												<h2 class="text-center content-middle-title text-uppercase">Visita Olbia, Italia</h2>
+												<p class="text-left content-middle d-none d-lg-block">
 													Olbia es una ciudad costera del nordeste de Cerdeña (Italia) famosa por la basílica medieval de San Simplicio y los cafés que llenan las plazas centrales, como la piazza Matteotti. Al este del municipio hay un paseo marítimo lleno de palmeras donde se encuentra el museo arqueológico de Olbia, con exposiciones de artefactos de la cultura nurágica y buques de guerra romanos. El yacimiento arqueológico de Nuraghe Riu Mulinu se alza en la cima de una colina y tiene vistas al golfo de Olbia.
 
 												</p>
@@ -321,7 +335,6 @@
 			</div>
 		</div>
 	</div>
-	<p style="padding-bottom:40px"></p>
 	
 
 </section>
@@ -329,11 +342,11 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 col-md-offset-2 text-center top">
-			<img src="images/Logo_Luxury_pequeño_Black.png"><p></p><h1><span style="color:#000;">SERVIZI</span></h1><p></p>
+			<img src="images/Logo_Luxury_pequeño_Black.png">
+			<h1><span class="text-dark">SERVIZI</span></h1>
 		</div>
 	</div>
 </div>
-<p></p>
 
 <div class="container">
 	
