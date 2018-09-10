@@ -10,6 +10,7 @@
 
 <head>
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,maximum-scale=1">
 <title>AA Luxury Hotel</title>
 <meta content="Descripción de la página" name="description" />
 <meta content="Hotel, luxury, italia, vacaciones" name="keywords" />
@@ -30,7 +31,7 @@
 </html>
 <body>
 
-<aside class="top-info">	
+<aside class="top-info d-none d-md-block">	
 	<div class="container-fluid" style="background-color: #000000; color: #FFF; font-family:Montserrat; font-size: 0.8rem; height: 30px; padding-top:4px">
 		<div class="row">
 			<div class="offset-md-1">Via alessandro nanni 58, Italia, Olbia</div>
@@ -63,23 +64,37 @@
 </nav>
 
 
-<!-- Slider main container -->
-<div class="swiper-container" >
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide"><img src="images/header-second-image.jpg"></div>
-        <div class="swiper-slide"><img src="images/header-third-image.jpg"></div>
-        <div class="swiper-slide"><img src="images/header-fourth-image.jpg"></div>
-        
-    </div>
-    <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
+<div class="content-slider-primary">
 
-    <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+	<!-- Slider main container -->
+	<div class="swiper-container" >
+		<!-- Additional required wrapper -->
+		<div class="swiper-wrapper">
+			<!-- Slides -->
+			<div id="slider-image-1" class="swiper-slide">
+				<div class="caption">
+					<figure class="caption-image">
+						<img class="img-fluid" src="images/logo2-big.png" alt="Luxury">
+					</figure>
+					<div class="caption-title">
+						<h2 class="text-uppercase">Luxury Room</h2>
+					</div>
+				</div>
+			</div>
+			<div id="slider-image-2" class="swiper-slide">
+			</div>
+			<div id="slider-image-3" class="swiper-slide">
+			</div>    
+		</div>
+		
+		<!-- If we need navigation buttons -->
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+	</div>
 </div>
+	<!--  -->
+	
+
 
 <section>
 <div class="container h-100">
@@ -650,16 +665,10 @@
   var mySwiper = new Swiper ('.swiper-container', {
     // Optional parameters
     loop: true,
-
-    autoplay: {
-    delay: 4000,
-  },
-
+	autoplay: {
+		delay: 4000,
+	},
     // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
-
     // Navigation arrows
     navigation: {
       nextEl: '.swiper-button-next',
@@ -672,14 +681,13 @@
   <script>
     var swiper = new Swiper('.swiper-container-2', {
     	// Optional parameters
-    loop: true,
-
-    autoplay: {
-	    delay: 4000,
-	  },
-
-    // Navigation arrows
-    navigation: {
+    	loop: true,
+    	autoplay: {
+			delay: 4000,
+		},
+		
+   		// Navigation arrows
+    	navigation: {
 	      nextEl: '.swiper-button-next',
 	      prevEl: '.swiper-button-prev',
 	    },
