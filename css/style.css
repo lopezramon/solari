@@ -383,8 +383,58 @@ nav.navbar {
 		height: 96vh;
 	}
 	.caption-image{
-		width: 340px;
+		width: 34	0px;
 		height: auto;
 		margin: 0 auto;
 	}
+}
+
+/* formulario booking */
+.form-booking .form-group, .form-control{
+	min-width: 100%;
+	display: block;
+	margin: 0;
+}
+.form-booking .form-control{
+	border: 0px solid transparent;
+}
+.form-booking .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: transparent;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem transparent;
+}
+.hr{
+	width: 100%;
+    height: 1px;
+    background-color: transparent;
+    border: 0.5px solid #555;
+}
+.form-booking .btn-primary{
+	background-color: #2ac093;
+    border-color: #2ac093;
+
+}
+.form-booking .btn-primary:hover {
+    color: #fff;
+    background-color: #2ac093;
+    border-color: #2ac093;
+}
+.form-booking .btn-primary.focus, .form-booking .btn-primary:focus{
+	box-shadow: 0 0 0 0.2rem #2ac0938a;
+}
+.form-booking .btn-primary:not(:disabled):not(.disabled):active{
+	color: #fff;
+    background-color: #2ac093;
+    border-color: #2ac093;
+}
+.form-booking .btn-lg {
+    padding: .3rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    border-radius: 1rem;
+}
+.form-booking select.form-control {
+	text-align-last:center;
 }
