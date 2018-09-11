@@ -3,7 +3,7 @@ body {
 	font-family:Montserrat;
 }
 
-.black-header
+.header-black
 {
 	background-color: #000000;
 	color: #FFF;
@@ -24,17 +24,16 @@ width: 100%;
 .image-aboutus{
 	margin-top:40px; padding-bottom: 40px 
 }
-h1 {
+h1  {
 	font-size: 2rem !important; 
-	font-family:Montserrat;
 }
+
 h1 span {
-	color: #FFF;
+	font-size: 1rem !important; 
 }
 
 h3 span {
 	font-size: 1.7rem !important; 
-	font-family:Montserrat;
 	color: #FFF;
 }
 
