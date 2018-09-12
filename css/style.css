@@ -566,5 +566,17 @@ z-index: 100;
 }
 
 .tavolara {
-	background-color: #ebebeb
+	background-color: #ebebeb;
+}
+
+.space {
+	padding-bottom: 30px
+}
+
+.spacetop {
+	padding-top: 3%;
+}
+
+.esperienze {
+	background-color: #393939;
 }
