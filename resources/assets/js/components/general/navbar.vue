@@ -3,10 +3,10 @@
         <div class="content-nav">
             
             <aside class="top-info d-none d-md-block bg-black">	
-                    <div class="container-fluid header-black">
+                    <div class="container header-black">
                         <div class="row">
-                            <div class="col-lg-6">Via alessandro nanni 58, Italia, Olbia</div>
-                            <div class="col-lg-6 text-right">0789-1710013 | 34-71757188</div>
+                            <div class="col-6"><a href="https://goo.gl/maps/V6ZaLt3XSM22" target="_black">Via alessandro nanni 58, Italia, Olbia</a></div>
+                            <div class="col-6 text-right"><a href="tel:07891710013">0789-1710013</a> | <a href="tel3471757188">34-71757188</a></div>
                         </div>
                     </div>
             </aside>
@@ -60,7 +60,12 @@
         background-color: rgba(0, 0, 0, 0.5);
     }
     .top-info {
+        font-family: 'Josefin Sans', sans-serif;
         color: #fff;
+    }
+    .top-info a, .top-info a:hover{
+        color: #fff;
+        text-decoration: none;
     }
 
     @media (max-width: 991.98px){
@@ -99,11 +104,15 @@
     }
     a.font-1:hover,a.font-2:hover{
         color: #fff;
+        text-decoration: none;
     }
     a.font-1{
         font-size: 1rem;
     }
     a.font-2{
         font-size: 1.6rem;
+    }
+    a:hover{
+        text-decoration: none;
     }
 </style>
