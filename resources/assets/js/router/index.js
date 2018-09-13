@@ -16,6 +16,10 @@ Vue.use(VueAwesomeSwiper, {});
 import AppContent from '../components/landing/AppContent.vue';
 import headerLanding from '../components/landing/header.vue';
 import sliderOlbia from '../components/landing/sliderOlbia.vue';
+import services from '../components/landing/services.vue';
+import esperience from '../components/landing/esperience.vue';
+import galleryHorizontal from '../components/landing/galleryHorizontal.vue';
+import mapa from '../components/landing/mapa.vue';
 // generale
 import navbar from '../components/general/navbar.vue';
 import footer from '../components/general/footer.vue';
@@ -28,6 +32,10 @@ Vue.component('gfooter', footer);
 Vue.component('jumperr', jumperr);
 Vue.component('header_landing', headerLanding);
 Vue.component('slider_olbia', sliderOlbia);
+Vue.component('services', services);
+Vue.component('esperience', esperience);
+Vue.component('gallery_horizontal', galleryHorizontal);
+Vue.component('mapa', mapa);
 
 
 //rutas

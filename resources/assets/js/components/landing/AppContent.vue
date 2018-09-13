@@ -3,7 +3,11 @@
 
 
         <header_landing/>
-        <!-- <slider_olbia/> -->
+        <slider_olbia/>
+        <services/>
+        <esperience/>
+        <gallery_horizontal/>
+        <mapa/>
 
 
     </div>
