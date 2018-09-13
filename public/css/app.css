@@ -10491,6 +10491,10 @@ h6 {
   font-family: 'Josefin Sans', sans-serif;
 }
 
+.bg-black {
+  background-color: #000;
+}
+
 .swiper-pagination-bullet {
   width: 8px;
   height: 8px;

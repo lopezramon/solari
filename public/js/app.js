@@ -60667,17 +60667,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(94)
+}
 var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(83)
+var __vue_template__ = __webpack_require__(96)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-29037524"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -60710,26 +60714,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 83 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    navbar\n")])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-29037524", module.exports)
-  }
-}
-
-/***/ }),
+/* 83 */,
 /* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -61281,6 +61266,251 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 93 */,
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(95);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("a24996d0", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-29037524\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./navbar.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-29037524\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./navbar.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.content-nav[data-v-29037524]{\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 1030;\n    width: 100%;\n    background-color: rgba(0, 0, 0, 0.5);\n}\n.top-info[data-v-29037524] {\n    color: #fff;\n}\n@media (max-width: 991.98px){\n.container[data-v-29037524] {\n        max-width: 100%;\n        padding-right: 0px;\n        padding-left: 0px;\n}\n}\n.navbar[data-v-29037524]\n{\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n}\n.navbar-toggler[data-v-29037524]{\n    font-size: 1.6rem;\n}\n.navbar-brand h1[data-v-29037524]{\n    font-size: 1.25rem;\n    margin: 0;\n    vertical-align: sub;\n    vertical-align: -webkit-baseline-middle;\n}\n.navbar-dark .navbar-toggler[data-v-29037524] {\n    color: rgba(255, 255, 255, .7);\n    border-color: rgba(255, 255, 255, 0);\n}\n.navbar-dark .navbar-nav .nav-link[data-v-29037524] {\n    color: rgba(255, 255, 255, 1);\n}\na.font-1[data-v-29037524],a.font-2[data-v-29037524]{\n    text-decoration: none;\n    color: #fff;\n    font-family: 'Josefin Sans', sans-serif;\n    line-height: 1.2;\n}\na.font-1[data-v-29037524]:hover,a.font-2[data-v-29037524]:hover{\n    color: #fff;\n}\na.font-1[data-v-29037524]{\n    font-size: 1rem;\n}\na.font-2[data-v-29037524]{\n    font-size: 1.6rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "content-nav" }, [
+        _c("aside", { staticClass: "top-info d-none d-md-block bg-black" }, [
+          _c("div", { staticClass: "container-fluid header-black" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-6" }, [
+                _vm._v("Via alessandro nanni 58, Italia, Olbia")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6 text-right" }, [
+                _vm._v("0789-1710013 | 34-71757188")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "container" }, [
+          _c(
+            "nav",
+            {
+              staticClass:
+                "navbar navbar-dark navbar-expand-md py-md-2 text-uppercase"
+            },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "navbar-toggler",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "collapse",
+                    "data-target": "#navbarNav",
+                    "aria-expanded": "false",
+                    "aria-label": "Toggle navigation"
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-ellipsis-v" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                { staticClass: "navbar-brand m-0", attrs: { href: "#" } },
+                [
+                  _c("img", {
+                    attrs: { src: "/images/logos/logo_luxury_pequeño.png" }
+                  }),
+                  _vm._v(" "),
+                  _c("h1", { staticClass: "d-none d-sm-inline-block" }, [
+                    _vm._v(
+                      "\n                        Luxury Room\n                    "
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "action-menu ml-auto ml-md-0 order-md-12 d-inline-flex align-items-center"
+                },
+                [
+                  _c("a", { staticClass: "text-white", attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/iconos/facebook.png",
+                        alt: "facebook",
+                        width: "24"
+                      }
+                    }),
+                    _vm._v("  ")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "font-2 d-md-none pr-1 mr-1",
+                      attrs: { href: "#" }
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/iconos/facebook.png",
+                          alt: "facebook",
+                          width: "24"
+                        }
+                      }),
+                      _vm._v(" |\n                    ")
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "text-white font-1 d-inline-flex align-items-center",
+                      attrs: { href: "#" }
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/iconos/facebook.png",
+                          alt: "facebook",
+                          width: "24"
+                        }
+                      }),
+                      _vm._v(" \n                         "),
+                      _c("span", {}, [_vm._v("ITA")])
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "navbar-collapse collapse justify-content-center",
+                  attrs: { id: "navbarNav" }
+                },
+                [
+                  _c("ul", { staticClass: "navbar-nav text-center" }, [
+                    _c("li", { staticClass: "nav-item py-md-2" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { href: "#about-us" }
+                        },
+                        [_vm._v("Chi Siamo")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item py-md-2" }, [
+                      _c(
+                        "a",
+                        { staticClass: "nav-link", attrs: { href: "#camera" } },
+                        [_vm._v("Suites")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item py-md-2" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { href: "#servizi" }
+                        },
+                        [_vm._v("Servizi")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item py-md-2" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { href: "#esperienze" }
+                        },
+                        [_vm._v("Esperienze")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item py-md-2" }, [
+                      _c(
+                        "a",
+                        { staticClass: "nav-link", attrs: { href: "#" } },
+                        [_vm._v("contatti")]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-29037524", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
