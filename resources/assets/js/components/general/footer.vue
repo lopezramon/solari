@@ -63,4 +63,9 @@
     background-color: #373737 !important;
     border: 1px solid #fff;
 }
+
+.size-other-2 {
+    width: 7%;
+    height: auto;
+}
 </style>
