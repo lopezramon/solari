@@ -7,7 +7,7 @@
 		<img src="/images/home/camere/Logo_Luxury_pequeño.png"><p></p><h1 class="text-white">LE NOSTRE CAMERE</h1><p></p><span class="camere-detail text-white">ogni camera è climatizzata, dotata di tende oscuranti, frigo bar, macchina del caffè, tv 40''4k dove è possibile vedere netflix esclusivamente offerto da noi. inoltre ogni camera dispone di un bagno privato dotato di ampio box doccia, asciugacapelli e kit cortesia in omaggio. a disposizione di tutti, una veranda  attrezzata con divanetti e poltroncine dove poter fare un aperitivo con vista sulla cupola della chiesa più storica di olbia. il wi-fi inoltre è accessibile e gratuito in tutta la struttura. </span><p></p>
       </div>
       
-      <div class="col-sm-3 col-md-6 col-lg-6">
+      <div class="col-12 col-md-6 col-lg-6">
       	
       	<div class="imagen-room">
       		<img src="/images/home/camere/22.jpg" class="img-fluid">
@@ -23,7 +23,7 @@
       	</div>
       	
       </div>
-      <div class="col-sm-3 col-md-6 col-lg-6">
+      <div class="col-12 col-md-6 col-lg-6">
       	<div class="imagen-room">
       		<img src="/images/home/camere/7.jpg" class="img-fluid">
 	      	<div class="content-room-image text-center">
@@ -37,7 +37,7 @@
 	      	</div>
       	</div>
       </div>
-      <div class="ccol-sm-3 col-md-6 col-lg-6">
+      <div class="col-12 col-md-6 col-lg-6">
       	<div class="imagen-room">
       		<img src="/images/home/camere/12.jpg" class="img-fluid">
 	      	<div class="content-room-image text-center">
@@ -51,7 +51,7 @@
 	      	</div>
       	</div>
       </div>
-      <div class="col-sm-3 col-md-6 col-lg-6">
+      <div class="col-12 col-md-6 col-lg-6">
       	<div class="imagen-room">
       		<img src="/images/home/camere/0163.jpg" class="img-fluid">
 	      	<div class="content-room-image text-center">
@@ -97,6 +97,9 @@ background-color: #000000;
 	background-color: rgba(0,0,0,0.7);
 	transition:all 1s ease;
 	-moz-transition: all 1s ease;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .imagen-room:hover .content-room-image{
 	top: 0;
@@ -125,13 +128,5 @@ background-color: #000000;
 	position:relative;
 	top:1px;
 }
-.content-middle {
-  top: 5%;
-  left: 10%;
-  -webkit-transform: translate(0%, 70%);
-  -ms-transform: translate(0%, 70%);
-  transform: translate(0%, 70%);
-  text-align: center;
-  font-family:Montserrat;
-}
+
 </style>

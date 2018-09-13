@@ -65,6 +65,197 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -374,197 +565,6 @@ module.exports = {
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -826,7 +826,7 @@ module.exports = g;
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(2);
 var normalizeHeaderName = __webpack_require__(25);
 
 var DEFAULT_CONTENT_TYPE = {
@@ -14050,7 +14050,7 @@ process.umask = function() { return 0; };
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(2);
 var settle = __webpack_require__(26);
 var buildURL = __webpack_require__(28);
 var parseHeaders = __webpack_require__(29);
@@ -25264,7 +25264,7 @@ module.exports = Vue;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(16);
-module.exports = __webpack_require__(102);
+module.exports = __webpack_require__(106);
 
 
 /***/ }),
@@ -46460,7 +46460,7 @@ module.exports = __webpack_require__(22);
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(2);
 var bind = __webpack_require__(8);
 var Axios = __webpack_require__(24);
 var defaults = __webpack_require__(5);
@@ -46547,7 +46547,7 @@ function isSlowBuffer (obj) {
 
 
 var defaults = __webpack_require__(5);
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(2);
 var InterceptorManager = __webpack_require__(33);
 var dispatchRequest = __webpack_require__(34);
 
@@ -46632,7 +46632,7 @@ module.exports = Axios;
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(2);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -46712,7 +46712,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(2);
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -46785,7 +46785,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(2);
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -46845,7 +46845,7 @@ module.exports = function parseHeaders(headers) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(2);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -46963,7 +46963,7 @@ module.exports = btoa;
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(2);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -47023,7 +47023,7 @@ module.exports = (
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(2);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -47082,7 +47082,7 @@ module.exports = InterceptorManager;
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(2);
 var transformData = __webpack_require__(35);
 var isCancel = __webpack_require__(12);
 var defaults = __webpack_require__(5);
@@ -47175,7 +47175,7 @@ module.exports = function dispatchRequest(config) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(2);
 
 /**
  * Transform the data for a request or a response
@@ -47626,15 +47626,15 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_landing_mapa_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_landing_mapa_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_landing_newsletter_vue__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_landing_newsletter_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_landing_newsletter_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_landing_aboutUs_vue__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_landing_aboutUs_vue__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_landing_aboutUs_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_landing_aboutUs_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_landing_homeCamere_vue__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_landing_homeCamere_vue__ = __webpack_require__(90);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_landing_homeCamere_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_landing_homeCamere_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_general_navbar_vue__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_general_navbar_vue__ = __webpack_require__(94);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_general_navbar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_general_navbar_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_general_footer_vue__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_general_footer_vue__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_general_footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_general_footer_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_general_jumperr_vue__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_general_jumperr_vue__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_general_jumperr_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_general_jumperr_vue__);
 
 
@@ -58112,7 +58112,7 @@ if(false) {
 /* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -58581,7 +58581,7 @@ module.exports = function (css) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -58674,7 +58674,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(53)
 }
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(56)
 /* template */
@@ -58746,7 +58746,7 @@ if(false) {
 /* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -58960,7 +58960,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(59)
 }
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(61)
 /* template */
@@ -59032,7 +59032,7 @@ if(false) {
 /* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -59339,7 +59339,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(64)
 }
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(66)
 /* template */
@@ -59411,7 +59411,7 @@ if(false) {
 /* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -59675,7 +59675,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(69)
 }
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(71)
 /* template */
@@ -59747,7 +59747,7 @@ if(false) {
 /* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -60374,7 +60374,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(74)
 }
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(76)
 /* template */
@@ -60446,7 +60446,7 @@ if(false) {
 /* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -60617,7 +60617,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(79)
 }
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -60689,7 +60689,7 @@ if(false) {
 /* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -60747,7 +60747,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(83)
 }
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -60819,7 +60819,7 @@ if(false) {
 /* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -60956,10 +60956,149 @@ if (false) {
 }
 
 /***/ }),
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(87)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(89)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-078b70cc"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/landing/aboutUs.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-078b70cc", Component.options)
+  } else {
+    hotAPI.reload("data-v-078b70cc", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(88);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("042b87e3", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-078b70cc\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./aboutUs.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-078b70cc\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./aboutUs.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.image-aboutus[data-v-078b70cc]{\n\tmargin-top:40px; padding-bottom: 40px\n}\n.top[data-v-078b70cc] {\n\tmargin-top: 50px\n}\n.gray-us[data-v-078b70cc] {\nbackground-color: #f8f7fa;\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { attrs: { id: "chisiamo" } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "container pad-top gray-us" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-8" }, [
+              _c("img", {
+                staticClass: "image-aboutus img-fluid",
+                attrs: { src: "/images/home/about-us/about-us.png" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-8 top" }, [
+              _c("h1", [_vm._v("DOBLE A LUXURY ROOM")]),
+              _c("p"),
+              _c("span", [
+                _vm._v(
+                  "double a luxury room si trova nel cuore di olbia in una delle più suggestive vie del centro storico. a soli 500 metri dal porto e 100 metri dalla stazione ferroviaria di olbia la nostra struttura è circondata da parcheggi, fermate di tutti gli autobus e tram. le nostre camere sono tutte rifinite con finiture di pregio in resina,  e di nuovissima costruzione  arredate con uno stile moderno e unico nel suo genere, dotate di tutti i comfort per regalarvi un soggiorno indimenticabile."
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-078b70cc", module.exports)
+  }
+}
+
+/***/ }),
 /* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -60968,11 +61107,276 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(91)
 }
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
 var __vue_template__ = __webpack_require__(93)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-01225392"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/landing/homeCamere.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-01225392", Component.options)
+  } else {
+    hotAPI.reload("data-v-01225392", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(92);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("3589ddc7", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-01225392\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./homeCamere.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-01225392\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./homeCamere.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.black[data-v-01225392] {\nbackground-color: #000000;\n}\n.imagen-room[data-v-01225392]{\n\tposition: relative;\n\toverflow: hidden;\n\tpadding-top: 30px;\n}\n.imagen-room > img[data-v-01225392]{\n\twidth: 100%;\n\theight: 100%;\n}\n.content-room-image[data-v-01225392]{\n\tposition: absolute;\n\ttop: -200%;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground-color: rgba(0,0,0,0.7);\n\t-webkit-transition:all 1s ease;\n\ttransition:all 1s ease;\n\t-moz-transition: all 1s ease;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-pack: center;\n\t    -ms-flex-pack: center;\n\t        justify-content: center;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n}\n.imagen-room:hover .content-room-image[data-v-01225392]{\n\ttop: 0;\n}\n.myButton[data-v-01225392] {\n\tbackground-color:#ffffff;\n\tborder-radius:41px;\n\tdisplay:inline-block;\n\tcursor:pointer;\n\tcolor:#000000;\n\tfont-family:Arial;\n\tfont-size:16px;\n\tpadding:5px 18px;\n\ttext-decoration:none;\n\ttext-shadow:0px 1px 0px #2f6627;\n}\n.myButton[data-v-01225392]:hover {\n\tbackground-color:#ffffff;\n\ttext-decoration: none;\n\tcolor:#000000;\n}\n.myButton[data-v-01225392]:active {\n\tposition:relative;\n\ttop:1px;\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "container-fluid black py-5" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              { staticClass: "col-md-12 col-md-offset-2 text-center top" },
+              [
+                _c("img", {
+                  attrs: { src: "/images/home/camere/Logo_Luxury_pequeño.png" }
+                }),
+                _c("p"),
+                _c("h1", { staticClass: "text-white" }, [
+                  _vm._v("LE NOSTRE CAMERE")
+                ]),
+                _c("p"),
+                _c("span", { staticClass: "camere-detail text-white" }, [
+                  _vm._v(
+                    "ogni camera è climatizzata, dotata di tende oscuranti, frigo bar, macchina del caffè, tv 40''4k dove è possibile vedere netflix esclusivamente offerto da noi. inoltre ogni camera dispone di un bagno privato dotato di ampio box doccia, asciugacapelli e kit cortesia in omaggio. a disposizione di tutti, una veranda  attrezzata con divanetti e poltroncine dove poter fare un aperitivo con vista sulla cupola della chiesa più storica di olbia. il wi-fi inoltre è accessibile e gratuito in tutta la struttura. "
+                  )
+                ]),
+                _c("p")
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 col-md-6 col-lg-6" }, [
+              _c("div", { staticClass: "imagen-room" }, [
+                _c("img", {
+                  staticClass: "img-fluid",
+                  attrs: { src: "/images/home/camere/22.jpg" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "content-room-image text-center" }, [
+                  _c("div", { staticClass: "content-middle" }, [
+                    _c("div", { staticClass: "min-log" }, [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/home/camere/Logo_Luxury_pequeño.png",
+                          alt: "logo luxury"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-white" }, [
+                      _vm._v("ROOM 101")
+                    ]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
+                      _vm._v("VEDI TUTTO")
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 col-md-6 col-lg-6" }, [
+              _c("div", { staticClass: "imagen-room" }, [
+                _c("img", {
+                  staticClass: "img-fluid",
+                  attrs: { src: "/images/home/camere/7.jpg" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "content-room-image text-center" }, [
+                  _c("div", { staticClass: "content-middle" }, [
+                    _c("div", { staticClass: "min-log" }, [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/home/camere/Logo_Luxury_pequeño.png",
+                          alt: "logo luxury"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-white" }, [
+                      _vm._v("ROOM 102")
+                    ]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
+                      _vm._v("VEDI TUTTO")
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 col-md-6 col-lg-6" }, [
+              _c("div", { staticClass: "imagen-room" }, [
+                _c("img", {
+                  staticClass: "img-fluid",
+                  attrs: { src: "/images/home/camere/12.jpg" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "content-room-image text-center" }, [
+                  _c("div", { staticClass: "content-middle" }, [
+                    _c("div", { staticClass: "min-log" }, [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/home/camere/Logo_Luxury_pequeño.png",
+                          alt: "logo luxury"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-white" }, [
+                      _vm._v("ROOM 103")
+                    ]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
+                      _vm._v("VEDI TUTTO")
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 col-md-6 col-lg-6" }, [
+              _c("div", { staticClass: "imagen-room" }, [
+                _c("img", {
+                  staticClass: "img-fluid",
+                  attrs: { src: "/images/home/camere/0163.jpg" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "content-room-image text-center" }, [
+                  _c("div", { staticClass: "content-middle" }, [
+                    _c("div", { staticClass: "min-log" }, [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/home/camere/Logo_Luxury_pequeño.png",
+                          alt: "logo luxury"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-white" }, [
+                      _vm._v("ROOM 104")
+                    ]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
+                      _vm._v("VEDI TUTTO")
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-01225392", module.exports)
+  }
+}
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(95)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(97)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -61011,13 +61415,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 91 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(92);
+var content = __webpack_require__(96);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -61037,10 +61441,10 @@ if(false) {
 }
 
 /***/ }),
-/* 92 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -61051,7 +61455,7 @@ exports.push([module.i, "\n.content-nav[data-v-29037524]{\n    position: absolut
 
 
 /***/ }),
-/* 93 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -61270,19 +61674,19 @@ if (false) {
 }
 
 /***/ }),
-/* 94 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(95)
+  __webpack_require__(99)
 }
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(97)
+var __vue_template__ = __webpack_require__(101)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -61321,13 +61725,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 95 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(96);
+var content = __webpack_require__(100);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -61347,10 +61751,10 @@ if(false) {
 }
 
 /***/ }),
-/* 96 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -61361,7 +61765,7 @@ exports.push([module.i, "\n.bg-gray[data-v-4ccc2179]{\n    background-color: #37
 
 
 /***/ }),
-/* 97 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -61624,19 +62028,19 @@ if (false) {
 }
 
 /***/ }),
-/* 98 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(99)
+  __webpack_require__(103)
 }
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(101)
+var __vue_template__ = __webpack_require__(105)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -61675,13 +62079,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 99 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(100);
+var content = __webpack_require__(104);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -61701,10 +62105,10 @@ if(false) {
 }
 
 /***/ }),
-/* 100 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -61715,7 +62119,7 @@ exports.push([module.i, "\n.bg-black[data-v-d4d910ee]{\n    background-color: #0
 
 
 /***/ }),
-/* 101 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -61817,419 +62221,10 @@ if (false) {
 }
 
 /***/ }),
-/* 102 */
+/* 106 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 103 */,
-/* 104 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(105)
-}
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(107)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-078b70cc"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/landing/aboutUs.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-078b70cc", Component.options)
-  } else {
-    hotAPI.reload("data-v-078b70cc", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 105 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(106);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("042b87e3", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-078b70cc\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./aboutUs.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-078b70cc\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./aboutUs.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 106 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.image-aboutus[data-v-078b70cc]{\n\tmargin-top:40px; padding-bottom: 40px\n}\n.top[data-v-078b70cc] {\n\tmargin-top: 50px\n}\n.gray-us[data-v-078b70cc] {\nbackground-color: #f8f7fa;\n}\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 107 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { attrs: { id: "chisiamo" } }),
-      _vm._v(" "),
-      _c("div", { staticClass: "container pad-top gray-us" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-8" }, [
-              _c("img", {
-                staticClass: "image-aboutus img-fluid",
-                attrs: { src: "/images/home/about-us/about-us.png" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-8 top" }, [
-              _c("h1", [_vm._v("DOBLE A LUXURY ROOM")]),
-              _c("p"),
-              _c("span", [
-                _vm._v(
-                  "double a luxury room si trova nel cuore di olbia in una delle più suggestive vie del centro storico. a soli 500 metri dal porto e 100 metri dalla stazione ferroviaria di olbia la nostra struttura è circondata da parcheggi, fermate di tutti gli autobus e tram. le nostre camere sono tutte rifinite con finiture di pregio in resina,  e di nuovissima costruzione  arredate con uno stile moderno e unico nel suo genere, dotate di tutti i comfort per regalarvi un soggiorno indimenticabile."
-                )
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-078b70cc", module.exports)
-  }
-}
-
-/***/ }),
-/* 108 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(109)
-}
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(111)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-01225392"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/landing/homeCamere.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-01225392", Component.options)
-  } else {
-    hotAPI.reload("data-v-01225392", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 109 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(110);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("3589ddc7", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-01225392\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./homeCamere.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-01225392\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./homeCamere.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 110 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.black[data-v-01225392] {\nbackground-color: #000000;\n}\n.imagen-room[data-v-01225392]{\n\tposition: relative;\n\toverflow: hidden;\n\tpadding-top: 30px;\n}\n.imagen-room > img[data-v-01225392]{\n\twidth: 100%;\n\theight: 100%;\n}\n.content-room-image[data-v-01225392]{\n\tposition: absolute;\n\ttop: -200%;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground-color: rgba(0,0,0,0.7);\n\t-webkit-transition:all 1s ease;\n\ttransition:all 1s ease;\n\t-moz-transition: all 1s ease;\n}\n.imagen-room:hover .content-room-image[data-v-01225392]{\n\ttop: 0;\n}\n.myButton[data-v-01225392] {\n\tbackground-color:#ffffff;\n\tborder-radius:41px;\n\tdisplay:inline-block;\n\tcursor:pointer;\n\tcolor:#000000;\n\tfont-family:Arial;\n\tfont-size:16px;\n\tpadding:5px 18px;\n\ttext-decoration:none;\n\ttext-shadow:0px 1px 0px #2f6627;\n}\n.myButton[data-v-01225392]:hover {\n\tbackground-color:#ffffff;\n\ttext-decoration: none;\n\tcolor:#000000;\n}\n.myButton[data-v-01225392]:active {\n\tposition:relative;\n\ttop:1px;\n}\n.content-middle[data-v-01225392] {\n  top: 5%;\n  left: 10%;\n  -webkit-transform: translate(0%, 70%);\n  transform: translate(0%, 70%);\n  text-align: center;\n  font-family:Montserrat;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 111 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "container-fluid black py-5" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              { staticClass: "col-md-12 col-md-offset-2 text-center top" },
-              [
-                _c("img", {
-                  attrs: { src: "/images/home/camere/Logo_Luxury_pequeño.png" }
-                }),
-                _c("p"),
-                _c("h1", { staticClass: "text-white" }, [
-                  _vm._v("LE NOSTRE CAMERE")
-                ]),
-                _c("p"),
-                _c("span", { staticClass: "camere-detail text-white" }, [
-                  _vm._v(
-                    "ogni camera è climatizzata, dotata di tende oscuranti, frigo bar, macchina del caffè, tv 40''4k dove è possibile vedere netflix esclusivamente offerto da noi. inoltre ogni camera dispone di un bagno privato dotato di ampio box doccia, asciugacapelli e kit cortesia in omaggio. a disposizione di tutti, una veranda  attrezzata con divanetti e poltroncine dove poter fare un aperitivo con vista sulla cupola della chiesa più storica di olbia. il wi-fi inoltre è accessibile e gratuito in tutta la struttura. "
-                  )
-                ]),
-                _c("p")
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-3 col-md-6 col-lg-6" }, [
-              _c("div", { staticClass: "imagen-room" }, [
-                _c("img", {
-                  staticClass: "img-fluid",
-                  attrs: { src: "/images/home/camere/22.jpg" }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "content-room-image text-center" }, [
-                  _c("div", { staticClass: "content-middle" }, [
-                    _c("div", { staticClass: "min-log" }, [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/home/camere/Logo_Luxury_pequeño.png",
-                          alt: "logo luxury"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("h3", { staticClass: "text-white" }, [
-                      _vm._v("ROOM 101")
-                    ]),
-                    _vm._v(" "),
-                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
-                      _vm._v("VEDI TUTTO")
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-3 col-md-6 col-lg-6" }, [
-              _c("div", { staticClass: "imagen-room" }, [
-                _c("img", {
-                  staticClass: "img-fluid",
-                  attrs: { src: "/images/home/camere/7.jpg" }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "content-room-image text-center" }, [
-                  _c("div", { staticClass: "content-middle" }, [
-                    _c("div", { staticClass: "min-log" }, [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/home/camere/Logo_Luxury_pequeño.png",
-                          alt: "logo luxury"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("h3", { staticClass: "text-white" }, [
-                      _vm._v("ROOM 102")
-                    ]),
-                    _vm._v(" "),
-                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
-                      _vm._v("VEDI TUTTO")
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "ccol-sm-3 col-md-6 col-lg-6" }, [
-              _c("div", { staticClass: "imagen-room" }, [
-                _c("img", {
-                  staticClass: "img-fluid",
-                  attrs: { src: "/images/home/camere/12.jpg" }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "content-room-image text-center" }, [
-                  _c("div", { staticClass: "content-middle" }, [
-                    _c("div", { staticClass: "min-log" }, [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/home/camere/Logo_Luxury_pequeño.png",
-                          alt: "logo luxury"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("h3", { staticClass: "text-white" }, [
-                      _vm._v("ROOM 103")
-                    ]),
-                    _vm._v(" "),
-                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
-                      _vm._v("VEDI TUTTO")
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-3 col-md-6 col-lg-6" }, [
-              _c("div", { staticClass: "imagen-room" }, [
-                _c("img", {
-                  staticClass: "img-fluid",
-                  attrs: { src: "/images/home/camere/0163.jpg" }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "content-room-image text-center" }, [
-                  _c("div", { staticClass: "content-middle" }, [
-                    _c("div", { staticClass: "min-log" }, [
-                      _c("img", {
-                        attrs: {
-                          src: "/images/home/camere/Logo_Luxury_pequeño.png",
-                          alt: "logo luxury"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("h3", { staticClass: "text-white" }, [
-                      _vm._v("ROOM 104")
-                    ]),
-                    _vm._v(" "),
-                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
-                      _vm._v("VEDI TUTTO")
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-01225392", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);
