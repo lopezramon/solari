@@ -58739,7 +58739,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.caption-title h2[data-v-a48fde48]{\n    font-size: 2.8rem;\n    color: #fff;\n}\n@media screen and (min-width: 768px){\n.caption-title h2[data-v-a48fde48]{\n        font-size: 4.2rem;\n        color: #fff;\n}\n}\n", ""]);
+exports.push([module.i, "\n.caption-title h2[data-v-a48fde48]{\n    font-size: 2.8rem;\n    color: #fff;\n}\n.caption-image img[data-v-a48fde48]{\n    width: 140px;\n}\n@media screen and (min-width: 768px){\n.caption-title h2[data-v-a48fde48]{\n        font-size: 4.2rem;\n        color: #fff;\n}\n.caption-image img[data-v-a48fde48]{\n        width: 240px;\n}\n}\n", ""]);
 
 // exports
 
@@ -58783,6 +58783,24 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -58860,9 +58878,43 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("swiper-slide", [_vm._v("I'm Slide 2")]),
+            _c("swiper-slide", [
+              _c("div", { staticClass: "caption" }, [
+                _c("figure", { staticClass: "caption-image text-center" }, [
+                  _c("img", {
+                    attrs: {
+                      src: "/images/logos/logo2-medium.png",
+                      alt: "Luxury"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "caption-title" }, [
+                  _c("h2", { staticClass: "text-center" }, [
+                    _vm._v("Luxury Room")
+                  ])
+                ])
+              ])
+            ]),
             _vm._v(" "),
-            _c("swiper-slide", [_vm._v("I'm Slide 3")]),
+            _c("swiper-slide", [
+              _c("div", { staticClass: "caption" }, [
+                _c("figure", { staticClass: "caption-image text-center" }, [
+                  _c("img", {
+                    attrs: {
+                      src: "/images/logos/logo2-medium.png",
+                      alt: "Luxury"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "caption-title" }, [
+                  _c("h2", { staticClass: "text-center" }, [
+                    _vm._v("Luxury Room")
+                  ])
+                ])
+              ])
+            ]),
             _vm._v(" "),
             _c("div", {
               staticClass: "swiper-pagination",
