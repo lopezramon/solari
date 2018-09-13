@@ -36,7 +36,7 @@
                     
                     <div class="navbar-collapse collapse justify-content-center" id="navbarNav">
                         <ul class="navbar-nav text-center">
-                            <li class="nav-item py-md-2"><a href="#about-us" class="nav-link">Chi Siamo</a></li>
+                            <li class="nav-item py-md-2"><a href="#chisiamo" class="nav-link">Chi Siamo</a></li>
                             <li class="nav-item py-md-2"><a href="#camera" class="nav-link">Suites</a></li>
                             <li class="nav-item py-md-2"><a href="#servizi" class="nav-link">Servizi</a></li>
                             <li class="nav-item py-md-2"><a href="#esperienze" class="nav-link">Esperienze</a></li>

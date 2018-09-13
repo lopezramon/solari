@@ -25264,7 +25264,7 @@ module.exports = Vue;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(16);
-module.exports = __webpack_require__(98);
+module.exports = __webpack_require__(102);
 
 
 /***/ }),
@@ -47626,12 +47626,16 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_landing_mapa_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_landing_mapa_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_landing_newsletter_vue__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_landing_newsletter_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_landing_newsletter_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_general_navbar_vue__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_general_navbar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_general_navbar_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_general_footer_vue__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_general_footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_general_footer_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_general_jumperr_vue__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_general_jumperr_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_general_jumperr_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_landing_aboutUs_vue__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_landing_aboutUs_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_landing_aboutUs_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_landing_homeCamere_vue__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_landing_homeCamere_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_landing_homeCamere_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_general_navbar_vue__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_general_navbar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_general_navbar_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_general_footer_vue__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_general_footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_general_footer_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_general_jumperr_vue__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_general_jumperr_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_general_jumperr_vue__);
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
@@ -47655,15 +47659,17 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vue_
 
 
 
+
+
 // generale
 
 
 
 
 //componentes generales
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('navbar', __WEBPACK_IMPORTED_MODULE_12__components_general_navbar_vue___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('gfooter', __WEBPACK_IMPORTED_MODULE_13__components_general_footer_vue___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('jumperr', __WEBPACK_IMPORTED_MODULE_14__components_general_jumperr_vue___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('navbar', __WEBPACK_IMPORTED_MODULE_14__components_general_navbar_vue___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('gfooter', __WEBPACK_IMPORTED_MODULE_15__components_general_footer_vue___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('jumperr', __WEBPACK_IMPORTED_MODULE_16__components_general_jumperr_vue___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('header_landing', __WEBPACK_IMPORTED_MODULE_5__components_landing_header_vue___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('slider_olbia', __WEBPACK_IMPORTED_MODULE_6__components_landing_sliderOlbia_vue___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('services', __WEBPACK_IMPORTED_MODULE_7__components_landing_services_vue___default.a);
@@ -47671,6 +47677,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('esperience', __WEBPACK_IM
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('gallery_horizontal', __WEBPACK_IMPORTED_MODULE_9__components_landing_galleryHorizontal_vue___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('mapa', __WEBPACK_IMPORTED_MODULE_10__components_landing_mapa_vue___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('newsletter', __WEBPACK_IMPORTED_MODULE_11__components_landing_newsletter_vue___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('aboutus', __WEBPACK_IMPORTED_MODULE_12__components_landing_aboutUs_vue___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('home_camere', __WEBPACK_IMPORTED_MODULE_13__components_landing_homeCamere_vue___default.a);
 
 //rutas
 
@@ -58628,6 +58636,10 @@ var render = function() {
     [
       _c("header_landing"),
       _vm._v(" "),
+      _c("aboutus"),
+      _vm._v(" "),
+      _c("home_camere"),
+      _vm._v(" "),
       _c("slider_olbia"),
       _vm._v(" "),
       _c("services"),
@@ -58806,6 +58818,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'carrousel',
@@ -58860,9 +58890,43 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("swiper-slide", [_vm._v("I'm Slide 2")]),
+            _c("swiper-slide", [
+              _c("div", { staticClass: "caption" }, [
+                _c("figure", { staticClass: "caption-image text-center" }, [
+                  _c("img", {
+                    attrs: {
+                      src: "/images/logos/logo2-medium.png",
+                      alt: "Luxury"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "caption-title" }, [
+                  _c("h2", { staticClass: "text-center" }, [
+                    _vm._v("Luxury Room")
+                  ])
+                ])
+              ])
+            ]),
             _vm._v(" "),
-            _c("swiper-slide", [_vm._v("I'm Slide 3")]),
+            _c("swiper-slide", [
+              _c("div", { staticClass: "caption" }, [
+                _c("figure", { staticClass: "caption-image text-center" }, [
+                  _c("img", {
+                    attrs: {
+                      src: "/images/logos/logo2-medium.png",
+                      alt: "Luxury"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "caption-title" }, [
+                  _c("h2", { staticClass: "text-center" }, [
+                    _vm._v("Luxury Room")
+                  ])
+                ])
+              ])
+            ]),
             _vm._v(" "),
             _c("div", {
               staticClass: "swiper-pagination",
@@ -59410,6 +59474,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'carrousel',
@@ -59458,6 +59523,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("section", [
+      _c("div", { attrs: { id: "servizi" } }),
+      _vm._v(" "),
       _c("div", { staticClass: "container" }, [
         _vm._m(0),
         _vm._v(" "),
@@ -59829,6 +59896,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'carrousel',
@@ -59876,6 +59944,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("div", { attrs: { id: "esperienze" } }),
+    _vm._v(" "),
     _c("section", { attrs: { id: "swipper-esperience-slider" } }, [
       _vm._m(0),
       _vm._v(" "),
@@ -60886,19 +60956,23 @@ if (false) {
 }
 
 /***/ }),
-/* 86 */
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(87)
+  __webpack_require__(91)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(89)
+var __vue_template__ = __webpack_require__(93)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -60937,13 +61011,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 87 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(88);
+var content = __webpack_require__(92);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -60963,7 +61037,7 @@ if(false) {
 }
 
 /***/ }),
-/* 88 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -60977,7 +61051,7 @@ exports.push([module.i, "\n.content-nav[data-v-29037524]{\n    position: absolut
 
 
 /***/ }),
-/* 89 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -61118,7 +61192,7 @@ var staticRenderFns = [
                         "a",
                         {
                           staticClass: "nav-link",
-                          attrs: { href: "#about-us" }
+                          attrs: { href: "#chisiamo" }
                         },
                         [_vm._v("Chi Siamo")]
                       )
@@ -61181,19 +61255,19 @@ if (false) {
 }
 
 /***/ }),
-/* 90 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(91)
+  __webpack_require__(95)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(93)
+var __vue_template__ = __webpack_require__(97)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -61232,13 +61306,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 91 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(92);
+var content = __webpack_require__(96);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -61258,7 +61332,7 @@ if(false) {
 }
 
 /***/ }),
-/* 92 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -61272,7 +61346,7 @@ exports.push([module.i, "\n.bg-gray[data-v-4ccc2179]{\n    background-color: #37
 
 
 /***/ }),
-/* 93 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -61535,19 +61609,19 @@ if (false) {
 }
 
 /***/ }),
-/* 94 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(95)
+  __webpack_require__(99)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(97)
+var __vue_template__ = __webpack_require__(101)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -61586,13 +61660,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 95 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(96);
+var content = __webpack_require__(100);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -61612,7 +61686,7 @@ if(false) {
 }
 
 /***/ }),
-/* 96 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -61626,7 +61700,7 @@ exports.push([module.i, "\n.bg-black[data-v-d4d910ee]{\n    background-color: #0
 
 
 /***/ }),
-/* 97 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -61728,10 +61802,419 @@ if (false) {
 }
 
 /***/ }),
-/* 98 */
+/* 102 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 103 */,
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(105)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(107)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-078b70cc"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/landing/aboutUs.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-078b70cc", Component.options)
+  } else {
+    hotAPI.reload("data-v-078b70cc", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(106);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("042b87e3", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-078b70cc\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./aboutUs.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-078b70cc\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./aboutUs.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.image-aboutus[data-v-078b70cc]{\n\tmargin-top:40px; padding-bottom: 40px\n}\n.top[data-v-078b70cc] {\n\tmargin-top: 50px\n}\n.gray-us[data-v-078b70cc] {\nbackground-color: #f8f7fa;\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { attrs: { id: "chisiamo" } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "container pad-top gray-us" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-8" }, [
+              _c("img", {
+                staticClass: "image-aboutus img-fluid",
+                attrs: { src: "/images/home/about-us/about-us.png" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-8 top" }, [
+              _c("h1", [_vm._v("DOBLE A LUXURY ROOM")]),
+              _c("p"),
+              _c("span", [
+                _vm._v(
+                  "double a luxury room si trova nel cuore di olbia in una delle più suggestive vie del centro storico. a soli 500 metri dal porto e 100 metri dalla stazione ferroviaria di olbia la nostra struttura è circondata da parcheggi, fermate di tutti gli autobus e tram. le nostre camere sono tutte rifinite con finiture di pregio in resina,  e di nuovissima costruzione  arredate con uno stile moderno e unico nel suo genere, dotate di tutti i comfort per regalarvi un soggiorno indimenticabile."
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-078b70cc", module.exports)
+  }
+}
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(109)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(111)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-01225392"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/landing/homeCamere.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-01225392", Component.options)
+  } else {
+    hotAPI.reload("data-v-01225392", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(110);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("3589ddc7", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-01225392\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./homeCamere.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-01225392\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./homeCamere.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.black[data-v-01225392] {\nbackground-color: #000000;\n}\n.imagen-room[data-v-01225392]{\n\tposition: relative;\n\toverflow: hidden;\n\tpadding-top: 30px;\n}\n.imagen-room > img[data-v-01225392]{\n\twidth: 100%;\n\theight: 100%;\n}\n.content-room-image[data-v-01225392]{\n\tposition: absolute;\n\ttop: -200%;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground-color: rgba(0,0,0,0.7);\n\t-webkit-transition:all 1s ease;\n\ttransition:all 1s ease;\n\t-moz-transition: all 1s ease;\n}\n.imagen-room:hover .content-room-image[data-v-01225392]{\n\ttop: 0;\n}\n.myButton[data-v-01225392] {\n\tbackground-color:#ffffff;\n\tborder-radius:41px;\n\tdisplay:inline-block;\n\tcursor:pointer;\n\tcolor:#000000;\n\tfont-family:Arial;\n\tfont-size:16px;\n\tpadding:5px 18px;\n\ttext-decoration:none;\n\ttext-shadow:0px 1px 0px #2f6627;\n}\n.myButton[data-v-01225392]:hover {\n\tbackground-color:#ffffff;\n\ttext-decoration: none;\n\tcolor:#000000;\n}\n.myButton[data-v-01225392]:active {\n\tposition:relative;\n\ttop:1px;\n}\n.content-middle[data-v-01225392] {\n  top: 5%;\n  left: 10%;\n  -webkit-transform: translate(0%, 70%);\n  transform: translate(0%, 70%);\n  text-align: center;\n  font-family:Montserrat;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "container-fluid black py-5" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              { staticClass: "col-md-12 col-md-offset-2 text-center top" },
+              [
+                _c("img", {
+                  attrs: { src: "/images/home/camere/Logo_Luxury_pequeño.png" }
+                }),
+                _c("p"),
+                _c("h1", { staticClass: "text-white" }, [
+                  _vm._v("LE NOSTRE CAMERE")
+                ]),
+                _c("p"),
+                _c("span", { staticClass: "camere-detail text-white" }, [
+                  _vm._v(
+                    "ogni camera è climatizzata, dotata di tende oscuranti, frigo bar, macchina del caffè, tv 40''4k dove è possibile vedere netflix esclusivamente offerto da noi. inoltre ogni camera dispone di un bagno privato dotato di ampio box doccia, asciugacapelli e kit cortesia in omaggio. a disposizione di tutti, una veranda  attrezzata con divanetti e poltroncine dove poter fare un aperitivo con vista sulla cupola della chiesa più storica di olbia. il wi-fi inoltre è accessibile e gratuito in tutta la struttura. "
+                  )
+                ]),
+                _c("p")
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-3 col-md-6 col-lg-6" }, [
+              _c("div", { staticClass: "imagen-room" }, [
+                _c("img", {
+                  staticClass: "img-fluid",
+                  attrs: { src: "/images/home/camere/22.jpg" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "content-room-image text-center" }, [
+                  _c("div", { staticClass: "content-middle" }, [
+                    _c("div", { staticClass: "min-log" }, [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/home/camere/Logo_Luxury_pequeño.png",
+                          alt: "logo luxury"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-white" }, [
+                      _vm._v("ROOM 101")
+                    ]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
+                      _vm._v("VEDI TUTTO")
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-3 col-md-6 col-lg-6" }, [
+              _c("div", { staticClass: "imagen-room" }, [
+                _c("img", {
+                  staticClass: "img-fluid",
+                  attrs: { src: "/images/home/camere/7.jpg" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "content-room-image text-center" }, [
+                  _c("div", { staticClass: "content-middle" }, [
+                    _c("div", { staticClass: "min-log" }, [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/home/camere/Logo_Luxury_pequeño.png",
+                          alt: "logo luxury"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-white" }, [
+                      _vm._v("ROOM 102")
+                    ]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
+                      _vm._v("VEDI TUTTO")
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "ccol-sm-3 col-md-6 col-lg-6" }, [
+              _c("div", { staticClass: "imagen-room" }, [
+                _c("img", {
+                  staticClass: "img-fluid",
+                  attrs: { src: "/images/home/camere/12.jpg" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "content-room-image text-center" }, [
+                  _c("div", { staticClass: "content-middle" }, [
+                    _c("div", { staticClass: "min-log" }, [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/home/camere/Logo_Luxury_pequeño.png",
+                          alt: "logo luxury"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-white" }, [
+                      _vm._v("ROOM 103")
+                    ]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
+                      _vm._v("VEDI TUTTO")
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-3 col-md-6 col-lg-6" }, [
+              _c("div", { staticClass: "imagen-room" }, [
+                _c("img", {
+                  staticClass: "img-fluid",
+                  attrs: { src: "/images/home/camere/0163.jpg" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "content-room-image text-center" }, [
+                  _c("div", { staticClass: "content-middle" }, [
+                    _c("div", { staticClass: "min-log" }, [
+                      _c("img", {
+                        attrs: {
+                          src: "/images/home/camere/Logo_Luxury_pequeño.png",
+                          alt: "logo luxury"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-white" }, [
+                      _vm._v("ROOM 104")
+                    ]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
+                      _vm._v("VEDI TUTTO")
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-01225392", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
