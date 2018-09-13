@@ -6,6 +6,7 @@
         <slider_olbia/>
         <services/>
         <esperience/>
+        <newsletter/>
         <gallery_horizontal/>
         <mapa/>
 

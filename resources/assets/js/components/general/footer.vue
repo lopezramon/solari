@@ -39,10 +39,10 @@
                                         <span><a href="#" class="badge badge-dark tags badge-font">Italia</a></span><br>
                                         <span><a href="#" class="badge badge-dark tags badge-font">Confort</a></span>
                                         <span><a href="#" class="badge badge-dark tags badge-font">Reservation</a></span><br>
-                                        <span><a href="#" class="badge badge-dark tags badge-font">Camera 1</a></span>
-                                        <span><a href="#" class="badge badge-dark tags badge-font">Camera 2</a></span>
-                                        <span><a href="#" class="badge badge-dark tags badge-font">Camera 3</a></span><br>
-                                        <span><a href="#" class="badge badge-dark tags badge-font">Camera 4</a></span>
+                                        <span><a href="#" class="badge badge-dark tags badge-font">Camera 101</a></span>
+                                        <span><a href="#" class="badge badge-dark tags badge-font">Camera 102</a></span>
+                                        <span><a href="#" class="badge badge-dark tags badge-font">Camera 103</a></span><br>
+                                        <span><a href="#" class="badge badge-dark tags badge-font">Camera 104</a></span>
                                 
                             </div>
                             
@@ -62,5 +62,17 @@
     color: #fff !important;
     background-color: #373737 !important;
     border: 1px solid #fff;
+}
+.size {
+		width: 25%;
+		height: auto;
+}
+.size-other {
+		width: 10%;
+		height: auto;
+}
+.size-other-2 {
+    width: 7%;
+    height: auto;
 }
 </style>
