@@ -60,6 +60,7 @@
         background-color: rgba(0, 0, 0, 0.5);
     }
     .top-info {
+        font-family: 'Josefin Sans', sans-serif;
         color: #fff;
     }
     .top-info a, .top-info a:hover{
