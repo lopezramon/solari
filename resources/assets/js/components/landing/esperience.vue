@@ -203,9 +203,9 @@ export default {
 .content-middle-slider {
   top: 100%;
   left: 15%;
-  -webkit-transform: translate(0%, 50%);
-  -ms-transform: translate(0%, 50%);
-  transform: translate(0%, 50%);
+  -webkit-transform: translate(0%, 25%);
+  -ms-transform: translate(0%, 25%);
+  transform: translate(0%, 25%);
   text-align: center;
 }
 .block-dark, .block-ligth{
@@ -236,5 +236,30 @@ export default {
         margin: 0px !important;
     }
  
-}   
+}
+
+.myButton {
+	background-color:#ffffff;
+	-moz-border-radius:41px;
+	-webkit-border-radius:41px;
+	border-radius:41px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:14px;
+	padding:2px 15px;
+	text-decoration:none;
+
+}
+.myButton:hover {
+	background-color:#ffffff;
+	text-decoration: none;
+	color:#000000;
+
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
 </style>
