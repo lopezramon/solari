@@ -3,6 +3,8 @@
 
 
         <header_landing/>
+        <aboutus/>
+        <home_camere/>
         <slider_olbia/>
         <services/>
         <esperience/>

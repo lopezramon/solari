@@ -21,6 +21,8 @@ import esperience from '../components/landing/esperience.vue';
 import galleryHorizontal from '../components/landing/galleryHorizontal.vue';
 import mapa from '../components/landing/mapa.vue';
 import newsletter from '../components/landing/newsletter.vue';
+import aboutUs from '../components/landing/aboutUs.vue';
+import homeCamere from '../components/landing/homeCamere.vue';
 // generale
 import navbar from '../components/general/navbar.vue';
 import footer from '../components/general/footer.vue';
@@ -47,6 +49,8 @@ Vue.component('esperience', esperience);
 Vue.component('gallery_horizontal', galleryHorizontal);
 Vue.component('mapa', mapa);
 Vue.component('newsletter', newsletter);
+Vue.component('aboutus', aboutUs);
+Vue.component('home_camere', homeCamere);
 //
 Vue.component('headerSuites', headerSuites);
 Vue.component('navSuites', navSuites);
