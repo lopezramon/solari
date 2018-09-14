@@ -25,6 +25,15 @@ import newsletter from '../components/landing/newsletter.vue';
 import navbar from '../components/general/navbar.vue';
 import footer from '../components/general/footer.vue';
 import jumperr from '../components/general/jumperr.vue';
+// Suites
+import suites from '../components/suites/suites.vue';
+import headerSuites from '../components/suites/headerSuites.vue';
+import navSuites from '../components/suites/navSuites.vue';
+import gallerySuites from '../components/suites/gallerySuites.vue';
+import infoSuites from '../components/suites/infoSuites.vue';
+import iconsServices from '../components/suites/iconsServices.vue';
+import generalServices from '../components/suites/generalServices.vue';
+import listServices from '../components/suites/listServices.vue';
 
 
 //componentes generales
@@ -38,6 +47,15 @@ Vue.component('esperience', esperience);
 Vue.component('gallery_horizontal', galleryHorizontal);
 Vue.component('mapa', mapa);
 Vue.component('newsletter', newsletter);
+//
+Vue.component('headerSuites', headerSuites);
+Vue.component('navSuites', navSuites);
+Vue.component('gallerySuites', gallerySuites);
+Vue.component('infoSuites', infoSuites);
+Vue.component('iconsServices', iconsServices);
+Vue.component('generalServices', generalServices);
+Vue.component('listServices', listServices);
+
 
 
 //rutas
@@ -49,6 +67,11 @@ let router = new Router({
             path: '/',
             name: 'AppContent',
             component: AppContent
+        },
+        {
+            path: '/suites',
+            name: 'suites',
+            component: suites
         },
          
     ],scrollBehavior (to, from, savedPosition) {

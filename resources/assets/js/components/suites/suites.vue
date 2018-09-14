@@ -1,0 +1,11 @@
+<template>
+    <div>
+        <headerSuites/>
+        <navSuites/>
+        <gallerySuites/>
+        <infoSuites/>
+        <iconsServices/>
+        <generalServices/>
+        <listServices/>
+    </div>
+</template>
