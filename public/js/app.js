@@ -59525,7 +59525,7 @@ var render = function() {
     _c("section", [
       _c("div", { attrs: { id: "servizi" } }),
       _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "container py-5" }, [
         _vm._m(0),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
