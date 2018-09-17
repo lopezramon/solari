@@ -63,6 +63,7 @@ import navaccount from '../components/myaccount/navaccount.vue';
 import createAccount from '../components/myaccount/createAccount.vue';
 import clientLogin from '../components/myaccount/clientLogin.vue';
 import headerAccount from '../components/myaccount/headerAccount.vue';
+import account_table from '../components/myaccount/account_table.vue';
 
 
 //componentes generales
@@ -123,6 +124,12 @@ let router = new Router({
             path: '/delate_account',
             name: 'delate_account',
             component: delate_account
+        },
+        {       
+
+            path: '/account_table',
+            name: 'account_table',
+            component: account_table
         },        
         {       
 
