@@ -2,7 +2,7 @@
     <div>
         <section>
             <div id="servizi"></div>
-            <div class="container">
+            <div class="container py-5">
                 <div class="row">
                     <div class="col-12 text-center">
                         <img src="/images/logos/logo_luxury_pequeño_black.png">
@@ -15,25 +15,26 @@
                             <!-- slides -->
                             <swiper-slide>
                                 <div class="rounded text-center flex-fill border">
-                                        <img width="120" src="/images/home/services-slider/nolegio.png" alt="nolegio">
+                                        <img width="150" src="/images/iconos/004-bicycle.svg" alt="nolegio">
                                         <p>Alquiler de autos, motocicletas,<br> bicicletas, botes</p>
                                 </div>
                             </swiper-slide>
                             <swiper-slide>
                                 <div class="rounded text-center flex-fill border">
-                                        <img width="120" src="/images/home/services-slider/neveta.png" alt="neveta">
+                                        <img width="150" src="/images/iconos/005-plane.svg" alt="neveta">
                                         <p>Alquiler de autos, motocicletas,<br> bicicletas, botes</p>
                                 </div>
                             </swiper-slide>
                             <swiper-slide>
                                 <div class="rounded text-center flex-fill border">
-                                        <img width="120" src="/images/home/services-slider/spa.png" alt="spa">
+                                        <!--<img width="120" src="/images/home/services-slider/spa.png" alt="spa">-->
+                                        <img width="150" src="/images/iconos/003-spa.svg" alt="spa">
                                         <p>Alquiler de autos, motocicletas,<br> bicicletas, botes</p>
                                 </div>
                             </swiper-slide>
                             <swiper-slide>
                                 <div class="rounded text-center flex-fill border">
-                                        <img width="120" src="/images/home/services-slider/scursioni.png" alt="scursioni">
+                                        <img width="150" src="/images/iconos/006-map.svg" alt="scursioni">
                                         <p>Alquiler de autos, motocicletas,<br> bicicletas, botes</p>
                                 </div>
                             </swiper-slide>

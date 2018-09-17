@@ -16,7 +16,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-ellipsis-v"></i>
                     </button>
-                    <a class="navbar-brand m-0" href="#">
+                    <a class="navbar-brand m-0" href="/">
                         <img src="/images/logos/logo_luxury_pequeño.png">
                         <h1 class="d-none d-sm-inline-block">
                             Luxury Room
@@ -40,7 +40,7 @@
                             <li class="nav-item py-md-2"><a href="#camera" class="nav-link">Suites</a></li>
                             <li class="nav-item py-md-2"><a href="#servizi" class="nav-link">Servizi</a></li>
                             <li class="nav-item py-md-2"><a href="#esperienze" class="nav-link">Esperienze</a></li>
-                            <li class="nav-item py-md-2"><a href="#" class="nav-link">contatti</a></li>
+                            <li class="nav-item py-md-2"><a href="/contactUs" class="nav-link">contatti</a></li>
                         </ul>
                     </div>
                     

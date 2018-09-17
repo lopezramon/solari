@@ -1,5 +1,6 @@
 <template>
     <div>
+	<div id="camera"></div>	
 <div class="container-fluid black py-5">
 	<div class="container">
     <div class="row">

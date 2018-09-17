@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 Vue.use(Router);
 
 //                swiper slider
@@ -7,6 +8,12 @@ Vue.use(Router);
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper, {});
+// -------------------------------------------------
+
+//                Vee-Validate slider
+// -------------------------------------------------
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate);
 // -------------------------------------------------
 
 
@@ -23,6 +30,7 @@ import mapa from '../components/landing/mapa.vue';
 import newsletter from '../components/landing/newsletter.vue';
 import aboutUs from '../components/landing/aboutUs.vue';
 import homeCamere from '../components/landing/homeCamere.vue';
+import contactUs from '../components/landing/contactUs.vue';
 // generale
 import navbar from '../components/general/navbar.vue';
 import footer from '../components/general/footer.vue';
@@ -36,8 +44,24 @@ import infoSuites from '../components/suites/infoSuites.vue';
 import iconsServices from '../components/suites/iconsServices.vue';
 import generalServices from '../components/suites/generalServices.vue';
 import listServices from '../components/suites/listServices.vue';
-
-
+// user
+import createAccount from '../components/user/createAccount.vue';
+import clientLogin from '../components/user/clientLogin.vue';
+import resetPassword from '../components/user/resetPassword.vue';
+//booking
+import stepUno from '../components/booking/stepUno.vue';
+import stepDos from '../components/booking/stepDos.vue';
+import stepTres from '../components/booking/stepTres.vue';
+import headerBooking from '../components/booking/headerBooking.vue';
+import navBooking from '../components/booking/navBooking.vue';
+import formConsulta from '../components/booking/formConsulta.vue';
+import resumen from '../components/booking/resumen.vue';
+import rooms from '../components/booking/rooms.vue';
+// My account
+import AccountContent from '../components/myaccount/AccountContent.vue';
+import user_detail from '../components/myaccount/user_detail.vue';
+import navaccount from '../components/myaccount/navaccount.vue';
+import headerAccount from '../components/myaccount/headerAccount.vue';
 //componentes generales
 Vue.component('navbar', navbar);
 Vue.component('gfooter', footer);
@@ -59,6 +83,15 @@ Vue.component('infoSuites', infoSuites);
 Vue.component('iconsServices', iconsServices);
 Vue.component('generalServices', generalServices);
 Vue.component('listServices', listServices);
+//
+Vue.component('rooms', rooms);
+Vue.component('resumen', resumen);
+Vue.component('form_consulta', formConsulta);
+Vue.component('nav_booking', navBooking);
+Vue.component('header_booking', headerBooking);
+Vue.component('user_detail', user_detail);
+Vue.component('navaccount', navaccount);
+Vue.component('headerAccount', headerAccount);
 
 
 
@@ -77,6 +110,49 @@ let router = new Router({
             name: 'suites',
             component: suites
         },
+        {
+            path: '/myaccount',
+            name: 'user_detail',
+            component: user_detail
+        },
+        {       
+
+            path: '/contactUs',
+            name: 'contactUs',
+            component: contactUs
+        },
+        {
+            path: '/booking/step-1',
+            name: 'stepUno',
+            component: stepUno
+        },
+        {
+            path: '/booking/step-2',
+            name: 'stepDos',
+            component: stepDos
+        },
+        {
+            path: '/booking/step-3',
+            name: 'stepTres',
+            component: stepTres
+        },
+        {
+        
+            path: '/clientLogin',
+            name: 'clientLogin',
+            component: clientLogin
+        },
+        {
+            path: '/createAccount',
+            name: 'createAccount',
+            component: createAccount
+        },
+        {
+            path: '/resetPassword',
+            name: 'resetPassword',
+            component: resetPassword
+        },
+        
          
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }

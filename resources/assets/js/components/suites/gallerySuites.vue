@@ -73,60 +73,7 @@ export default {
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="info">
-                        <h3 class="text-uppercase">Suite (2)</h3>
-                        <p><strong>€200</strong></p>
-                        <p>
-                            Camera matrimoniale climatizzata
-                            con minibar e pavimento piastrellato / in marmo.
-                        </p>
-                    </div>
-                    <div class="reserva py-3">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h3 class="text-center">Reservation</h3>
-                                </div>
-                                <div class="col-12">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="in">Check-in</label>
-                                            <input name="in" type="text" class="form-control" placeholder="19/08/2019">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="out">Check-out</label>
-                                            <input name="out" type="text" class="form-control" placeholder="20/08/2019">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="adulti">Adulti</label>
-                                            <select name="adulti" class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="bambino">Bambino</label>
-                                            <select name="bambino" class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group text-center">
-                                            <button type="button" class="btn btn-primary text-uppercase">
-                                                Cerca
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <infoSuites/>        
                 </div>
             </div>
         </div>
@@ -134,11 +81,11 @@ export default {
 </template>
 <style lang="scss" scoped>
   .swiper-container {
-    background-color: #fff;
+    background-color: transparent;
   }
   
   .gallery-top {
-    height: 400px!important;
+    height: auto;
     width: 100%;
   }
   .gallery-thumbs {
@@ -149,27 +96,13 @@ export default {
   .gallery-thumbs .swiper-slide {
     width: 25%;
     height: 100px;
-    opacity: 0.7;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
   }
   .gallery-thumbs .swiper-slide-active {
-    opacity: 1;
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
   }
 
-  /*form*/
-  .form-control {
-    display: block;
-    width: 100%;
-    height: calc(2.19rem + 2px);
-    padding: 0.375rem 0.75rem;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0rem;
-  }
-  .reserva{
-      border: 1px solid #ccc;
-  }
+  
 </style>
