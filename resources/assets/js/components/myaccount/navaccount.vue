@@ -2,7 +2,7 @@
   <nav>
     <router-link  to="/myaccount" :class="{'active-menu':url('/myaccount')}">MY ACCOUNT</router-link>    
     <router-link to="/" >DETALLES FACTURA</router-link>
-    <router-link to="/suite" >ELIMINAR CUENTA</router-link>
+    <router-link to="/delate_account" >ELIMINAR CUENTA</router-link>
   </nav>
 </template>
 
@@ -56,11 +56,11 @@ a:hover{
                         case '/user_detail':
                             this.name_menu = 'I mie ordini';
                             break;
-                        case '/detailuser':
+                        case '/':
                             this.name_menu = "Detaggli dell' account";
                             break;
-                        case '/editpassword':
-                            this.name_menu = 'Cambia password';
+                        case '/delate_account':
+                            this.name_menu = 'Eliminar cuenta';
                             break;
                     }
                     return true;

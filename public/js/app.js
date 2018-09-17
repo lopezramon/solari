@@ -25264,7 +25264,7 @@ module.exports = Vue;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(16);
-module.exports = __webpack_require__(186);
+module.exports = __webpack_require__(187);
 
 
 /***/ }),
@@ -47671,17 +47671,17 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_booking_resumen_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33__components_booking_resumen_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_booking_rooms_vue__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_booking_rooms_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34__components_booking_rooms_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_myaccount_AccountContent_vue__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_myaccount_AccountContent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35__components_myaccount_AccountContent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_myaccount_user_detail_vue__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_myaccount_delate_account_vue__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_myaccount_delate_account_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35__components_myaccount_delate_account_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_myaccount_user_detail_vue__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_myaccount_user_detail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36__components_myaccount_user_detail_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_myaccount_navaccount_vue__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_myaccount_navaccount_vue__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_myaccount_navaccount_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37__components_myaccount_navaccount_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_myaccount_createAccount_vue__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_myaccount_createAccount_vue__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_myaccount_createAccount_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38__components_myaccount_createAccount_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_myaccount_clientLogin_vue__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_myaccount_clientLogin_vue__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_myaccount_clientLogin_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_39__components_myaccount_clientLogin_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_myaccount_headerAccount_vue__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_myaccount_headerAccount_vue__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_myaccount_headerAccount_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_40__components_myaccount_headerAccount_vue__);
 
 
@@ -47793,6 +47793,10 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
         path: '/myaccount',
         name: 'user_detail',
         component: __WEBPACK_IMPORTED_MODULE_36__components_myaccount_user_detail_vue___default.a
+    }, {
+        path: '/delate_account',
+        name: 'delate_account',
+        component: __WEBPACK_IMPORTED_MODULE_35__components_myaccount_delate_account_vue___default.a
     }, {
 
         path: '/contactUs',
@@ -73051,9 +73055,9 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(165)
 /* template */
-var __vue_template__ = __webpack_require__(165)
+var __vue_template__ = __webpack_require__(166)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -73070,7 +73074,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/myaccount/AccountContent.vue"
+Component.options.__file = "resources/assets/js/components/myaccount/delate_account.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -73079,9 +73083,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2f6a2891", Component.options)
+    hotAPI.createRecord("data-v-93a42a0c", Component.options)
   } else {
-    hotAPI.reload("data-v-2f6a2891", Component.options)
+    hotAPI.reload("data-v-93a42a0c", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -73093,22 +73097,68 @@ module.exports = Component.exports
 
 /***/ }),
 /* 165 */
+/***/ (function(module, exports) {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/***/ }),
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    [
+      _c("headerAccount"),
+      _vm._v(" "),
+      _c("navaccount"),
+      _vm._v(" "),
+      _vm._m(0)
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "container" }, [
-        _c("div", [_c("h1", [_vm._v("WARNING")])])
+    return _c("div", { staticClass: "container text-center" }, [
+      _c("h1", { staticClass: "font-weight-bold mt-5 " }, [_vm._v("WARNING")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Are your sure to delete your user account?")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary text-uppercase",
+          attrs: { type: "button" }
+        },
+        [_vm._v("\n        Cambiamento\n    ")]
+      ),
+      _vm._v(" "),
+      _c("p", { staticClass: "mt-1 mb-5 text-danger" }, [
+        _vm._v(
+          "You will not be able to recover your account once you accept ti delete it"
+        )
       ])
     ])
   }
@@ -73118,20 +73168,20 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2f6a2891", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-93a42a0c", module.exports)
   }
 }
 
 /***/ }),
-/* 166 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(167)
+var __vue_script__ = __webpack_require__(168)
 /* template */
-var __vue_template__ = __webpack_require__(168)
+var __vue_template__ = __webpack_require__(169)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -73170,7 +73220,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 167 */
+/* 168 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -73270,7 +73320,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 168 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -73698,19 +73748,19 @@ if (false) {
 }
 
 /***/ }),
-/* 169 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(170)
+  __webpack_require__(171)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(172)
+var __vue_script__ = __webpack_require__(173)
 /* template */
-var __vue_template__ = __webpack_require__(173)
+var __vue_template__ = __webpack_require__(174)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -73749,13 +73799,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 170 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(171);
+var content = __webpack_require__(172);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -73775,7 +73825,7 @@ if(false) {
 }
 
 /***/ }),
-/* 171 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -73789,7 +73839,7 @@ exports.push([module.i, "\nnav[data-v-f6fb4be2]{\n    display: -webkit-box;\n   
 
 
 /***/ }),
-/* 172 */
+/* 173 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -73853,11 +73903,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     case '/user_detail':
                         this.name_menu = 'I mie ordini';
                         break;
-                    case '/detailuser':
+                    case '/':
                         this.name_menu = "Detaggli dell' account";
                         break;
-                    case '/editpassword':
-                        this.name_menu = 'Cambia password';
+                    case '/delate_account':
+                        this.name_menu = 'Eliminar cuenta';
                         break;
                 }
                 return true;
@@ -73869,7 +73919,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 173 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -73890,7 +73940,7 @@ var render = function() {
       _vm._v(" "),
       _c("router-link", { attrs: { to: "/" } }, [_vm._v("DETALLES FACTURA")]),
       _vm._v(" "),
-      _c("router-link", { attrs: { to: "/suite" } }, [
+      _c("router-link", { attrs: { to: "/delate_account" } }, [
         _vm._v("ELIMINAR CUENTA")
       ])
     ],
@@ -73908,19 +73958,19 @@ if (false) {
 }
 
 /***/ }),
-/* 174 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(175)
+  __webpack_require__(176)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(177)
+var __vue_template__ = __webpack_require__(178)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -73959,13 +74009,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 175 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(176);
+var content = __webpack_require__(177);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -73985,7 +74035,7 @@ if(false) {
 }
 
 /***/ }),
-/* 176 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -73999,7 +74049,7 @@ exports.push([module.i, "\n.bg-contact[data-v-0ee89088] {\n    widows: 100%;\n  
 
 
 /***/ }),
-/* 177 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -74306,19 +74356,19 @@ if (false) {
 }
 
 /***/ }),
-/* 178 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(179)
+  __webpack_require__(180)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(181)
+var __vue_template__ = __webpack_require__(182)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -74357,13 +74407,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 179 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(180);
+var content = __webpack_require__(181);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -74383,7 +74433,7 @@ if(false) {
 }
 
 /***/ }),
-/* 180 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -74397,7 +74447,7 @@ exports.push([module.i, "\n.bg-contact[data-v-4e6876c9] {\n    widows: 100%;\n  
 
 
 /***/ }),
-/* 181 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -74619,19 +74669,19 @@ if (false) {
 }
 
 /***/ }),
-/* 182 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(183)
+  __webpack_require__(184)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(185)
+var __vue_template__ = __webpack_require__(186)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -74670,13 +74720,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 183 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(184);
+var content = __webpack_require__(185);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -74696,7 +74746,7 @@ if(false) {
 }
 
 /***/ }),
-/* 184 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -74710,7 +74760,7 @@ exports.push([module.i, "\nheader[data-v-800efcea]{\n    background-color: #fff;
 
 
 /***/ }),
-/* 185 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -74727,12 +74777,18 @@ var staticRenderFns = [
     return _c("div", [
       _c("header", [
         _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-12" }, [
+          _c("div", { staticClass: "row mb-5" }, [
+            _c("div", { staticClass: "col-6 text-left align-items-center" }, [
+              _c("img", {
+                attrs: { src: "/images/logos/user.svg", width: "60", alt: "" }
+              }),
+              _vm._v(" "),
               _c(
                 "h1",
-                { staticClass: "text-uppercase m-0 mb-md-5 text-white" },
-                [_vm._v("ROOM 104")]
+                {
+                  staticClass: "text-uppercase m-0  d-inline-block text-center"
+                },
+                [_vm._v("Jhon Roe")]
               )
             ])
           ])
@@ -74751,7 +74807,7 @@ if (false) {
 }
 
 /***/ }),
-/* 186 */
+/* 187 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

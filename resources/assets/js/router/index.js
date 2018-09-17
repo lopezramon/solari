@@ -57,7 +57,7 @@ import formConsulta from '../components/booking/formConsulta.vue';
 import resumen from '../components/booking/resumen.vue';
 import rooms from '../components/booking/rooms.vue';
 // My account
-import AccountContent from '../components/myaccount/AccountContent.vue';
+import delate_account from '../components/myaccount/delate_account.vue';
 import user_detail from '../components/myaccount/user_detail.vue';
 import navaccount from '../components/myaccount/navaccount.vue';
 import createAccount from '../components/myaccount/createAccount.vue';
@@ -98,6 +98,7 @@ Vue.component('headerAccount', headerAccount);
 
 
 
+
 //rutas
 
 let router = new Router({
@@ -118,6 +119,11 @@ let router = new Router({
             name: 'user_detail',
             component: user_detail
         },
+        {
+            path: '/delate_account',
+            name: 'delate_account',
+            component: delate_account
+        },        
         {       
 
             path: '/contactUs',
@@ -150,6 +156,7 @@ let router = new Router({
             name: 'createAccount',
             component: createAccount
         },
+
          
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }
