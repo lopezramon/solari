@@ -23,10 +23,10 @@ header{
     justify-content: center;
     align-items: flex-end;
     text-align: center;
+    background-image: url('/images/home/gallery-slider-map/7.jpeg');
 }
 @media (min-width: 768px) {
     header{
-        background-image: url('/images/home/gallery-slider-map/7.jpeg');
         height: 280px;
     }
 }
