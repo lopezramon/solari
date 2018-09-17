@@ -1,33 +1,33 @@
 <template>
     <div>
         <section id="swipper-esperience-slider">
-                <div class="">
-                    <swiper :options="swiperOption">
-                        <!-- slides -->
-                        <swiper-slide>
-                            <img class="img-fluid" src="/images/home/gallery-slider-map/7.jpeg">
-                        </swiper-slide>
-                        <swiper-slide>
-                            <img class="img-fluid" src="/images/home/gallery-slider-map/12.jpeg">
-                        </swiper-slide>
-                        <swiper-slide>
-                            <img class="img-fluid" src="/images/home/gallery-slider-map/13.jpeg">
-                        </swiper-slide>
-                        <swiper-slide>
-                            <img class="img-fluid" src="/images/home/gallery-slider-map/18.jpg">
-                        </swiper-slide>
-                        <swiper-slide>
-                            <img class="img-fluid" src="/images/home/gallery-slider-map/21.jpg">
-                        </swiper-slide>
-                        <swiper-slide>
-                            <img class="img-fluid" src="/images/home/gallery-slider-map/23.jpeg">
-                        </swiper-slide>
-                        
-                        <!-- Optional controls -->
-                        <!-- <div class="swiper-button-prev" slot="button-prev"></div>
-                        <div class="swiper-button-next" slot="button-next"></div> -->
-                    </swiper>
-                </div>
+            <div class="">
+                <swiper :options="swiperOption">
+                    <!-- slides -->
+                    <swiper-slide>
+                        <img class="img-fluid" src="/images/home/gallery-slider-map/7.jpeg">
+                    </swiper-slide>
+                    <swiper-slide>
+                        <img class="img-fluid" src="/images/home/gallery-slider-map/12.jpeg">
+                    </swiper-slide>
+                    <swiper-slide>
+                        <img class="img-fluid" src="/images/home/gallery-slider-map/13.jpeg">
+                    </swiper-slide>
+                    <swiper-slide>
+                        <img class="img-fluid" src="/images/home/gallery-slider-map/18.jpg">
+                    </swiper-slide>
+                    <swiper-slide>
+                        <img class="img-fluid" src="/images/home/gallery-slider-map/21.jpg">
+                    </swiper-slide>
+                    <swiper-slide>
+                        <img class="img-fluid" src="/images/home/gallery-slider-map/23.jpeg">
+                    </swiper-slide>
+                    
+                    <!-- Optional controls -->
+                    <!-- <div class="swiper-button-prev" slot="button-prev"></div>
+                    <div class="swiper-button-next" slot="button-next"></div> -->
+                </swiper>
+            </div>
         </section>
     </div>
 </template>
