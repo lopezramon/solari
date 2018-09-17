@@ -4,38 +4,63 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                   <div class="rounded bg-form-contact ">
-                     
-
-                               <div class="text-center py-4"> got a question?</div>
-                               <h2 class="text-center text-separation">CONTATTI</h2>
-                               <div class="text-center">Ogni camera e climatizzata, dotata di tende oscuranti, frigo bar, macchina del caffe, tv 40"4K dove e possible box doccia, asciugacapelli e kit</div>
-                            <form class="py-4" >
-                                <div class="form-group">
-                                    <label for="email">YOUR NAME HERE</label>
-                                    <input type="email" class="form-control" id="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">EMAIL</label>
-                                    <input type="email" class="form-control" id="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">SUBJECT</label>
-                                    <input type="password" class="form-control" id="pwd">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">YOUR MESSAGE</label>
-                                    <input type="password" class="form-control" id="pwd">
-                                </div>
-                                
-                                <div class="form-row text-center py-4">
-                                    <div class="col-12">
-                                        <button type="submit" class="btn btn-primary text-bold"><span class="text-btn-white">INVIARE</span></button>
+                     <h2 class="text-center text-separation py-4">CREA IL TUO ACCOUNT</h2>
+                        
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <form  >
+                                        <div class="form-group">
+                                                <label for="name">NOME <span class="text-success">*</span></label>
+                                                <input type="name" class="form-control" id="name">
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="email">EMAIL <span class="text-success">*</span></label>
+                                                <input type="email" class="form-control" id="email">
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="pwd">PASSWORD <span class="text-success">*</span></label>
+                                                <input type="password" class="form-control" id="pwd">
+                                        </div>
+                                        <div class="note">devi scriveri al meno 6 caratteri</div>
+                                        <div class="form-group">
+                                                <label for="phone">NUMERO DI TELEFONO <span class="text-success">*</span></label>
+                                                <input type="phone" class="form-control" id="phone">
+                                        </div>
+                                    </form>  
                                     </div>
+                                    <div class="col-sm-6">
+                                    <form >
+                                        <div class="form-group">
+                                                <label for="lastname">COGNOME <span class="text-success">*</span></label>
+                                                <input type="lastname" class="form-control" id="lastname">
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="cel">CELLURARE <span class="text-success">*</span></label>
+                                                <input type="cel" class="form-control" id="cel">
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="pwdconfirm">CONFERMA PASSWORD <span class="text-success">*</span></label>
+                                                <input type="password" class="form-control" id="pwdconfirm">
+                                        </div>
+                                    </form>  
                                 </div>
-                                </form>  
+                            </div> 
                         </div>
-                     </div>
-                     </div> 
+                    
+                            <div class="row text-center py-4">
+                                <div class=" col-lg-2 col-sm-4 py-2">
+                                    <button type="submit" class="btn btn-primary text-bold"><span class="text-btn-white">CONTINUA</span></button>
+                                </div>
+                                <div class="col-lg-4 col-sm-8 py-2">
+                                    <button type="submit" class="btn btn-primary-new text-bold"><span class="text-btn-white">HAI GIA UN ACCOUNT? ACCEDI</span></button>
+                                </div>
+                            </div>
+
+
+                    </div>
+                </div>
+            </div> 
 
         </section>
         <section>
@@ -122,14 +147,14 @@
     min-height: 620px;
     padding-top: 200px;
     padding-bottom: 100px;
-    background-image: url("/images/home/header-slider/header-image-1.jpg");
+    background-image: url("/images/home/gallery-slider-map/23.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 .bg-form-contact {
 background-color: white;
-width: 50%;
+width: 70%;
 height: auto;
 padding: 0% 5%;
 
@@ -143,10 +168,14 @@ border: 1px solid #8a8a8a;
 padding:20px 20px 20px 20px
 }
 .text-btn-white {
-    font-size: 1.3rem;
-    letter-spacing: 0.2rem;
+    font-size: 0.8rem;
     font-weight: bold;
 
+}
+.btn-primary-new {
+    background-color: #373737;
+    border-color: #373737;
+    color: #FFF;
 }
 
 @media (max-width: 600px) {
@@ -173,10 +202,24 @@ padding:20px 20px 20px 20px
   }
   .show-movil {
       padding: 10%;
+     
   }
     .text-separation {
     letter-spacing: 0.2rem;
     padding-top: 10%;
+    
   }
+
+.note {
+    font-size: 0.7rem;
+    margin-top: -4%;
+    padding-bottom: 1%;
+}
+
+}
+.note {
+    font-size: 0.7rem;
+    margin-top: -4%;
+    padding-bottom: 5%;
 }
 </style>

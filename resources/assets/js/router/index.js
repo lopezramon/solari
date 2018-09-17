@@ -37,6 +37,9 @@ import infoSuites from '../components/suites/infoSuites.vue';
 import iconsServices from '../components/suites/iconsServices.vue';
 import generalServices from '../components/suites/generalServices.vue';
 import listServices from '../components/suites/listServices.vue';
+// myaccount
+import createAccount from '../components/myaccount/createAccount.vue';
+import clientLogin from '../components/myaccount/clientLogin.vue';
 
 
 //componentes generales
@@ -82,6 +85,16 @@ let router = new Router({
             path: '/contactUs',
             name: 'contactUs',
             component: contactUs
+        },
+        {
+            path: '/clientLogin',
+            name: 'clientLogin',
+            component: clientLogin
+        },
+        {
+            path: '/createAccount',
+            name: 'createAccount',
+            component: createAccount
         },
         
          
