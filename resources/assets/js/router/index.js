@@ -1,23 +1,26 @@
 import Vue from 'vue'
-import Router from 'vue-router'
 
+// Router Vue
+import Router from 'vue-router'
 Vue.use(Router);
 
-//                swiper slider
-// -------------------------------------------------
+// Swiper slider
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper, {});
-// -------------------------------------------------
 
-//                Vee-Validate slider
-// -------------------------------------------------
+
+// Vee-Validate
 import VeeValidate from 'vee-validate';
 Vue.use(VeeValidate);
-// -------------------------------------------------
 
+// Sweetalert2
+import VueSweetalert2 from 'vue-sweetalert2';
+Vue.use(VueSweetalert2);
 
-//Registro de componentes
+/*
+ * Components
+ */
 
 // Landing
 import AppContent from '../components/landing/AppContent.vue';
