@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav>
+        <nav class="d-none d-md-flex">
             <a href="#" class="active">ROOM 101</a>
             <a href="#">ROOM 102</a>
             <a href="#">ROOM 103</a>
@@ -14,6 +14,12 @@ nav{
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
+}
+@media screen and (min-width: 768px){
+    nav{
+        flex-wrap: nowrap;
+    }
 }
 nav a{
     background-color: #555;

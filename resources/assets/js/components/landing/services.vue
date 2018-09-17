@@ -2,7 +2,7 @@
     <div>
         <section>
             <div id="servizi"></div>
-            <div class="container">
+            <div class="container py-5">
                 <div class="row">
                     <div class="col-12 text-center">
                         <img src="/images/logos/logo_luxury_pequeño_black.png">

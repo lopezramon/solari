@@ -23,6 +23,7 @@ import mapa from '../components/landing/mapa.vue';
 import newsletter from '../components/landing/newsletter.vue';
 import aboutUs from '../components/landing/aboutUs.vue';
 import homeCamere from '../components/landing/homeCamere.vue';
+import contactUs from '../components/landing/contactUs.vue';
 // generale
 import navbar from '../components/general/navbar.vue';
 import footer from '../components/general/footer.vue';
@@ -40,6 +41,9 @@ import listServices from '../components/suites/listServices.vue';
 import AccountContent from '../components/myaccount/AccountContent.vue';
 import user_detail from '../components/myaccount/user_detail.vue';
 import navaccount from '../components/myaccount/navaccount.vue';
+import createAccount from '../components/myaccount/createAccount.vue';
+import clientLogin from '../components/myaccount/clientLogin.vue';
+
 
 //componentes generales
 Vue.component('navbar', navbar);
@@ -86,7 +90,23 @@ let router = new Router({
             path: '/myaccount',
             name: 'user_detail',
             component: user_detail
-        },       
+        },
+        {       
+
+            path: '/contactUs',
+            name: 'contactUs',
+            component: contactUs
+        },
+        {
+            path: '/clientLogin',
+            name: 'clientLogin',
+            component: clientLogin
+        },
+        {
+            path: '/createAccount',
+            name: 'createAccount',
+            component: createAccount
+        },
          
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }
