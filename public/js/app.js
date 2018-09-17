@@ -25264,7 +25264,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(16);
-module.exports = __webpack_require__(197);
+module.exports = __webpack_require__(198);
 
 
 /***/ }),
@@ -48955,27 +48955,27 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_user_resetPassword_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29__components_user_resetPassword_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_booking_stepUno_vue__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_booking_stepUno_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30__components_booking_stepUno_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_booking_stepDos_vue__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_booking_stepDos_vue__ = __webpack_require__(165);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_booking_stepDos_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31__components_booking_stepDos_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_booking_stepTres_vue__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_booking_stepTres_vue__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_booking_stepTres_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32__components_booking_stepTres_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_booking_headerBooking_vue__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_booking_headerBooking_vue__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_booking_headerBooking_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33__components_booking_headerBooking_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_booking_navBooking_vue__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_booking_navBooking_vue__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_booking_navBooking_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34__components_booking_navBooking_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_booking_formConsulta_vue__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_booking_formConsulta_vue__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_booking_formConsulta_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35__components_booking_formConsulta_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_booking_resumen_vue__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_booking_resumen_vue__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_booking_resumen_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36__components_booking_resumen_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_booking_rooms_vue__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_booking_rooms_vue__ = __webpack_require__(181);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_booking_rooms_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37__components_booking_rooms_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_myaccount_AccountContent_vue__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_myaccount_AccountContent_vue__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_myaccount_AccountContent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38__components_myaccount_AccountContent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_myaccount_user_detail_vue__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_myaccount_user_detail_vue__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_myaccount_user_detail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_39__components_myaccount_user_detail_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_myaccount_navaccount_vue__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_myaccount_navaccount_vue__ = __webpack_require__(189);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_myaccount_navaccount_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_40__components_myaccount_navaccount_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_myaccount_headerAccount_vue__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_myaccount_headerAccount_vue__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_myaccount_headerAccount_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_41__components_myaccount_headerAccount_vue__);
 
 
@@ -74509,9 +74509,9 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(163)
 /* template */
-var __vue_template__ = __webpack_require__(163)
+var __vue_template__ = __webpack_require__(164)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -74551,6 +74551,51 @@ module.exports = Component.exports
 
 /***/ }),
 /* 163 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            botonActivo: false
+        };
+    }
+});
+
+/***/ }),
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -74564,14 +74609,81 @@ var render = function() {
       _vm._v(" "),
       _c("nav_booking"),
       _vm._v(" "),
-      _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "container my-4" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-12 col-lg-8" }, [_c("rooms")], 1),
+          _c("div", { staticClass: "col-12 col-lg-9" }, [_c("rooms")], 1),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-12 col-lg-4" },
-            [_c("form_consulta"), _vm._v(" "), _c("resumen")],
+            { staticClass: "col-12 col-lg-3" },
+            [
+              _c("form_consulta"),
+              _vm._v(" "),
+              _c("resumen"),
+              _vm._v(" "),
+              _c("div", [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.botonActivo,
+                        expression: "botonActivo"
+                      }
+                    ],
+                    attrs: {
+                      type: "checkbox",
+                      name: "terminos",
+                      id: "",
+                      required: ""
+                    },
+                    domProps: {
+                      checked: Array.isArray(_vm.botonActivo)
+                        ? _vm._i(_vm.botonActivo, null) > -1
+                        : _vm.botonActivo
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.botonActivo,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 && (_vm.botonActivo = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.botonActivo = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.botonActivo = $$c
+                        }
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "terminos" } }, [
+                    _vm._v("Accetto termini e condizioni")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-center" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-primary text-uppercase",
+                      class: _vm.botonActivo ? "" : "disabled",
+                      attrs: { href: "/booking/step-2" }
+                    },
+                    [_vm._v("Continuo")]
+                  )
+                ])
+              ])
+            ],
             1
           )
         ])
@@ -74591,7 +74703,7 @@ if (false) {
 }
 
 /***/ }),
-/* 164 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var normalizeComponent = __webpack_require__(0)
@@ -74621,7 +74733,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 165 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var normalizeComponent = __webpack_require__(0)
@@ -74651,19 +74763,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 166 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(167)
+  __webpack_require__(168)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(169)
+var __vue_template__ = __webpack_require__(170)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -74702,13 +74814,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 167 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(168);
+var content = __webpack_require__(169);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -74728,7 +74840,7 @@ if(false) {
 }
 
 /***/ }),
-/* 168 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -74742,7 +74854,7 @@ exports.push([module.i, "\nheader[data-v-3f12dd4f]{\r\n    background-color: #ff
 
 
 /***/ }),
-/* 169 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -74783,19 +74895,19 @@ if (false) {
 }
 
 /***/ }),
-/* 170 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(171)
+  __webpack_require__(172)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(173)
+var __vue_template__ = __webpack_require__(174)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -74834,13 +74946,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 171 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(172);
+var content = __webpack_require__(173);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -74860,7 +74972,7 @@ if(false) {
 }
 
 /***/ }),
-/* 172 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -74874,7 +74986,7 @@ exports.push([module.i, "\nnav[data-v-355d1d83]{\r\n    display: -webkit-box;\r\
 
 
 /***/ }),
-/* 173 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -74921,19 +75033,19 @@ if (false) {
 }
 
 /***/ }),
-/* 174 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(175)
+  __webpack_require__(176)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(177)
+var __vue_template__ = __webpack_require__(178)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -74972,13 +75084,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 175 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(176);
+var content = __webpack_require__(177);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -74998,7 +75110,7 @@ if(false) {
 }
 
 /***/ }),
-/* 176 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -75006,13 +75118,13 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*form*/\n.form-control[data-v-635a8fe6] {\r\n    display: block;\r\n    width: 100%;\r\n    height: calc(2.19rem + 2px);\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 0.9rem;\r\n    line-height: 1.6;\r\n    color: #495057;\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid #ced4da;\r\n    border-radius: 0rem;\n}\n.reserva[data-v-635a8fe6]{\r\n      border: 1px solid #ccc;\n}\nlabel[data-v-635a8fe6]{\r\n      font-family: 'Josefin Sans', sans-serif;\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*form*/\n.form-control[data-v-635a8fe6] {\r\n    display: block;\r\n    width: 100%;\r\n    height: calc(2.19rem + 2px);\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 0.9rem;\r\n    line-height: 1.6;\r\n    color: #495057;\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid #ced4da;\r\n    border-radius: 0rem;\n}\n.reserva[data-v-635a8fe6]{\r\n      border: 1px solid #ccc;\n}\nlabel[data-v-635a8fe6]{\r\n      font-family: 'Josefin Sans', sans-serif;\n}\r\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 177 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -75027,90 +75139,52 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("form", { staticClass: "form-row" }, [
-        _c("div", { staticClass: "form-group col-12" }, [
-          _c("label", { attrs: { for: "in" } }, [
-            _c("img", {
-              attrs: {
-                src: "/images/suites/icon/calendar.svg",
-                alt: "calendar"
-              }
-            }),
-            _vm._v("\n                Check-in\n            ")
+      _c("aside", { staticClass: "p-3 border mb-3" }, [
+        _c("form", { staticClass: "form-row" }, [
+          _c("div", { staticClass: "form-group col-12" }, [
+            _c("label", { attrs: { for: "in" } }, [
+              _c("img", {
+                attrs: {
+                  src: "/images/suites/icon/calendar.svg",
+                  alt: "calendar"
+                }
+              }),
+              _vm._v("\n                    Check-in\n                ")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { name: "in", type: "text", placeholder: "19/08/2019" }
+            })
           ]),
           _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { name: "in", type: "text", placeholder: "19/08/2019" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-12" }, [
-          _c("label", { attrs: { for: "out" } }, [
-            _c("img", {
-              attrs: {
-                src: "/images/suites/icon/calendar.svg",
-                alt: "calendar"
-              }
-            }),
-            _vm._v("\n                Check-out\n            ")
+          _c("div", { staticClass: "form-group col-12" }, [
+            _c("label", { attrs: { for: "out" } }, [
+              _c("img", {
+                attrs: {
+                  src: "/images/suites/icon/calendar.svg",
+                  alt: "calendar"
+                }
+              }),
+              _vm._v("\n                    Check-out\n                ")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { name: "out", type: "text", placeholder: "20/08/2019" }
+            })
           ]),
           _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { name: "out", type: "text", placeholder: "20/08/2019" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-12 col-lg-6" }, [
-          _c("label", { attrs: { for: "adulti" } }, [_vm._v("Adulti")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            { staticClass: "form-control", attrs: { name: "adulti" } },
-            [
-              _c("option", [_vm._v("1")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("3")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("4")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("5")])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-12 col-lg-6" }, [
-          _c("label", { attrs: { for: "bambino" } }, [_vm._v("Bambino")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            { staticClass: "form-control", attrs: { name: "bambino" } },
-            [
-              _c("option", [_vm._v("1")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("3")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("4")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("5")])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-12 text-center" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary text-uppercase",
-              attrs: { type: "button" }
-            },
-            [_vm._v("\n                Cerca\n            ")]
-          )
+          _c("div", { staticClass: "form-group col-12 text-center" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary text-uppercase",
+                attrs: { type: "button" }
+              },
+              [_vm._v("\n                    Cerca\n                ")]
+            )
+          ])
         ])
       ])
     ])
@@ -75126,7 +75200,7 @@ if (false) {
 }
 
 /***/ }),
-/* 178 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -75134,7 +75208,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(179)
+var __vue_template__ = __webpack_require__(180)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -75173,16 +75247,85 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 179 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("Resumen")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("aside", { staticClass: "border p-3 mb-3" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12 mb-3" }, [
+            _c("h3", { staticClass: "text-center" }, [
+              _vm._v("Booking Summary")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12" }, [
+            _c("div", { staticClass: "d-flex justify-content-between" }, [
+              _c("span", { staticClass: "tag font-weight-bold" }, [
+                _vm._v("Check-in")
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "date" }, [_vm._v("13/SEP/18")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-flex justify-content-between" }, [
+              _c("span", { staticClass: "tag font-weight-bold" }, [
+                _vm._v("Check-in")
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "date" }, [_vm._v("15/SEP/18")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12 mt-2" }, [
+            _c("div", { staticClass: "border-bottom" }, [
+              _c("strong", { staticClass: "text-capitalize" }, [
+                _vm._v("Name room")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex justify-content-between" }, [
+                _c("span", { staticClass: "title" }, [_vm._v("Room 104")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "price" }, [_vm._v("$200")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex justify-content-between" }, [
+                _c("span", { staticClass: "iva" }, [_vm._v("Taxes")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "price" }, [_vm._v("$110")])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12 mt-3" }, [
+            _c("div", { staticClass: "d-flex flex-column" }, [
+              _c("span", [_vm._v("14% Sales")]),
+              _vm._v(" "),
+              _c("span", [_vm._v("Per room per night")]),
+              _vm._v(" "),
+              _c("span", [_vm._v("39.90 per night")]),
+              _vm._v(" "),
+              _c("span", [_vm._v("Resort Free")]),
+              _vm._v(" "),
+              _c("strong", [_vm._v("(Payable at Hotel)")])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -75193,15 +75336,15 @@ if (false) {
 }
 
 /***/ }),
-/* 180 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(181)
+var __vue_script__ = __webpack_require__(182)
 /* template */
-var __vue_template__ = __webpack_require__(182)
+var __vue_template__ = __webpack_require__(183)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -75240,7 +75383,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 181 */
+/* 182 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -75292,29 +75435,84 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     el: '.swiper-pagination'
                 }
             },
+            /*rooms: [
+                {
+                    title: 'ROOM 101',
+                    subtitle: 'Camera Matrimoniale con Balance',
+                    description: 'Camera Matrimoniale climatizzata con minibar e pavimento piastrellato/in marmo.',
+                    gallery: [
+                        {image: '/images/home/gallery-slider-map/21.jpg'},
+                        {image: '/images/home/gallery-slider-map/18.jpg'},
+                        {image: '/images/home/gallery-slider-map/22.jpeg'},
+                        {image: '/images/home/gallery-slider-map/23.jpeg'},
+                    ],
+                    catacteristica: 'Camera Doppia Di 13 M2',
+                    services: [
+                        {name: 'terrazzo'},
+                        {name: 'Canali pay per view'},
+                        {name: 'Armadio / guardaroba'},
+                        {name: 'Vassoio di cortesia'},
+                        {name: 'Radio'},
+                        {name: 'Carta igienica'},
+                    ],
+                    price: 200,
+                },
+                {
+                    title: 'ROOM 102',
+                    subtitle: 'Camera King',
+                    description: 'Camera Matrimoniale climatizzata con minibar e pavimento piastrellato/in marmo.',
+                    gallery: [
+                        {image: '/images/home/gallery-slider-map/21.jpg'},
+                        {image: '/images/home/gallery-slider-map/18.jpg'},
+                        {image: '/images/home/gallery-slider-map/22.jpeg'},
+                        {image: '/images/home/gallery-slider-map/23.jpeg'},
+                    ],
+                    catacteristica: 'Camera Doppia Di 13 M2',
+                    services: [
+                        {name: 'terrazzo'},
+                        {name: 'Canali pay per view'},
+                        {name: 'Armadio / guardaroba'},
+                        {name: 'Vassoio di cortesia'},
+                        {name: 'Radio'},
+                        {name: 'Carta igienica'},
+                    ],
+                    price: 200,
+                }
+            ]*/
             rooms: [{
-                title: 'ROOM 101',
-                subtitle: 'Camera Matrimoniale con Balance',
+                id: 1,
+                name: 'ROOM 101',
+                subtitle1: 'Camera Matrimoniale con Balance',
+                subtitle2: 'Camera Doppia Di 13 M2',
                 description: 'Camera Matrimoniale climatizzata con minibar e pavimento piastrellato/in marmo.',
-                gallery: [{ image: '/images/home/gallery-slider-map/21.jpg' }, { image: '/images/home/gallery-slider-map/18.jpg' }, { image: '/images/home/gallery-slider-map/22.jpeg' }, { image: '/images/home/gallery-slider-map/23.jpeg' }],
-                catacteristica: 'Camera Doppia Di 13 M2',
-                services: [{ name: 'terrazzo' }, { name: 'Canali pay per view' }, { name: 'Armadio / guardaroba' }, { name: 'Vassoio di cortesia' }, { name: 'Radio' }, { name: 'Carta igienica' }],
-                price: 200
-            }, {
-                title: 'ROOM 102',
-                subtitle: 'Camera King',
-                description: 'Camera Matrimoniale climatizzata con minibar e pavimento piastrellato/in marmo.',
-                gallery: [{ image: '/images/home/gallery-slider-map/21.jpg' }, { image: '/images/home/gallery-slider-map/18.jpg' }, { image: '/images/home/gallery-slider-map/22.jpeg' }, { image: '/images/home/gallery-slider-map/23.jpeg' }],
-                catacteristica: 'Camera Doppia Di 13 M2',
-                services: [{ name: 'terrazzo' }, { name: 'Canali pay per view' }, { name: 'Armadio / guardaroba' }, { name: 'Vassoio di cortesia' }, { name: 'Radio' }, { name: 'Carta igienica' }],
-                price: 200
+                price: 59.05,
+                services: [{
+                    id: 1,
+                    name: ' terrazzo'
+                }, {
+                    id: 2,
+                    name: ' Canali pay per view'
+                }, {
+                    id: 3,
+                    name: 'Armadio / guardaroba'
+                }, {
+                    id: 4,
+                    name: 'Armadio / guardaroba'
+                }, {
+                    id: 5,
+                    name: ' Radio'
+                }, {
+                    id: 6,
+                    name: ' Carta igienica'
+                }],
+                gallery: [{ image: '/images/home/gallery-slider-map/21.jpg' }, { image: '/images/home/gallery-slider-map/18.jpg' }, { image: '/images/home/gallery-slider-map/22.jpeg' }, { image: '/images/home/gallery-slider-map/23.jpeg' }]
             }]
         };
     }
 });
 
 /***/ }),
-/* 182 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -75324,7 +75522,7 @@ var render = function() {
   return _c(
     "div",
     _vm._l(_vm.rooms, function(room) {
-      return _c("article", [
+      return _c("article", { staticClass: "mb-5 border-bottom" }, [
         _c("div", { staticClass: "container-fluid" }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-12" }, [
@@ -75337,7 +75535,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "col-12 col-lg-8" },
+              { staticClass: "col-12 col-lg-8 mb-3" },
               [
                 _c(
                   "swiper",
@@ -75412,7 +75610,7 @@ if (false) {
 }
 
 /***/ }),
-/* 183 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -75420,7 +75618,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(184)
+var __vue_template__ = __webpack_require__(185)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -75459,7 +75657,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 184 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -75490,15 +75688,15 @@ if (false) {
 }
 
 /***/ }),
-/* 185 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(186)
+var __vue_script__ = __webpack_require__(187)
 /* template */
-var __vue_template__ = __webpack_require__(187)
+var __vue_template__ = __webpack_require__(188)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -75537,7 +75735,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 186 */
+/* 187 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -75637,7 +75835,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 187 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -76065,19 +76263,19 @@ if (false) {
 }
 
 /***/ }),
-/* 188 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(189)
+  __webpack_require__(190)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(191)
+var __vue_script__ = __webpack_require__(192)
 /* template */
-var __vue_template__ = __webpack_require__(192)
+var __vue_template__ = __webpack_require__(193)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -76116,13 +76314,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 189 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(190);
+var content = __webpack_require__(191);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -76142,7 +76340,7 @@ if(false) {
 }
 
 /***/ }),
-/* 190 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -76156,7 +76354,7 @@ exports.push([module.i, "\nnav[data-v-f6fb4be2]{\r\n    display: -webkit-box;\r\
 
 
 /***/ }),
-/* 191 */
+/* 192 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -76236,7 +76434,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 192 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -76275,19 +76473,19 @@ if (false) {
 }
 
 /***/ }),
-/* 193 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(194)
+  __webpack_require__(195)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(196)
+var __vue_template__ = __webpack_require__(197)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -76326,13 +76524,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 194 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(195);
+var content = __webpack_require__(196);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -76352,7 +76550,7 @@ if(false) {
 }
 
 /***/ }),
-/* 195 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -76366,7 +76564,7 @@ exports.push([module.i, "\nheader[data-v-800efcea]{\r\n    background-color: #ff
 
 
 /***/ }),
-/* 196 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -76407,7 +76605,7 @@ if (false) {
 }
 
 /***/ }),
-/* 197 */
+/* 198 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
