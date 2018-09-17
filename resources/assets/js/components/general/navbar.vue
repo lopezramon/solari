@@ -16,7 +16,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-ellipsis-v"></i>
                     </button>
-                    <a class="navbar-brand m-0" href="#">
+                    <a class="navbar-brand m-0" href="/">
                         <img src="/images/logos/logo_luxury_pequeño.png">
                         <h1 class="d-none d-sm-inline-block">
                             Luxury Room

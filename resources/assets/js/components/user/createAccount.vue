@@ -41,19 +41,20 @@
                                         </div>
                                         <div class="form-group">
                                                 <label for="pwdconfirm">CONFERMA PASSWORD <span class="text-success">*</span></label>
-                                                <input type="password" class="form-control" id="pwdconfirm">
+                                                <input type="password" class="form-control " id="pwdconfirm">
                                         </div>
                                     </form>  
                                 </div>
                             </div> 
                         </div>
                     
-                            <div class="row text-center py-4">
-                                <div class=" col-lg-2 col-sm-4 py-2">
+                            <div class="row text-center text-lg-center py-4">
+                                <div class="col-12 col-md-6 py-2">
                                     <button type="submit" class="btn btn-primary text-bold"><span class="text-btn-white">CONTINUA</span></button>
                                 </div>
-                                <div class="col-lg-4 col-sm-8 py-2">
-                                    <button type="submit" class="btn btn-primary-new text-bold"><span class="text-btn-white">HAI GIA UN ACCOUNT? ACCEDI</span></button>
+                                <div class="col-12 col-md-6 py-2">
+                                    <a href="/clientLogin" class="btn btn-primary-new text-bold"><span class="text-btn-white">REGRESAR</span></a>
+                                    
                                 </div>
                             </div>
 
@@ -221,5 +222,23 @@ padding:20px 20px 20px 20px
     font-size: 0.7rem;
     margin-top: -4%;
     padding-bottom: 5%;
+}
+
+.form-control {
+     outline: none;
+     border-bottom: 1px solid #373737;
+     border-top: 0;
+     border-left: 0;
+     border-right: 0;
+     border-radius: 0;
+    
+}
+.form-control:focus {
+    box-shadow:none;
+    border-bottom: 1px solid #373737;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
 }
 </style>
