@@ -63315,29 +63315,13 @@ if(false) {
 }
 
 /***/ }),
-<<<<<<< HEAD
-/* 122 */
-=======
-/* 124 */
->>>>>>> 7a402a257e72eebed29f8743b2e20af38518173c
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
 // module
-exports.push([module.i, "\n.swiper-container[data-v-4c9109f0] {\n  background-color: transparent;\n}\n.gallery-top[data-v-4c9109f0] {\n  height: auto;\n  width: 100%;\n}\n.gallery-thumbs[data-v-4c9109f0] {\n  height: 20% !important;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 10px 0;\n}\n.gallery-thumbs .swiper-slide[data-v-4c9109f0] {\n  width: 25%;\n  height: 100px;\n  -webkit-filter: grayscale(100%);\n  /* Safari 6.0 - 9.0 */\n  filter: grayscale(100%);\n}\n.gallery-thumbs .swiper-slide-active[data-v-4c9109f0] {\n  -webkit-filter: grayscale(0%);\n  /* Safari 6.0 - 9.0 */\n  filter: grayscale(0%);\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 123 */
-=======
 /* 125 */
->>>>>>> 7a402a257e72eebed29f8743b2e20af38518173c
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -63378,11 +63362,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-<<<<<<< HEAD
-/* 124 */
-=======
 /* 126 */
->>>>>>> 7a402a257e72eebed29f8743b2e20af38518173c
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -64311,19 +64291,12 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-<<<<<<< HEAD
 exports.push([module.i, "\n.bg-contact[data-v-4e6876c9] {\n    widows: 100%;\n    min-height: 620px;\n    padding-top: 200px;\n    padding-bottom: 100px;\n    background-image: url(\"/images/home/gallery-slider-map/23.jpeg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n}\n.bg-form-contact[data-v-4e6876c9] {\nbackground-color: white;\nwidth: 50%;\nheight: auto;\npadding: 0% 5%;\n}\n.text-separation[data-v-4e6876c9] {\n    letter-spacing: 0.2rem\n}\n.icon-contact[data-v-4e6876c9] {\nborder: 1px solid #8a8a8a;\npadding:20px 20px 20px 20px\n}\n.text-btn-white[data-v-4e6876c9] {\n    font-size: 0.8rem;\n    font-weight: bold;\n}\n.btn-primary-new[data-v-4e6876c9] {\n    background-color: #373737;\n    border-color: #373737;\n    color: #FFF;\n}\n@media (max-width: 600px) {\n.bg-form-contact[data-v-4e6876c9] {\n    width: 90%;\n    height: auto;\n    padding: 0% 5%;\n}\n.hide-movil[data-v-4e6876c9] {\n   display: none;\n}\n.show-movil[data-v-4e6876c9] {\n      padding: 5%;\n}\n.text-separation[data-v-4e6876c9] {\n    letter-spacing: 0.2rem;\n    padding-top: 10%;\n}\n}\n@media (max-width: 800px) {\n.hide-movil[data-v-4e6876c9] {\n   display: none;\n}\n.show-movil[data-v-4e6876c9] {\n      padding: 10%;\n}\n.text-separation[data-v-4e6876c9] {\n    letter-spacing: 0.2rem;\n    padding-top: 10%;\n}\n}\n", ""]);
-=======
-exports.push([module.i, "\n.elevado[data-v-09e8a2e9]{\n    vertical-align: top;\n    font-size: 12px;\n    font-weight: bold;\n}\n.cc-tarjetas[data-v-09e8a2e9]{\n    width: 52px;\n    height: auto;\n}\n", ""]);
->>>>>>> 7a402a257e72eebed29f8743b2e20af38518173c
 
 // exports
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 136 */
-=======
 /* 140 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -64390,14 +64363,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 141 */
->>>>>>> 7a402a257e72eebed29f8743b2e20af38518173c
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-<<<<<<< HEAD
   return _vm._m(0)
 }
 var staticRenderFns = [
@@ -65005,156 +64976,6 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("section", { staticClass: "py-4" })
-=======
-  return _c("div", [
-    _c("div", { staticClass: "container" }, [
-      _c("section", { staticClass: "border p-3 mb-4" }, [
-        _c(
-          "div",
-          { staticClass: "row" },
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _vm._l(_vm.informazioni, function(item) {
-              return _c(
-                "div",
-                { key: item, staticClass: "col-12 col-md-6 col-lg-3" },
-                [
-                  _c("p", [
-                    _c("img", {
-                      attrs: {
-                        src: "/images/suites/icon/baseline-done-24px.svg",
-                        alt: "check-list"
-                      }
-                    }),
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(item.title) +
-                        "\n                    "
-                    )
-                  ])
-                ]
-              )
-            })
-          ],
-          2
-        )
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "p-3 mb-4" }, [
-        _c(
-          "div",
-          { staticClass: "row" },
-          [
-            _vm._m(1),
-            _vm._v(" "),
-            _vm._l(_vm.services, function(item) {
-              return _c(
-                "div",
-                { key: item, staticClass: "col-12 col-md-6 col-lg-3" },
-                [
-                  _c("p", [
-                    _c("img", {
-                      attrs: {
-                        src: "/images/suites/icon/baseline-done-24px.svg",
-                        alt: "check-list"
-                      }
-                    }),
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(item.title) +
-                        "\n                    "
-                    )
-                  ])
-                ]
-              )
-            })
-          ],
-          2
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(2)
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12" }, [
-      _c("h3", { staticClass: "text-uppercase" }, [
-        _vm._v("Informazioni Generali del Bed and breakfast")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12" }, [
-      _c("h3", { staticClass: "text-uppercase" }, [
-        _vm._v("Suite Di 20 M"),
-        _c("span", { staticClass: "elevado" }, [_vm._v("2")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "border p-3 mb-4" }, [
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          { staticClass: "col-12 col-md-6 col-lg-5 d-flex align-items-center" },
-          [
-            _c("h5", { staticClass: "text-uppercase m-0" }, [
-              _vm._v("Carte accettate per la prenotazione")
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "col-12 col-md-6 col-lg-7 d-flex align-items-start justify-content-around"
-          },
-          [
-            _c("img", {
-              staticClass: "cc-tarjetas",
-              attrs: { src: "/images/iconos/030-visa.svg", alt: "visa" }
-            }),
-            _vm._v(" "),
-            _c("img", {
-              staticClass: "cc-tarjetas",
-              attrs: {
-                src: "/images/iconos/032-mastercard.svg",
-                alt: "mastercard"
-              }
-            }),
-            _vm._v(" "),
-            _c("img", {
-              staticClass: "cc-tarjetas",
-              attrs: {
-                src: "/images/iconos/031-american-express.svg",
-                alt: "american express"
-              }
-            }),
-            _vm._v(" "),
-            _c("img", {
-              staticClass: "cc-tarjetas",
-              attrs: {
-                src: "/images/iconos/015-dinners-club.svg",
-                alt: "dinners club"
-              }
-            })
-          ]
-        )
-      ])
->>>>>>> 7a402a257e72eebed29f8743b2e20af38518173c
     ])
   }
 ]
@@ -65163,11 +64984,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-<<<<<<< HEAD
-    require("vue-hot-reload-api")      .rerender("data-v-0ee89088", module.exports)
-=======
     require("vue-hot-reload-api")      .rerender("data-v-09e8a2e9", module.exports)
->>>>>>> 7a402a257e72eebed29f8743b2e20af38518173c
   }
 }
 
