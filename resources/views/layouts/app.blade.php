@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<<<<<<< HEAD
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
@@ -27,6 +28,9 @@
 
 
     @stack('css')
+=======
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+>>>>>>> 02abe606e4e36fb7400e522b91d13f6866c0fd8f
 </head>
 <body>
     <div id="app">
