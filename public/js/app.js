@@ -64188,7 +64188,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(182)
 /* template */
 var __vue_template__ = __webpack_require__(143)
 /* template functional */
@@ -64243,14 +64243,81 @@ var render = function() {
       _vm._v(" "),
       _c("nav_booking"),
       _vm._v(" "),
-      _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "container my-4" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-12 col-lg-8" }, [_c("rooms")], 1),
+          _c("div", { staticClass: "col-12 col-lg-9" }, [_c("rooms")], 1),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-12 col-lg-4" },
-            [_c("form_consulta"), _vm._v(" "), _c("resumen")],
+            { staticClass: "col-12 col-lg-3" },
+            [
+              _c("form_consulta"),
+              _vm._v(" "),
+              _c("resumen"),
+              _vm._v(" "),
+              _c("div", [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.botonActivo,
+                        expression: "botonActivo"
+                      }
+                    ],
+                    attrs: {
+                      type: "checkbox",
+                      name: "terminos",
+                      id: "",
+                      required: ""
+                    },
+                    domProps: {
+                      checked: Array.isArray(_vm.botonActivo)
+                        ? _vm._i(_vm.botonActivo, null) > -1
+                        : _vm.botonActivo
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.botonActivo,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 && (_vm.botonActivo = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.botonActivo = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.botonActivo = $$c
+                        }
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "terminos" } }, [
+                    _vm._v("Accetto termini e condizioni")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-center" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-primary text-uppercase",
+                      class: _vm.botonActivo ? "" : "disabled",
+                      attrs: { href: "/booking/step-2" }
+                    },
+                    [_vm._v("Continuo")]
+                  )
+                ])
+              ])
+            ],
             1
           )
         ])
@@ -64685,7 +64752,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*form*/\n.form-control[data-v-635a8fe6] {\n    display: block;\n    width: 100%;\n    height: calc(2.19rem + 2px);\n    padding: 0.375rem 0.75rem;\n    font-size: 0.9rem;\n    line-height: 1.6;\n    color: #495057;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid #ced4da;\n    border-radius: 0rem;\n}\n.reserva[data-v-635a8fe6]{\n      border: 1px solid #ccc;\n}\nlabel[data-v-635a8fe6]{\n      font-family: 'Josefin Sans', sans-serif;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*form*/\n.form-control[data-v-635a8fe6] {\n    display: block;\n    width: 100%;\n    height: calc(2.19rem + 2px);\n    padding: 0.375rem 0.75rem;\n    font-size: 0.9rem;\n    line-height: 1.6;\n    color: #495057;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid #ced4da;\n    border-radius: 0rem;\n}\n.reserva[data-v-635a8fe6]{\n      border: 1px solid #ccc;\n}\nlabel[data-v-635a8fe6]{\n      font-family: 'Josefin Sans', sans-serif;\n}\n", ""]);
 
 // exports
 
@@ -64706,90 +64773,52 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("form", { staticClass: "form-row" }, [
-        _c("div", { staticClass: "form-group col-12" }, [
-          _c("label", { attrs: { for: "in" } }, [
-            _c("img", {
-              attrs: {
-                src: "/images/suites/icon/calendar.svg",
-                alt: "calendar"
-              }
-            }),
-            _vm._v("\n                Check-in\n            ")
+      _c("aside", { staticClass: "p-3 border mb-3" }, [
+        _c("form", { staticClass: "form-row" }, [
+          _c("div", { staticClass: "form-group col-12" }, [
+            _c("label", { attrs: { for: "in" } }, [
+              _c("img", {
+                attrs: {
+                  src: "/images/suites/icon/calendar.svg",
+                  alt: "calendar"
+                }
+              }),
+              _vm._v("\n                    Check-in\n                ")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { name: "in", type: "text", placeholder: "19/08/2019" }
+            })
           ]),
           _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { name: "in", type: "text", placeholder: "19/08/2019" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-12" }, [
-          _c("label", { attrs: { for: "out" } }, [
-            _c("img", {
-              attrs: {
-                src: "/images/suites/icon/calendar.svg",
-                alt: "calendar"
-              }
-            }),
-            _vm._v("\n                Check-out\n            ")
+          _c("div", { staticClass: "form-group col-12" }, [
+            _c("label", { attrs: { for: "out" } }, [
+              _c("img", {
+                attrs: {
+                  src: "/images/suites/icon/calendar.svg",
+                  alt: "calendar"
+                }
+              }),
+              _vm._v("\n                    Check-out\n                ")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { name: "out", type: "text", placeholder: "20/08/2019" }
+            })
           ]),
           _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { name: "out", type: "text", placeholder: "20/08/2019" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-12 col-lg-6" }, [
-          _c("label", { attrs: { for: "adulti" } }, [_vm._v("Adulti")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            { staticClass: "form-control", attrs: { name: "adulti" } },
-            [
-              _c("option", [_vm._v("1")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("3")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("4")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("5")])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-12 col-lg-6" }, [
-          _c("label", { attrs: { for: "bambino" } }, [_vm._v("Bambino")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            { staticClass: "form-control", attrs: { name: "bambino" } },
-            [
-              _c("option", [_vm._v("1")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("3")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("4")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("5")])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-12 text-center" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary text-uppercase",
-              attrs: { type: "button" }
-            },
-            [_vm._v("\n                Cerca\n            ")]
-          )
+          _c("div", { staticClass: "form-group col-12 text-center" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary text-uppercase",
+                attrs: { type: "button" }
+              },
+              [_vm._v("\n                    Cerca\n                ")]
+            )
+          ])
         ])
       ])
     ])
@@ -64859,9 +64888,78 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("Resumen")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("aside", { staticClass: "border p-3 mb-3" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12 mb-3" }, [
+            _c("h3", { staticClass: "text-center" }, [
+              _vm._v("Booking Summary")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12" }, [
+            _c("div", { staticClass: "d-flex justify-content-between" }, [
+              _c("span", { staticClass: "tag font-weight-bold" }, [
+                _vm._v("Check-in")
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "date" }, [_vm._v("13/SEP/18")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-flex justify-content-between" }, [
+              _c("span", { staticClass: "tag font-weight-bold" }, [
+                _vm._v("Check-in")
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "date" }, [_vm._v("15/SEP/18")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12 mt-2" }, [
+            _c("div", { staticClass: "border-bottom" }, [
+              _c("strong", { staticClass: "text-capitalize" }, [
+                _vm._v("Name room")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex justify-content-between" }, [
+                _c("span", { staticClass: "title" }, [_vm._v("Room 104")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "price" }, [_vm._v("$200")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex justify-content-between" }, [
+                _c("span", { staticClass: "iva" }, [_vm._v("Taxes")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "price" }, [_vm._v("$110")])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12 mt-3" }, [
+            _c("div", { staticClass: "d-flex flex-column" }, [
+              _c("span", [_vm._v("14% Sales")]),
+              _vm._v(" "),
+              _c("span", [_vm._v("Per room per night")]),
+              _vm._v(" "),
+              _c("span", [_vm._v("39.90 per night")]),
+              _vm._v(" "),
+              _c("span", [_vm._v("Resort Free")]),
+              _vm._v(" "),
+              _c("strong", [_vm._v("(Payable at Hotel)")])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -65003,7 +65101,7 @@ var render = function() {
   return _c(
     "div",
     _vm._l(_vm.rooms, function(room) {
-      return _c("article", [
+      return _c("article", { staticClass: "mb-5 border-bottom" }, [
         _c("div", { staticClass: "container-fluid" }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-12" }, [
@@ -65016,7 +65114,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "col-12 col-lg-8" },
+              { staticClass: "col-12 col-lg-8 mb-3" },
               [
                 _c(
                   "swiper",
@@ -66237,6 +66335,52 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 181 */,
+/* 182 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            botonActivo: false
+        };
+    }
+});
 
 /***/ })
 /******/ ]);

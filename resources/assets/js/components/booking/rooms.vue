@@ -1,6 +1,6 @@
 <template>
     <div>
-        <article v-for="room in rooms">
+        <article v-for="room in rooms" class="mb-5 border-bottom">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
@@ -9,7 +9,7 @@
                         <p v-text="room.description"></p>
                     </div>
                     <!-- slider -->
-                    <div class="col-12 col-lg-8">
+                    <div class="col-12 col-lg-8 mb-3">
                         <swiper :options="swiperOption">
                             <swiper-slide v-for="(slide, index) in room.gallery" :key="index">
                                 <img class="img-fluid" :src="slide.image" alt="">
