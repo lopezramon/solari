@@ -78499,7 +78499,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\nnav[data-v-f6fb4be2]{\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: nowrap;\n        flex-wrap: nowrap;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\nnav a[data-v-f6fb4be2]{\n    background-color: #555;\n    color: #fff;\n    text-align: center;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    width: 100%;\n    height: 70px;\n    font-family: 'Josefin Sans', sans-serif;\n    font-size: 1.6rem;\n}\nnav a.active[data-v-f6fb4be2]{\n    background-color: #4fcaa5;\n}\na.router-link-exact-active.router-link-active[data-v-f6fb4be2]{\n        color: #fff !important;\n        background-color: #4fcaa5;\n}\na[data-v-f6fb4be2]:hover{\n    text-decoration: none;\n    background-color: #4fcaa5;\n}\n", ""]);
+exports.push([module.i, "\nnav[data-v-f6fb4be2]{\n    display: none;\n}\nnav a[data-v-f6fb4be2]{\n    background-color: #555;\n    color: #fff;\n    text-align: center;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    width: 100%;\n    height: 70px;\n    font-family: 'Josefin Sans', sans-serif;\n}\nnav a.active[data-v-f6fb4be2]{\n    background-color: #4fcaa5;\n}\na.router-link-exact-active.router-link-active[data-v-f6fb4be2]{\n    color: #fff !important;\n    background-color: #4fcaa5;\n}\na[data-v-f6fb4be2]:hover{\n    text-decoration: none;\n    background-color: #4fcaa5;\n}\n@media (min-width: 768px){\nnav[data-v-f6fb4be2]{\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -ms-flex-wrap: nowrap;\n          flex-wrap: nowrap;\n      -webkit-box-pack: start;\n          -ms-flex-pack: start;\n              justify-content: flex-start;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\na[data-v-f6fb4be2]{\n        font-size: 1rem;\n}\n}\n@media (min-width: 992px){\na[data-v-f6fb4be2]{\n    font-size: 1.5rem !important;\n}\n}\n\n", ""]);
 
 // exports
 
@@ -78510,6 +78510,19 @@ exports.push([module.i, "\nnav[data-v-f6fb4be2]{\n    display: -webkit-box;\n   
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -79420,7 +79433,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\nheader[data-v-800efcea]{\n    background-color: #fff;\n    width: 100%;\n    height: 130px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n    text-align: center;\n}\n@media (min-width: 768px) {\nheader[data-v-800efcea]{\n        height: 280px;\n}\n}\n", ""]);
+exports.push([module.i, "\nheader[data-v-800efcea]{\n    background-color: #fff;\n    width: 100%;\n    height: 130px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n    text-align: center;\n}\n@media (max-width: 768px) {\n.alto[data-v-800efcea]{\n        width: 50px;\n}\n}\n@media (min-width: 768px) {\nheader[data-v-800efcea]{\n        height: 280px;\n}\n.alto[data-v-800efcea]{\n        width: 100px;\n}\n}\n\n\n", ""]);
 
 // exports
 
@@ -79443,21 +79456,26 @@ var staticRenderFns = [
     return _c("div", [
       _c("header", [
         _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row mb-5" }, [
-            _c("div", { staticClass: "col-6 text-left align-items-center" }, [
-              _c("img", {
-                attrs: { src: "/images/logos/user.svg", width: "100", alt: "" }
-              }),
-              _vm._v(" "),
-              _c(
-                "h2",
-                {
-                  staticClass:
-                    "text-uppercase m-0  d-inline-block text-center ml-3"
-                },
-                [_vm._v("Jhon Roe")]
-              )
-            ])
+          _c("div", { staticClass: "row mb-0 mb-md-5" }, [
+            _c(
+              "div",
+              { staticClass: "col-12 col-md-6 text-left align-items-center" },
+              [
+                _c("img", {
+                  staticClass: "alto",
+                  attrs: { src: "/images/logos/user.svg", alt: "" }
+                }),
+                _vm._v(" "),
+                _c(
+                  "h2",
+                  {
+                    staticClass:
+                      "text-uppercase m-0  d-inline-block text-center ml-3"
+                  },
+                  [_vm._v("Jhon Roe")]
+                )
+              ]
+            )
           ])
         ])
       ])

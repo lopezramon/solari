@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav >
     <router-link  to="/myaccount" :class="{'active-menu':url('/myaccount')}">MY ACCOUNT</router-link>    
     <router-link to="/" >DETALLES FACTURA</router-link>
     <router-link to="/delate_account" >ELIMINAR CUENTA</router-link>
@@ -8,10 +8,7 @@
 
 <style scoped>
 nav{
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
+    display: none;
 }
 nav a{
     background-color: #555;
@@ -23,19 +20,35 @@ nav a{
     width: 100%;
     height: 70px;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 1.6rem;
 }
 nav a.active{
     background-color: #4fcaa5;
 }
-    a.router-link-exact-active.router-link-active{
-        color: #fff !important;
-        background-color: #4fcaa5;
-    }
+a.router-link-exact-active.router-link-active{
+    color: #fff !important;
+    background-color: #4fcaa5;
+}
 a:hover{
     text-decoration: none;
     background-color: #4fcaa5;
 }
+@media (min-width: 768px){
+  nav{
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center;
+  }
+  a{
+        font-size: 1rem;
+    }
+}
+@media (min-width: 992px){
+  a{
+    font-size: 1.5rem !important;
+  }
+}
+
 </style>
 
 <script>
