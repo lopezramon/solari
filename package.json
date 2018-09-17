@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "js-cookie": "^2.2.0",
+    "vee-validate": "^2.1.0-beta.9",
     "vue-awesome-swiper": "^3.1.3",
     "vue-route": "^1.5.1",
     "vue-router": "^3.0.1",

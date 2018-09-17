@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 Vue.use(Router);
 
 //                swiper slider
@@ -7,6 +8,12 @@ Vue.use(Router);
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper, {});
+// -------------------------------------------------
+
+//                Vee-Validate slider
+// -------------------------------------------------
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate);
 // -------------------------------------------------
 
 
@@ -43,6 +50,7 @@ import user_detail from '../components/myaccount/user_detail.vue';
 import navaccount from '../components/myaccount/navaccount.vue';
 import createAccount from '../components/myaccount/createAccount.vue';
 import clientLogin from '../components/myaccount/clientLogin.vue';
+import headerAccount from '../components/myaccount/headerAccount.vue';
 
 
 //componentes generales
@@ -68,6 +76,7 @@ Vue.component('generalServices', generalServices);
 Vue.component('listServices', listServices);
 Vue.component('user_detail', user_detail);
 Vue.component('navaccount', navaccount);
+Vue.component('headerAccount', headerAccount);
 
 
 
