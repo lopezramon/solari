@@ -44,6 +44,15 @@ import infoSuites from '../components/suites/infoSuites.vue';
 import iconsServices from '../components/suites/iconsServices.vue';
 import generalServices from '../components/suites/generalServices.vue';
 import listServices from '../components/suites/listServices.vue';
+//booking
+import stepUno from '../components/booking/stepUno.vue';
+import stepDos from '../components/booking/stepDos.vue';
+import stepTres from '../components/booking/stepTres.vue';
+import headerBooking from '../components/booking/headerBooking.vue';
+import navBooking from '../components/booking/navBooking.vue';
+import formConsulta from '../components/booking/formConsulta.vue';
+import resumen from '../components/booking/resumen.vue';
+import rooms from '../components/booking/rooms.vue';
 // My account
 import AccountContent from '../components/myaccount/AccountContent.vue';
 import user_detail from '../components/myaccount/user_detail.vue';
@@ -74,6 +83,12 @@ Vue.component('infoSuites', infoSuites);
 Vue.component('iconsServices', iconsServices);
 Vue.component('generalServices', generalServices);
 Vue.component('listServices', listServices);
+//
+Vue.component('rooms', rooms);
+Vue.component('resumen', resumen);
+Vue.component('form_consulta', formConsulta);
+Vue.component('nav_booking', navBooking);
+Vue.component('header_booking', headerBooking);
 Vue.component('user_detail', user_detail);
 Vue.component('navaccount', navaccount);
 Vue.component('headerAccount', headerAccount);
@@ -107,6 +122,22 @@ let router = new Router({
             component: contactUs
         },
         {
+            path: '/booking/step-1',
+            name: 'stepUno',
+            component: stepUno
+        },
+        {
+            path: '/booking/step-2',
+            name: 'stepDos',
+            component: stepDos
+        },
+        {
+            path: '/booking/step-3',
+            name: 'stepTres',
+            component: stepTres
+        },
+        {
+        
             path: '/clientLogin',
             name: 'clientLogin',
             component: clientLogin
