@@ -23,6 +23,7 @@ import mapa from '../components/landing/mapa.vue';
 import newsletter from '../components/landing/newsletter.vue';
 import aboutUs from '../components/landing/aboutUs.vue';
 import homeCamere from '../components/landing/homeCamere.vue';
+import contactUs from '../components/landing/contactUs.vue';
 // generale
 import navbar from '../components/general/navbar.vue';
 import footer from '../components/general/footer.vue';
@@ -77,6 +78,12 @@ let router = new Router({
             name: 'suites',
             component: suites
         },
+        {
+            path: '/contactUs',
+            name: 'contactUs',
+            component: contactUs
+        },
+        
          
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }
