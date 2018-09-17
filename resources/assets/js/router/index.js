@@ -36,7 +36,10 @@ import infoSuites from '../components/suites/infoSuites.vue';
 import iconsServices from '../components/suites/iconsServices.vue';
 import generalServices from '../components/suites/generalServices.vue';
 import listServices from '../components/suites/listServices.vue';
-
+// My account
+import AccountContent from '../components/myaccount/AccountContent.vue';
+import user_detail from '../components/myaccount/user_detail.vue';
+import navaccount from '../components/myaccount/navaccount.vue';
 
 //componentes generales
 Vue.component('navbar', navbar);
@@ -59,6 +62,8 @@ Vue.component('infoSuites', infoSuites);
 Vue.component('iconsServices', iconsServices);
 Vue.component('generalServices', generalServices);
 Vue.component('listServices', listServices);
+Vue.component('user_detail', user_detail);
+Vue.component('navaccount', navaccount);
 
 
 
@@ -77,6 +82,11 @@ let router = new Router({
             name: 'suites',
             component: suites
         },
+        {
+            path: '/myaccount',
+            name: 'user_detail',
+            component: user_detail
+        },       
          
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }

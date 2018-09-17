@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700|Roboto:400,700" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
