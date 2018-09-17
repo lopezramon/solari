@@ -4,38 +4,30 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                   <div class="rounded bg-form-contact ">
-                     
+                     <h2 class="text-center text-separation py-4">ACCEDI</h2>
 
-                               <div class="text-center py-4"> got a question?</div>
-                               <h2 class="text-center text-separation">CONTATTI</h2>
-                               <div class="text-center">Ogni camera e climatizzata, dotata di tende oscuranti, frigo bar, macchina del caffe, tv 40"4K dove e possible box doccia, asciugacapelli e kit</div>
-                            <form class="py-4" >
-                                <div class="form-group">
-                                    <label for="email">YOUR NAME HERE</label>
-                                    <input type="email" class="form-control" id="email">
-                                </div>
-                                <div class="form-group">
+                        <form class="py-4" >
+                            <div class="form-group">
                                     <label for="email">EMAIL</label>
                                     <input type="email" class="form-control" id="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">SUBJECT</label>
+                            </div>
+                            <div class="form-group">
+                                    <label for="pwd">PASSWORD</label>
                                     <input type="password" class="form-control" id="pwd">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">YOUR MESSAGE</label>
-                                    <input type="password" class="form-control" id="pwd">
-                                </div>
-                                
-                                <div class="form-row text-center py-4">
-                                    <div class="col-12">
-                                        <button type="submit" class="btn btn-primary text-bold"><span class="text-btn-white">INVIARE</span></button>
+                            </div>
+                            <div><a href="#">Hai dimenticato la tua password</a></div>
+                                <div class="row text-center py-4">
+                                    <div class="col-lg-4 py-2">
+                                        <button type="submit" class="btn btn-primary text-bold"><span class="text-btn-white">CONTINUA</span></button>
+                                    </div>
+                                    <div class="col-lg-8 py-2">
+                                        <button type="submit" class="btn btn-primary-new text-bold" onclick="window.location.href='/createAccount'"><span class="text-btn-white">HAI GIA UN ACCOUNT? ACCEDI</span></button>
                                     </div>
                                 </div>
-                                </form>  
-                        </div>
-                     </div>
-                     </div> 
+                        </form>  
+                    </div>
+                </div>
+            </div> 
 
         </section>
         <section>
@@ -122,7 +114,7 @@
     min-height: 620px;
     padding-top: 200px;
     padding-bottom: 100px;
-    background-image: url("/images/home/header-slider/header-image-1.jpg");
+    background-image: url("/images/home/gallery-slider-map/23.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -143,10 +135,14 @@ border: 1px solid #8a8a8a;
 padding:20px 20px 20px 20px
 }
 .text-btn-white {
-    font-size: 1.3rem;
-    letter-spacing: 0.2rem;
+    font-size: 0.8rem;
     font-weight: bold;
 
+}
+.btn-primary-new {
+    background-color: #373737;
+    border-color: #373737;
+    color: #FFF;
 }
 
 @media (max-width: 600px) {
@@ -173,10 +169,12 @@ padding:20px 20px 20px 20px
   }
   .show-movil {
       padding: 10%;
+     
   }
     .text-separation {
     letter-spacing: 0.2rem;
     padding-top: 10%;
+    
   }
 }
 </style>

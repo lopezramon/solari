@@ -46,6 +46,12 @@ import navBooking from '../components/booking/navBooking.vue';
 import formConsulta from '../components/booking/formConsulta.vue';
 import resumen from '../components/booking/resumen.vue';
 import rooms from '../components/booking/rooms.vue';
+// My account
+import AccountContent from '../components/myaccount/AccountContent.vue';
+import user_detail from '../components/myaccount/user_detail.vue';
+import navaccount from '../components/myaccount/navaccount.vue';
+import createAccount from '../components/myaccount/createAccount.vue';
+import clientLogin from '../components/myaccount/clientLogin.vue';
 
 
 //componentes generales
@@ -75,6 +81,9 @@ Vue.component('resumen', resumen);
 Vue.component('form_consulta', formConsulta);
 Vue.component('nav_booking', navBooking);
 Vue.component('header_booking', headerBooking);
+Vue.component('user_detail', user_detail);
+Vue.component('navaccount', navaccount);
+
 
 
 //rutas
@@ -93,6 +102,12 @@ let router = new Router({
             component: suites
         },
         {
+            path: '/myaccount',
+            name: 'user_detail',
+            component: user_detail
+        },
+        {       
+
             path: '/contactUs',
             name: 'contactUs',
             component: contactUs
@@ -112,7 +127,17 @@ let router = new Router({
             name: 'stepTres',
             component: stepTres
         },
+        {
         
+            path: '/clientLogin',
+            name: 'clientLogin',
+            component: clientLogin
+        },
+        {
+            path: '/createAccount',
+            name: 'createAccount',
+            component: createAccount
+        },
          
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }
