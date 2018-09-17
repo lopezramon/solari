@@ -4,52 +4,39 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                   <div class="rounded bg-form-contact ">
-                     
-
-                               <div class="text-center py-4"> got a question?</div>
-                               <h2 class="text-center text-separation">CONTATTI</h2>
-                               <div class="text-center">Ogni camera e climatizzata, dotata di tende oscuranti, frigo bar, macchina del caffe, tv 40"4K dove e possible box doccia, asciugacapelli e kit</div>
-                            <form class="py-4" >
-                                <div class="form-group">
-                                    <label for="email">YOUR NAME HERE</label>
+                      <div class="py-2"></div>
+                     <h2 class="text-center text-separation py-4">ASSITENZA PASSWORD</h2>
+                        <form>
+                            <div class="text-pwd text-center">find you<img src="/images/logos/logo_luxury_pequeño_black.png" alt="logo luxury" width="30">LUXURY ROOM account</div>
+                            <div class="py-2"></div>
+                            <div class="form-group">
+                                    <label for="email">ENTER YOUR EMAIL ADDRESS</label>
                                     <input type="email" class="form-control" id="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">EMAIL</label>
-                                    <input type="email" class="form-control" id="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">SUBJECT</label>
-                                    <input type="password" class="form-control" id="pwd">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">YOUR MESSAGE</label>
-                                    <input type="password" class="form-control" id="pwd">
-                                </div>
-                                
-                                <div class="form-row text-center py-4">
-                                    <div class="col-12">
-                                        <button type="submit" class="btn btn-primary text-bold"><span class="text-btn-white">INVIARE</span></button>
+                            </div>
+                                <div class="row text-center py-4">
+                                    <div class="col-12 py-2">
+                                        <button type="submit" class="btn btn-primary text-bold"><span class="text-btn-white">CONTINUA</span></button>
                                     </div>
                                 </div>
-                                </form>  
+                        </form>  
                     </div>
                 </div>
             </div> 
-            <div class="container-fluid response">
+                        <div class="container-fluid response">
                 <div class="row justify-content-center">
                   <div class="rounded bg-form-contact ">
                                        
-                               <div class="text-center py-2"><img class="img-fluid m-auto" src="/images/iconos/check-circle.svg" alt=""></div>
-                               <div class="text-center"><h1 class="grazie">GRAZIE</h1></div>
-                               <div class="text-center "><h3>Per aver scritto ad Double A Luxury Room <br> ti risponderemo brevemente alla tua email</h3></div>
+                               
+                               <div class="text-center text-separation"><h2>ASSITENZA PASSWORD</h2></div>
+                               <div class="text-center py-4"><img class="img-fluid m-auto" src="/images/iconos/check-circle.svg" alt=""></div>
+                               <div class="text-center">We sent you recovery link to <br> <strong>andrea.ramos@gmail.com</strong> successfully</div>
                                <div class="py-4"></div>
                             
                     </div>
                 </div>
             </div> 
-        </section>
 
+        </section>
         <section>
             <div class="container py-4 hide-movil">
                 <div class="row">
@@ -115,7 +102,7 @@
                 <div class="col-lg-2 d-flex">
                     <div class="text-center flex-fill">
                         <h5 class="text-separation">FOLLOW US</h5>
-                        <div>aaluxuryroom<br>aaluxuryroom</div>
+                        <div><!--<img src="/images/iconos/facebook-01.svg" alt="logo luxury" width="30" >-->aaluxuryroom<br>aaluxuryroom</div>
                     </div>
                 </div>
                 <div class="col-lg-2 d-flex"></div>
@@ -134,7 +121,7 @@
     min-height: 620px;
     padding-top: 200px;
     padding-bottom: 100px;
-    background-image: url("/images/home/header-slider/header-image-1.jpg");
+    background-image: url("/images/home/gallery-slider-map/23.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -155,10 +142,14 @@ border: 1px solid #8a8a8a;
 padding:20px 20px 20px 20px
 }
 .text-btn-white {
-    font-size: 1.3rem;
-    letter-spacing: 0.2rem;
+    font-size: 0.8rem;
     font-weight: bold;
 
+}
+.btn-primary-new {
+    background-color: #373737;
+    border-color: #373737;
+    color: #FFF;
 }
 
 @media (max-width: 600px) {
@@ -185,12 +176,15 @@ padding:20px 20px 20px 20px
   }
   .show-movil {
       padding: 10%;
+     
   }
     .text-separation {
     letter-spacing: 0.2rem;
     padding-top: 10%;
+    
   }
 }
+
 .form-control {
      outline: none;
      border-bottom: 1px solid #373737;
@@ -209,9 +203,8 @@ padding:20px 20px 20px 20px
     border-radius: 0;
 }
 
-.grazie {
-    font-size: 4rem;
-    letter-spacing: 0.4rem;
+.text-pwd {
+    font-size:0.8rem;
 }
 .response {
     display: none;

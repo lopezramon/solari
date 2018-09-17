@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 Vue.use(Router);
 
 //                swiper slider
@@ -7,6 +8,12 @@ Vue.use(Router);
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper, {});
+// -------------------------------------------------
+
+//                Vee-Validate slider
+// -------------------------------------------------
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate);
 // -------------------------------------------------
 
 
@@ -37,6 +44,10 @@ import infoSuites from '../components/suites/infoSuites.vue';
 import iconsServices from '../components/suites/iconsServices.vue';
 import generalServices from '../components/suites/generalServices.vue';
 import listServices from '../components/suites/listServices.vue';
+// user
+import createAccount from '../components/user/createAccount.vue';
+import clientLogin from '../components/user/clientLogin.vue';
+import resetPassword from '../components/user/resetPassword.vue';
 //booking
 import stepUno from '../components/booking/stepUno.vue';
 import stepDos from '../components/booking/stepDos.vue';
@@ -50,10 +61,7 @@ import rooms from '../components/booking/rooms.vue';
 import AccountContent from '../components/myaccount/AccountContent.vue';
 import user_detail from '../components/myaccount/user_detail.vue';
 import navaccount from '../components/myaccount/navaccount.vue';
-import createAccount from '../components/myaccount/createAccount.vue';
-import clientLogin from '../components/myaccount/clientLogin.vue';
-
-
+import headerAccount from '../components/myaccount/headerAccount.vue';
 //componentes generales
 Vue.component('navbar', navbar);
 Vue.component('gfooter', footer);
@@ -83,6 +91,7 @@ Vue.component('nav_booking', navBooking);
 Vue.component('header_booking', headerBooking);
 Vue.component('user_detail', user_detail);
 Vue.component('navaccount', navaccount);
+Vue.component('headerAccount', headerAccount);
 
 
 
@@ -138,6 +147,12 @@ let router = new Router({
             name: 'createAccount',
             component: createAccount
         },
+        {
+            path: '/resetPassword',
+            name: 'resetPassword',
+            component: resetPassword
+        },
+        
          
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }

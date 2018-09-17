@@ -4,9 +4,9 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                   <div class="rounded bg-form-contact ">
+                      <div class="py-2"></div>
                      <h2 class="text-center text-separation py-4">ACCEDI</h2>
-
-                        <form class="py-4" >
+                        <form>
                             <div class="form-group">
                                     <label for="email">EMAIL</label>
                                     <input type="email" class="form-control" id="email">
@@ -15,13 +15,13 @@
                                     <label for="pwd">PASSWORD</label>
                                     <input type="password" class="form-control" id="pwd">
                             </div>
-                            <div><a href="#">Hai dimenticato la tua password</a></div>
+                            <div><a href="/resetPassword">Hai dimenticato la tua password</a></div>
                                 <div class="row text-center py-4">
                                     <div class="col-lg-4 py-2">
                                         <button type="submit" class="btn btn-primary text-bold"><span class="text-btn-white">CONTINUA</span></button>
                                     </div>
                                     <div class="col-lg-8 py-2">
-                                        <button type="submit" class="btn btn-primary-new text-bold" onclick="window.location.href='/createAccount'"><span class="text-btn-white">HAI GIA UN ACCOUNT? ACCEDI</span></button>
+                                        <a href="/createAccount" class="btn btn-primary-new text-bold"><span class="text-btn-white">HAI GIA UN ACCOUNT?</span> ACCEDI</a>
                                     </div>
                                 </div>
                         </form>  
@@ -176,5 +176,23 @@ padding:20px 20px 20px 20px
     padding-top: 10%;
     
   }
+}
+
+.form-control {
+     outline: none;
+     border-bottom: 1px solid #373737;
+     border-top: 0;
+     border-left: 0;
+     border-right: 0;
+     border-radius: 0;
+    
+}
+.form-control:focus {
+    box-shadow:none;
+    border-bottom: 1px solid #373737;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
 }
 </style>
