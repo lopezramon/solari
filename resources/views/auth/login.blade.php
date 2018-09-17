@@ -8,7 +8,8 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
+                    <h5 class="info_form text-center has-error"></h5>
+                    <form method="POST" id="app_login" action="{{ url('/login') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -69,3 +70,56 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#app_login').on('submit', function(e) {
+                e.preventDefault();
+                clear_input();
+
+                $.ajax({
+                    type: "POST",
+                    url: $( this ).attr( "action" ),
+                    data: $(this).serialize(),
+
+                    success: function( response ) {
+                        window.location.href = 'http://localhost:8090/home';
+                        console.log( response );
+                    },
+                    error: function( jqXHR, textStatus, errorThrown ) {
+                        data = jqXHR.responseJSON.error;
+                       if(errorThrown==='Unauthorized')
+                            $('.info_form').html('Usted no esta autorizado para ingresar.');
+
+                        $.each(data,function(i,error){
+                            var element = $(document).find('[name="'+i+'"]');
+                            element.after($('<span class="has-error help">'+error[0]+'</span>'));
+                            element.parents('.form-group').addClass('has-error');
+                            element.addClass('has-error');
+                        });
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+            });
+        });
+
+        function clear_input(){
+            $('.info_form').html(''); 
+            $('.help').html(" ");
+            $('.form-group').removeClass('has-error');
+            $(':input').removeClass('has-error');
+        }
+    </script>
+@endpush
+
+@push('css')
+<style type="text/css">
+    .has-error{
+        color: #e74c3c;
+        border-color: #e74c3c;
+    }
+</style>
+@endpush
