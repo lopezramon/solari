@@ -4,8 +4,8 @@
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-6 text-left align-items-center">
-                        <img src="/images/logos/user.svg" width="60" alt="">
-                        <h1 class="text-uppercase m-0  d-inline-block text-center">Jhon Roe</h1>
+                        <img src="/images/logos/user.svg" width="100" alt="">
+                        <h2 class="text-uppercase m-0  d-inline-block text-center ml-3">Jhon Roe</h2>
                     </div>
                 </div>
             </div>
