@@ -4,45 +4,56 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="rounded bg-form-contact ">
-                        <h2 class="text-center text-separation py-4 text-uppercase">login</h2>
+                        <h2 class="text-center text-separation py-4 text-uppercase">Inicio de sesion</h2>
 
-                        <form class="py-4">
-                            <div class="form-group">
-                                <label for="email" class="text-uppercase">Email</label>
-                                <span v-show="errors.has('email')" :class="{'text-danger': errors.has('email') }">*</span>
-                                <input id="email" type="email" :maxlength="50" v-validate="'required|email|min:9|max:50'" name="email"
-                                       data-vv-as="Email" :class="{'text-danger': errors.has('email') || errorMail }"
-                                       v-model="form.email" class="form-control" placeholder="Email">
-                                <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="password" class="text-uppercase">Password</label>
-                                <span v-show="errors.has('password')" class="help text-danger">*</span>
-                                <input id="password" type="password" :maxlength="16" v-model="form.password" v-validate="'required|min:8|max:16'"
-                                       name="password" :class="{'text-danger': errors.has('password') }"
-                                       class="form-control" placeholder="Password">
-                                <span v-show="errors.has('password')" class="help text-danger">{{ errors.first('password') }}</span>
-                            </div>
-
-                            <div class="col-12">
-                                <a href="#" @click.prevent="forgotPassword">¿Ha olvidado la contraseña?</a>
-                            </div>
-
-                            <div class="row text-center py-4">
-                                <div class="col-lg-4 py-2">
-                                    <button :disabled="errors.any() || isDisabled" @click="login" type="button" class="btn btn-primary text-bold">
-                                        <span class="text-btn-white">Login</span>
-                                    </button>
-                                </div>
-                                <div class="col-lg-8 py-2">
-                                    <button @click="createAccount" type="button" class="btn btn-primary-new text-bold">
-                                        <span class="text-btn-white">¿No tienes cuenta aún? Creala!</span>
-                                    </button>
+                        <template v-if="loading">
+                            <div class="container d-flex justify-content-center">
+                                <div class="row m-5 mb-4">
+                                    <div class="col-12">
+                                        <pulse-loader :loading="loading" :color="color" :size="size"/>
+                                    </div>
                                 </div>
                             </div>
-                        </form>
+                        </template>
+
+                        <template v-else>
+                            <form class="py-4">
+                                <div class="form-group">
+                                    <label for="email" class="text-uppercase">Email</label>
+                                    <span v-show="errors.has('email')" :class="{'text-danger': errors.has('email') }">*</span>
+                                    <input id="email" type="email" :maxlength="50" v-validate="'required|email|min:9|max:50'" name="email"
+                                           data-vv-as="Email" :class="{'text-danger': errors.has('email') || errorMail }"
+                                           v-model="form.email" class="form-control" placeholder="Email">
+                                    <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password" class="text-uppercase">Password</label>
+                                    <span v-show="errors.has('password')" class="help text-danger">*</span>
+                                    <input id="password" type="password" :maxlength="16" v-model="form.password" v-validate="'required|min:8|max:16'"
+                                           name="password" :class="{'text-danger': errors.has('password') }"
+                                           class="form-control" placeholder="Password">
+                                    <span v-show="errors.has('password')" class="help text-danger">{{ errors.first('password') }}</span>
+                                </div>
+
+                                <div class="col-12">
+                                    <a href="#" @click.prevent="forgotPassword">¿Ha olvidado la contraseña?</a>
+                                </div>
+
+                                <div class="row text-center py-4">
+                                    <div class="col-lg-4 py-2">
+                                        <button :disabled="errors.any() || isDisabled" @click="login" type="button" class="btn btn-primary text-bold">
+                                            <span class="text-btn-white">Login</span>
+                                        </button>
+                                    </div>
+                                    <div class="col-lg-8 py-2">
+                                        <button @click="redirectToCreateAccount" type="button" class="btn btn-primary-new text-bold">
+                                            <span class="text-btn-white">¿No tienes cuenta aún? Creala!</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </template>
                     </div>
                 </div>
             </div>
@@ -126,9 +137,9 @@
         data() {
             return {
                 form: { email: null, password: null },
-                color: '#e33d2f',
-                size: '40px',
-                loading: false
+                color: '#1b1b1b',
+                size: '15px',
+                loading: false,
             }
         },
         mounted() {
@@ -146,14 +157,14 @@
                 this.$validator.validateAll().then((result) => {
                     if (result) {
                         axios.post('/login', this.form).then((res) => {
-                            if (res.status == 200) {
+                            if (res.status === 200) {
 
                                 var admin = res.data.admin;
                                 this.$store.dispatch('setSession', res.data).then((r) => {
                                     this.loading = false;
                                     let slf = this;
 
-                                    this.showAlert('success', 'Riuscito utente autenticato');
+                                    this.showAlert('success', 'Usuario autenticado con exito');
                                     setTimeout(() => {
                                         (admin === true) ? location.href = '/home' : slf.$router.push('/')
                                     }, 1800);
@@ -164,18 +175,14 @@
                             }
                         })
                             .catch((error) => {
-                                if (error.response.status = 401) {
-                                    this.loading = false;
-                                    this.showAlert('error', 'L\'utente registrato non viene trovato');
-                                }
                                 switch (error.response.status) {
                                     case 401:
                                         this.loading = false;
-                                        this.showAlert('error', 'L\'utente registrato non viene trovato');
+                                        this.showAlert('error', 'Por favor verifique los datos ingresados');
                                         break;
                                     case 500:
                                         this.loading = false;
-                                        this.showAlert('error', 'Errore di connessione');
+                                        this.showAlert('error', 'Error de conexión');
                                         break;
                                 }
                             })
@@ -184,8 +191,8 @@
                     console.log('error form')
                 });
             },
-            createAccount() {
-                this.$router.push('/registeruser');
+            redirectToCreateAccount() {
+                this.$router.push('/createAccount');
             },
             validarIntLogin() {
                 let authenticated = this.$store.getters.getauthenticated;
