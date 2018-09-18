@@ -5,31 +5,25 @@
   <div class="container mt-5 mb-5">
       <table class="table">
       <thead class="thead-dark">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+        <tr class="text-center">
+          <th scope="col">N RESERVA</th>
+          <th scope="col">FECHA</th>
+          <th scope="col">STATUS</th>
+          <th scope="col">ACTION</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
+        <tr class="text-center">
+          <td>123123123</td>
+          <td>01/02/2011</td>
+          <td>ACTIVO</td>
           <td>@mdo</td>
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
+        <tr class="text-center">
+          <td>123123123</td>
+          <td>01/02/2011</td>
+          <td>CANCELADA</td>
           <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
         </tr>
       </tbody>
     </table>

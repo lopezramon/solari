@@ -25630,7 +25630,7 @@ function updateLink (link, options, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(18);
-module.exports = __webpack_require__(194);
+module.exports = __webpack_require__(196);
 
 
 /***/ }),
@@ -48050,7 +48050,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_myaccount_clientLogin_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_40__components_myaccount_clientLogin_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_myaccount_headerAccount_vue__ = __webpack_require__(190);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_myaccount_headerAccount_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_41__components_myaccount_headerAccount_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_myaccount_account_table_vue__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_myaccount_account_table_vue__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_myaccount_account_table_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_42__components_myaccount_account_table_vue__);
 
 
@@ -79503,13 +79503,6 @@ if (false) {
 
 /***/ }),
 /* 194 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 195 */,
-/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -79517,7 +79510,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(197)
+var __vue_template__ = __webpack_require__(195)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -79556,7 +79549,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 197 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -79583,46 +79576,36 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container mt-5 mb-5" }, [
       _c("table", { staticClass: "table" }, [
         _c("thead", { staticClass: "thead-dark" }, [
-          _c("tr", [
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+          _c("tr", { staticClass: "text-center" }, [
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("N RESERVA")]),
             _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("First")]),
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("FECHA")]),
             _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Last")]),
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("STATUS")]),
             _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Handle")])
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("ACTION")])
           ])
         ]),
         _vm._v(" "),
         _c("tbody", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
+          _c("tr", { staticClass: "text-center" }, [
+            _c("td", [_vm._v("123123123")]),
             _vm._v(" "),
-            _c("td", [_vm._v("Mark")]),
+            _c("td", [_vm._v("01/02/2011")]),
             _vm._v(" "),
-            _c("td", [_vm._v("Otto")]),
+            _c("td", [_vm._v("ACTIVO")]),
             _vm._v(" "),
             _c("td", [_vm._v("@mdo")])
           ]),
           _vm._v(" "),
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v("2")]),
+          _c("tr", { staticClass: "text-center" }, [
+            _c("td", [_vm._v("123123123")]),
             _vm._v(" "),
-            _c("td", [_vm._v("Jacob")]),
+            _c("td", [_vm._v("01/02/2011")]),
             _vm._v(" "),
-            _c("td", [_vm._v("Thornton")]),
+            _c("td", [_vm._v("CANCELADA")]),
             _vm._v(" "),
             _c("td", [_vm._v("@fat")])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v("3")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Larry")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("the Bird")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@twitter")])
           ])
         ])
       ])
@@ -79637,6 +79620,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-0b294fe7", module.exports)
   }
 }
+
+/***/ }),
+/* 196 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
