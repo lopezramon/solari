@@ -47,6 +47,10 @@ import infoSuites from '../components/suites/infoSuites.vue';
 import iconsServices from '../components/suites/iconsServices.vue';
 import generalServices from '../components/suites/generalServices.vue';
 import listServices from '../components/suites/listServices.vue';
+// user
+import createAccount from '../components/user/createAccount.vue';
+import clientLogin from '../components/user/clientLogin.vue';
+import resetPassword from '../components/user/resetPassword.vue';
 //booking
 import stepUno from '../components/booking/stepUno.vue';
 import stepDos from '../components/booking/stepDos.vue';
@@ -58,10 +62,9 @@ import resumen from '../components/booking/resumen.vue';
 import rooms from '../components/booking/rooms.vue';
 // My account
 import delate_account from '../components/myaccount/delate_account.vue';
+import AccountContent from '../components/myaccount/AccountContent.vue';
 import user_detail from '../components/myaccount/user_detail.vue';
 import navaccount from '../components/myaccount/navaccount.vue';
-import createAccount from '../components/myaccount/createAccount.vue';
-import clientLogin from '../components/myaccount/clientLogin.vue';
 import headerAccount from '../components/myaccount/headerAccount.vue';
 import account_table from '../components/myaccount/account_table.vue';
 
@@ -99,7 +102,6 @@ Vue.component('headerAccount', headerAccount);
 
 
 
-
 //rutas
 
 let router = new Router({
@@ -125,13 +127,13 @@ let router = new Router({
             name: 'delate_account',
             component: delate_account
         },
-        {       
+        {
 
             path: '/account_table',
             name: 'account_table',
             component: account_table
-        },        
-        {       
+        },
+        {
 
             path: '/contactUs',
             name: 'contactUs',
@@ -163,8 +165,13 @@ let router = new Router({
             name: 'createAccount',
             component: createAccount
         },
+        {
+            path: '/resetPassword',
+            name: 'resetPassword',
+            component: resetPassword
+        },
 
-         
+
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
