@@ -62,7 +62,6 @@ import resumen from '../components/booking/resumen.vue';
 import rooms from '../components/booking/rooms.vue';
 // My account
 import delate_account from '../components/myaccount/delate_account.vue';
-import AccountContent from '../components/myaccount/AccountContent.vue';
 import user_detail from '../components/myaccount/user_detail.vue';
 import navaccount from '../components/myaccount/navaccount.vue';
 import headerAccount from '../components/myaccount/headerAccount.vue';
