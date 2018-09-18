@@ -11,26 +11,17 @@
     <title>{{ config('app.name', 'Pizzeria Da Adriano') }}</title>
     <link rel="shortcut icon" type="image/png" href="{{asset('images/home/favicon.png')}}"/>
 
-    <!-- Scripts -->
-    <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
-
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Playfair+Display:400,900" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<<<<<<< HEAD
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    {{-- <script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer></script> --}}
-
 
     @stack('css')
-=======
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
->>>>>>> 02abe606e4e36fb7400e522b91d13f6866c0fd8f
 </head>
 <body>
     <div id="app">
@@ -38,6 +29,8 @@
             @yield('content')
         </main>
     </div>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('admin/js/vendor/jquery.min.js') }}"></script>
     @stack('scripts')
 </body>

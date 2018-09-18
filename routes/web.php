@@ -372,8 +372,8 @@ Route::get('admin/requestCategories/{requestCategories}', ['as'=> 'admin.request
 Route::get('admin/requestCategories/{requestCategories}/edit', ['as'=> 'admin.requestCategories.edit', 'uses' => 'Admin\RequestCategoryController@edit']);
 });
 
-// Route::get('{any}',function(){
-//     return view('home.index');
-// })->where('any','.*');
+Route::get('{any}',function(){
+    return view('home.index');
+})->where('any','.*');
 
 
