@@ -1,16 +1,16 @@
 <template>
     <div>
         <nav class="d-none d-md-flex">
-            <a href="#" class="active">
-                <span>1</span>
+            <a href="#" class="d-flex flex-column justify-content-center active">
+                <span class="text-small">1</span>
                 <span>AVAILABILITY</span>
             </a>
-            <a href="#">
-                <span>2</span>
+            <a href="#" class="d-flex flex-column justify-content-center">
+                <span class="text-small">2</span>
                 <span>PAYMENT</span>
             </a>
-            <a href="#">
-                <span>3</span>
+            <a href="#" class="d-flex flex-column justify-content-center">
+                <span class="text-small">3</span>
                 <span>FINISH</span>
             </a>
         </nav>
@@ -40,6 +40,7 @@ nav a{
     height: 70px;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.6rem;
+    line-height: 1.1;
 }
 nav a.active{
     background-color: #4fcaa5;
@@ -47,5 +48,10 @@ nav a.active{
 a:hover{
     text-decoration: none;
     background-color: #4fcaa5;
+}
+
+span.text-small {
+    font-size: 1.2rem;
+    line-height: 1;
 }
 </style>
