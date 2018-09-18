@@ -17,6 +17,10 @@ Vue.use(VeeValidate);
 // -------------------------------------------------
 
 
+
+
+Vue.use(require('vue-moment'));
+
 //Registro de componentes
 
 // Landing

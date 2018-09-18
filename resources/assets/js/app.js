@@ -3,6 +3,8 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 
+
+
 /*vuex*/
 import store from './vuex'
 

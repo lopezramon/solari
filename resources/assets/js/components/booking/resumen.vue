@@ -10,11 +10,11 @@
                 <div class="col-12">
                     <div class="d-flex justify-content-between">
                         <span class="tag font-weight-bold">Check-in</span>
-                        <span class="date">13/SEP/18</span>
+                        <span class="date">{{getCheckin}}</span>
                     </div>
                     <div class="d-flex justify-content-between">
                         <span class="tag font-weight-bold">Check-in</span>
-                        <span class="date">15/SEP/18</span>
+                        <span class="date">{{getCheckout}}</span>
                     </div>
                 </div>
 
@@ -47,3 +47,30 @@
         </aside>
     </div>
 </template>
+<script>
+import VueMoment from 'vue-moment'
+export default {
+    data(){
+        return {
+            botonActivo: false,
+        }
+    },
+    methods: {
+       
+    },
+    mounted(){
+
+    },computed:{
+        getCheckin(){
+            let data=this.$store.getters.getDataFilter;
+            return Vue.moment(data.checkin).format('YYYY/MMM/DD').toUpperCase();
+        },
+         getCheckout(){
+            let data=this.$store.getters.getDataFilter;
+            return Vue.moment(data.checkout).format('YYYY/MMM/DD').toUpperCase();
+        }
+    }
+}
+</script>
+
+

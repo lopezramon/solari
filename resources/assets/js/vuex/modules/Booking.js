@@ -1,20 +1,27 @@
 export default {
     state: {
-      booking:[
-         checkin:'2018-09-13',
-         checkout:'2018-09-18',
+      booking:{
+         checkin:'2018-09-18',
+         checkout:'2018-09-25',
          adult:2,
-      ],
+      },
     },
     actions:{
-       
+
     },
     getters:{
-      
+       getDataFilter: state => {
+         var obj={};
+         obj.checkin=state.booking.checkin;
+         obj.checkout=state.booking.checkout;
+         obj.adult=state.booking.adult;
+         return obj;
+       },  
     },
     mutations:{
-        // setCart(state,{ list }){  
-        //   Vue.set(state.store, 'formulario',list);
-        // },
+      setFilter(state,{ list }){ 
+        Vue.set(state.booking,'checkin',list.checkin);
+        Vue.set(state.booking,'checkout',list.checkout); 
+      },
     }
 }
