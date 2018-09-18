@@ -78999,17 +78999,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(221)
+}
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(195)
+var __vue_template__ = __webpack_require__(223)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-0b294fe7"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -79042,79 +79046,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 195 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("headerAccount"),
-      _vm._v(" "),
-      _c("navaccount"),
-      _vm._v(" "),
-      _vm._m(0)
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container mt-5 mb-5" }, [
-      _c("table", { staticClass: "table" }, [
-        _c("thead", { staticClass: "thead-dark" }, [
-          _c("tr", { staticClass: "text-center" }, [
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("N RESERVA")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("FECHA")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("STATUS")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("ACTION")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("tbody", [
-          _c("tr", { staticClass: "text-center" }, [
-            _c("td", [_vm._v("123123123")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("01/02/2011")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("ACTIVO")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@mdo")])
-          ]),
-          _vm._v(" "),
-          _c("tr", { staticClass: "text-center" }, [
-            _c("td", [_vm._v("123123123")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("01/02/2011")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("CANCELADA")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@fat")])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0b294fe7", module.exports)
-  }
-}
-
-/***/ }),
+/* 195 */,
 /* 196 */
 /***/ (function(module, exports) {
 
@@ -82064,6 +81996,129 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-d3a5d6b6", module.exports)
+  }
+}
+
+/***/ }),
+/* 219 */,
+/* 220 */,
+/* 221 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(222);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("153094c0", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b294fe7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./account_table.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b294fe7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./account_table.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 222 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.alto[data-v-0b294fe7]{\n  height: 100px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 223 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("headerAccount"),
+      _vm._v(" "),
+      _c("navaccount"),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-none d-md-block alto" })
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container mt-5 mb-5 " }, [
+      _c("div", { staticClass: "table-responsive" }, [
+        _c("table", { staticClass: "table" }, [
+          _c("thead", { staticClass: "thead-dark" }, [
+            _c("tr", { staticClass: "text-center" }, [
+              _c("th", { attrs: { scope: "col-6" } }, [_vm._v("N RESERVA")]),
+              _vm._v(" "),
+              _c("th", { attrs: { scope: "col-6" } }, [_vm._v("FECHA")]),
+              _vm._v(" "),
+              _c("th", { attrs: { scope: "col-6" } }, [_vm._v("STATUS")]),
+              _vm._v(" "),
+              _c("th", { attrs: { scope: "col-6" } }, [_vm._v("ACTION")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tbody", [
+            _c("tr", { staticClass: "text-center" }, [
+              _c("td", [_vm._v("123123123")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("01/02/2011")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("ACTIVO")]),
+              _vm._v(" "),
+              _c("td", [
+                _c("img", { attrs: { src: "images/iconos/view.png", alt: "" } })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tr", { staticClass: "text-center" }, [
+              _c("td", [_vm._v("123123123")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("01/02/2011")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-danger" }, [_vm._v("CANCELADA")]),
+              _vm._v(" "),
+              _c("td", [
+                _c("img", { attrs: { src: "images/iconos/view.png", alt: "" } })
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0b294fe7", module.exports)
   }
 }
 
