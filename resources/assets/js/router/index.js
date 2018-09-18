@@ -63,10 +63,10 @@ import navaccount from '../components/myaccount/navaccount.vue';
 import createAccount from '../components/myaccount/createAccount.vue';
 import clientLogin from '../components/myaccount/clientLogin.vue';
 import headerAccount from '../components/myaccount/headerAccount.vue';
-<<<<<<< HEAD
-=======
+
+/*MERGE*/
 import account_table from '../components/myaccount/account_table.vue';
->>>>>>> 7349836e4cc51abb3f7c9d2b24fa81a248136af2
+
 
 
 //componentes generales
@@ -165,18 +165,11 @@ let router = new Router({
             name: 'createAccount',
             component: createAccount
         },
-<<<<<<< HEAD
-
-         
-=======
         {
             path: '/resetPassword',
             name: 'resetPassword',
             component: resetPassword
         },
-
-
->>>>>>> 7349836e4cc51abb3f7c9d2b24fa81a248136af2
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
