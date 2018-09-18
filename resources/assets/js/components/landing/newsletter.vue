@@ -24,8 +24,8 @@
                     <form>
 
                         <div class="input-group mb-3">
-                            <input id="email" type="text" :maxlength="50" v-validate="'required|email|min:9|max:50'" name="email"
-                                   data-vv-as="Mail" :class="{'text-danger': errors.has('email') }"
+                            <input id="email" type="text" :maxlength="50" v-validate="'required|email|min:9|max:50'"
+                                   name="email" data-vv-as="Mail" :class="{'text-danger': errors.has('email') }"
                                    v-model="form.email" class="form-control radius" placeholder="Mail">
                             <div class="input-group-append">
                                 <button type="button" :disabled="errors.any() || isDisabled" @click.prevent="sendnews()" class="btn btn-danger radius-btn bold">
@@ -33,6 +33,8 @@
                                 </button>
                             </div>
                         </div>
+
+                        <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
 
                         <div class="form-check pad2">
                             <input v-validate="'required'" name="terms" v-model="form.terms" type="checkbox" class="form-check-input" id="check">

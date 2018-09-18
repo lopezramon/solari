@@ -4,60 +4,34 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                   <div class="rounded bg-form-contact ">
-                     <h2 class="text-center text-separation py-4">CREA IL TUO ACCOUNT</h2>
-                        
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <form  >
-                                        <div class="form-group">
-                                                <label for="name">NOME <span class="text-success">*</span></label>
-                                                <input type="name" class="form-control" id="name">
-                                        </div>
-                                        <div class="form-group">
-                                                <label for="email">EMAIL <span class="text-success">*</span></label>
-                                                <input type="email" class="form-control" id="email">
-                                        </div>
-                                        <div class="form-group">
-                                                <label for="pwd">PASSWORD <span class="text-success">*</span></label>
-                                                <input type="password" class="form-control" id="pwd">
-                                        </div>
-                                        <div class="note">devi scriveri al meno 6 caratteri</div>
-                                        <div class="form-group">
-                                                <label for="phone">NUMERO DI TELEFONO <span class="text-success">*</span></label>
-                                                <input type="phone" class="form-control" id="phone">
-                                        </div>
-                                    </form>  
-                                    </div>
-                                    <div class="col-sm-6">
-                                    <form >
-                                        <div class="form-group">
-                                                <label for="lastname">COGNOME <span class="text-success">*</span></label>
-                                                <input type="lastname" class="form-control" id="lastname">
-                                        </div>
-                                        <div class="form-group">
-                                                <label for="cel">CELLURARE <span class="text-success">*</span></label>
-                                                <input type="cel" class="form-control" id="cel">
-                                        </div>
-                                        <div class="form-group">
-                                                <label for="pwdconfirm">CONFERMA PASSWORD <span class="text-success">*</span></label>
-                                                <input type="password" class="form-control" id="pwdconfirm">
-                                        </div>
-                                    </form>  
-                                </div>
-                            </div> 
-                        </div>
-                    
-                            <div class="row text-center py-4">
-                                <div class=" col-lg-2 col-sm-4 py-2">
-                                    <button type="submit" class="btn btn-primary text-bold"><span class="text-btn-white">CONTINUA</span></button>
-                                </div>
-                                <div class="col-lg-4 col-sm-8 py-2">
-                                    <button type="submit" class="btn btn-primary-new text-bold"><span class="text-btn-white">HAI GIA UN ACCOUNT? ACCEDI</span></button>
-                                </div>
+                      <div class="py-2"></div>
+                     <h2 class="text-center text-separation py-4">ASSITENZA PASSWORD</h2>
+                        <form>
+                            <div class="text-pwd text-center">find you<img src="/images/logos/logo_luxury_pequeño_black.png" alt="logo luxury" width="30">LUXURY ROOM account</div>
+                            <div class="py-2"></div>
+                            <div class="form-group">
+                                    <label for="email">ENTER YOUR EMAIL ADDRESS</label>
+                                    <input type="email" class="form-control" id="email">
                             </div>
-
-
+                                <div class="row text-center py-4">
+                                    <div class="col-12 py-2">
+                                        <button type="submit" class="btn btn-primary text-bold"><span class="text-btn-white">CONTINUA</span></button>
+                                    </div>
+                                </div>
+                        </form>  
+                    </div>
+                </div>
+            </div> 
+                        <div class="container-fluid response">
+                <div class="row justify-content-center">
+                  <div class="rounded bg-form-contact ">
+                                       
+                               
+                               <div class="text-center text-separation"><h2>ASSITENZA PASSWORD</h2></div>
+                               <div class="text-center py-4"><img class="img-fluid m-auto" src="/images/iconos/check-circle.svg" alt=""></div>
+                               <div class="text-center">We sent you recovery link to <br> <strong>andrea.ramos@gmail.com</strong> successfully</div>
+                               <div class="py-4"></div>
+                            
                     </div>
                 </div>
             </div> 
@@ -128,7 +102,7 @@
                 <div class="col-lg-2 d-flex">
                     <div class="text-center flex-fill">
                         <h5 class="text-separation">FOLLOW US</h5>
-                        <div>aaluxuryroom<br>aaluxuryroom</div>
+                        <div><!--<img src="/images/iconos/facebook-01.svg" alt="logo luxury" width="30" >-->aaluxuryroom<br>aaluxuryroom</div>
                     </div>
                 </div>
                 <div class="col-lg-2 d-flex"></div>
@@ -154,7 +128,7 @@
 }
 .bg-form-contact {
 background-color: white;
-width: 70%;
+width: 50%;
 height: auto;
 padding: 0% 5%;
 
@@ -209,17 +183,31 @@ padding:20px 20px 20px 20px
     padding-top: 10%;
     
   }
-
-.note {
-    font-size: 0.7rem;
-    margin-top: -4%;
-    padding-bottom: 1%;
 }
 
+.form-control {
+     outline: none;
+     border-bottom: 1px solid #373737;
+     border-top: 0;
+     border-left: 0;
+     border-right: 0;
+     border-radius: 0;
+    
 }
-.note {
-    font-size: 0.7rem;
-    margin-top: -4%;
-    padding-bottom: 5%;
+.form-control:focus {
+    box-shadow:none;
+    border-bottom: 1px solid #373737;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
 }
+
+.text-pwd {
+    font-size:0.8rem;
+}
+.response {
+    display: none;
+}
+
 </style>
