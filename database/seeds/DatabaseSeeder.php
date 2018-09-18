@@ -24,7 +24,10 @@ class DatabaseSeeder extends Seeder
             RequestsTableSeeder::class,
 
             // Product
-            ProductsTableSeeder::class,
+            // ProductsTableSeeder::class,
+
+            // Room
+            RoomsTableSeeder::class,
         ]);
     }
 }

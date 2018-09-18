@@ -15,8 +15,8 @@ class CreateServicesTable extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('price', 8, 2);
-            $table->float('tax', 5);
+            $table->double('price', 10, 2)->nullable()->default(null);
+            $table->double('iva', 10, 2)->nullable()->default(null);
 
             $table->unsignedInteger('service_category_id');
             $table->foreign('service_category_id')->references('id')->on('service_categories');

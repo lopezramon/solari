@@ -38,9 +38,9 @@ class RoomAPIController extends AppBaseController
     {
         $this->roomRepository->pushCriteria(new RequestCriteria($request));
         $this->roomRepository->pushCriteria(new LimitOffsetCriteria($request));
-        $rooms = $this->roomRepository->all();
+        $rooms = $this->roomRepository->getCustomized();
 
-        return $this->sendResponse($rooms->toArray(), 'Rooms retrieved successfully');
+        return $this->sendResponse(['rooms' => $rooms], 'Rooms retrieved successfully');
     }
 
     /**
@@ -51,14 +51,14 @@ class RoomAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function store(CreateRoomAPIRequest $request)
-    {
-        $input = $request->all();
+    // public function store(CreateRoomAPIRequest $request)
+    // {
+    //     $input = $request->all();
 
-        $rooms = $this->roomRepository->create($input);
+    //     $rooms = $this->roomRepository->create($input);
 
-        return $this->sendResponse($rooms->toArray(), 'Room saved successfully');
-    }
+    //     return $this->sendResponse($rooms->toArray(), 'Room saved successfully');
+    // }
 
     /**
      * Display the specified Room.
@@ -71,13 +71,13 @@ class RoomAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Room $room */
-        $room = $this->roomRepository->findWithoutFail($id);
+        $room = $this->roomRepository->findCustomized($id);
 
         if (empty($room)) {
             return $this->sendError('Room not found');
         }
 
-        return $this->sendResponse($room->toArray(), 'Room retrieved successfully');
+        return $this->sendResponse(['room' => $room], 'Room retrieved successfully');
     }
 
     /**
@@ -89,21 +89,21 @@ class RoomAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdateRoomAPIRequest $request)
-    {
-        $input = $request->all();
+    // public function update($id, UpdateRoomAPIRequest $request)
+    // {
+    //     $input = $request->all();
 
-        /** @var Room $room */
-        $room = $this->roomRepository->findWithoutFail($id);
+    //     /** @var Room $room */
+    //     $room = $this->roomRepository->findWithoutFail($id);
 
-        if (empty($room)) {
-            return $this->sendError('Room not found');
-        }
+    //     if (empty($room)) {
+    //         return $this->sendError('Room not found');
+    //     }
 
-        $room = $this->roomRepository->update($input, $id);
+    //     $room = $this->roomRepository->update($input, $id);
 
-        return $this->sendResponse($room->toArray(), 'Room updated successfully');
-    }
+    //     return $this->sendResponse($room->toArray(), 'Room updated successfully');
+    // }
 
     /**
      * Remove the specified Room from storage.
@@ -113,17 +113,17 @@ class RoomAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
-    {
-        /** @var Room $room */
-        $room = $this->roomRepository->findWithoutFail($id);
+    // public function destroy($id)
+    // {
+    //     /** @var Room $room */
+    //     $room = $this->roomRepository->findWithoutFail($id);
 
-        if (empty($room)) {
-            return $this->sendError('Room not found');
-        }
+    //     if (empty($room)) {
+    //         return $this->sendError('Room not found');
+    //     }
 
-        $room->delete();
+    //     $room->delete();
 
-        return $this->sendResponse($id, 'Room deleted successfully');
-    }
+    //     return $this->sendResponse($id, 'Room deleted successfully');
+    // }
 }

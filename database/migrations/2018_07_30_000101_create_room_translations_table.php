@@ -22,8 +22,10 @@ class CreateRoomTranslationsTable extends Migration
             $table->unsignedInteger('language_id');
             $table->foreign('language_id')->references('id')->on('languages');
 
-            $table->string('name', 50);
-            $table->string('description', 500);
+            $table->text('name');
+            $table->text('subtitle1');
+            $table->text('subtitle2');
+            $table->text('description');
             $table->timestamps();
             $table->softDeletes();
         });
