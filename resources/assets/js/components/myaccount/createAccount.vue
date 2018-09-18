@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="rounded bg-form-contact ">
-                        <h2 class="text-center text-separation py-4">CREA IL TUO ACCOUNT</h2>
+                        <h2 class="text-center text-separation py-4 text-uppercase">Crear cuenta</h2>
 
                         <template v-if="loading">
                             <div class="container d-flex justify-content-center">
