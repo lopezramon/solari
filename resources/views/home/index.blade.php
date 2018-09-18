@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <navbar></navbar>
+    <navheader></navheader>
     <router-view></router-view>
-    <gfooter/>
 @endsection
 @section('scripts')

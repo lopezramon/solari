@@ -1,0 +1,226 @@
+888888b.   888
+888  "88b  888
+888  .88P  888
+8888888K.  888  .d88b.   .d88b.  .d8888b
+888  "Y88b 888 d88""88b d88P"88b 88K
+888    888 888 888  888 888  888 "Y8888b.
+888   d88P 888 Y88..88P Y88b 888      X88
+8888888P"  888  "Y88P"   "Y88888  88888P'
+                             888
+                        Y8b d88P
+                         "Y88P"
+
+php artisan infyom:api_scaffold BlogCategoryTranslation             --prefix=admin --fromTable --tableName=blog_category_translations                         --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold BlogCategory                        --prefix=admin --fromTable --tableName=blog_categories                                    --skip=migration,dump-autoload
+php artisan infyom:api_scaffold BlogTranslation                     --prefix=admin --fromTable --tableName=blog_translations                                  --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold Blog                                --prefix=admin --fromTable --tableName=blogs                                              --skip=migration,dump-autoload
+php artisan infyom:api_scaffold BlogComment                         --prefix=admin --fromTable --tableName=blog_comments                                      --skip=migration,api_controller,scaffold_controller,routes,api_routes,scaffold_routes,tests,menu,dump-autoload
+
+       d8888          888    d8b          d8b 888    d8b
+      d88888          888    Y8P          Y8P 888    Y8P
+     d88P888          888                     888
+    d88P 888  .d8888b 888888 888 888  888 888 888888 888  .d88b.  .d8888b
+   d88P  888 d88P"    888    888 888  888 888 888    888 d8P  Y8b 88K
+  d88P   888 888      888    888 Y88  88P 888 888    888 88888888 "Y8888b.
+ d8888888888 Y88b.    Y88b.  888  Y8bd8P  888 Y88b.  888 Y8b.          X88
+d88P     888  "Y8888P  "Y888 888   Y88P   888  "Y888 888  "Y8888   88888P'
+
+php artisan infyom:api_scaffold ActivityCategoryTranslation         --prefix=admin --fromTable --tableName=activity_category_translations                     --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold ActivityCategory                    --prefix=admin --fromTable --tableName=activity_categories                                --skip=migration,dump-autoload
+php artisan infyom:api_scaffold ActivityTranslation                 --prefix=admin --fromTable --tableName=activity_translations                              --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold Activity                            --prefix=admin --fromTable --tableName=activities                                         --skip=migration,dump-autoload
+
+8888888b.                        888                   888
+888   Y88b                       888                   888
+888    888                       888                   888
+888   d88P 888d888  .d88b.   .d88888 888  888  .d8888b 888888 .d8888b
+8888888P"  888P"   d88""88b d88" 888 888  888 d88P"    888    88K
+888        888     888  888 888  888 888  888 888      888    "Y8888b.
+888        888     Y88..88P Y88b 888 Y88b 888 Y88b.    Y88b.       X88
+888        888      "Y88P"   "Y88888  "Y88888  "Y8888P  "Y888  88888P'
+
+php artisan infyom:api_scaffold ProductCategoryTranslation          --prefix=admin --fromTable --tableName=product_category_translations                      --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold ProductCategory                     --prefix=admin --fromTable --tableName=product_categories                                 --skip=migration,dump-autoload
+php artisan infyom:api_scaffold ProductSubcategoryTranslation       --prefix=admin --fromTable --tableName=product_subcategory_translations                   --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold ProductSubcategory                  --prefix=admin --fromTable --tableName=product_subcategories                              --skip=migration,dump-autoload
+php artisan infyom:api_scaffold BrandTranslation                    --prefix=admin --fromTable --tableName=brand_translations                                 --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold Brand                               --prefix=admin --fromTable --tableName=brands                                             --skip=migration,dump-autoload
+php artisan infyom:api_scaffold ProductTranslation                  --prefix=admin --fromTable --tableName=product_translations                               --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold Product                             --prefix=admin --fromTable --tableName=products                                           --skip=migration,dump-autoload
+php artisan infyom:api_scaffold ProductPresentationTranslation      --prefix=admin --fromTable --tableName=product_presentation_translations                  --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold ProductPresentation                 --prefix=admin --fromTable --tableName=product_presentations                              --skip=migration,dump-autoload
+php artisan infyom:api_scaffold ProductPresentationProduct          --prefix=admin --fromTable --tableName=product_presentation_products                      --skip=migration,dump-autoload
+php artisan infyom:api_scaffold Order                               --prefix=admin --fromTable --tableName=orders                                             --skip=migration,dump-autoload
+php artisan infyom:api_scaffold OrderDetail                         --prefix=admin --fromTable --tableName=order_details                                      --skip=migration,dump-autoload
+
+
+8888888b.                        888                   888               d8888      888      888 d8b 888    d8b                            888
+888   Y88b                       888                   888              d88888      888      888 Y8P 888    Y8P                            888
+888    888                       888                   888             d88P888      888      888     888                                   888
+888   d88P 888d888  .d88b.   .d88888 888  888  .d8888b 888888         d88P 888  .d88888  .d88888 888 888888 888  .d88b.  88888b.   8888b.  888 .d8888b
+8888888P"  888P"   d88""88b d88" 888 888  888 d88P"    888           d88P  888 d88" 888 d88" 888 888 888    888 d88""88b 888 "88b     "88b 888 88K
+888        888     888  888 888  888 888  888 888      888          d88P   888 888  888 888  888 888 888    888 888  888 888  888 .d888888 888 "Y8888b.
+888        888     Y88..88P Y88b 888 Y88b 888 Y88b.    Y88b.       d8888888888 Y88b 888 Y88b 888 888 Y88b.  888 Y88..88P 888  888 888  888 888      X88
+888        888      "Y88P"   "Y88888  "Y88888  "Y8888P  "Y888     d88P     888  "Y88888  "Y88888 888  "Y888 888  "Y88P"  888  888 "Y888888 888  88888P'
+
+php artisan infyom:api_scaffold OrderDetailAdditional               --prefix=admin --fromTable --tableName=order_details_additionals                          --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold AdditionalTranslation               --prefix=admin --fromTable --tableName=additional_translations                            --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold Additional                          --prefix=admin --fromTable --tableName=additionals                                        --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold AdditionalCategoryTranslation       --prefix=admin --fromTable --tableName=additional_category_translations                   --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold AdditionalCategory                  --prefix=admin --fromTable --tableName=additional_categories                              --skip=migration,dump-autoload
+
+php artisan infyom:api_scaffold ProductFeatureTranslation           --prefix=admin --fromTable --tableName=product_feature_translations                       --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold ProductFeature                      --prefix=admin --fromTable --tableName=product_features                                   --skip=migration,dump-autoload
+php artisan infyom:api_scaffold ProductFeatureCategoryTranslation   --prefix=admin --fromTable --tableName=product_feature_category_translations              --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold ProductFeatureCategory              --prefix=admin --fromTable --tableName=product_feature_categories                         --skip=migration,dump-autoload
+
+8888888b.
+888   Y88b
+888    888
+888   d88P  .d88b.   .d88b.  88888b.d88b.  .d8888b
+8888888P"  d88""88b d88""88b 888 "888 "88b 88K
+888 T88b   888  888 888  888 888  888  888 "Y8888b.
+888  T88b  Y88..88P Y88..88P 888  888  888      X88
+888   T88b  "Y88P"   "Y88P"  888  888  888  88888P'
+
+php artisan infyom:api_scaffold RoomCategoryTranslation             --prefix=admin --fromTable --tableName=room_category_translations                         --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold RoomCategory                        --prefix=admin --fromTable --tableName=room_categories                                    --skip=migration,dump-autoload
+php artisan infyom:api_scaffold RoomTranslation                     --prefix=admin --fromTable --tableName=room_translations                                  --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold Room                                --prefix=admin --fromTable --tableName=rooms                                              --skip=migration,dump-autoload
+php artisan infyom:api_scaffold RoomSeasonTranslation               --prefix=admin --fromTable --tableName=room_season_translations                           --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold RoomSeason                          --prefix=admin --fromTable --tableName=room_seasons                                       --skip=migration,dump-autoload
+php artisan infyom:api_scaffold ServiceCategoryTranslation          --prefix=admin --fromTable --tableName=service_category_translations                      --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold ServiceCategory                     --prefix=admin --fromTable --tableName=service_categories                                 --skip=migration,dump-autoload
+php artisan infyom:api_scaffold ServiceTranslation                  --prefix=admin --fromTable --tableName=service_translations                               --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold Service                             --prefix=admin --fromTable --tableName=services                                           --skip=migration,dump-autoload
+php artisan infyom:api_scaffold RoomsService                        --prefix=admin --fromTable --tableName=rooms_services                                     --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+
+8888888888                            888
+888                                   888
+888                                   888
+8888888    888  888  .d88b.  88888b.  888888 .d8888b
+888        888  888 d8P  Y8b 888 "88b 888    88K
+888        Y88  88P 88888888 888  888 888    "Y8888b.
+888         Y8bd8P  Y8b.     888  888 Y88b.       X88
+8888888888   Y88P    "Y8888  888  888  "Y888  88888P'
+
+php artisan infyom:api_scaffold EventCategoryTranslation            --prefix=admin --fromTable --tableName=event_category_translations                        --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold EventCategory                       --prefix=admin --fromTable --tableName=event_categories                                   --skip=migration,dump-autoload
+php artisan infyom:api_scaffold EventTranslation                    --prefix=admin --fromTable --tableName=event_translations                                 --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold Event                               --prefix=admin --fromTable --tableName=event                                              --skip=migration,dump-autoload
+
+8888888b.                                      888
+888   Y88b                                     888
+888    888                                     888
+888   d88P  8888b.  888  888 88888b.   8888b.  888
+8888888P"      "88b 888  888 888 "88b     "88b 888
+888        .d888888 888  888 888  888 .d888888 888
+888        888  888 Y88b 888 888 d88P 888  888 888
+888        "Y888888  "Y88888 88888P"  "Y888888 888
+                         888 888
+                    Y8b d88P 888
+                     "Y88P"  888
+
+php artisan infyom:api_scaffold PaymentMethod                       --prefix=admin --fromTable --tableName=payment_methods                                    --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold Booking                             --prefix=admin --fromTable --tableName=bookings                                           --skip=migration,dump-autoload
+php artisan infyom:api_scaffold BookingDetail                       --prefix=admin --fromTable --tableName=booking_details                                    --skip=migration,dump-autoload
+
+888b    888                                 888          888    888
+8888b   888                                 888          888    888
+88888b  888                                 888          888    888
+888Y88b 888  .d88b.  888  888  888 .d8888b  888  .d88b.  888888 888888  .d88b.  888d888
+888 Y88b888 d8P  Y8b 888  888  888 88K      888 d8P  Y8b 888    888    d8P  Y8b 888P"
+888  Y88888 88888888 888  888  888 "Y8888b. 888 88888888 888    888    88888888 888
+888   Y8888 Y8b.     Y88b 888 d88P      X88 888 Y8b.     Y88b.  Y88b.  Y8b.     888
+888    Y888  "Y8888   "Y8888888P"   88888P' 888  "Y8888   "Y888  "Y888  "Y8888  888
+
+php artisan infyom:api_scaffold NewsletterUser                      --prefix=admin --fromTable --tableName=newsletter_users                                   --skip=migration,dump-autoload
+
+888b     d888          888 888    d8b                             888 d8b
+8888b   d8888          888 888    Y8P                             888 Y8P
+88888b.d88888          888 888                                    888
+888Y88888P888 888  888 888 888888 888 88888b.d88b.   .d88b.   .d88888 888  8888b.
+888 Y888P 888 888  888 888 888    888 888 "888 "88b d8P  Y8b d88" 888 888     "88b
+888  Y8P  888 888  888 888 888    888 888  888  888 88888888 888  888 888 .d888888
+888   "   888 Y88b 888 888 Y88b.  888 888  888  888 Y8b.     Y88b 888 888 888  888
+888       888  "Y88888 888  "Y888 888 888  888  888  "Y8888   "Y88888 888 "Y888888
+
+php artisan infyom:api_scaffold Row                                 --prefix=admin --fromTable --tableName=rows                                               --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold Multimedia                          --prefix=admin --fromTable --tableName=multimedias                                        --skip=migration,dump-autoload
+php artisan infyom:api_scaffold RowsMultimedia                      --prefix=admin --fromTable --tableName=rows_multimedias                                   --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+
+ .d8888b.
+d88P  Y88b
+Y88b.
+ "Y888b.    .d88b.   .d88b.  .d8888b
+    "Y88b. d8P  Y8b d88""88b 88K
+      "888 88888888 888  888 "Y8888b.
+Y88b  d88P Y8b.     Y88..88P      X88
+ "Y8888P"   "Y8888   "Y88P"   88888P'
+
+php artisan infyom:api_scaffold SeoTranslation                      --prefix=admin --fromTable --tableName=seo_translations                                   --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold Seo                                 --prefix=admin --fromTable --tableName=seos                                               --skip=migration,dump-autoload
+
+888     888 888    d8b 888
+888     888 888    Y8P 888
+888     888 888        888
+888     888 888888 888 888 .d8888b
+888     888 888    888 888 88K
+888     888 888    888 888 "Y8888b.
+Y88b. .d88P Y88b.  888 888      X88
+ "Y88888P"   "Y888 888 888  88888P'
+
+php artisan infyom:api_scaffold Language                            --prefix=admin --fromTable --tableName=languages                                          --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold FrontSection                        --prefix=admin --fromTable --tableName=front_sections                                     --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold Screen                              --prefix=admin --fromTable --tableName=screens                                            --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold ScreenFrontSection                  --prefix=admin --fromTable --tableName=screen_front_sections                              --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold StatusTranslation                   --prefix=admin --fromTable --tableName=status_translations                                --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold Status                              --prefix=admin --fromTable --tableName=statuses                                           --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold TagTranslation                      --prefix=admin --fromTable --tableName=tag_translations                                   --skip=migration,dump-autoload
+php artisan infyom:api_scaffold ClientRequest                       --prefix=admin --fromTable --tableName=client_requests                                    --skip=migration,dump-autoload
+
+888     888                                    d8b
+888     888                                    Y8P
+888     888
+888     888 .d8888b  888  888  8888b.  888d888 888  .d88b.
+888     888 88K      888  888     "88b 888P"   888 d88""88b
+888     888 "Y8888b. 888  888 .d888888 888     888 888  888
+Y88b. .d88P      X88 Y88b 888 888  888 888     888 Y88..88P
+ "Y88888P"   88888P'  "Y88888 "Y888888 888     888  "Y88P"
+
+php artisan infyom:api_scaffold Role                                --prefix=admin --fromTable --tableName=roles                                              --skip=migration,dump-autoload
+php artisan infyom:api_scaffold Module                              --prefix=admin --fromTable --tableName=modules                                            --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold Permission                          --prefix=admin --fromTable --tableName=permissions                                        --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,tests,menu,dump-autoload
+php artisan infyom:api_scaffold RoleUser                            --prefix=admin --fromTable --tableName=role_user                                          --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,tests,menu,dump-autoload
+php artisan infyom:api_scaffold PermissionRole                      --prefix=admin --fromTable --tableName=permission_role                                    --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,tests,menu,dump-autoload
+php artisan infyom:api_scaffold PermissionUser                      --prefix=admin --fromTable --tableName=permission_user                                    --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,tests,menu,dump-autoload
+php artisan infyom:api_scaffold User                                --prefix=admin --fromTable --tableName=users                                              --skip=migration,model,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,tests,menu,dump-autoload
+php artisan infyom:api_scaffold UserAddress                         --prefix=admin --fromTable --tableName=user_addresses                                     --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,tests,menu,dump-autoload
+#php artisan infyom:api_scaffold PasswordReset                      --prefix=admin --fromTable --tableName=password_resets                                    --skip=migration,model,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+
+
+
+88888888888
+    888
+    888
+    888      .d88b.      888d888  .d88b.  888  888  .d88b.  888d888 .d8888b   .d88b.       8888b.  88888b.
+    888     d88""88b     888P"   d8P  Y8b 888  888 d8P  Y8b 888P"   88K      d8P  Y8b         "88b 888 "88b
+    888     888  888     888     88888888 Y88  88P 88888888 888     "Y8888b. 88888888     .d888888 888  888
+    888     Y88..88P     888     Y8b.      Y8bd8P  Y8b.     888          X88 Y8b.         888  888 888  888
+    888      "Y88P"      888      "Y8888    Y88P    "Y8888  888      88888P'  "Y8888      "Y888888 888  888
+
+8888888           .d888           .d88888b.                                                                                         888
+  888            d88P"           d88P" "Y88b                                                                                        888
+  888            888             888     888                                                                                        888
+  888   88888b.  888888 888  888 888     888 88888b.d88b.       .d8888b  .d88b.  88888b.d88b.  88888b.d88b.   8888b.  88888b.   .d88888
+  888   888 "88b 888    888  888 888     888 888 "888 "88b     d88P"    d88""88b 888 "888 "88b 888 "888 "88b     "88b 888 "88b d88" 888
+  888   888  888 888    888  888 888     888 888  888  888     888      888  888 888  888  888 888  888  888 .d888888 888  888 888  888
+  888   888  888 888    Y88b 888 Y88b. .d88P 888  888  888     Y88b.    Y88..88P 888  888  888 888  888  888 888  888 888  888 Y88b 888
+8888888 888  888 888     "Y88888  "Y88888P"  888  888  888      "Y8888P  "Y88P"  888  888  888 888  888  888 "Y888888 888  888  "Y88888
+                             888
+                        Y8b d88P
+                         "Y88P"
+
+php artisan infyom:rollback $MODEL_NAME $COMMAND_TYPE
+$MODEL_NAME - Its a model name for which you want to delete files
+$COMMAND_TYPE - Command type from api, scaffold or api_scaffold
