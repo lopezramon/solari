@@ -63,6 +63,10 @@ import navaccount from '../components/myaccount/navaccount.vue';
 import createAccount from '../components/myaccount/createAccount.vue';
 import clientLogin from '../components/myaccount/clientLogin.vue';
 import headerAccount from '../components/myaccount/headerAccount.vue';
+<<<<<<< HEAD
+=======
+import account_table from '../components/myaccount/account_table.vue';
+>>>>>>> 7349836e4cc51abb3f7c9d2b24fa81a248136af2
 
 
 //componentes generales
@@ -98,7 +102,6 @@ Vue.component('headerAccount', headerAccount);
 
 
 
-
 //rutas
 
 let router = new Router({
@@ -123,8 +126,14 @@ let router = new Router({
             path: '/delate_account',
             name: 'delate_account',
             component: delate_account
-        },        
-        {       
+        },
+        {
+
+            path: '/account_table',
+            name: 'account_table',
+            component: account_table
+        },
+        {
 
             path: '/contactUs',
             name: 'contactUs',
@@ -156,8 +165,18 @@ let router = new Router({
             name: 'createAccount',
             component: createAccount
         },
+<<<<<<< HEAD
 
          
+=======
+        {
+            path: '/resetPassword',
+            name: 'resetPassword',
+            component: resetPassword
+        },
+
+
+>>>>>>> 7349836e4cc51abb3f7c9d2b24fa81a248136af2
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
