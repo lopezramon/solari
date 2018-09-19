@@ -82007,46 +82007,36 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container mt-5 mb-5" }, [
       _c("table", { staticClass: "table" }, [
         _c("thead", { staticClass: "thead-dark" }, [
-          _c("tr", [
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+          _c("tr", { staticClass: "text-center" }, [
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("N RESERVA")]),
             _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("First")]),
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("FECHA")]),
             _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Last")]),
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("STATUS")]),
             _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Handle")])
+            _c("th", { attrs: { scope: "col" } }, [_vm._v("ACTION")])
           ])
         ]),
         _vm._v(" "),
         _c("tbody", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
+          _c("tr", { staticClass: "text-center" }, [
+            _c("td", [_vm._v("123123123")]),
             _vm._v(" "),
-            _c("td", [_vm._v("Mark")]),
+            _c("td", [_vm._v("01/02/2011")]),
             _vm._v(" "),
-            _c("td", [_vm._v("Otto")]),
+            _c("td", [_vm._v("ACTIVO")]),
             _vm._v(" "),
             _c("td", [_vm._v("@mdo")])
           ]),
           _vm._v(" "),
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v("2")]),
+          _c("tr", { staticClass: "text-center" }, [
+            _c("td", [_vm._v("123123123")]),
             _vm._v(" "),
-            _c("td", [_vm._v("Jacob")]),
+            _c("td", [_vm._v("01/02/2011")]),
             _vm._v(" "),
-            _c("td", [_vm._v("Thornton")]),
+            _c("td", [_vm._v("CANCELADA")]),
             _vm._v(" "),
             _c("td", [_vm._v("@fat")])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v("3")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Larry")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("the Bird")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@twitter")])
           ])
         ])
       ])
