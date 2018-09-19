@@ -30,6 +30,11 @@
                             From:<br>
                             <strong v-text="room.price"></strong>
                         </p>
+                        <p>
+                        <button type="button" :disabled="checkDisabled(room)" @click.prevent="AddCart(room)" class="btn btn-primary text-uppercase">
+                            Add
+                        </button>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -131,6 +136,25 @@ export default {
                     ], 
                 }
             ]
+        }
+    },methods:{
+        AddCart(item){
+            this.$store.commit('addCart',{list: item});
+            this.$swal({
+              title: "Di Successo!",
+              text: "è stato aggiunto con successo!",
+              icon: "success",
+              button: "Close",
+            });
+        },checkDisabled(item){
+            let data=this.$store.getters.getCart;
+            for (let i in data){
+                if(data[i].id==item.id){
+                    return true;
+                    break;
+                }
+            }
+            return false;
         }
     }
 }
