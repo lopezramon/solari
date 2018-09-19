@@ -38,7 +38,17 @@ class RoomAPIController extends AppBaseController
     {
         $this->roomRepository->pushCriteria(new RequestCriteria($request));
         $this->roomRepository->pushCriteria(new LimitOffsetCriteria($request));
-        $rooms = $this->roomRepository->getCustomized();
+
+        $input = $request->all();
+
+        $dates = [
+            ['start_date', '>=', $input['checkin']],
+            ['end_date', '<=', $input['checkout']]
+        ];
+
+        // dd($dates);
+
+        $rooms = $this->roomRepository->getCustomized(null, $dates);
 
         return $this->sendResponse(['rooms' => $rooms], 'Rooms retrieved successfully');
     }
