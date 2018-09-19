@@ -33,18 +33,36 @@
 
                     <!-- Datos del responsable -->
                     <div class="border">
-                        <div class="bg-secondary border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Datos del responsable</strong>
-                        </div>
-                        <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Reservado Para:</strong>
-                        </div>
-                        <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Email:</strong>
-                        </div>
-                        <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Numero:</strong>
-                        </div>
+                        <template v-for="room in listRooms" >
+                            <div class="bg-secondary border-bottom p-2">
+                                <strong class="m-0 text-uppercase">Responsable: {{room.name}}</strong>
+                            </div>
+                            <div class="border-bottom p-2">
+                                <label :for="'name_reserva_'+room.id" class="font-weight-bold">  
+                                    <span class="text-success" :class="{'text-danger': errors.has('name_reserva_'+room.id) }">*</span>
+                                    Reservado Para
+                                </label>                                
+                                <input  type="text"  :name="'name_reserva_'+room.id" :id="'name_reserva_'+room.id" class="form-control input_name" v-validate="'required'">
+                                 <small v-show="errors.has('name_reserva_'+room.id)" class="help text-danger">{{ errors.first('name_reserva_'+room.id) }}</small>
+                            </div>
+                            <div class="border-bottom p-2">
+                                <label :for="'email_reserva_'+room.id" class="font-weight-bold">  
+                                    <span class="text-success" :class="{'text-danger': errors.has('email_reserva_'+room.id) }">*</span>
+                                    Email
+                                </label>    
+                                <input type="email" :id="'email_reserva_'+room.id" :name="'email_reserva_'+room.id" class="form-control input_email" v-validate="'required|email'">
+                                <small v-show="errors.has('email_reserva_'+room.id)" class="help text-danger">{{ errors.first('email_reserva_'+room.id) }}</small>
+                            </div>
+                            <div class="border-bottom p-2">                               
+                                <label :for="'num_reserva_'+room.id" class="font-weight-bold">  
+                                    <span class="text-success" :class="{'text-danger': errors.has('num_reserva_'+room.id) }">*</span>
+                                    Numero
+                                </label> 
+                                <strong class="m-0 text-uppercase">Numero:</strong>
+                                <input :data-id="room.id" :id="'num_reserva_'+room.id"  v-on:keyup="cantVisitante" type="number" :name="'num_reserva_'+room.id" class="form-control input_num" v-validate="'required|min_value:1'">
+                                <small v-show="errors.has('num_reserva_'+room.id)" class="help text-danger">{{ errors.first('num_reserva_'+room.id) }}</small>
+                            </div>
+                        </template>
                     </div>
 
                     <!-- Datos de reserva -->
@@ -52,28 +70,32 @@
                         <div class="bg-secondary border-bottom p-2">
                             <strong class="m-0 text-uppercase">Datos de la reserva</strong>
                         </div>
-                        <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">ROOM:</strong> 101
-                        </div>
-                        <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">ROOM:</strong> 102
-                        </div>
+                        <template v-for="room in listRooms">
+                             <div class="border-bottom p-2">
+                                <strong class="m-0 text-uppercase">{{room.name}}</strong>
+                            </div>
+                        </template>
+                       
                         <div class="border-bottom p-2">
                             <strong class="m-0 text-uppercase">Cantidadde visitantes:</strong>
+                            {{cant_visitantes}}
                         </div>
                         <div class="border-bottom p-2">
                             <strong class="m-0 text-uppercase">Fecha de entrada</strong>
+                            {{getCheckin}}
                         </div>
                         <div class="border-bottom p-2">
                             <strong class="m-0 text-uppercase">Fecha de Salida</strong>
+                            {{getCheckout}}
                         </div>
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Precio</strong> $80
+                            <strong class="m-0 text-uppercase">Precio</strong> 
+                            € {{getTotal}}
                         </div>
                         <!-- textarea -->
                         <div class="border-bottom p-2">
                             <div class="form-group">
-                                <textarea class="form-control">COMENTARIOS:</textarea>
+                                <textarea v-model="comentario" class="form-control">COMENTARIOS:</textarea>
                             </div>
                         </div>
                     </div>
@@ -87,36 +109,18 @@
                     
                     <!-- datos rooms -->
                     <div class="border bg-secondary">
-                        <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">ROOM 101</strong> 
-                            <span>$1000</span> 
-                            <span class="delete"><img width="22" src="/images/iconos/delete.svg" alt="delete"></span>
-                        </div>
-                        <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">ROOM 102</strong> 
-                            <span>$1000</span> 
-                            <span class="delete"><img width="22" src="/images/iconos/delete.svg" alt="delete"></span>
-                        </div>
-                        <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">ROOM 103</strong> 
-                            <span>$1000</span> 
-                            <span class="delete"><img width="22" src="/images/iconos/delete.svg" alt="delete"></span>
-                        </div>
-                        <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">ROOM 104</strong> 
-                            <span>$1000</span> 
-                            <span class="delete"><img width="22" src="/images/iconos/delete.svg" alt="delete"></span>
-                        </div>
-                        <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">Precio total:</strong> 
-                            <strong>$1000</strong> 
-                        </div>
-                        
+                        <template v-for="room in listRooms">
+                            <div class="border-bottom p-2 d-flex justify-content-between">
+                                <strong class="m-0 text-uppercase">{{room.name}}</strong> 
+                                <span>€ {{room.price}}</span> 
+                                <a class="delete" @click.prevent="deleteItem(room)" ><img width="22" src="/images/iconos/delete.svg" alt="delete"></a>
+                            </div>
+                        </template>
                     </div>
 
                     <div class="text-center mt-4">
                         <div>
-                            <a href="#" class="">
+                            <a @click.prevent="paypal()" class="">
                                 <img width="100px" src="/images/iconos/paypal_logo.png" alt="paypal">
                             </a>
                             <p class="mt-2">
@@ -137,25 +141,127 @@ export default {
             user:{
                 name_reserva:null,
                 telef_reserva:null,
-                identidad_reserva:null
+                identidad_reserva:null,
+                id:null,
             },
+            cant_visitantes:0,
+            comentario:null,
+            rooms:[],
+            orden:null,
             // disabledActivo: false,
             // terminos:false
         }
-    },methods:{
-       getDataUser(){
-        let data=this.$store.getters.getUser;
-        this.user.name_reserva=data.name+' '+data.lastname;
-        this.user.telef_reserva=data.phone;
-        this.user.identidad_reserva=data.identidad;
-       }
     },
     computed:{
         getAuthenticated(){
           return this.$store.getters.getAuthenticated;
+        },
+        listRooms(){
+          this.rooms=this.$store.getters.getCart;
+          return this.rooms;
+        },
+        getCheckin(){
+            let data=this.$store.getters.getDataFilter;
+            return Vue.moment(data.checkin).format('YYYY/MMM/DD').toUpperCase();
+        },
+        getCheckout(){
+            let data=this.$store.getters.getDataFilter;
+            return Vue.moment(data.checkout).format('YYYY/MMM/DD').toUpperCase();
+        },
+        getTotal(){
+            return  this.$store.getters.getTotal.toFixed(2);
         }
     },mounted(){
         this.getDataUser();
+       if(this.$store.getters.getTotal==0){
+            this.showAlert('error', 'Errore!!', 'carrello vuoto')
+       }   
+    },methods:{
+        getDataUser(){
+            let data=this.$store.getters.getUser;
+            if(data.id!=null){
+                this.user.name_reserva=data.name+' '+data.lastname;
+                this.user.telef_reserva=data.phone;
+                this.user.identidad_reserva=data.identidad;
+                this.user.id=data.id;
+            }
+            
+        },
+        showAlert(type, title, text) {
+            this.$swal({
+                position: 'center',
+                type: type,
+                title: title,
+                text: text,
+                showConfirmButton: false,
+                showCloseButton: true,
+            })
+        },
+        deleteItem(item){
+           this.$store.commit('removerItem',{list: item}); 
+            var total_item=0;
+            $( document ).ready(function() {
+             $('.input_num').each(function(){
+                var idroom=$(this).attr('data-id');
+                if(idroom==item.id){
+                    total_item=$(this).val();
+                }
+             });
+           });
+           this.cant_visitantes=parseInt(this.cant_visitantes)-parseInt(total_item);
+           if(this.$store.getters.getTotal==0){
+            this.$router.push('/booking/step-1');
+           }          
+        },
+        cantVisitante(){
+            var total=0;
+            $( document ).ready(function() {
+             $('.input_num').each(function(){
+                total+=parseInt($(this).val());
+             });
+           });
+           if(!isNaN(total)){
+            this.cant_visitantes=total;
+           }else{
+             this.cant_visitantes=0;
+           }    
+        },
+        paypal(){
+            var slf=this;
+            this.$validator.validateAll().then((result) => {
+                
+                var rooms=this.$store.getters.getCart;
+                var form=[];
+                for(var i in rooms){
+                   var obj={};
+                   obj.idroom=rooms[i].id;
+                   obj.name=document.getElementById("name_reserva_"+rooms[i].id).value;
+                   obj.email=document.getElementById("email_reserva_"+rooms[i].id).value;
+                   obj.numero=document.getElementById("num_reserva_"+rooms[i].id).value;
+                   form.push(obj);
+                }
+                var objform={};
+                objform.comentario=this.comentario;
+                objform.datos_reserva=form;
+                objform.cart=this.$store.getters.getBooking;
+                objform.user_id=this.user.id;
+                this.orden=objform;
+                
+                
+                // axios.post('/api/contactus', this.form).then((res) => {
+                //     if (res) {
+                //         this.loading = false;
+                //         this.showAlert('success', 'Gracias por contactar  con nosotros, pronto te responderemos.');
+                //         this.cleanForm();
+                //     }
+                // }).catch((error) => {
+                //     this.loading = false;
+                //     this.showAlert('error', 'Por favor verifica los datos enviados.');
+                // })
+            }).catch(() => {
+                console.log('error form')
+            });
+        }
     }
 }
 </script>
@@ -181,5 +287,11 @@ export default {
 .map iframe{
     width: 100%;
     height: 100%;
+}
+.text-success{
+    font-size: 1.5rem;
+}
+.delete{
+    cursor:pointer;
 }
 </style>

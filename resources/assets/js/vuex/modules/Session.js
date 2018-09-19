@@ -2,13 +2,14 @@ export default {
     state: {
       user:{
         data:{
+            id:1,
             name:'Carla',
             lastname:'Ramirez',
             token: 'XXXXXXXX',
             phone:'233444334433',
             role: '1',
             email:'carla@gmail.com',
-            identidad:'3232323223'
+            identidad:'3232323223',
         },
         authenticated:true,
       },

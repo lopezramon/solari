@@ -70437,6 +70437,7 @@ var index_esm = {
     state: {
         user: {
             data: {
+                id: 1,
                 name: 'Carla',
                 lastname: 'Ramirez',
                 token: 'XXXXXXXX',
@@ -70490,6 +70491,9 @@ var index_esm = {
     },
     getTotal: function getTotal(state) {
       return state.booking.total;
+    },
+    getBooking: function getBooking(state) {
+      return state.booking;
     }
   },
   mutations: {
@@ -102269,7 +102273,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.bg-secondary[data-v-4ee41f5f]{\r\n    background-color: #c7c7c7 !important;\n}\n.form-control[data-v-4ee41f5f]{\r\n    background-color: transparent;\r\n    border-radius: 0px;\n}\n.form-control[data-v-4ee41f5f]:focus {\r\n    border-color: #ced4da;\n}\n.delete[data-v-4ee41f5f]{\r\n    cursor: pointer;\n}\n.map[data-v-4ee41f5f]{\r\n    width: 100%;\r\n    height: 260px;\n}\n.map iframe[data-v-4ee41f5f]{\r\n    width: 100%;\r\n    height: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.bg-secondary[data-v-4ee41f5f]{\r\n    background-color: #c7c7c7 !important;\n}\n.form-control[data-v-4ee41f5f]{\r\n    background-color: transparent;\r\n    border-radius: 0px;\n}\n.form-control[data-v-4ee41f5f]:focus {\r\n    border-color: #ced4da;\n}\n.delete[data-v-4ee41f5f]{\r\n    cursor: pointer;\n}\n.map[data-v-4ee41f5f]{\r\n    width: 100%;\r\n    height: 260px;\n}\n.map iframe[data-v-4ee41f5f]{\r\n    width: 100%;\r\n    height: 100%;\n}\n.text-success[data-v-4ee41f5f]{\r\n    font-size: 1.5rem;\n}\n.delete[data-v-4ee41f5f]{\r\n    cursor:pointer;\n}\r\n", ""]);
 
 // exports
 
@@ -102412,6 +102416,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -102419,26 +102427,129 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             user: {
                 name_reserva: null,
                 telef_reserva: null,
-                identidad_reserva: null
-            }
+                identidad_reserva: null,
+                id: null
+            },
+            cant_visitantes: 0,
+            comentario: null,
+            rooms: [],
+            orden: null
             // disabledActivo: false,
             // terminos:false
         };
     },
-    methods: {
-        getDataUser: function getDataUser() {
-            var data = this.$store.getters.getUser;
-            this.user.name_reserva = data.name + ' ' + data.lastname;
-            this.user.telef_reserva = data.phone;
-            this.user.identidad_reserva = data.identidad;
-        }
-    },
+
     computed: {
         getAuthenticated: function getAuthenticated() {
             return this.$store.getters.getAuthenticated;
+        },
+        listRooms: function listRooms() {
+            this.rooms = this.$store.getters.getCart;
+            return this.rooms;
+        },
+        getCheckin: function getCheckin() {
+            var data = this.$store.getters.getDataFilter;
+            return Vue.moment(data.checkin).format('YYYY/MMM/DD').toUpperCase();
+        },
+        getCheckout: function getCheckout() {
+            var data = this.$store.getters.getDataFilter;
+            return Vue.moment(data.checkout).format('YYYY/MMM/DD').toUpperCase();
+        },
+        getTotal: function getTotal() {
+            return this.$store.getters.getTotal.toFixed(2);
         }
     }, mounted: function mounted() {
         this.getDataUser();
+        if (this.$store.getters.getTotal == 0) {
+            this.showAlert('error', 'Errore!!', 'carrello vuoto');
+        }
+    },
+    methods: {
+        getDataUser: function getDataUser() {
+            var data = this.$store.getters.getUser;
+            if (data.id != null) {
+                this.user.name_reserva = data.name + ' ' + data.lastname;
+                this.user.telef_reserva = data.phone;
+                this.user.identidad_reserva = data.identidad;
+                this.user.id = data.id;
+            }
+        },
+        showAlert: function showAlert(type, title, text) {
+            this.$swal({
+                position: 'center',
+                type: type,
+                title: title,
+                text: text,
+                showConfirmButton: false,
+                showCloseButton: true
+            });
+        },
+        deleteItem: function deleteItem(item) {
+            this.$store.commit('removerItem', { list: item });
+            var total_item = 0;
+            $(document).ready(function () {
+                $('.input_num').each(function () {
+                    var idroom = $(this).attr('data-id');
+                    if (idroom == item.id) {
+                        total_item = $(this).val();
+                    }
+                });
+            });
+            this.cant_visitantes = parseInt(this.cant_visitantes) - parseInt(total_item);
+            if (this.$store.getters.getTotal == 0) {
+                this.$router.push('/booking/step-1');
+            }
+        },
+        cantVisitante: function cantVisitante() {
+            var total = 0;
+            $(document).ready(function () {
+                $('.input_num').each(function () {
+                    total += parseInt($(this).val());
+                });
+            });
+            if (!isNaN(total)) {
+                this.cant_visitantes = total;
+            } else {
+                this.cant_visitantes = 0;
+            }
+        },
+        paypal: function paypal() {
+            var _this = this;
+
+            var slf = this;
+            this.$validator.validateAll().then(function (result) {
+
+                var rooms = _this.$store.getters.getCart;
+                var form = [];
+                for (var i in rooms) {
+                    var obj = {};
+                    obj.idroom = rooms[i].id;
+                    obj.name = document.getElementById("name_reserva_" + rooms[i].id).value;
+                    obj.email = document.getElementById("email_reserva_" + rooms[i].id).value;
+                    obj.numero = document.getElementById("num_reserva_" + rooms[i].id).value;
+                    form.push(obj);
+                }
+                var objform = {};
+                objform.comentario = _this.comentario;
+                objform.datos_reserva = form;
+                objform.cart = _this.$store.getters.getBooking;
+                objform.user_id = _this.user.id;
+                _this.orden = objform;
+
+                // axios.post('/api/contactus', this.form).then((res) => {
+                //     if (res) {
+                //         this.loading = false;
+                //         this.showAlert('success', 'Gracias por contactar  con nosotros, pronto te responderemos.');
+                //         this.cleanForm();
+                //     }
+                // }).catch((error) => {
+                //     this.loading = false;
+                //     this.showAlert('error', 'Por favor verifica los datos enviados.');
+                // })
+            }).catch(function () {
+                console.log('error form');
+            });
+        }
     }
 });
 
@@ -102584,12 +102695,400 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(1),
+            _c(
+              "div",
+              { staticClass: "border" },
+              [
+                _vm._l(_vm.listRooms, function(room) {
+                  return [
+                    _c(
+                      "div",
+                      { staticClass: "bg-secondary border-bottom p-2" },
+                      [
+                        _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                          _vm._v("Responsable: " + _vm._s(room.name))
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "border-bottom p-2" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "font-weight-bold",
+                          attrs: { for: "name_reserva_" + room.id }
+                        },
+                        [
+                          _c(
+                            "span",
+                            {
+                              staticClass: "text-success",
+                              class: {
+                                "text-danger": _vm.errors.has(
+                                  "name_reserva_" + room.id
+                                )
+                              }
+                            },
+                            [_vm._v("*")]
+                          ),
+                          _vm._v(
+                            "\n                                Reservado Para\n                            "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "validate",
+                            rawName: "v-validate",
+                            value: "required",
+                            expression: "'required'"
+                          }
+                        ],
+                        staticClass: "form-control input_name",
+                        attrs: {
+                          type: "text",
+                          name: "name_reserva_" + room.id,
+                          id: "name_reserva_" + room.id
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "small",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("name_reserva_" + room.id),
+                              expression: "errors.has('name_reserva_'+room.id)"
+                            }
+                          ],
+                          staticClass: "help text-danger"
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(_vm.errors.first("name_reserva_" + room.id))
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "border-bottom p-2" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "font-weight-bold",
+                          attrs: { for: "email_reserva_" + room.id }
+                        },
+                        [
+                          _c(
+                            "span",
+                            {
+                              staticClass: "text-success",
+                              class: {
+                                "text-danger": _vm.errors.has(
+                                  "email_reserva_" + room.id
+                                )
+                              }
+                            },
+                            [_vm._v("*")]
+                          ),
+                          _vm._v(
+                            "\n                                Email\n                            "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "validate",
+                            rawName: "v-validate",
+                            value: "required|email",
+                            expression: "'required|email'"
+                          }
+                        ],
+                        staticClass: "form-control input_email",
+                        attrs: {
+                          type: "email",
+                          id: "email_reserva_" + room.id,
+                          name: "email_reserva_" + room.id
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "small",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("email_reserva_" + room.id),
+                              expression: "errors.has('email_reserva_'+room.id)"
+                            }
+                          ],
+                          staticClass: "help text-danger"
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(_vm.errors.first("email_reserva_" + room.id))
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "border-bottom p-2" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "font-weight-bold",
+                          attrs: { for: "num_reserva_" + room.id }
+                        },
+                        [
+                          _c(
+                            "span",
+                            {
+                              staticClass: "text-success",
+                              class: {
+                                "text-danger": _vm.errors.has(
+                                  "num_reserva_" + room.id
+                                )
+                              }
+                            },
+                            [_vm._v("*")]
+                          ),
+                          _vm._v(
+                            "\n                                Numero\n                            "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                        _vm._v("Numero:")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "validate",
+                            rawName: "v-validate",
+                            value: "required|min_value:1",
+                            expression: "'required|min_value:1'"
+                          }
+                        ],
+                        staticClass: "form-control input_num",
+                        attrs: {
+                          "data-id": room.id,
+                          id: "num_reserva_" + room.id,
+                          type: "number",
+                          name: "num_reserva_" + room.id
+                        },
+                        on: { keyup: _vm.cantVisitante }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "small",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("num_reserva_" + room.id),
+                              expression: "errors.has('num_reserva_'+room.id)"
+                            }
+                          ],
+                          staticClass: "help text-danger"
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(_vm.errors.first("num_reserva_" + room.id))
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                })
+              ],
+              2
+            ),
             _vm._v(" "),
-            _vm._m(2)
+            _c(
+              "div",
+              { staticClass: "border" },
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _vm._l(_vm.listRooms, function(room) {
+                  return [
+                    _c("div", { staticClass: "border-bottom p-2" }, [
+                      _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                        _vm._v(_vm._s(room.name))
+                      ])
+                    ])
+                  ]
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "border-bottom p-2" }, [
+                  _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                    _vm._v("Cantidadde visitantes:")
+                  ]),
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.cant_visitantes) +
+                      "\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "border-bottom p-2" }, [
+                  _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                    _vm._v("Fecha de entrada")
+                  ]),
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.getCheckin) +
+                      "\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "border-bottom p-2" }, [
+                  _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                    _vm._v("Fecha de Salida")
+                  ]),
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.getCheckout) +
+                      "\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "border-bottom p-2" }, [
+                  _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                    _vm._v("Precio")
+                  ]),
+                  _vm._v(
+                    " \n                        € " +
+                      _vm._s(_vm.getTotal) +
+                      "\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "border-bottom p-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "textarea",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.comentario,
+                            expression: "comentario"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        domProps: { value: _vm.comentario },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.comentario = $event.target.value
+                          }
+                        }
+                      },
+                      [_vm._v("COMENTARIOS:")]
+                    )
+                  ])
+                ])
+              ],
+              2
+            )
           ]),
           _vm._v(" "),
-          _vm._m(3)
+          _c("div", { staticClass: "col-12 col-lg-5" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "border bg-secondary" },
+              [
+                _vm._l(_vm.listRooms, function(room) {
+                  return [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "border-bottom p-2 d-flex justify-content-between"
+                      },
+                      [
+                        _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                          _vm._v(_vm._s(room.name))
+                        ]),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("€ " + _vm._s(room.price))]),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "delete",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.deleteItem(room)
+                              }
+                            }
+                          },
+                          [
+                            _c("img", {
+                              attrs: {
+                                width: "22",
+                                src: "/images/iconos/delete.svg",
+                                alt: "delete"
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-center mt-4" }, [
+              _c("div", [
+                _c(
+                  "a",
+                  {
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.paypal()
+                      }
+                    }
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        width: "100px",
+                        src: "/images/iconos/paypal_logo.png",
+                        alt: "paypal"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "mt-2" }, [
+                  _vm._v(
+                    "\n                            Haz click en la imagen para procesar el pago\n                        "
+                  )
+                ])
+              ])
+            ])
+          ])
         ])
       ])
     ],
@@ -102611,25 +103110,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "border" }, [
-      _c("div", { staticClass: "bg-secondary border-bottom p-2" }, [
-        _c("strong", { staticClass: "m-0 text-uppercase" }, [
-          _vm._v("Datos del responsable")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "border-bottom p-2" }, [
-        _c("strong", { staticClass: "m-0 text-uppercase" }, [
-          _vm._v("Reservado Para:")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "border-bottom p-2" }, [
-        _c("strong", { staticClass: "m-0 text-uppercase" }, [_vm._v("Email:")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "border-bottom p-2" }, [
-        _c("strong", { staticClass: "m-0 text-uppercase" }, [_vm._v("Numero:")])
+    return _c("div", { staticClass: "bg-secondary border-bottom p-2" }, [
+      _c("strong", { staticClass: "m-0 text-uppercase" }, [
+        _vm._v("Datos de la reserva")
       ])
     ])
   },
@@ -102637,193 +103120,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "border" }, [
-      _c("div", { staticClass: "bg-secondary border-bottom p-2" }, [
-        _c("strong", { staticClass: "m-0 text-uppercase" }, [
-          _vm._v("Datos de la reserva")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "border-bottom p-2" }, [
-        _c("strong", { staticClass: "m-0 text-uppercase" }, [_vm._v("ROOM:")]),
-        _vm._v(" 101\n                    ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "border-bottom p-2" }, [
-        _c("strong", { staticClass: "m-0 text-uppercase" }, [_vm._v("ROOM:")]),
-        _vm._v(" 102\n                    ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "border-bottom p-2" }, [
-        _c("strong", { staticClass: "m-0 text-uppercase" }, [
-          _vm._v("Cantidadde visitantes:")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "border-bottom p-2" }, [
-        _c("strong", { staticClass: "m-0 text-uppercase" }, [
-          _vm._v("Fecha de entrada")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "border-bottom p-2" }, [
-        _c("strong", { staticClass: "m-0 text-uppercase" }, [
-          _vm._v("Fecha de Salida")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "border-bottom p-2" }, [
-        _c("strong", { staticClass: "m-0 text-uppercase" }, [_vm._v("Precio")]),
-        _vm._v(" $80\n                    ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "border-bottom p-2" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("textarea", { staticClass: "form-control" }, [
-            _vm._v("COMENTARIOS:")
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-lg-5" }, [
-      _c("div", { staticClass: "map mb-3" }, [
-        _c("iframe", {
-          staticStyle: { border: "0" },
-          attrs: {
-            src:
-              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48231.14914404061!2d9.457766413671393!3d40.92787347617706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d94b04024bea79%3A0x7bfe3270a490c808!2s07026+Olbia%2C+Olbia-Tempio%2C+Italia!5e0!3m2!1ses!2sve!4v1537229576871",
-            frameborder: "0",
-            allowfullscreen: ""
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "border bg-secondary" }, [
-        _c(
-          "div",
-          { staticClass: "border-bottom p-2 d-flex justify-content-between" },
-          [
-            _c("strong", { staticClass: "m-0 text-uppercase" }, [
-              _vm._v("ROOM 101")
-            ]),
-            _vm._v(" "),
-            _c("span", [_vm._v("$1000")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "delete" }, [
-              _c("img", {
-                attrs: {
-                  width: "22",
-                  src: "/images/iconos/delete.svg",
-                  alt: "delete"
-                }
-              })
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "border-bottom p-2 d-flex justify-content-between" },
-          [
-            _c("strong", { staticClass: "m-0 text-uppercase" }, [
-              _vm._v("ROOM 102")
-            ]),
-            _vm._v(" "),
-            _c("span", [_vm._v("$1000")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "delete" }, [
-              _c("img", {
-                attrs: {
-                  width: "22",
-                  src: "/images/iconos/delete.svg",
-                  alt: "delete"
-                }
-              })
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "border-bottom p-2 d-flex justify-content-between" },
-          [
-            _c("strong", { staticClass: "m-0 text-uppercase" }, [
-              _vm._v("ROOM 103")
-            ]),
-            _vm._v(" "),
-            _c("span", [_vm._v("$1000")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "delete" }, [
-              _c("img", {
-                attrs: {
-                  width: "22",
-                  src: "/images/iconos/delete.svg",
-                  alt: "delete"
-                }
-              })
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "border-bottom p-2 d-flex justify-content-between" },
-          [
-            _c("strong", { staticClass: "m-0 text-uppercase" }, [
-              _vm._v("ROOM 104")
-            ]),
-            _vm._v(" "),
-            _c("span", [_vm._v("$1000")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "delete" }, [
-              _c("img", {
-                attrs: {
-                  width: "22",
-                  src: "/images/iconos/delete.svg",
-                  alt: "delete"
-                }
-              })
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "border-bottom p-2 d-flex justify-content-between" },
-          [
-            _c("strong", { staticClass: "m-0 text-uppercase" }, [
-              _vm._v("Precio total:")
-            ]),
-            _vm._v(" "),
-            _c("strong", [_vm._v("$1000")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "text-center mt-4" }, [
-        _c("div", [
-          _c("a", { attrs: { href: "#" } }, [
-            _c("img", {
-              attrs: {
-                width: "100px",
-                src: "/images/iconos/paypal_logo.png",
-                alt: "paypal"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "mt-2" }, [
-            _vm._v(
-              "\n                            Haz click en la imagen para procesar el pago\n                        "
-            )
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "map mb-3" }, [
+      _c("iframe", {
+        staticStyle: { border: "0" },
+        attrs: {
+          src:
+            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48231.14914404061!2d9.457766413671393!3d40.92787347617706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d94b04024bea79%3A0x7bfe3270a490c808!2s07026+Olbia%2C+Olbia-Tempio%2C+Italia!5e0!3m2!1ses!2sve!4v1537229576871",
+          frameborder: "0",
+          allowfullscreen: ""
+        }
+      })
     ])
   }
 ]
