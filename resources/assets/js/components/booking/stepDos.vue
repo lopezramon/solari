@@ -160,7 +160,6 @@ export default {
 }
 </script>
 
-
 <style scoped>
 .bg-secondary{
     background-color: #c7c7c7 !important;
