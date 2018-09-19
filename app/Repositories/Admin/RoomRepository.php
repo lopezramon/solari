@@ -3,6 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Admin\Room;
+use Carbon\Carbon;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
@@ -52,22 +53,76 @@ class RoomRepository extends BaseRepository
      *
      * @return array
      */
-    public function getCustomized($columns = null, $where = null, $ids = null)
+    public function getCustomized($columns = null, $dates = null)
     {
         $columns = $columns ?? $this->customDefaultColumns;
 
-        // SI VIENEN WHERE
-        if ( $where == null ) {
-            $data = $this->all($columns);
-        }
-        else{
-            $data = $this->findWhere($where, $columns);
-        }
+        $dataAll = $this->all($columns);
 
-        // SI VIENEN LOS ID
-        if ( $ids != null ) {
-            $data = $this->findWhereIn('id', $ids);
-        }
+        // SI VIENEN DATES
+        $data = $dataAll->transform(function($room, $key) use($dates) {
+
+            $price = 0; // entero para guardar el precio de la habitacion segun el rango
+            $two_seasons = false; // flag para saber si el rango esta en dos temporadas
+
+            // recorro cada una de las temporadas de la habitacion
+            foreach ($room->roomSeasons->sortBy('start_date') as $key => $season) {
+
+                // OBTENGO LOS VALORES DEL RANGO A BUSCAR (con Carbon)
+                $checkin_request = Carbon::createFromFormat('Y-m-d H', $dates[0][2].' 0');
+                $checkout_request = Carbon::createFromFormat('Y-m-d H', $dates[1][2].' 0');
+
+                // SI ENTRA EN ESTE IF: EL RANGO DE CONSULTA SE ENCUENTRA EN UNA SOLA TEMPORADA
+                if ( $season->start_date->lessThanOrEqualTo($checkin_request) &&
+                    $season->end_date->greaterThanOrEqualTo($checkout_request) ) {
+
+                    /*print_r([
+                        'first',
+                        $season->id
+                    ]);*/
+
+                    $days = $checkin_request->diffInDays($checkout_request) + 1;
+                    $price = $days * $season->price;
+                }
+
+                // SI ENTRA EN ESTE IF: EL RANGO DE CONSULTA SE ENCUENTRA EN DOS O MAS TEMPORADAS
+                else if ( $season->start_date->lessThanOrEqualTo($checkin_request) &&
+                    $season->end_date->lessThan($checkout_request) ) {
+
+                    /*print_r([
+                        'second',
+                        $season->id
+                    ]);*/
+
+                    $days   = $checkin_request->diffInDays($season->end_date) + 1;
+                    $price  = $days * $season->price;
+
+                    $two_seasons = true;
+                }
+
+                if ( $two_seasons ) {
+
+                    // CAPTURO LA SEASON DONDE TERMINA EL RANGO
+                    if ( $checkout_request->between($season->start_date, $season->end_date) ) {
+                        $days2  = $season->start_date->diffInDays($checkout_request) + 1;
+                        $price2 = $days2 * $season->price;
+
+                        $price  += $price2;
+                        $days   += $days2;
+                        // print_r('JAAAAAAAA');
+                    }
+                }
+            }
+
+            // print '**';
+            // print_r($price);
+            // exit('**boom');
+
+            // ASIGNO EL PRICE RESULTANTE
+            $room->price = number_format($price, 2);
+
+            return $room;
+        });
 
         // helper personalizado para eliminar el model translation (ultimo index de cada elemento de la coleccion)
         $array = $this->clearUnusedColumns($data->toArray());
