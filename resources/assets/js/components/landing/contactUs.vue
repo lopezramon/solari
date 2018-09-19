@@ -194,6 +194,7 @@
                             this.loading = false;
                             this.showAlert('success', 'Gracias por contactar  con nosotros, pronto te responderemos.');
                             this.cleanForm();
+                            this.$router.push('/');
                         }
                     }).catch((error) => {
                         this.loading = false;

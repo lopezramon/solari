@@ -96647,6 +96647,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         _this.loading = false;
                         _this.showAlert('success', 'Gracias por contactar  con nosotros, pronto te responderemos.');
                         _this.cleanForm();
+                        _this.$router.push('/');
                     }
                 }).catch(function (error) {
                     _this.loading = false;
