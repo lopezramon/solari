@@ -15,11 +15,12 @@
                     <div>   
                         <!-- habilatar el link solo cuando se acepten los terminos -->
                             <div class="form-group">
-                                <input type="checkbox" name="terminos" id="" required v-model="botonActivo">
+                                <input v-model="terminos" type="checkbox" name="terminos" id="" required >
                                 <label for="terminos">Accetto termini e condizioni</label>
                             </div>
                             <div class="text-center">
-                                <a href="/booking/step-2" :class="botonActivo ? '' : 'disabled'" class="btn btn-primary text-uppercase">Continuo</a>
+                               <!--  <a  :class="botonActivo ? '' : 'disabled'" class="btn btn-primary text-uppercase">Continuo</a> -->
+                               <button type="button" @click.prevent="nextStep()" :disabled="!terminos" class="btn btn-primary text-uppercase">Continuo</button>
                             </div>
                     </div>
                 </div>
@@ -32,7 +33,26 @@
 export default {
     data(){
         return {
-            botonActivo: false,
+            disabledActivo: false,
+            terminos:false
+        }
+    },methods:{
+        nextStep(){
+            let total=this.$store.getters.getTotal;
+            if(this.terminos && total>0){
+                this.$router.push('/booking/step-2');
+            }else{
+                this.showAlert('error', 'Errore!!', 'carrello vuoto')
+            }            
+        },showAlert(type, title, text) {
+            this.$swal({
+                position: 'center',
+                type: type,
+                title: title,
+                text: text,
+                showConfirmButton: false,
+                showCloseButton: true,
+            })
         }
     }
 }

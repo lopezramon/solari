@@ -15,7 +15,7 @@ class CreateRoomCategoriesTable extends Migration
     {
         Schema::create('room_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('code', 10)->nullable()->default(null);
+            $table->text('code')->nullable()->default(null);
 
             $table->unsignedInteger('status_id')->default(1);
             $table->foreign('status_id')->references('id')->on('statuses');

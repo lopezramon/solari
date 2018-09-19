@@ -59,7 +59,7 @@ class Service extends Model
     use SoftDeletes;
 
     public $table = 'services';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -93,7 +93,7 @@ class Service extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -126,5 +126,18 @@ class Service extends Model
     public function serviceTranslations()
     {
         return $this->hasMany(\App\Models\Admin\ServiceTranslation::class);
+    }
+
+    /**
+     * Return the ServiceTranslation in current languague.
+     *
+     * @return ServiceTranslation
+     **/
+    public function serviceTranslation()
+    {
+        $language = Language::where('code', \App::getLocale())->first();
+        return $this->serviceTranslations->filter(function($serviceTranslation) use($language){
+            return $serviceTranslation->language_id == $language->id;
+        })->first();
     }
 }

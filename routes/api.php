@@ -50,73 +50,65 @@ Route::post('password/reset','Auth\ResetPasswordController@resetFront');
 // });
 
 
-// ProductCategory
-Route::get('admin/product_categories', 'API\Admin\ProductCategoryAPIController@index');
-Route::post('admin/product_categories', 'API\Admin\ProductCategoryAPIController@store')->middleware('auth');
-Route::get('admin/product_categories/{product_categories}', 'API\Admin\ProductCategoryAPIController@show');
-Route::put('admin/product_categories/{product_categories}', 'API\Admin\ProductCategoryAPIController@update')->middleware('auth');
-Route::patch('admin/product_categories/{product_categories}', 'API\Admin\ProductCategoryAPIController@update')->middleware('auth');
-Route::delete('admin/product_categories/{product_categories}', 'API\Admin\ProductCategoryAPIController@destroy')->middleware('auth');
+// // ProductCategory
+// Route::get('admin/product_categories', 'API\Admin\ProductCategoryAPIController@index');
+// Route::post('admin/product_categories', 'API\Admin\ProductCategoryAPIController@store')->middleware('auth');
+// Route::get('admin/product_categories/{product_categories}', 'API\Admin\ProductCategoryAPIController@show');
+// Route::put('admin/product_categories/{product_categories}', 'API\Admin\ProductCategoryAPIController@update')->middleware('auth');
+// Route::patch('admin/product_categories/{product_categories}', 'API\Admin\ProductCategoryAPIController@update')->middleware('auth');
+// Route::delete('admin/product_categories/{product_categories}', 'API\Admin\ProductCategoryAPIController@destroy')->middleware('auth');
 
-// ProductSubcategory
-Route::get('admin/product_subcategories', 'API\Admin\ProductSubcategoryAPIController@index');
-Route::post('admin/product_subcategories', 'API\Admin\ProductSubcategoryAPIController@store')->middleware('auth');
-Route::get('admin/product_subcategories/{product_subcategories}', 'API\Admin\ProductSubcategoryAPIController@show');
-Route::put('admin/product_subcategories/{product_subcategories}', 'API\Admin\ProductSubcategoryAPIController@update')->middleware('auth');
-Route::patch('admin/product_subcategories/{product_subcategories}', 'API\Admin\ProductSubcategoryAPIController@update')->middleware('auth');
-Route::delete('admin/product_subcategories/{product_subcategories}', 'API\Admin\ProductSubcategoryAPIController@destroy')->middleware('auth');
+// // ProductSubcategory
+// Route::get('admin/product_subcategories', 'API\Admin\ProductSubcategoryAPIController@index');
+// Route::post('admin/product_subcategories', 'API\Admin\ProductSubcategoryAPIController@store')->middleware('auth');
+// Route::get('admin/product_subcategories/{product_subcategories}', 'API\Admin\ProductSubcategoryAPIController@show');
+// Route::put('admin/product_subcategories/{product_subcategories}', 'API\Admin\ProductSubcategoryAPIController@update')->middleware('auth');
+// Route::patch('admin/product_subcategories/{product_subcategories}', 'API\Admin\ProductSubcategoryAPIController@update')->middleware('auth');
+// Route::delete('admin/product_subcategories/{product_subcategories}', 'API\Admin\ProductSubcategoryAPIController@destroy')->middleware('auth');
 
-// Product
-Route::get('admin/products', 'API\Admin\ProductAPIController@index');
-Route::post('admin/products', 'API\Admin\ProductAPIController@store')->middleware('auth');
-Route::get('admin/products/{products}', 'API\Admin\ProductAPIController@show');
-Route::put('admin/products/{products}', 'API\Admin\ProductAPIController@update')->middleware('auth');
-Route::patch('admin/products/{products}', 'API\Admin\ProductAPIController@update')->middleware('auth');
-Route::delete('admin/products/{products}', 'API\Admin\ProductAPIController@destroy')->middleware('auth');
+// // Product
+// Route::get('admin/products', 'API\Admin\ProductAPIController@index');
+// Route::post('admin/products', 'API\Admin\ProductAPIController@store')->middleware('auth');
+// Route::get('admin/products/{products}', 'API\Admin\ProductAPIController@show');
+// Route::put('admin/products/{products}', 'API\Admin\ProductAPIController@update')->middleware('auth');
+// Route::patch('admin/products/{products}', 'API\Admin\ProductAPIController@update')->middleware('auth');
+// Route::delete('admin/products/{products}', 'API\Admin\ProductAPIController@destroy')->middleware('auth');
 
-// AdditionalCategory
-Route::get('admin/additional_categories', 'API\Admin\AdditionalCategoryAPIController@index');
-Route::post('admin/additional_categories', 'API\Admin\AdditionalCategoryAPIController@store');
-Route::get('admin/additional_categories/{additional_categories}', 'API\Admin\AdditionalCategoryAPIController@show');
-Route::put('admin/additional_categories/{additional_categories}', 'API\Admin\AdditionalCategoryAPIController@update');
-Route::patch('admin/additional_categories/{additional_categories}', 'API\Admin\AdditionalCategoryAPIController@update');
-Route::delete('admin/additional_categories/{additional_categories}', 'API\Admin\AdditionalCategoryAPIController@destroy');
+// // AdditionalCategory
+// Route::get('admin/additional_categories', 'API\Admin\AdditionalCategoryAPIController@index');
+// Route::post('admin/additional_categories', 'API\Admin\AdditionalCategoryAPIController@store');
+// Route::get('admin/additional_categories/{additional_categories}', 'API\Admin\AdditionalCategoryAPIController@show');
+// Route::put('admin/additional_categories/{additional_categories}', 'API\Admin\AdditionalCategoryAPIController@update');
+// Route::patch('admin/additional_categories/{additional_categories}', 'API\Admin\AdditionalCategoryAPIController@update');
+// Route::delete('admin/additional_categories/{additional_categories}', 'API\Admin\AdditionalCategoryAPIController@destroy');
 
-// ProductFeatureCategory
-Route::get('admin/product_feature_categories', 'API\Admin\ProductFeatureCategoryAPIController@index');
-Route::post('admin/product_feature_categories', 'API\Admin\ProductFeatureCategoryAPIController@store');
-Route::get('admin/product_feature_categories/{product_feature_categories}', 'API\Admin\ProductFeatureCategoryAPIController@show');
-Route::put('admin/product_feature_categories/{product_feature_categories}', 'API\Admin\ProductFeatureCategoryAPIController@update');
-Route::patch('admin/product_feature_categories/{product_feature_categories}', 'API\Admin\ProductFeatureCategoryAPIController@update');
-Route::delete('admin/product_feature_categories/{product_feature_categories}', 'API\Admin\ProductFeatureCategoryAPIController@destroy');
+// // ProductFeatureCategory
+// Route::get('admin/product_feature_categories', 'API\Admin\ProductFeatureCategoryAPIController@index');
+// Route::post('admin/product_feature_categories', 'API\Admin\ProductFeatureCategoryAPIController@store');
+// Route::get('admin/product_feature_categories/{product_feature_categories}', 'API\Admin\ProductFeatureCategoryAPIController@show');
+// Route::put('admin/product_feature_categories/{product_feature_categories}', 'API\Admin\ProductFeatureCategoryAPIController@update');
+// Route::patch('admin/product_feature_categories/{product_feature_categories}', 'API\Admin\ProductFeatureCategoryAPIController@update');
+// Route::delete('admin/product_feature_categories/{product_feature_categories}', 'API\Admin\ProductFeatureCategoryAPIController@destroy');
 
-// RUTA GENERAL QUE DEVUELVE: ProductCategory, ProductSubcategory, Product, AdditionalCategory, FeatureProduct
-Route::get('admin/catalog', 'API\Admin\ProductAPIController@catalog');
+// // RUTA GENERAL QUE DEVUELVE: ProductCategory, ProductSubcategory, Product, AdditionalCategory, FeatureProduct
+// Route::get('admin/catalog', 'API\Admin\ProductAPIController@catalog');
 
-// Product, AdditionalCategory, FeatureProduct
-Route::get('admin/products_general/{product_subcategory_id?}', 'API\Admin\ProductAPIController@productsGeneral');
+// // Product, AdditionalCategory, FeatureProduct
+// Route::get('admin/products_general/{product_subcategory_id?}', 'API\Admin\ProductAPIController@productsGeneral');
 
-// SEARCH: Product, AdditionalCategory, FeatureProduct
-Route::get('admin/products_search/{word}', 'API\Admin\ProductAPIController@productsSearch');
+// // SEARCH: Product, AdditionalCategory, FeatureProduct
+// Route::get('admin/products_search/{word}', 'API\Admin\ProductAPIController@productsSearch');
 
-// Suggestions
-Route::get('admin/suggestions', 'API\Admin\ProductAPIController@suggestions');
+// // Suggestions
+// Route::get('admin/suggestions', 'API\Admin\ProductAPIController@suggestions');
 
-// Order
-// <<<<<<< HEAD
+// // Order
 // Route::get('admin/orders/user/{user_id}', 'API\Admin\OrderAPIController@index')/*->middleware('auth:api')*/;
 // Route::post('admin/orders', 'API\Admin\OrderAPIController@store')/*->middleware('auth')*/;
 // Route::get('admin/orders/{orders}', 'API\Admin\OrderAPIController@show');
-// // Route::put('admin/orders/{orders}', 'API\Admin\OrderAPIController@update')->middleware('auth');
+// Route::put('admin/orders/hide/{orders}', 'API\Admin\OrderAPIController@hide')/*->middleware('auth')*/;
 // // Route::patch('admin/orders/{orders}', 'API\Admin\OrderAPIController@update')->middleware('auth');
 // // Route::delete('admin/orders/{orders}', 'API\Admin\OrderAPIController@destroy')->middleware('auth');
-// =======
-Route::get('admin/orders/user/{user_id}', 'API\Admin\OrderAPIController@index')/*->middleware('auth:api')*/;
-Route::post('admin/orders', 'API\Admin\OrderAPIController@store')/*->middleware('auth')*/;
-Route::get('admin/orders/{orders}', 'API\Admin\OrderAPIController@show');
-Route::put('admin/orders/hide/{orders}', 'API\Admin\OrderAPIController@hide')/*->middleware('auth')*/;
-// Route::patch('admin/orders/{orders}', 'API\Admin\OrderAPIController@update')->middleware('auth');
-// Route::delete('admin/orders/{orders}', 'API\Admin\OrderAPIController@destroy')->middleware('auth');
 
 
 // Route::get('admin/blogs', 'API\Admin\BlogAPIController@index');
@@ -162,14 +154,6 @@ Route::put('admin/orders/hide/{orders}', 'API\Admin\OrderAPIController@hide')/*-
 // Route::delete('admin/product_presentations/{product_presentations}', 'API\Admin\ProductPresentationAPIController@destroy');
 
 
-// Route::get('admin/orders', 'API\Admin\OrderAPIController@index');
-// Route::post('admin/orders', 'API\Admin\OrderAPIController@store');
-// Route::get('admin/orders/{orders}', 'API\Admin\OrderAPIController@show');
-// Route::put('admin/orders/{orders}', 'API\Admin\OrderAPIController@update');
-// Route::patch('admin/orders/{orders}', 'API\Admin\OrderAPIController@update');
-// Route::delete('admin/orders/{orders}', 'API\Admin\OrderAPIController@destroy');
-
-
 // Route::get('admin/order_details', 'API\Admin\OrderDetailAPIController@index');
 // Route::post('admin/order_details', 'API\Admin\OrderDetailAPIController@store');
 // Route::get('admin/order_details/{order_details}', 'API\Admin\OrderDetailAPIController@show');
@@ -186,9 +170,9 @@ Route::put('admin/orders/hide/{orders}', 'API\Admin\OrderAPIController@hide')/*-
 // Route::delete('admin/room_categories/{room_categories}', 'API\Admin\RoomCategoryAPIController@destroy');
 
 
-// Route::get('admin/rooms', 'API\Admin\RoomAPIController@index');
+Route::get('admin/rooms', 'API\Admin\RoomAPIController@index');
 // Route::post('admin/rooms', 'API\Admin\RoomAPIController@store');
-// Route::get('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@show');
+Route::get('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@show');
 // Route::put('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@update');
 // Route::patch('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@update');
 // Route::delete('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@destroy');

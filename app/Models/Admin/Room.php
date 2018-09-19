@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use Carbon\Carbon;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -58,7 +59,7 @@ class Room extends Model
     use SoftDeletes;
 
     public $table = 'rooms';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -70,6 +71,16 @@ class Room extends Model
         'slug',
         'room_category_id',
         'status_id'
+    ];
+
+    protected $appends = [
+        'name',
+        'subtitle1',
+        'subtitle2',
+        'description',
+        'price',
+        'services',
+        'galery'
     ];
 
     /**
@@ -90,7 +101,7 @@ class Room extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -131,5 +142,121 @@ class Room extends Model
     public function roomsServices()
     {
         return $this->hasMany(\App\Models\Admin\RoomsService::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function row()
+    {
+        return $this->morphOne('App\Models\Admin\Row', 'rowable');
+    }
+
+    /**
+     * Return the RoomTranslation in current languague.
+     *
+     * @return RoomTranslation
+     **/
+    public function roomTranslation()
+    {
+        $language = Language::where('code', \App::getLocale())->first();
+        return $this->roomTranslations->filter(function($roomTranslation) use($language){
+            return $roomTranslation->language_id == $language->id;
+        })->first();
+    }
+
+    /**
+     * Get the name in the given translation (Accessor).
+     *
+     * @return string
+     */
+    public function getNameAttribute()
+    {
+        return $this->roomTranslation()->name;
+    }
+
+    /**
+     * Get the subtitle1 in the given translation (Accessor).
+     *
+     * @return string
+     */
+    public function getSubtitle1Attribute()
+    {
+        return $this->roomTranslation()->subtitle1;
+    }
+
+    /**
+     * Get the subtitle2 in the given translation (Accessor).
+     *
+     * @return string
+     */
+    public function getSubtitle2Attribute()
+    {
+        return $this->roomTranslation()->subtitle2;
+    }
+
+    /**
+     * Get the description in the given translation (Accessor).
+     *
+     * @return string
+     */
+    public function getDescriptionAttribute()
+    {
+        return $this->roomTranslation()->description;
+    }
+
+    /**
+     * Get the price in the current season.
+     *
+     * @return string
+     */
+    public function getPriceAttribute()
+    {
+        $dt = Carbon::now();
+
+        $currentRoomSeason = $this->roomSeasons->filter(function($roomSeason)use($dt){
+
+            // si la fecha de inicio de temporada es menor o igual a hoy
+            // y si la fecha de fin de temporada es mayor o igual a hoy
+            if ( $roomSeason->start_date->lessThanOrEqualTo($dt) &&
+                 $roomSeason->end_date->greaterThanOrEqualTo($dt) ) {
+
+                // entonces devuelvo el registro de esa temporada
+                return true;
+            }
+        });
+
+        return number_format($currentRoomSeason->first()->price, 2);
+    }
+
+    /**
+     * Get the services of the room.
+     *
+     * @return array
+     */
+    public function getServicesAttribute()
+    {
+        return $this->roomsServices->transform(function($serv, $key){
+            $service        = (object)[];
+            $service->id    = $serv->id;
+            $service->name  = $serv->service->serviceTranslation()->name;
+            return $service;
+        });
+    }
+
+    /**
+     * Get the galery of the room.
+     *
+     * @return array
+     */
+    public function getGaleryAttribute()
+    {
+        return $this->row->rowsMultimedia->transform(function($multim, $key){
+            $image = (object)[];
+            $image->id      = $multim->id;
+            $image->image   = $multim->multimedia->name;
+            $image->title   = $multim->multimedia->description;
+            return $image;
+        });
     }
 }

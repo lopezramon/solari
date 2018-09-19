@@ -59,7 +59,7 @@ class Row extends Model
     use SoftDeletes;
 
     public $table = 'rows';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -89,7 +89,7 @@ class Row extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -114,5 +114,13 @@ class Row extends Model
     public function seos()
     {
         return $this->hasMany(\App\Models\Admin\Seo::class);
+    }
+
+    /**
+     * Get all of the owning rowable models.
+     */
+    public function rowable()
+    {
+        return $this->morphTo();
     }
 }
