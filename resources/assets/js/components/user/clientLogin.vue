@@ -37,7 +37,7 @@
                                 </div>
 
                                 <div class="col-12">
-                                    <a href="#" @click.prevent="forgotPassword" class="">¿Ha olvidado la contraseña?</a>
+                                    <a href="#" @click.prevent="forgotPassword">¿Ha olvidado la contraseña?</a>
                                 </div>
 
                                 <div class="row text-center py-4">
