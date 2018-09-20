@@ -81,7 +81,7 @@
                         }
                     }).catch((error) => {
                         this.loading = false;
-                        this.showAlert('error', 'Error');
+                        this.showAlert('error', 'Error Email ya está registrado');
                         this.cleanForm();
                     })
                 }).catch(() => {
