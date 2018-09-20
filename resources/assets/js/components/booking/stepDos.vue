@@ -11,23 +11,17 @@
                         <div class="bg-secondary border-bottom p-2">
                             <strong class="m-0 text-uppercase">Datos reserva</strong>
                         </div>
-                        <!-- <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Numero de reserva:</strong> {{}}
-                        </div> -->
+                        <div class="border-bottom p-2">
+                            <strong class="m-0 text-uppercase">Numero de reserva:</strong> 663332323
+                        </div>
                         <div class="border-bottom p-2">
                             <strong class="m-0 text-uppercase">Reservado por:</strong>
-                            <input v-if="!getAuthenticated" type="text" v-model="user.name_reserva" class="form-control">
-                            <span v-if="getAuthenticated" class="font-weight-bold">{{user.name_reserva}}</span>
                         </div>
                         <div class="border-bottom p-2">
                             <strong class="m-0 text-uppercase">Numero de identidad:</strong>
-                            <input v-if="!getAuthenticated" type="text" v-model="user.identidad_reserva" class="form-control">
-                            <span v-if="getAuthenticated"class="font-weight-bold">{{user.identidad_reserva}}</span>
                         </div>
                         <div class="border-bottom p-2">
                             <strong class="m-0 text-uppercase">Telefono:</strong>
-                            <input v-if="!getAuthenticated" type="text" v-model="user.telef_reserva" class="form-control">
-                            <span v-if="getAuthenticated" class="font-weight-bold">{{user.telef_reserva}}</span>
                         </div>
                     </div>
 
@@ -130,35 +124,6 @@
 
     </div>
 </template>
-<script>
-export default {
-    data(){
-        return {
-            user:{
-                name_reserva:null,
-                telef_reserva:null,
-                identidad_reserva:null
-            },
-            // disabledActivo: false,
-            // terminos:false
-        }
-    },methods:{
-       getDataUser(){
-        let data=this.$store.getters.getUser;
-        this.user.name_reserva=data.name+' '+data.lastname;
-        this.user.telef_reserva=data.phone;
-        this.user.identidad_reserva=data.identidad;
-       }
-    },
-    computed:{
-        getAuthenticated(){
-          return this.$store.getters.getAuthenticated;
-        }
-    },mounted(){
-        this.getDataUser();
-    }
-}
-</script>
 <style scoped>
 .bg-secondary{
     background-color: #c7c7c7 !important;

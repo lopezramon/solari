@@ -3,12 +3,8 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 
-
-
 /*vuex*/
-import store from './vuex'
-
-Vue.use(require('vue-moment'));
+// import store from './vuex'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -21,5 +17,5 @@ import router from './router';
 const app = new Vue({
     el: '#app',
     router,
-    store
+    // store
 });
