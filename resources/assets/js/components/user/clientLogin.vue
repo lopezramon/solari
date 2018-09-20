@@ -22,7 +22,7 @@
                                     <label for="email" class="text-uppercase">Email</label>
                                     <span v-show="errors.has('email')" :class="{'text-danger': errors.has('email') }">*</span>
                                     <input id="email" type="email" :maxlength="50" v-validate="'required|email|min:9|max:50'" name="email"
-                                           data-vv-as="Email" :class="{'text-danger': errors.has('email') || errorMail }"
+                                           data-vv-as="Email" :class="{'text-danger': errors.has('email') }"
                                            v-model="form.email" class="form-control" placeholder="Email">
                                     <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
                                 </div>
