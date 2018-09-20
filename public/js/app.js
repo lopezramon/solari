@@ -102273,7 +102273,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.bg-secondary[data-v-4ee41f5f]{\r\n    background-color: #c7c7c7 !important;\n}\n.form-control[data-v-4ee41f5f]{\r\n    background-color: transparent;\r\n    border-radius: 0px;\n}\n.form-control[data-v-4ee41f5f]:focus {\r\n    border-color: #ced4da;\n}\n.delete[data-v-4ee41f5f]{\r\n    cursor: pointer;\n}\n.map[data-v-4ee41f5f]{\r\n    width: 100%;\r\n    height: 260px;\n}\n.map iframe[data-v-4ee41f5f]{\r\n    width: 100%;\r\n    height: 100%;\n}\n.text-success[data-v-4ee41f5f]{\r\n    font-size: 1.5rem;\n}\n.delete[data-v-4ee41f5f]{\r\n    cursor:pointer;\n}\r\n", ""]);
+exports.push([module.i, "\n.bg-secondary[data-v-4ee41f5f]{\r\n    background-color: #c7c7c7 !important;\n}\n.form-control[data-v-4ee41f5f]{\r\n    background-color: transparent;\r\n    border-radius: 0px;\n}\n.form-control[data-v-4ee41f5f]:focus {\r\n    border-color: #ced4da;\n}\n.map[data-v-4ee41f5f]{\r\n    width: 100%;\r\n    height: 260px;\n}\n.map iframe[data-v-4ee41f5f]{\r\n    width: 100%;\r\n    height: 100%;\n}\n.text-success[data-v-4ee41f5f]{\r\n    font-size: 1.5rem;\n}\n.pointer[data-v-4ee41f5f]{\r\n    cursor:pointer!important;\n}\r\n", ""]);
 
 // exports
 
@@ -102536,16 +102536,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 objform.user_id = _this.user.id;
                 _this.orden = objform;
 
-                // axios.post('/api/contactus', this.form).then((res) => {
-                //     if (res) {
-                //         this.loading = false;
-                //         this.showAlert('success', 'Gracias por contactar  con nosotros, pronto te responderemos.');
-                //         this.cleanForm();
-                //     }
-                // }).catch((error) => {
-                //     this.loading = false;
-                //     this.showAlert('error', 'Por favor verifica los datos enviados.');
-                // })
+                axios.post('/paypal', _this.orden).then(function (res) {
+                    if (res) {
+                        var url = res.data.url;
+                        window.location.href = url;
+                    }
+                }).catch(function (error) {});
             }).catch(function () {
                 console.log('error form');
             });
@@ -103032,7 +103028,7 @@ var render = function() {
                         _c(
                           "a",
                           {
-                            staticClass: "delete",
+                            staticClass: "pointer",
                             on: {
                               click: function($event) {
                                 $event.preventDefault()
@@ -103042,6 +103038,7 @@ var render = function() {
                           },
                           [
                             _c("img", {
+                              staticClass: "pointer",
                               attrs: {
                                 width: "22",
                                 src: "/images/iconos/delete.svg",
@@ -103063,6 +103060,7 @@ var render = function() {
                 _c(
                   "a",
                   {
+                    staticClass: "pointer",
                     on: {
                       click: function($event) {
                         $event.preventDefault()
@@ -103072,6 +103070,7 @@ var render = function() {
                   },
                   [
                     _c("img", {
+                      staticClass: "pointer",
                       attrs: {
                         width: "100px",
                         src: "/images/iconos/paypal_logo.png",

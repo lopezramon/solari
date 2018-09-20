@@ -113,15 +113,15 @@
                             <div class="border-bottom p-2 d-flex justify-content-between">
                                 <strong class="m-0 text-uppercase">{{room.name}}</strong> 
                                 <span>€ {{room.price}}</span> 
-                                <a class="delete" @click.prevent="deleteItem(room)" ><img width="22" src="/images/iconos/delete.svg" alt="delete"></a>
+                                <a class="pointer" @click.prevent="deleteItem(room)" ><img width="22" src="/images/iconos/delete.svg" alt="delete" class="pointer"></a>
                             </div>
                         </template>
                     </div>
 
                     <div class="text-center mt-4">
                         <div>
-                            <a @click.prevent="paypal()" class="">
-                                <img width="100px" src="/images/iconos/paypal_logo.png" alt="paypal">
+                            <a @click.prevent="paypal()" class="pointer">
+                                <img class="pointer" width="100px" src="/images/iconos/paypal_logo.png" alt="paypal">
                             </a>
                             <p class="mt-2">
                                 Haz click en la imagen para procesar el pago
@@ -246,18 +246,16 @@ export default {
                 objform.cart=this.$store.getters.getBooking;
                 objform.user_id=this.user.id;
                 this.orden=objform;
-                
-                
-                // axios.post('/api/contactus', this.form).then((res) => {
-                //     if (res) {
-                //         this.loading = false;
-                //         this.showAlert('success', 'Gracias por contactar  con nosotros, pronto te responderemos.');
-                //         this.cleanForm();
-                //     }
-                // }).catch((error) => {
-                //     this.loading = false;
-                //     this.showAlert('error', 'Por favor verifica los datos enviados.');
-                // })
+                                
+                axios.post('/paypal',this.orden).then((res) => {
+                    if(res){
+                        var url=res.data.url;
+                        window.location.href=url;
+                    }
+                }).catch((error) => {
+                    
+                });
+
             }).catch(() => {
                 console.log('error form')
             });
@@ -276,10 +274,6 @@ export default {
 .form-control:focus {
     border-color: #ced4da;
 }
-.delete{
-    cursor: pointer;
-}
-
 .map{
     width: 100%;
     height: 260px;
@@ -291,7 +285,7 @@ export default {
 .text-success{
     font-size: 1.5rem;
 }
-.delete{
-    cursor:pointer;
+.pointer{
+    cursor:pointer!important;
 }
 </style>
