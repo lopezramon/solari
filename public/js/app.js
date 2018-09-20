@@ -47133,7 +47133,7 @@ module.exports = function (it, tag, stat) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(172);
-module.exports = __webpack_require__(414);
+module.exports = __webpack_require__(416);
 
 
 /***/ }),
@@ -69468,7 +69468,7 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
         Session: __WEBPACK_IMPORTED_MODULE_2__modules_Session_js__["a" /* default */],
         Booking: __WEBPACK_IMPORTED_MODULE_3__modules_Booking_js__["a" /* default */]
     }, plugins: [Object(__WEBPACK_IMPORTED_MODULE_4_vuex_persistedstate__["a" /* default */])({
-        paths: ['Session.user', 'Booking.booking'],
+        paths: ['Session.user', 'Session.authenticated', 'Booking.booking'],
         getItem: function getItem(key) {
             return Cookies.get(key);
         },
@@ -69480,7 +69480,6 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
         }
     })]
 });
-
 /* harmony default export */ __webpack_exports__["a"] = (store);
 
 /***/ }),
@@ -70435,30 +70434,60 @@ var index_esm = {
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ({
     state: {
-        user: {
-            data: {
-                name: 'Carla',
-                lastname: 'Ramirez',
-                token: 'XXXXXXXX',
-                phone: '233444334433',
-                role: '1',
-                email: 'carla@gmail.com',
-                identidad: '3232323223'
-            },
-            authenticated: true
-        }
+        user: [],
+        authenticated: false
     },
-    actions: {},
-    getters: {
-        getUser: function getUser(state) {
-            return state.user.data;
+
+    actions: {
+        setSession: function setSession(_ref, item) {
+            var commit = _ref.commit;
+
+            commit('setSession', { list: item });
         },
-        getAuthenticated: function getAuthenticated(state) {
-            console.log(state.user.authenticated);
-            return state.user.authenticated;
+        deleteSession: function deleteSession(_ref2, item) {
+            var commit = _ref2.commit;
+
+            commit('deleteSession', { list: item });
+        },
+        testSession: function testSession(_ref3, item) {
+            var commit = _ref3.commit;
+
+            console.log(item);
         }
     },
-    mutations: {}
+    getters: {
+        getSession: function getSession(state) {
+            return state.user;
+        },
+        getauthenticated: function getauthenticated(state) {
+            return state.authenticated;
+        }
+    },
+    mutations: {
+        setSession: function setSession(state, _ref4) {
+            var list = _ref4.list;
+
+            state.user.length = 0;
+            state.authenticated = true;
+            var data = list.data;
+            var obj = {};
+            obj.id = data.id;
+            obj.api_token = data.api_token;
+            obj.name = data.name;
+            obj.lastname = data.lastname;
+            obj.email = data.email;
+            // obj.phone = data.details.phone;
+            // obj.fiscalCode = data.details.fiscal_code;
+            obj.roleUser = data.roles;
+            state.user.push(obj);
+        },
+        deleteSession: function deleteSession(state, _ref5) {
+            var list = _ref5.list;
+
+            state.authenticated = false;
+            state.user = [];
+        }
+    }
 });
 
 /***/ }),
@@ -101156,11 +101185,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         if (res.status === 200) {
 
                             var admin = res.data.admin;
-                            _this.$store.dispatch('setSession', res.data).then(function (r) {
+                            _this.$store.dispatch('setSession', res.data).then(function () {
                                 _this.loading = false;
                                 var slf = _this;
-
-                                _this.showAlert('success', 'Usuario autenticado con exito');
+                                _this.showAlert('success', 'Riuscito utente autenticato');
                                 setTimeout(function () {
                                     admin === true ? location.href = '/home' : slf.$router.push('/');
                                 }, 1800);
@@ -101172,11 +101200,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         switch (error.response.status) {
                             case 401:
                                 _this.loading = false;
-                                _this.showAlert('error', 'Por favor verifique los datos ingresados');
+                                _this.showAlert('error', 'L\'utente registrato non viene trovato');
                                 break;
                             case 500:
                                 _this.loading = false;
-                                _this.showAlert('error', 'Error de conexión');
+                                _this.showAlert('error', 'Errore di connessione');
                                 break;
                         }
                     });
@@ -101304,10 +101332,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          class: {
-                            "text-danger":
-                              _vm.errors.has("email") || _vm.errorMail
-                          },
+                          class: { "text-danger": _vm.errors.has("email") },
                           attrs: {
                             id: "email",
                             type: "email",
@@ -106544,17 +106569,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(413)
+}
 var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(413)
+var __vue_template__ = __webpack_require__(415)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-0b294fe7"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -106590,6 +106619,46 @@ module.exports = Component.exports
 /* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(414);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("153094c0", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b294fe7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./account_table.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b294fe7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./account_table.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 414 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.alto[data-v-0b294fe7]{\n  height: 100px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 415 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -106601,7 +106670,9 @@ var render = function() {
       _vm._v(" "),
       _c("navaccount"),
       _vm._v(" "),
-      _vm._m(0)
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-none d-md-block alto" })
     ],
     1
   )
@@ -106611,39 +106682,45 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container mt-5 mb-5" }, [
-      _c("table", { staticClass: "table" }, [
-        _c("thead", { staticClass: "thead-dark" }, [
-          _c("tr", { staticClass: "text-center" }, [
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("N RESERVA")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("FECHA")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("STATUS")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("ACTION")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("tbody", [
-          _c("tr", { staticClass: "text-center" }, [
-            _c("td", [_vm._v("123123123")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("01/02/2011")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("ACTIVO")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@mdo")])
+    return _c("div", { staticClass: "container mt-5 mb-5 " }, [
+      _c("div", { staticClass: "table-responsive" }, [
+        _c("table", { staticClass: "table" }, [
+          _c("thead", { staticClass: "thead-dark" }, [
+            _c("tr", { staticClass: "text-center" }, [
+              _c("th", { attrs: { scope: "col-6" } }, [_vm._v("N RESERVA")]),
+              _vm._v(" "),
+              _c("th", { attrs: { scope: "col-6" } }, [_vm._v("FECHA")]),
+              _vm._v(" "),
+              _c("th", { attrs: { scope: "col-6" } }, [_vm._v("STATUS")]),
+              _vm._v(" "),
+              _c("th", { attrs: { scope: "col-6" } }, [_vm._v("ACTION")])
+            ])
           ]),
           _vm._v(" "),
-          _c("tr", { staticClass: "text-center" }, [
-            _c("td", [_vm._v("123123123")]),
+          _c("tbody", [
+            _c("tr", { staticClass: "text-center" }, [
+              _c("td", [_vm._v("123123123")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("01/02/2011")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("ACTIVO")]),
+              _vm._v(" "),
+              _c("td", [
+                _c("img", { attrs: { src: "images/iconos/view.png", alt: "" } })
+              ])
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v("01/02/2011")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("CANCELADA")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@fat")])
+            _c("tr", { staticClass: "text-center" }, [
+              _c("td", [_vm._v("123123123")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("01/02/2011")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-danger" }, [_vm._v("CANCELADA")]),
+              _vm._v(" "),
+              _c("td", [
+                _c("img", { attrs: { src: "images/iconos/view.png", alt: "" } })
+              ])
+            ])
           ])
         ])
       ])
@@ -106660,7 +106737,7 @@ if (false) {
 }
 
 /***/ }),
-/* 414 */
+/* 416 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
