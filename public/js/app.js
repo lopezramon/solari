@@ -78305,11 +78305,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         if (res.status === 200) {
 
                             var admin = res.data.admin;
-                            _this.$store.dispatch('setSession', res.data).then(function (r) {
+                            _this.$store.dispatch('setSession', res.data).then(function () {
                                 _this.loading = false;
                                 var slf = _this;
-
-                                _this.showAlert('success', 'Usuario autenticado con exito');
+                                _this.showAlert('success', 'Riuscito utente autenticato');
                                 setTimeout(function () {
                                     admin === true ? location.href = '/home' : slf.$router.push('/');
                                 }, 1800);
@@ -78321,11 +78320,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         switch (error.response.status) {
                             case 401:
                                 _this.loading = false;
-                                _this.showAlert('error', 'Por favor verifique los datos ingresados');
+                                _this.showAlert('error', 'L\'utente registrato non viene trovato');
                                 break;
                             case 500:
                                 _this.loading = false;
-                                _this.showAlert('error', 'Error de conexión');
+                                _this.showAlert('error', 'Errore di connessione');
                                 break;
                         }
                     });
@@ -78453,10 +78452,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          class: {
-                            "text-danger":
-                              _vm.errors.has("email") || _vm.errorMail
-                          },
+                          class: { "text-danger": _vm.errors.has("email") },
                           attrs: {
                             id: "email",
                             type: "email",

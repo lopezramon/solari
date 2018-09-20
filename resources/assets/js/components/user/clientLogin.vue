@@ -22,7 +22,7 @@
                                     <label for="email" class="text-uppercase">Email</label>
                                     <span v-show="errors.has('email')" :class="{'text-danger': errors.has('email') }">*</span>
                                     <input id="email" type="email" :maxlength="50" v-validate="'required|email|min:9|max:50'" name="email"
-                                           data-vv-as="Email" :class="{'text-danger': errors.has('email') || errorMail }"
+                                           data-vv-as="Email" :class="{'text-danger': errors.has('email') }"
                                            v-model="form.email" class="form-control" placeholder="Email">
                                     <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
                                 </div>
@@ -146,10 +146,7 @@
             this.validarIntLogin();
         },
         computed: {
-            isDisabled() {
-                return !this.form.email || !this.form.password
-            },
-
+            isDisabled() { return !this.form.email || !this.form.password }
         },
         methods: {
             login() {
@@ -160,36 +157,31 @@
                             if (res.status === 200) {
 
                                 var admin = res.data.admin;
-                                this.$store.dispatch('setSession', res.data).then((r) => {
+                                this.$store.dispatch('setSession', res.data).then(() => {
                                     this.loading = false;
                                     let slf = this;
-
-                                    this.showAlert('success', 'Usuario autenticado con exito');
+                                    this.showAlert('success', 'Riuscito utente autenticato');
                                     setTimeout(() => {
                                         (admin === true) ? location.href = '/home' : slf.$router.push('/')
                                     }, 1800);
 
-                                }).catch(() => {
-                                    console.log('error store')
-                                });
+                                }).catch(() => {console.log('error store')});
                             }
                         })
                             .catch((error) => {
                                 switch (error.response.status) {
                                     case 401:
                                         this.loading = false;
-                                        this.showAlert('error', 'Por favor verifique los datos ingresados');
+                                        this.showAlert('error', 'L\'utente registrato non viene trovato');
                                         break;
                                     case 500:
                                         this.loading = false;
-                                        this.showAlert('error', 'Error de conexión');
+                                        this.showAlert('error', 'Errore di connessione');
                                         break;
                                 }
                             })
                     }
-                }).catch(() => {
-                    console.log('error form')
-                });
+                }).catch(() => { console.log('error form') });
             },
             redirectToCreateAccount() {
                 this.$router.push('/createAccount');
