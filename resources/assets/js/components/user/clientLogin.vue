@@ -193,7 +193,7 @@
                 }
             },
             forgotPassword() {
-                this.$router.push('/setpassword');
+                this.$router.push('/resetpassword');
             },
             showAlert(type, title) {
                 this.$swal({
