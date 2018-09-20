@@ -47133,7 +47133,7 @@ module.exports = function (it, tag, stat) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(172);
-module.exports = __webpack_require__(414);
+module.exports = __webpack_require__(416);
 
 
 /***/ }),
@@ -106544,17 +106544,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(413)
+}
 var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(413)
+var __vue_template__ = __webpack_require__(415)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-0b294fe7"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -106590,6 +106594,46 @@ module.exports = Component.exports
 /* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(414);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("153094c0", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b294fe7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./account_table.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b294fe7\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./account_table.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 414 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.alto[data-v-0b294fe7]{\n  height: 100px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 415 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -106601,7 +106645,9 @@ var render = function() {
       _vm._v(" "),
       _c("navaccount"),
       _vm._v(" "),
-      _vm._m(0)
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-none d-md-block alto" })
     ],
     1
   )
@@ -106611,39 +106657,45 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container mt-5 mb-5" }, [
-      _c("table", { staticClass: "table" }, [
-        _c("thead", { staticClass: "thead-dark" }, [
-          _c("tr", { staticClass: "text-center" }, [
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("N RESERVA")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("FECHA")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("STATUS")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("ACTION")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("tbody", [
-          _c("tr", { staticClass: "text-center" }, [
-            _c("td", [_vm._v("123123123")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("01/02/2011")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("ACTIVO")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@mdo")])
+    return _c("div", { staticClass: "container mt-5 mb-5 " }, [
+      _c("div", { staticClass: "table-responsive" }, [
+        _c("table", { staticClass: "table" }, [
+          _c("thead", { staticClass: "thead-dark" }, [
+            _c("tr", { staticClass: "text-center" }, [
+              _c("th", { attrs: { scope: "col-6" } }, [_vm._v("N RESERVA")]),
+              _vm._v(" "),
+              _c("th", { attrs: { scope: "col-6" } }, [_vm._v("FECHA")]),
+              _vm._v(" "),
+              _c("th", { attrs: { scope: "col-6" } }, [_vm._v("STATUS")]),
+              _vm._v(" "),
+              _c("th", { attrs: { scope: "col-6" } }, [_vm._v("ACTION")])
+            ])
           ]),
           _vm._v(" "),
-          _c("tr", { staticClass: "text-center" }, [
-            _c("td", [_vm._v("123123123")]),
+          _c("tbody", [
+            _c("tr", { staticClass: "text-center" }, [
+              _c("td", [_vm._v("123123123")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("01/02/2011")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("ACTIVO")]),
+              _vm._v(" "),
+              _c("td", [
+                _c("img", { attrs: { src: "images/iconos/view.png", alt: "" } })
+              ])
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v("01/02/2011")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("CANCELADA")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@fat")])
+            _c("tr", { staticClass: "text-center" }, [
+              _c("td", [_vm._v("123123123")]),
+              _vm._v(" "),
+              _c("td", [_vm._v("01/02/2011")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "text-danger" }, [_vm._v("CANCELADA")]),
+              _vm._v(" "),
+              _c("td", [
+                _c("img", { attrs: { src: "images/iconos/view.png", alt: "" } })
+              ])
+            ])
           ])
         ])
       ])
@@ -106660,7 +106712,7 @@ if (false) {
 }
 
 /***/ }),
-/* 414 */
+/* 416 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
