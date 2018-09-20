@@ -4,7 +4,7 @@ import Session from './modules/Session.js'
 import Booking from './modules/Booking.js'
 import createPersistedState from 'vuex-persistedstate'
 import * as Cookie from 'js-cookie'
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 let store = new Vuex.Store({
     modules:{
