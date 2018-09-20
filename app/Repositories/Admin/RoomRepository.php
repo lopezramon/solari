@@ -76,47 +76,39 @@ class RoomRepository extends BaseRepository
                 if ( $season->start_date->lessThanOrEqualTo($checkin_request) &&
                     $season->end_date->greaterThanOrEqualTo($checkout_request) ) {
 
-                    /*print_r([
-                        'first',
-                        $season->id
-                    ]);*/
-
-                    $days = $checkin_request->diffInDays($checkout_request) + 1;
-                    $price = $days * $season->price;
+                    // asigno la cantidad de dias a reservar y el precio
+                    $days   = $checkin_request->diffInDays($checkout_request) + 1;
+                    $price  = $days * $season->price;
                 }
 
                 // SI ENTRA EN ESTE IF: EL RANGO DE CONSULTA SE ENCUENTRA EN DOS O MAS TEMPORADAS
                 else if ( $season->start_date->lessThanOrEqualTo($checkin_request) &&
                     $season->end_date->lessThan($checkout_request) ) {
 
-                    /*print_r([
-                        'second',
-                        $season->id
-                    ]);*/
-
+                    // asigno la cantidad de dias a reservar y el precio
                     $days   = $checkin_request->diffInDays($season->end_date) + 1;
                     $price  = $days * $season->price;
 
+                    // levanto el flag de que el rango sobrepasa la temporada actual
                     $two_seasons = true;
                 }
 
+                // valido si el rango sobrepasa la temporada actual
                 if ( $two_seasons ) {
 
                     // CAPTURO LA SEASON DONDE TERMINA EL RANGO
                     if ( $checkout_request->between($season->start_date, $season->end_date) ) {
+
+                        // asigno la cantidad de dias a reservar y el precio PARA ESTA TEMPORADA
                         $days2  = $season->start_date->diffInDays($checkout_request) + 1;
                         $price2 = $days2 * $season->price;
 
+                        // SUMO LOS DIAS Y PRECIO DE ESTA TEMPORADA A LOS VALORES DE LA TEMPORADA ANTERIOR
                         $price  += $price2;
                         $days   += $days2;
-                        // print_r('JAAAAAAAA');
                     }
                 }
             }
-
-            // print '**';
-            // print_r($price);
-            // exit('**boom');
 
             // ASIGNO EL PRICE RESULTANTE
             $room->price = number_format($price, 2);
@@ -145,15 +137,19 @@ class RoomRepository extends BaseRepository
 
         $data = $this->findWithoutFail($id, $columns);
 
-        // dd($data->toArray());
-
         // helper personalizado para eliminar el model translation (ultimo index de cada elemento de la coleccion)
-        // $array = $data->toArray();
         $array = $this->clearUnusedColumns($data->toArray());
 
         return $array;
     }
 
+    /**
+     * Clear unnecesary columns in collection or objet model.
+     *
+     * @param array(Collection)|array|(Model) $array
+     *
+     * @return array
+     */
     private function clearUnusedColumns( $array )
     {
         if ( !empty($array) ) {
@@ -182,8 +178,6 @@ class RoomRepository extends BaseRepository
                 $array = $array['room'];
             }
         }
-
-        // dd($array);
 
         return $array;
     }

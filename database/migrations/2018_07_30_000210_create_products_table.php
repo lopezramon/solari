@@ -18,8 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('code', 10)->nullable()->default(null);
             $table->string('slug', 50);
 
-            $table->double('price', 8, 2)->nullable()->default(null);
-            $table->float('iva', 5)->nullable()->default(null);
+            $table->double('price', 12, 2)->nullable()->default(null);
+            $table->double('iva', 12, 2)->nullable()->default(null);
             $table->string('image', 250)->nullable()->default(null);
             $table->integer('max_additionals')->nullable()->default(null)->comment('Integer to indicate maximum of additionals for this product, if it is null or zero, it does not allow additional.');
 

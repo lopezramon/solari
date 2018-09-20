@@ -16,7 +16,7 @@ class CreateActivitiesTable extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug', 50);
-            $table->double('price', 8, 2);
+            $table->double('price', 12, 2);
 
             $table->unsignedInteger('activity_category_id');
             $table->foreign('activity_category_id')->references('id')->on('activity_categories');

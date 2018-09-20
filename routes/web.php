@@ -377,3 +377,13 @@ Route::get('{any}',function(){
 })->where('any','.*');
 
 
+
+
+Route::get('admin/formDatas', ['as'=> 'admin.formDatas.index', 'uses' => 'Admin\FormDataController@index']);
+Route::post('admin/formDatas', ['as'=> 'admin.formDatas.store', 'uses' => 'Admin\FormDataController@store']);
+Route::get('admin/formDatas/create', ['as'=> 'admin.formDatas.create', 'uses' => 'Admin\FormDataController@create']);
+Route::put('admin/formDatas/{formDatas}', ['as'=> 'admin.formDatas.update', 'uses' => 'Admin\FormDataController@update']);
+Route::patch('admin/formDatas/{formDatas}', ['as'=> 'admin.formDatas.update', 'uses' => 'Admin\FormDataController@update']);
+Route::delete('admin/formDatas/{formDatas}', ['as'=> 'admin.formDatas.destroy', 'uses' => 'Admin\FormDataController@destroy']);
+Route::get('admin/formDatas/{formDatas}', ['as'=> 'admin.formDatas.show', 'uses' => 'Admin\FormDataController@show']);
+Route::get('admin/formDatas/{formDatas}/edit', ['as'=> 'admin.formDatas.edit', 'uses' => 'Admin\FormDataController@edit']);
