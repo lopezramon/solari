@@ -94,6 +94,7 @@ php artisan infyom:api_scaffold ServiceCategory                     --prefix=adm
 php artisan infyom:api_scaffold ServiceTranslation                  --prefix=admin --fromTable --tableName=service_translations                               --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
 php artisan infyom:api_scaffold Service                             --prefix=admin --fromTable --tableName=services                                           --skip=migration,dump-autoload
 php artisan infyom:api_scaffold RoomsService                        --prefix=admin --fromTable --tableName=rooms_services                                     --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold FormData                            --prefix=admin --fromTable --tableName=form_data                                          --skip=migration,dump-autoload
 
 8888888888                            888
 888                                   888
