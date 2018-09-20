@@ -156,4 +156,3 @@ export default {
       font-family: 'Josefin Sans', sans-serif;
   }
 </style>
-
