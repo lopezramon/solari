@@ -8,13 +8,15 @@
 
                 <!-- fecha -->
                 <div class="col-12">
-                    <div class="d-flex justify-content-between">
-                        <span class="tag font-weight-bold">Check-in</span>
-                        <span class="date">13/SEP/18</span>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <span class="tag font-weight-bold">Check-in</span>
-                        <span class="date">15/SEP/18</span>
+                    <div class="border-bottom pb-2">
+                        <div class="d-flex justify-content-between">
+                            <span class="tag font-weight-bold">Check-in</span>
+                            <span class="date">13/SEP/18</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="tag font-weight-bold">Check-in</span>
+                            <span class="date">15/SEP/18</span>
+                        </div>
                     </div>
                 </div>
 
