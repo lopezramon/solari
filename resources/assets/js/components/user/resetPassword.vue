@@ -202,7 +202,7 @@
             ChangePassword() {
                 var slf = this;
                 axios.post(this.root + '/api/password/reset', this.form).then((res) => {
-                    console.log(res);
+                    // console.log(res);
                     if (res.status === 200) {
                         this.loading = false;
                         this.showAlert('success', 'La clave a sido cambiada con exito');
