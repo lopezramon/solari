@@ -73,6 +73,11 @@ import navaccount from '../components/myaccount/navaccount';
 import headerAccount from '../components/myaccount/headerAccount';
 import account_table from '../components/myaccount/account_table';
 
+// Error pages
+import Error404 from '../components/general/error404.vue';
+import Error500 from '../components/general/error500.vue';
+
+
 /*
  * Components
  */
@@ -175,7 +180,17 @@ let router = new Router({
             name: 'resetPassword',
             component: resetPassword
         },
-        ],scrollBehavior (to, from, savedPosition) {
+        {
+            path: '/error404',
+            name: 'error404',
+            component: Error404
+        },
+        {
+            path: '/error500',
+            name: 'error500',
+            component: Error500
+        },
+    ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
 });
