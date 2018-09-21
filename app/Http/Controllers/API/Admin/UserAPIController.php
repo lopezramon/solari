@@ -97,7 +97,7 @@ class UserAPIController extends AppBaseController
             $user = User::findOrFail($userID);
 
             if(empty($user))
-                return $this->sendError(['info' => 'Su petición no coinciden con nuestros datos.', 'status' => 'info']);
+                return $this->sendError(['data' => 'Su petición no coinciden con nuestros datos.', 'status' => 'info']);
 
             $input = $this->updateUser($user, $request->all());
 
@@ -106,12 +106,13 @@ class UserAPIController extends AppBaseController
                     $request['msg'] = "Se ha realizado un cambio de clave.";
                     MailController::sendMail($request->all(),'test');
                 }
-                return $this->sendResponse(['info' => $input->toArray(), 'status' => 'success'], 'Su petición ha sido procesada con éxito.');
+                $input = array_add($input, 'details', $input->userDetails->toArray());
+                return $this->sendResponse(['data' => $input->toArray(), 'status' => 'success'], 'Su petición ha sido procesada con éxito.');
             }else{
-                return $this->sendError(['info' => 'Su petición no pudo ser procesada.', 'status' => 'warning']);
+                return $this->sendError(['data' => 'Su petición no pudo ser procesada.', 'status' => 'warning']);
             }
         }catch(\Exeption $e){
-            return $this->sendError(['info' => $e->getMessage(), 'status' => 'error']);
+            return $this->sendError(['data' => $e->getMessage(), 'status' => 'error']);
         }
     }
 
@@ -197,15 +198,9 @@ class UserAPIController extends AppBaseController
             $user->userDetails()->updateOrCreate(['user_id'=>$user->id], [
                 'phone'            => $request['phone'],
                 'themes'           => isset($request['themes']) ? $request['themes'] : 'night.css',
-                'viaEmail'         => isset($request['viaEmail']) ? true : false,
-                'viaSms'           => isset($request['viaSms']) ? true : false,
+                'viaEmail'         => false,
+                'viaSms'           => false,
                 'fiscal_code'      => $request['fiscalCode'],
-                'empresa'          => $request['azienda'],
-                'num_civic'        => $request['viaNum'],
-                'address'          => $request['address'],
-                'province'         => $request['province'],
-                'city'             => $request['city'],
-                'terms'            => isset($request['terms']) ? true : false,
             ]);
         }else{
             $user->name         = "not available";
