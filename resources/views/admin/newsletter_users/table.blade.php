@@ -3,7 +3,7 @@
     <thead class="widget-extra themed-background-dark">
         <tr class="widget-content-light">
             <th>Email</th>
-            <th>Status Id</th>
+            <th>Status</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>

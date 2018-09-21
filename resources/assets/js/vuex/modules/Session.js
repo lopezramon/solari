@@ -34,8 +34,8 @@ export default {
             obj.name = data.name;
             obj.lastname = data.lastname;
             obj.email = data.email;
-            // obj.phone = data.details.phone;
-            // obj.fiscalCode = data.details.fiscal_code;
+            obj.phone = data.details.phone;
+            obj.fiscalCode = data.details.fiscal_code;
             obj.roleUser = data.roles;
             state.user.push(obj);
         },

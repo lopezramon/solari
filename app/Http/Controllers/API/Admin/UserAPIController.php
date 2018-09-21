@@ -18,20 +18,20 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class UserAPIController extends AppBaseController
-{   
+{
     /**
      * Visualiza el formulario para crear un rol.
      *
      * @return View($role)
      */
     public function storeRole(CreateRoleRequest $request)
-    {   
+    {
         $request->request->add(['slug' => str_slug($request->name, '-')]);
         $role = Role::create($request->all());
-        
+
         if(!$role)
             Session::flash('success', 'Exito');
-        
+
         return redirect(route('admin.role.index'));
     }
 
@@ -145,7 +145,7 @@ class UserAPIController extends AppBaseController
     }
 
     /**
-     * 
+     *
      * Delete user data.
      *
      * @param  $user->id
@@ -156,7 +156,7 @@ class UserAPIController extends AppBaseController
         $user = User::find($request->id);
         $data['email'] = $user->email;
         $data['msg'] = "Usted ha eliminado su cuenta.";
-        
+
         if(empty($user)){
              return $this->sendError(["info"=>"Username does not exist..!", "status"=>'warning']);
         }
@@ -167,12 +167,12 @@ class UserAPIController extends AppBaseController
             MailController::sendMail($data,'tests');
 
             $update->userDetails();
-           
+
             Session::flush();
-            
+
             return $this->sendResponse(['info'=>$update->toArray(), 'status'=>'success'], 'Usuario Eliminado');
         }
-        
+
         return $this->sendError(["info"=>"Hubo un error..!", "status"=>'error']);
     }
 
@@ -187,10 +187,10 @@ class UserAPIController extends AppBaseController
         if($request){
             $user['name']          =   $request['name'];
             $user['lastname']      =   $request['lastname'];
-        
+
             if($request['email'] != $user->email)
                 $user['email']         =   $request['email'];
-        
+
             if(isset($request['password']))
                 $user['password']      =   Hash::make($request['password']);
 
@@ -212,7 +212,7 @@ class UserAPIController extends AppBaseController
             $user->lastname     = "not available";
             $user->email        =  $user->id; //pmo
             $user->password     = "not available";
-            $user->api_token    = "not available";
+            $user->api_token    = null;
 
             $user->userDetails()->updateOrCreate(['user_id'=>$user->id], [
                 'phone'            => "not available",
