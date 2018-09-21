@@ -31,7 +31,7 @@
                 data: $(this).serialize(),
 
                 success: function( response ) {
-                    window.location.href = 'http://localhost:8090';
+                    window.location.href = '/';
                 },
                 error: function( jqXHR, textStatus, errorThrown ) {
                     console.log( jqXHR );
