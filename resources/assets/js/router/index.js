@@ -73,7 +73,7 @@ import user_detail from '../components/myaccount/user_detail';
 import navaccount from '../components/myaccount/navaccount';
 import headerAccount from '../components/myaccount/headerAccount';
 import account_table from '../components/myaccount/account_table';
-
+import myOrderDetail from '../components/myaccount/myOrderDetail.vue';
 // Error pages
 import Error404 from '../components/general/error404.vue';
 import Error500 from '../components/general/error500.vue';
@@ -142,6 +142,12 @@ let router = new Router({
             component: account_table
         },
         {
+            path: '/my-order-detail',
+            name: 'myOrderDetail',
+            component: myOrderDetail
+        },
+        {
+
             path: '/contactUs',
             name: 'contactUs',
             component: contactUs
