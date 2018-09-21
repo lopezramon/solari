@@ -1,6 +1,27 @@
 <template>
     <div>
+        <section class="bg-contact">
+           
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                  <div class="rounded bg-form-contact ">
+                                       
+                               <div class="py-4"></div>
+                               <div class="text-center "><h1 class="grazie">ERROR</h1></div>
+                               <div class="text-center "><h1 class="error">404</h1></div>
+                               <div class="text-center "><img class="img-fluid m-auto" src="/images/iconos/lupa.svg" alt="" width="200"></div>
+                               <div class="text-center py-4"><h1>PAGINA NO ENCONTRADA</h1></div>
+                               <div class="text-center "><h3>Dirijase a nuestra página de inicio o simplemente envienos un mensaje</h3></div>
+
+                               <div class="py-4"></div>
+                            
+                    </div>
+                </div>
+            </div> 
+        </section>
+
         
+       
     </div>
 </template>
 
@@ -11,7 +32,7 @@
     min-height: 620px;
     padding-top: 200px;
     padding-bottom: 100px;
-    background-image: url("/images/home/gallery-slider-map/23.jpeg");
+    background-image: url("/images/home/header-slider/header-image-1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -32,14 +53,10 @@ border: 1px solid #8a8a8a;
 padding:20px 20px 20px 20px
 }
 .text-btn-white {
-    font-size: 0.8rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.2rem;
     font-weight: bold;
 
-}
-.btn-primary-new {
-    background-color: #373737;
-    border-color: #373737;
-    color: #FFF;
 }
 
 @media (max-width: 600px) {
@@ -66,15 +83,12 @@ padding:20px 20px 20px 20px
   }
   .show-movil {
       padding: 10%;
-     
   }
     .text-separation {
     letter-spacing: 0.2rem;
     padding-top: 10%;
-    
   }
 }
-
 .form-control {
      outline: none;
      border-bottom: 1px solid #373737;
@@ -93,11 +107,13 @@ padding:20px 20px 20px 20px
     border-radius: 0;
 }
 
-.text-pwd {
-    font-size:0.8rem;
+.grazie {
+    font-size: 4rem;
+    letter-spacing: 0.4rem;
 }
-.response {
-    display: none;
+.error {
+    font-size: 9rem;
+    letter-spacing: 0.4rem;
 }
 
 </style>

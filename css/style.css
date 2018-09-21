@@ -1,6 +1,10 @@
 
 body {
-	font-family:Montserrat;
+	font-family:'Josefin Sans', sans-serif;
+}
+
+p {
+	font-family:'Roboto', sans-serif;;
 }
 
 .header-black
@@ -11,6 +15,7 @@ body {
 	font-size: 0.8rem;
 	height: 30px;
 	padding-top:4px;
+	font-family:'Roboto', sans-serif;;
 }
 .swiper-container {
   width: 100%;
@@ -26,6 +31,7 @@ width: 100%;
 }
 h1  {
 	font-size: 2rem !important; 
+	font-family:'Josefin Sans', sans-serif; 
 }
 
 h1 span {
@@ -35,11 +41,13 @@ h1 span {
 h3 span {
 	font-size: 1.7rem !important; 
 	color: #FFF;
+	font-family:'Josefin Sans', sans-serif;
 }
 
 h4 {
 	font-size: 1rem !important; 
-	margin-top: 20px
+	margin-top: 20px;
+	font-family:'Josefin Sans', sans-serif;
 	
 }
 
@@ -52,7 +60,7 @@ h4 {
 
 .camere-detail {
 
-	font-family:Montserrat;
+	font-family:'Roboto', sans-serif;;
 	color: #FFF;
 }
 
@@ -145,7 +153,7 @@ h4 {
 		-ms-transform: translate(0%, 400%);
 		transform: translate(0%, 400%);
 		text-align: center;
-		font-family:Montserrat;
+		font-family:'Josefin Sans', sans-serif;
 	  }
 	  
 	  .content-middle-3 {
@@ -155,7 +163,7 @@ h4 {
 		-ms-transform: translate(0%, 100%);
 		transform: translate(0%, 100%);
 		text-align: center;
-		font-family:Montserrat;
+		font-family:'Josefin Sans', sans-serif;
 	  }
 	  
 	  .myButton {
@@ -295,7 +303,7 @@ border: 0px solid #000000;
   -ms-transform: translate(0%, 50%);
   transform: translate(0%, 50%);
   text-align: center;
-  font-family:Montserrat;
+  font-family:'Josefin Sans', sans-serif;
   
 }
 

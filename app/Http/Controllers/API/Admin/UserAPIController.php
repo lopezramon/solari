@@ -18,20 +18,20 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class UserAPIController extends AppBaseController
-{   
+{
     /**
      * Visualiza el formulario para crear un rol.
      *
      * @return View($role)
      */
     public function storeRole(CreateRoleRequest $request)
-    {   
+    {
         $request->request->add(['slug' => str_slug($request->name, '-')]);
         $role = Role::create($request->all());
-        
+
         if(!$role)
             Session::flash('success', 'Exito');
-        
+
         return redirect(route('admin.role.index'));
     }
 
@@ -97,7 +97,7 @@ class UserAPIController extends AppBaseController
             $user = User::findOrFail($userID);
 
             if(empty($user))
-                return $this->sendError(['info' => 'Su petición no coinciden con nuestros datos.', 'status' => 'info']);
+                return $this->sendError(['data' => 'Su petición no coinciden con nuestros datos.', 'status' => 'info']);
 
             $input = $this->updateUser($user, $request->all());
 
@@ -106,12 +106,13 @@ class UserAPIController extends AppBaseController
                     $request['msg'] = "Se ha realizado un cambio de clave.";
                     MailController::sendMail($request->all(),'test');
                 }
-                return $this->sendResponse(['info' => $input->toArray(), 'status' => 'success'], 'Su petición ha sido procesada con éxito.');
+                $input = array_add($input, 'details', $input->userDetails->toArray());
+                return $this->sendResponse(['data' => $input->toArray(), 'status' => 'success'], 'Su petición ha sido procesada con éxito.');
             }else{
-                return $this->sendError(['info' => 'Su petición no pudo ser procesada.', 'status' => 'warning']);
+                return $this->sendError(['data' => 'Su petición no pudo ser procesada.', 'status' => 'warning']);
             }
         }catch(\Exeption $e){
-            return $this->sendError(['info' => $e->getMessage(), 'status' => 'error']);
+            return $this->sendError(['data' => $e->getMessage(), 'status' => 'error']);
         }
     }
 
@@ -145,7 +146,7 @@ class UserAPIController extends AppBaseController
     }
 
     /**
-     * 
+     *
      * Delete user data.
      *
      * @param  $user->id
@@ -156,7 +157,7 @@ class UserAPIController extends AppBaseController
         $user = User::find($request->id);
         $data['email'] = $user->email;
         $data['msg'] = "Usted ha eliminado su cuenta.";
-        
+
         if(empty($user)){
              return $this->sendError(["info"=>"Username does not exist..!", "status"=>'warning']);
         }
@@ -167,12 +168,12 @@ class UserAPIController extends AppBaseController
             MailController::sendMail($data,'tests');
 
             $update->userDetails();
-           
+
             Session::flush();
-            
+
             return $this->sendResponse(['info'=>$update->toArray(), 'status'=>'success'], 'Usuario Eliminado');
         }
-        
+
         return $this->sendError(["info"=>"Hubo un error..!", "status"=>'error']);
     }
 
@@ -187,32 +188,26 @@ class UserAPIController extends AppBaseController
         if($request){
             $user['name']          =   $request['name'];
             $user['lastname']      =   $request['lastname'];
-        
+
             if($request['email'] != $user->email)
                 $user['email']         =   $request['email'];
-        
+
             if(isset($request['password']))
                 $user['password']      =   Hash::make($request['password']);
 
             $user->userDetails()->updateOrCreate(['user_id'=>$user->id], [
                 'phone'            => $request['phone'],
                 'themes'           => isset($request['themes']) ? $request['themes'] : 'night.css',
-                'viaEmail'         => isset($request['viaEmail']) ? true : false,
-                'viaSms'           => isset($request['viaSms']) ? true : false,
+                'viaEmail'         => false,
+                'viaSms'           => false,
                 'fiscal_code'      => $request['fiscalCode'],
-                'empresa'          => $request['azienda'],
-                'num_civic'        => $request['viaNum'],
-                'address'          => $request['address'],
-                'province'         => $request['province'],
-                'city'             => $request['city'],
-                'terms'            => isset($request['terms']) ? true : false,
             ]);
         }else{
             $user->name         = "not available";
             $user->lastname     = "not available";
             $user->email        =  $user->id; //pmo
             $user->password     = "not available";
-            $user->api_token    = "not available";
+            $user->api_token    = null;
 
             $user->userDetails()->updateOrCreate(['user_id'=>$user->id], [
                 'phone'            => "not available",

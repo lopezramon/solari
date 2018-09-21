@@ -1,4 +1,3 @@
-
 <?php
 
 use Illuminate\Http\Request;
@@ -28,6 +27,7 @@ Route::post('update/user', 'API\Admin\UserAPIController@updateProfile');
 Route::post('profile/{user}', 'API\Admin\UserAPIController@updateProfile');
 /* Eliminar los datos del usuario */
 Route::get('delete/user/{user}', 'API\Admin\UserAPIController@dropOutUser')->middleware('auth:api');
+Route::post('delete/user/', 'API\Admin\UserAPIController@dropOutUser')->middleware('auth:api');
 /* Cambio de password */
 Route::post('change/password', 'API\Admin\UserAPIController@changePassword')->middleware('auth:api');
 
@@ -110,6 +110,22 @@ Route::post('password/reset','Auth\ResetPasswordController@resetFront');
 // // Route::patch('admin/orders/{orders}', 'API\Admin\OrderAPIController@update')->middleware('auth');
 // // Route::delete('admin/orders/{orders}', 'API\Admin\OrderAPIController@destroy')->middleware('auth');
 
+
+// Room
+Route::get('admin/rooms', 'API\Admin\RoomAPIController@index');
+// Route::post('admin/rooms', 'API\Admin\RoomAPIController@store');
+Route::get('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@show');
+// Route::put('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@update');
+// Route::patch('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@update');
+// Route::delete('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@destroy');
+
+// Booking
+// Route::get('admin/bookings', 'API\Admin\BookingAPIController@index');
+Route::post('admin/bookings', 'API\Admin\BookingAPIController@store');
+Route::get('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@show');
+// Route::put('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@update');
+// Route::patch('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@update');
+// Route::delete('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@destroy');
 
 // Route::get('admin/blogs', 'API\Admin\BlogAPIController@index');
 // Route::post('admin/blogs', 'API\Admin\BlogAPIController@store');

@@ -34,6 +34,7 @@ import newsletter from '../components/landing/newsletter.vue';
 import aboutUs from '../components/landing/aboutUs.vue';
 import homeCamere from '../components/landing/homeCamere.vue';
 import contactUs from '../components/landing/contactUs.vue';
+import formBooking from '../components/landing/form.vue';
 // generale
 import navbar from '../components/general/navbar.vue';
 import footer from '../components/general/footer.vue';
@@ -61,6 +62,10 @@ import formConsulta from '../components/booking/formConsulta.vue';
 import resumen from '../components/booking/resumen.vue';
 import rooms from '../components/booking/rooms.vue';
 // My account
+//import AccountContent from '../components/myaccount/AccountContent.vue';
+// Error pages
+import Error404 from '../components/general/error404.vue';
+import Error500 from '../components/general/error500.vue';
 import delate_account from '../components/myaccount/delate_account.vue';
 import user_detail from '../components/myaccount/user_detail.vue';
 import navaccount from '../components/myaccount/navaccount.vue';
@@ -73,6 +78,7 @@ Vue.component('navbar', navbar);
 Vue.component('gfooter', footer);
 Vue.component('jumperr', jumperr);
 Vue.component('header_landing', headerLanding);
+Vue.component('form_booking',formBooking);
 Vue.component('slider_olbia', sliderOlbia);
 Vue.component('services', services);
 Vue.component('esperience', esperience);
@@ -169,8 +175,18 @@ let router = new Router({
             name: 'resetPassword',
             component: resetPassword
         },
-
-
+        {
+            path: '/error404',
+            name: 'error404',
+            component: Error404
+        },
+        {
+            path: '/error500',
+            name: 'error500',
+            component: Error500
+        },
+        
+         
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }
     }

@@ -93,15 +93,9 @@ class RegisterController extends Controller
     {
         $user->userDetails()->create([
             'phone'            => $data['phone'],
+           // 'optionalPhone'            => $data['optional_phone'],
             'themes'           => 'night.css',
-            'viaEmail'         => $data['viaEmail'],
-            'viaSms'           => $data['viaSms'],
             'fiscal_code'      => $data['fiscalCode'],
-            'empresa'          => $data['azienda'],
-            'num_civic'        => $data['viaNum'],
-            'address'          => $data['address'],
-            'province'         => $data['province'],
-            'city'             => $data['city'],
             'terms'            => $data['terms'],
         ]);
     }

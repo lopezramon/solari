@@ -40,6 +40,8 @@ class RoomAPIController extends AppBaseController
         $this->roomRepository->pushCriteria(new LimitOffsetCriteria($request));
 
         $input = $request->all();
+        // http://localhost:8011/api/admin/rooms?checkin=2018-06-10&checkout=2018-06-25&adult_quantity=3
+        // dd($input);
 
         $dates = [
             ['start_date', '>=', $input['checkin']],
