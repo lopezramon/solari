@@ -58,10 +58,15 @@ import formConsulta from '../components/booking/formConsulta.vue';
 import resumen from '../components/booking/resumen.vue';
 import rooms from '../components/booking/rooms.vue';
 // My account
-import AccountContent from '../components/myaccount/AccountContent.vue';
+//import AccountContent from '../components/myaccount/AccountContent.vue';
 import user_detail from '../components/myaccount/user_detail.vue';
 import navaccount from '../components/myaccount/navaccount.vue';
 import headerAccount from '../components/myaccount/headerAccount.vue';
+// Error pages
+import Error404 from '../components/general/error404.vue';
+import Error500 from '../components/general/error500.vue';
+
+
 //componentes generales
 Vue.component('navbar', navbar);
 Vue.component('gfooter', footer);
@@ -151,6 +156,16 @@ let router = new Router({
             path: '/resetPassword',
             name: 'resetPassword',
             component: resetPassword
+        },
+        {
+            path: '/error404',
+            name: 'error404',
+            component: Error404
+        },
+        {
+            path: '/error500',
+            name: 'error500',
+            component: Error500
         },
         
          
