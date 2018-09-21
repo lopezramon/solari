@@ -26,35 +26,15 @@
                                 <div class="py-2"></div>
                                 <div class="form-group">
                                     <label for="email" class="text-uppercase">Email</label>
-                                    <span class="text-success" :class="{'text-danger': errors.has('email') }">*</span>
+                                    <span v-show="errors.has('email')" :class="{'text-danger': errors.has('email') }">*</span>
                                     <input id="email" type="email" :maxlength="50" v-validate="'required|email|min:9|max:50'" name="email"
                                            data-vv-as="Email" :class="{'text-danger': errors.has('email') }"
                                            v-model="form.email" class="form-control" placeholder="Email">
                                     <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
                                 </div>
-
-
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <span class="text-success" :class="{'text-danger': errors.has('password')}">*</span>
-                                    <input type="password" :maxlength="16" class="form-control" placeholder="********" ref="password" @click.prevent="clickPass"
-                                           v-validate="'required|min:8|max:16'" name="password" data-vv-as="Password"
-                                           :class="{'text-danger': errors.has('password')}" v-model="form.password">
-                                    <span v-show="errors.has('password')" class="help text-danger">{{ errors.first('password') }}</span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Confirma la password</label>
-                                    <span class="text-success" :class="{'text-danger': errors.has('passwordConfirm')}">*</span>
-                                    <input type="password" :maxlength="16" class="form-control" placeholder="********" @click.prevent="clickPass"
-                                           v-validate="'required|min:8|max:16|confirmed:password'" name="passwordConfirm" v-model="form.passwordConfirm"
-                                           data-vv-as="Password" :class="{ 'text-danger': (errors.has('passwordConfirm') || validpass) }">
-                                    <span v-show="errors.has('passwordConfirm')" class="help text-danger">{{ errors.first('passwordConfirm')}}</span>
-                                </div>
-
                                 <div class="row text-center py-4">
                                     <div class="col-12 py-2">
-                                        <button type="button" :disabled="errors.any() || isDisabled" @click="validationPassword" class="btn btn-primary text-bold">
+                                        <button type="button" :disabled="errors.any() || isDisabled" @click="ValidEmail" class="btn btn-primary text-bold">
                                             <span class="text-btn-white">CONTINUA</span>
                                         </button>
                                     </div>
@@ -159,13 +139,7 @@
         data() {
             return {
                 root: null,
-                validpass: false,
-                form: {
-                    email: null,
-                    password: null,
-                    passwordConfirm: null,
-                    token: this.$route.params.hash,
-                },
+                form: { email: null },
                 color: '#1b1b1b',
                 size: '15px',
                 loading: false,
@@ -175,48 +149,40 @@
             this.root = window.location.origin;
         },
         computed: {
-            isDisabled() {
-                return !this.form.email || !this.form.password || !this.form.passwordConfirm
-            }
+            isDisabled() { return !this.form.email }
         },
         methods: {
-            validationPassword() {
+            ValidEmail() {
                 this.loading = true;
-                if (this.form.passwordConfirm !== this.form.password) {
-                    this.validpass = true;
-                    this.showAlert('warning', 'las claves deben coincidir');
-                    this.loading = false;
-
-                } else {
-                    this.$validator.validateAll().then((result) => {
-                        if (result) {
-                            this.ChangePassword();
-                        }
-                    }).catch(() => {
-                        console.log('error form')
-                    });
-                }
-            },
-            ChangePassword() {
-                var slf = this;
-                axios.post(this.root + '/api/password/reset', this.form).then((res) => {
-                    console.log(res);
-                    if (res.status === 200) {
-                        this.loading = false;
-                        this.showAlert('success', 'La clave a sido cambiada con exito');
-                        slf.$router.push('/clientLogin');
-                    } else if (res.status === 302) {
-                        this.loading = false;
-                        console.log(res);
+                this.$validator.validateAll().then((result) => {
+                    if (result) {
+                        let slf = this;
+                        axios.post('api/forgotPassword', this.form).then((res) => {
+                            if (res.status === 200) {
+                                if (slf.$store.getters.getSession.length > 0) {
+                                    this.loading = false;
+                                    this.showAlert('error', 'Error', 'Es necesario cerrar la sesion para continuar');
+                                } else {
+                                    if (res.data.oper === true) {
+                                        this.loading = false;
+                                        this.showAlert('success', 'Se te ha enviado un correo para cambiar tu clave');
+                                        this.form.email = null;
+                                        this.$router.push('/clientLogin');
+                                    } else {
+                                        this.loading = false;
+                                        this.showAlert('error', 'Error', res.data.msg);
+                                    }
+                                }
+                            }
+                        })
+                            .catch((error) => {
+                                this.loading = false;
+                                this.showAlert('error', 'Error', error.response.data.msg);
+                            });
                     }
-                })
-                    .catch((error) => {
-                        this.loading = false;
-                        console.error(error);
-                        if (error.response.data.errors) {
-                            this.showAlert('error', 'Error al cambiar la clave', error.response.data.errors);
-                        }
-                    });
+                }).catch(() => {
+                    console.log('error form')
+                });
             },
             showAlert(type, title, text) {
                 this.$swal({
@@ -227,8 +193,7 @@
                     showConfirmButton: false,
                     showCloseButton: true,
                 })
-            },
-            clickPass() { this.validpass = false; }
+            }
         }
     }
 </script>
