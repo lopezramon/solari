@@ -156,6 +156,10 @@ export default {
             }
             return false;
         }
+    },computed:{
+        listRooms(){
+            
+        }
     }
 }
 </script>

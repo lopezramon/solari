@@ -105645,6 +105645,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
             return false;
         }
+    }, computed: {
+        listRooms: function listRooms() {}
     }
 });
 
