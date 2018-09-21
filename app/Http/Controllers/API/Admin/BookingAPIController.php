@@ -105,6 +105,10 @@ class BookingAPIController extends AppBaseController
 
         $data = (array)$input->orden;
 
+        // montos
+        $total  = 0;
+        $iva    = 0;
+
         // Save Booking
         $booking = $this->setBookingModel( $data );
 
@@ -112,13 +116,17 @@ class BookingAPIController extends AppBaseController
 
             // Save BookingDetail
             $bookingDetail = $this->setBookingDetailModel($roomItem, $booking);
+
+            // montos para el BookingDetail
+            $total  += $bookingDetail->total_item;
+            $iva    += $bookingDetail->iva_item;
         }
 
         // Update Booking (para guardar los montos y generar codigo)
         $bookingData = [];
-        // $bookingData['subtotal']    = $total - $iva;
-        // $bookingData['iva']         = $iva;
-        // $bookingData['total']       = $total;
+        $bookingData['subtotal']    = $total - $iva;
+        $bookingData['iva']         = $iva;
+        $bookingData['total']       = $total;
         $bookingData['code']        = $this->bookingRepository->generateCode($booking->id);
         $booking = $this->bookingRepository->update($bookingData, $booking->id);
 
@@ -187,8 +195,13 @@ class BookingAPIController extends AppBaseController
         $bookingDetail['form_data_id']      = $formData->id;
 
         // montos
-        $bookingDetail['iva_item']          = 0; # PENDIENTE
-        $bookingDetail['total_item']        = 0; # PENDIENTE
+        $dates = [
+            'checkin'   => $booking->checkin_date->toDateString(),
+            'checkout'  => $booking->checkout_date->toDateString()
+        ];
+        $ivaAndPrice = $this->roomRepository->getCurrentIvaAndPrice($room, $dates);
+        $bookingDetail['total_item']        = $ivaAndPrice['price'];
+        $bookingDetail['iva_item']          = $ivaAndPrice['iva'];
 
         return $this->bookingDetailRepository->create($bookingDetail);
     }

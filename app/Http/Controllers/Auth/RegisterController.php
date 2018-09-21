@@ -105,6 +105,7 @@ class RegisterController extends Controller
         $user->generateToken();
 
         $admin = $user->isRole('admin') ? true : false;
+        $user = array_add($user, 'details', $user->userDetails->toarray());
 
         return response()->json(['data' => $user->toArray(), 'admin' => $admin], 200);
 

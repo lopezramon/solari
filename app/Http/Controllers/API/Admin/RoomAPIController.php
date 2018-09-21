@@ -41,14 +41,7 @@ class RoomAPIController extends AppBaseController
 
         $input = $request->all();
 
-        $dates = [
-            ['start_date', '>=', $input['checkin']],
-            ['end_date', '<=', $input['checkout']]
-        ];
-
-        // dd($dates);
-
-        $rooms = $this->roomRepository->getCustomized(null, $dates);
+        $rooms = $this->roomRepository->getCustomized(null, $input);
 
         return $this->sendResponse(['rooms' => $rooms], 'Rooms retrieved successfully');
     }
