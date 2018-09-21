@@ -119,13 +119,13 @@ class RoomRepository extends BaseRepository
                 // levanto el flag de que ya estoy en una temporada
                 $isOneSeason = true;
                 // dd('a');
-                // break;
+                break;
             }
 
             // SI ENTRA EN ESTE IF: EL RANGO DE CONSULTA SE ENCUENTRA EN DOS O MAS TEMPORADAS
-            else if ( /*$isOneSeason &&*/
-                $season->start_date->lessThanOrEqualTo($checkin_request) &&
-                $season->end_date->lessThan($checkout_request) ) {
+            else if ( $season->start_date->lessThanOrEqualTo($checkin_request) &&
+                $season->end_date->lessThan($checkout_request) &&
+                $checkin_request->between($season->start_date, $season->end_date) ) {
 
                 // asigno la cantidad de dias a reservar y el precio
                 $days   = $checkin_request->diffInDays($season->end_date) + 1;
@@ -134,7 +134,8 @@ class RoomRepository extends BaseRepository
 
                 // levanto el flag de que el rango sobrepasa la temporada actual
                 $isTwoSeasons = true;
-                // dd('b');
+                // dd($season->end_date);
+                break;
             }
 
             // valido si el rango sobrepasa la temporada actual

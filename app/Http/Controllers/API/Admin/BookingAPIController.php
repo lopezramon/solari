@@ -72,7 +72,7 @@ class BookingAPIController extends AppBaseController
             $bookingsWithRelations->push( $this->bookingRepository->findCustomized($booking->id) );
         }
 
-        return $this->sendResponse($bookingsWithRelations->toArray(), 'Bookings retrieved successfully');
+        return $this->sendResponse(['bookings' => $bookingsWithRelations->toArray()], 'Bookings retrieved successfully');
     }
 
     /**
@@ -250,7 +250,7 @@ class BookingAPIController extends AppBaseController
         // $bookingWithRelations = $this->bookingRepository->getOrderWithRelations($booking);
         $bookingWithRelations = $this->bookingRepository->findCustomized($booking->id);
 
-        return $this->sendResponse($bookingWithRelations, 'Booking retrieved successfully');
+        return $this->sendResponse(['booking' => $bookingWithRelations], 'Booking retrieved successfully');
     }
 
     /**
