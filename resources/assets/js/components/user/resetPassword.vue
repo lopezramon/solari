@@ -45,11 +45,11 @@
 
                                 <div class="form-group">
                                     <label>Confirma la password</label>
-                                    <span class="text-success" :class="{'text-danger': errors.has('passwordConfirm')}">*</span>
+                                    <span class="text-success" :class="{'text-danger': errors.has('password_confirmation')}">*</span>
                                     <input type="password" :maxlength="16" class="form-control" placeholder="********" @click.prevent="clickPass"
-                                           v-validate="'required|min:8|max:16|confirmed:password'" name="passwordConfirm" v-model="form.passwordConfirm"
-                                           data-vv-as="Password" :class="{ 'text-danger': (errors.has('passwordConfirm') || validpass) }">
-                                    <span v-show="errors.has('passwordConfirm')" class="help text-danger">{{ errors.first('passwordConfirm')}}</span>
+                                           v-validate="'required|min:8|max:16|confirmed:password'" name="password_confirmation" v-model="form.password_confirmation"
+                                           data-vv-as="Password" :class="{ 'text-danger': (errors.has('password_confirmation') || validpass) }">
+                                    <span v-show="errors.has('password_confirmation')" class="help text-danger">{{ errors.first('password_confirmation')}}</span>
                                 </div>
 
                                 <div class="row text-center py-4">
@@ -85,28 +85,28 @@
                     <div class="col-lg-2 d-flex" ></div>
                     <div class="col-lg-2 d-flex" >
                         <div class="rounded text-center flex-fill">
-                            <img width="105" src="/images/iconos/team.svg" alt="team"  class="rounded icon-contact">    
+                            <img width="105" src="/images/iconos/team.svg" alt="team"  class="rounded icon-contact">
                         </div>
-                    
+
                     </div>
-                    
+
                     <div class="col-lg-2 d-flex">
                         <div class="text-center rounded flex-fill">
                             <img width="105" src="/images/iconos/smartphone.svg" alt="phone"  class="rounded icon-contact">
-                            
+
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-2 d-flex">
                         <div class="rounded text-center flex-fill" >
                             <img width="105" src="/images/iconos/email.svg" alt="email" class="rounded icon-contact">
-                            
+
                         </div>
                     </div>
                     <div class="col-lg-2 d-flex">
                         <div class="text-center flex-fill" style="">
                             <img width="105" src="/images/iconos/follow.svg" alt="follow" class="rounded icon-contact">
-                            
+
                         </div>
                         <div class="col-lg-2 d-flex"></div>
                     </div>
@@ -165,7 +165,7 @@
                 form: {
                     email: null,
                     password: null,
-                    passwordConfirm: null,
+                    password_confirmation: null,
                     token: this.$route.params.hash,
                 },
                 color: '#1b1b1b',
@@ -178,13 +178,13 @@
         },
         computed: {
             isDisabled() {
-                return !this.form.email || !this.form.password || !this.form.passwordConfirm
+                return !this.form.email || !this.form.password || !this.form.password_confirmation
             }
         },
         methods: {
             validationPassword() {
                 this.loading = true;
-                if (this.form.passwordConfirm !== this.form.password) {
+                if (this.form.password_confirmation !== this.form.password) {
                     this.validpass = true;
                     this.showAlert('warning', 'las claves deben coincidir');
                     this.loading = false;
@@ -202,7 +202,7 @@
             ChangePassword() {
                 var slf = this;
                 axios.post(this.root + '/api/password/reset', this.form).then((res) => {
-                    console.log(res);
+                    // console.log(res);
                     if (res.status === 200) {
                         this.loading = false;
                         this.showAlert('success', 'La clave a sido cambiada con exito');
