@@ -160,7 +160,7 @@
                                 this.$store.dispatch('setSession', res.data).then(() => {
                                     this.loading = false;
                                     let slf = this;
-                                    this.showAlert('success', 'Riuscito utente autenticato');
+                                    this.showAlert('success', 'Usuario autenticado con exito');
                                     setTimeout(() => {
                                         (admin === true) ? location.href = '/home' : slf.$router.push('/')
                                     }, 1800);
@@ -172,11 +172,11 @@
                                 switch (error.response.status) {
                                     case 401:
                                         this.loading = false;
-                                        this.showAlert('error', 'L\'utente registrato non viene trovato');
+                                        this.showAlert('error', 'El usuario no esta registrado');
                                         break;
                                     case 500:
                                         this.loading = false;
-                                        this.showAlert('error', 'Errore di connessione');
+                                        this.showAlert('error', 'Error de conexión');
                                         break;
                                 }
                             })

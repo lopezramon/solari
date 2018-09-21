@@ -218,7 +218,6 @@
 </template>
 <script>
     import { PulseLoader } from 'vue-spinner/dist/vue-spinner.min';
-    // import myCaptcha from 'vue-captcha';
     export default {
         components: { PulseLoader },
         data() {
@@ -263,6 +262,7 @@
                             axios.post('/register', this.form).then((res) => {
                                 if (res.status === 200) {
                                     var data = res.data;
+                                    console.log('resp: ' + res.data);
                                     slf.$store.dispatch('setSession', data).then(() => {
                                         let slf = this;
                                         this.loading = false;

@@ -1,8 +1,7 @@
 <template>
     <div>
         <div class="content-nav">
-            
-            <aside class="top-info d-none d-md-block bg-black">	
+            <aside class="top-info d-none d-md-block bg-black">
                     <div class="container header-black">
                         <div class="row">
                             <div class="col-6"><a href="https://goo.gl/maps/V6ZaLt3XSM22" target="_black">Via alessandro nanni 58, Italia, Olbia</a></div>
@@ -10,7 +9,7 @@
                         </div>
                     </div>
             </aside>
-                
+
             <div class="container">
                 <nav class="navbar navbar-dark navbar-expand-md py-md-2 text-uppercase">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,22 +17,20 @@
                     </button>
                     <a class="navbar-brand m-0" href="/">
                         <img src="/images/logos/logo_luxury_pequeño.png">
-                        <h1 class="d-none d-sm-inline-block">
-                            Luxury Room
-                        </h1>
+                        <h1 class="d-none d-sm-inline-block">Luxury Room</h1>
                     </a>
-                    
+
                     <div class="action-menu ml-auto ml-md-0 order-md-12 d-inline-flex align-items-center">
                         <a href="#" class="text-white"><img src="/images/iconos/facebook.png" alt="facebook" width="24"> &nbsp;</a>
                         <a href="#" class="font-2 d-md-none pr-1 mr-1">
                             <img src="/images/iconos/facebook.png" alt="facebook" width="24"> |
                         </a>
                         <a href="#" class="text-white font-1 d-inline-flex align-items-center">
-                            <img src="/images/iconos/facebook.png" alt="facebook" width="24"> 
-                            &nbsp;<span class="">ITA</span>
+                            <img src="/images/iconos/facebook.png" alt="facebook" width="24">
+                            &nbsp;<span class="text-uppercase">{{ lang }}</span>
                         </a>
                     </div>
-                    
+
                     <div class="navbar-collapse collapse justify-content-center" id="navbarNav">
                         <ul class="navbar-nav text-center">
                             <li class="nav-item py-md-2"><a href="#chisiamo" class="nav-link">Chi Siamo</a></li>
@@ -41,15 +38,38 @@
                             <li class="nav-item py-md-2"><a href="#servizi" class="nav-link">Servizi</a></li>
                             <li class="nav-item py-md-2"><a href="#esperienze" class="nav-link">Esperienze</a></li>
                             <li class="nav-item py-md-2"><a href="/contactUs" class="nav-link">contatti</a></li>
+
+                            <li class="nav-item py-md-2">
+                                <a :href="GetRoute" class="nav-link">
+                                    <span v-if="isAuth">Il mio account</span>
+                                    <span v-else>Accedi al tuo account</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
-                    
-                    
                 </nav>
             </div>
         </div>
     </div>
 </template>
+<script>
+    export default {
+        data() {
+            return {
+                lang: 'it',
+                isAuth: null
+            }
+        },
+        computed: {
+            GetRoute() {
+                this.isAuth = this.$store.getters.getauthenticated;
+                if (this.isAuth) {
+                    return '/myAccount';
+                } else return '/clientLogin';
+            }
+        }
+    }
+</script>
 <style scoped>
     .content-nav{
         position: absolute;
