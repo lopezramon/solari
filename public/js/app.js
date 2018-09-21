@@ -83064,6 +83064,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -83078,19 +83105,77 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 lastname: null,
                 email: null,
                 phone: null,
+                optionalPhone: null,
+                fiscalCode: null,
                 password: null
             },
             regex: /^[a-zA-ZàèéìíîòóùúÀÈÉÌÍÎÒÓÙÚáéíñóúüÁÉÍÑÓÚÜ\-'\s]+$/i,
             color: '#1b1b1b',
             size: '15px',
-            loading: false,
-            captcha: false
+            loading: false
         };
+    },
+    mounted: function mounted() {
+        this.getStorage();
     },
 
     computed: {
         isDisabled: function isDisabled() {
-            return !this.form.name || !this.form.lastname || !this.form.email || !this.form.phone || !this.form.azienda || !this.form.viaNum || !this.form.fiscalCode || !this.form.province || !this.form.city || !this.form.address || !this.form.terms || !this.captcha;
+            return !this.form.name || !this.form.lastname || !this.form.email || !this.form.phone || !this.form.fiscalCode;
+        }
+    },
+    methods: {
+        getStorage: function getStorage() {
+            var isLogged = this.$store.getters.getSession;
+            this.token = { 'api_token': isLogged[0].api_token };
+            this.form.id = isLogged[0].id;
+            this.form.name = isLogged[0].name;
+            this.form.lastname = isLogged[0].lastname;
+            this.form.email = isLogged[0].email;
+            this.form.phone = isLogged[0].phone;
+            // this.form.optionalPhone = isLogged[0].optional_phone;
+            this.form.fiscalCode = isLogged[0].fiscalCode;
+        },
+        editUser: function editUser() {
+            var _this = this;
+
+            this.loading = true;
+            this.$validator.validateAll().then(function (result) {
+                if (result) {
+                    var slf = _this;
+                    axios.post('/api/update/user', _this.form).then(function (res) {
+                        if (res.status === 200) {
+                            _this.$store.dispatch('setSession', res.data.data).then(function () {
+                                _this.loading = false;
+                                _this.showAlert('success', 'actualizó con exito');
+                                slf.$router.push('/myaccount');
+                            }).catch(function () {
+                                _this.loading = false;
+                                console.log('error store');
+                            });
+                        }
+                    }).catch(function (error) {
+                        console.error(error);
+                        if (error.response.status = 422) {
+                            _this.loading = false;
+                            _this.showAlert('error', 'error al actualizar');
+                        }
+                    });
+                }
+            }).catch(function () {
+                _this.loading = false;
+                console.log('error form');
+            });
+        },
+        showAlert: function showAlert(type, title, text) {
+            this.$swal({
+                position: 'center',
+                type: type,
+                title: title,
+                text: text,
+                showConfirmButton: false,
+                showCloseButton: true
+            });
         }
     }
 });
@@ -83110,410 +83195,523 @@ var render = function() {
       _vm._v(" "),
       _c("navaccount"),
       _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row mt-5" }, [
-          _c("div", { staticClass: "col-12 mt-md-3 " }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { staticClass: "mb-0 white font-weight-bold" }, [
-                _vm._v("Nome")
+      _vm.loading
+        ? [
+            _c(
+              "div",
+              { staticClass: "container d-flex justify-content-center" },
+              [
+                _c("div", { staticClass: "row m-5 mb-4" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-12" },
+                    [
+                      _c("pulse-loader", {
+                        attrs: {
+                          loading: _vm.loading,
+                          color: _vm.color,
+                          size: _vm.size
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]
+            )
+          ]
+        : [
+            _c("div", { staticClass: "container" }, [
+              _c("div", { staticClass: "row mt-5" }, [
+                _c("div", { staticClass: "col-12 mt-md-3 " }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      { staticClass: "mb-0 white font-weight-bold" },
+                      [_vm._v("Nombre")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("name"),
+                            expression: "errors.has('name')"
+                          }
+                        ],
+                        staticClass: "help text-danger"
+                      },
+                      [_vm._v("*")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required|alpha|min:2|max:30",
+                          expression: "'required|alpha|min:2|max:30'"
+                        },
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.name,
+                          expression: "form.name"
+                        }
+                      ],
+                      staticClass: "form-control form-material",
+                      class: { "text-danger": _vm.errors.has("name") },
+                      attrs: {
+                        type: "text",
+                        maxlength: 30,
+                        name: "name",
+                        "data-vv-as": "Nombre",
+                        placeholder: "Nombre"
+                      },
+                      domProps: { value: _vm.form.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "name", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "small",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("name"),
+                            expression: "errors.has('name')"
+                          }
+                        ],
+                        staticClass: "help text-danger"
+                      },
+                      [_vm._v(_vm._s(_vm.errors.first("name")))]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mt-md-3" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      { staticClass: "mb-0 white font-weight-bold" },
+                      [_vm._v("Apellido")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("lastname"),
+                            expression: "errors.has('lastname')"
+                          }
+                        ],
+                        staticClass: "help text-danger"
+                      },
+                      [_vm._v("*")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required|alpha|min:2|max:30",
+                          expression: "'required|alpha|min:2|max:30'"
+                        },
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.lastname,
+                          expression: "form.lastname"
+                        }
+                      ],
+                      staticClass: "form-control form-material",
+                      class: { "text-danger": _vm.errors.has("lastname") },
+                      attrs: {
+                        type: "text",
+                        maxlength: 30,
+                        name: "lastname",
+                        "data-vv-as": "Apellido",
+                        placeholder: "Apellido"
+                      },
+                      domProps: { value: _vm.form.lastname },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "lastname", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "small",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("lastname"),
+                            expression: "errors.has('lastname')"
+                          }
+                        ],
+                        staticClass: "help text-danger"
+                      },
+                      [_vm._v(_vm._s(_vm.errors.first("lastname")))]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mt-md-3" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      { staticClass: "mb-0 white font-weight-bold" },
+                      [_vm._v("Telefono")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("phone"),
+                            expression: "errors.has('phone')"
+                          }
+                        ],
+                        staticClass: "help text-danger"
+                      },
+                      [_vm._v("*")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required|numeric|min:9|max:16",
+                          expression: "'required|numeric|min:9|max:16'"
+                        },
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.phone,
+                          expression: "form.phone"
+                        }
+                      ],
+                      staticClass: "form-control form-material",
+                      class: { "text-danger": _vm.errors.has("phone") },
+                      attrs: {
+                        type: "text",
+                        maxlength: 16,
+                        name: "phone",
+                        "data-vv-as": "Telefono",
+                        placeholder: "Telefono"
+                      },
+                      domProps: { value: _vm.form.phone },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "phone", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "small",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("phone"),
+                            expression: "errors.has('phone')"
+                          }
+                        ],
+                        staticClass: "help text-danger"
+                      },
+                      [_vm._v(_vm._s(_vm.errors.first("phone")))]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mt-md-3" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      { staticClass: "mb-0 white font-weight-bold" },
+                      [_vm._v("Telefono Opcional")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("optionalPhone"),
+                            expression: "errors.has('optionalPhone')"
+                          }
+                        ],
+                        staticClass: "help text-danger"
+                      },
+                      [_vm._v("*")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "numeric|min:9|max:16",
+                          expression: "'numeric|min:9|max:16'"
+                        },
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.optionalPhone,
+                          expression: "form.optionalPhone"
+                        }
+                      ],
+                      staticClass: "form-control form-material",
+                      class: { "text-danger": _vm.errors.has("optionalPhone") },
+                      attrs: {
+                        type: "text",
+                        maxlength: 16,
+                        name: "optionalPhone",
+                        "data-vv-as": "Telefono",
+                        placeholder: "Telefono"
+                      },
+                      domProps: { value: _vm.form.optionalPhone },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.form,
+                            "optionalPhone",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "small",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("optionalPhone"),
+                            expression: "errors.has('optionalPhone')"
+                          }
+                        ],
+                        staticClass: "help text-danger"
+                      },
+                      [_vm._v(_vm._s(_vm.errors.first("optionalPhone")))]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mt-md-3" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      { staticClass: "mb-0 white font-weight-bold" },
+                      [_vm._v("Email")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("email"),
+                            expression: "errors.has('email')"
+                          }
+                        ],
+                        staticClass: "help text-danger"
+                      },
+                      [_vm._v("*")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required|email|min:9|max:50",
+                          expression: "'required|email|min:9|max:50'"
+                        },
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.email,
+                          expression: "form.email"
+                        }
+                      ],
+                      staticClass: "form-control form-material",
+                      class: { "text-danger": _vm.errors.has("email") },
+                      attrs: {
+                        type: "email",
+                        maxlength: 50,
+                        name: "email",
+                        "data-vv-as": "Email",
+                        disabled: "",
+                        placeholder: "Email"
+                      },
+                      domProps: { value: _vm.form.email },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "email", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "small",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("email"),
+                            expression: "errors.has('email')"
+                          }
+                        ],
+                        staticClass: "help text-danger"
+                      },
+                      [_vm._v(_vm._s(_vm.errors.first("email")))]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12 mt-md-3" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      { staticClass: "mb-0 white font-weight-bold" },
+                      [_vm._v("Cod Fiscale/P.IVA")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("fiscalCode"),
+                            expression: "errors.has('fiscalCode')"
+                          }
+                        ],
+                        staticClass: "help text-danger"
+                      },
+                      [_vm._v("*")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required|alpha_num|min:16|max:16",
+                          expression: "'required|alpha_num|min:16|max:16'"
+                        },
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.fiscalCode,
+                          expression: "form.fiscalCode"
+                        }
+                      ],
+                      staticClass: "form-control form-material",
+                      class: { "text-danger": _vm.errors.has("fiscalCode") },
+                      attrs: {
+                        type: "text",
+                        maxlength: 16,
+                        name: "fiscalCode",
+                        "data-vv-as": "Cod Fiscale/P.IVA",
+                        placeholder: "Cod Fiscale/P.IVA"
+                      },
+                      domProps: { value: _vm.form.fiscalCode },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "fiscalCode", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "small",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("fiscalCode"),
+                            expression: "errors.has('fiscalCode')"
+                          }
+                        ],
+                        staticClass: "help text-danger"
+                      },
+                      [_vm._v(_vm._s(_vm.errors.first("fiscalCode")))]
+                    )
+                  ])
+                ])
               ]),
               _vm._v(" "),
-              _c(
-                "span",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.errors.has("name"),
-                      expression: "errors.has('name')"
-                    }
-                  ],
-                  staticClass: "help text-danger"
-                },
-                [_vm._v("*")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
+              _c("div", { staticClass: "form-group col-12 text-center mb-5" }, [
+                _c(
+                  "button",
                   {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: "required|alpha|min:2|max:30",
-                    expression: "'required|alpha|min:2|max:30'"
+                    staticClass: "btn btn-primary text-uppercase",
+                    attrs: {
+                      type: "button",
+                      disabled: _vm.errors.any() || _vm.isDisabled
+                    },
+                    on: { click: _vm.editUser }
                   },
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.name,
-                    expression: "form.name"
-                  }
-                ],
-                staticClass: "form-control form-material",
-                class: { "text-danger": _vm.errors.has("name") },
-                attrs: {
-                  type: "text",
-                  maxlength: 30,
-                  name: "name",
-                  "data-vv-as": "Nome",
-                  placeholder: "Nome"
-                },
-                domProps: { value: _vm.form.name },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "name", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "small",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.errors.has("name"),
-                      expression: "errors.has('name')"
-                    }
-                  ],
-                  staticClass: "help text-danger"
-                },
-                [_vm._v(_vm._s(_vm.errors.first("name")))]
-              )
+                  [_vm._v("\n                    Actualizar\n                ")]
+                )
+              ])
             ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 mt-md-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { staticClass: "mb-0 white font-weight-bold" }, [
-                _vm._v("Cognome")
-              ]),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.errors.has("lastname"),
-                      expression: "errors.has('lastname')"
-                    }
-                  ],
-                  staticClass: "help text-danger"
-                },
-                [_vm._v("*")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: "required|alpha|min:2|max:30",
-                    expression: "'required|alpha|min:2|max:30'"
-                  },
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.lastname,
-                    expression: "form.lastname"
-                  }
-                ],
-                staticClass: "form-control form-material",
-                class: { "text-danger": _vm.errors.has("lastname") },
-                attrs: {
-                  type: "text",
-                  maxlength: 30,
-                  name: "lastname",
-                  "data-vv-as": "Cognome",
-                  placeholder: "Cognome"
-                },
-                domProps: { value: _vm.form.lastname },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "lastname", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "small",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.errors.has("lastname"),
-                      expression: "errors.has('lastname')"
-                    }
-                  ],
-                  staticClass: "help text-danger"
-                },
-                [_vm._v(_vm._s(_vm.errors.first("lastname")))]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 mt-md-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.errors.has("email"),
-                      expression: "errors.has('email')"
-                    }
-                  ],
-                  staticClass: "help text-danger"
-                },
-                [_vm._v("*")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: "required|email|min:9|max:50",
-                    expression: "'required|email|min:9|max:50'"
-                  },
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.email,
-                    expression: "form.email"
-                  }
-                ],
-                staticClass: "form-control form-material",
-                class: { "text-danger": _vm.errors.has("email") },
-                attrs: {
-                  type: "email",
-                  maxlength: 50,
-                  name: "email",
-                  "data-vv-as": "Mail",
-                  placeholder: "Mail"
-                },
-                domProps: { value: _vm.form.email },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "email", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "small",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.errors.has("email"),
-                      expression: "errors.has('email')"
-                    }
-                  ],
-                  staticClass: "help text-danger"
-                },
-                [_vm._v(_vm._s(_vm.errors.first("email")))]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 mt-md-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { staticClass: "mb-0 white font-weight-bold" }, [
-                _vm._v("Telefono")
-              ]),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.errors.has("phone"),
-                      expression: "errors.has('phone')"
-                    }
-                  ],
-                  staticClass: "help text-danger"
-                },
-                [_vm._v("*")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: "required|numeric|min:9|max:16",
-                    expression: "'required|numeric|min:9|max:16'"
-                  },
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.phone,
-                    expression: "form.phone"
-                  }
-                ],
-                staticClass: "form-control form-material",
-                class: { "text-danger": _vm.errors.has("phone") },
-                attrs: {
-                  type: "text",
-                  maxlength: 16,
-                  name: "phone",
-                  "data-vv-as": "Telefono",
-                  placeholder: "Telefono"
-                },
-                domProps: { value: _vm.form.phone },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "phone", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "small",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.errors.has("phone"),
-                      expression: "errors.has('phone')"
-                    }
-                  ],
-                  staticClass: "help text-danger"
-                },
-                [_vm._v(_vm._s(_vm.errors.first("phone")))]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 mt-md-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { staticClass: "mb-0 white font-weight-bold" }, [
-                _vm._v("Password")
-              ]),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.errors.has("password"),
-                      expression: "errors.has('password')"
-                    }
-                  ],
-                  staticClass: "help text-danger"
-                },
-                [_vm._v("*")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.Password,
-                    expression: "form.Password"
-                  }
-                ],
-                staticClass: "form-control form-material",
-                class: { "text-danger": _vm.errors.has("Password") },
-                attrs: {
-                  type: "password",
-                  maxlength: 16,
-                  name: "phone",
-                  "data-vv-as": "Password",
-                  placeholder: "Password"
-                },
-                domProps: { value: _vm.form.Password },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "Password", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.errors.has("Password"),
-                      expression: "errors.has('Password')"
-                    }
-                  ],
-                  staticClass: "help text-danger"
-                },
-                [_vm._v(_vm._s(_vm.errors.first("Password")))]
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _vm._m(1)
-      ])
+          ]
     ],
-    1
+    2
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "mb-0 white font-weight-bold" }, [
-      _vm._v("Mail"),
-      _c("span", { staticClass: "msj_intruccion ml-2" }, [
-        _vm._v("(Questo será il tu nome utente)")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group col-12 text-center mb-5" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary text-uppercase",
-          attrs: { type: "button" }
-        },
-        [_vm._v("\n                Cambiamento\n            ")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -83834,7 +84032,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\nheader[data-v-800efcea]{\n    background-color: #fff;\n    width: 100%;\n    height: 130px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n    text-align: center;\n}\n@media (max-width: 768px) {\n.alto[data-v-800efcea]{\n        width: 50px;\n}\n}\n@media (min-width: 768px) {\nheader[data-v-800efcea]{\n        height: 280px;\n}\n.alto[data-v-800efcea]{\n        width: 100px;\n}\n}\n\n\n", ""]);
+exports.push([module.i, "\nheader[data-v-800efcea]{\n    background-color: #fff;\n    width: 100%;\n    height: 130px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n    text-align: center;\n}\n@media (max-width: 768px) {\n.alto[data-v-800efcea]{\n        width: 50px;\n}\n}\n@media (min-width: 768px) {\nheader[data-v-800efcea]{\n        height: 280px;\n}\n.alto[data-v-800efcea]{\n        width: 100px;\n}\n}\n", ""]);
 
 // exports
 
@@ -83859,7 +84057,7 @@ var render = function() {
             [
               _c("img", {
                 staticClass: "alto",
-                attrs: { src: "/images/logos/user.svg", alt: "" }
+                attrs: { src: "/images/logos/user.svg", alt: "avatar" }
               }),
               _vm._v(" "),
               _c("div", { staticClass: "d-inline-block align-self-center" }, [
@@ -83869,7 +84067,7 @@ var render = function() {
                     staticClass:
                       "text-uppercase m-0 d-inline-block text-center ml-3"
                   },
-                  [_vm._v("Jhon Roe")]
+                  [_vm._v(_vm._s(_vm.fullName))]
                 ),
                 _vm._v(" "),
                 _c(
@@ -84197,6 +84395,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            fullName: this.$store.getters.getSession[0].name + ' ' + this.$store.getters.getSession[0].lastname
+        };
+    },
+
     methods: {
         logout: function logout() {
             var slf = this;

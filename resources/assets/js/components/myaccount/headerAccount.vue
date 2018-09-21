@@ -4,9 +4,9 @@
             <div class="container">
                 <div class="row mb-0 mb-md-5">
                     <div class="col-12 col-md-6 text-left align-items-center d-flex">
-                        <img src="/images/logos/user.svg" alt="" class="alto">
+                        <img src="/images/logos/user.svg" alt="avatar" class="alto">
                         <div class="d-inline-block align-self-center">
-                            <h2 class="text-uppercase m-0 d-inline-block text-center ml-3">Jhon Roe</h2>
+                            <h2 class="text-uppercase m-0 d-inline-block text-center ml-3">{{ fullName }}</h2>
                             <a href="#" @click.prevent="logout" class="text-danger lead d-block text-center">Desconectar</a>
                         </div>
                     </div>
@@ -17,6 +17,11 @@
 </template>
 <script>
     export default {
+        data() {
+            return {
+                fullName: this.$store.getters.getSession[0].name + ' ' + this.$store.getters.getSession[0].lastname
+            }
+        },
         methods: {
             logout() {
                 let slf = this;
@@ -53,6 +58,4 @@ header{
         width: 100px;
     }
 }
-
-
 </style>
