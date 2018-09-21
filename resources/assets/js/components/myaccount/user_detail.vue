@@ -11,7 +11,7 @@
                         <input type="text" :maxlength="30" v-validate="'required|alpha|min:2|max:30'" name="name"
                                data-vv-as="Nome" :class="{'text-danger': errors.has('name') }" v-model="form.name"
                                class="form-control form-material" placeholder="Nome">
-                        <span v-show="errors.has('name')" class="help text-danger">{{ errors.first('name') }}</span>
+                        <small v-show="errors.has('name')" class="help text-danger">{{ errors.first('name') }}</small>
                     </div>
                 </div>
                 <div class="col-12 mt-md-3">
@@ -21,8 +21,8 @@
                         <input type="text" :maxlength="30" v-validate="'required|alpha|min:2|max:30'"
                                name="lastname" data-vv-as="Cognome" :class="{'text-danger': errors.has('lastname') }"
                                v-model="form.lastname" class="form-control form-material" placeholder="Cognome">
-                        <span v-show="errors.has('lastname')"
-                              class="help text-danger">{{ errors.first('lastname') }}</span>
+                        <small v-show="errors.has('lastname')"
+                              class="help text-danger">{{ errors.first('lastname') }}</small>
                     </div>
                 </div>
                 <div class="col-12 mt-md-3">
@@ -32,7 +32,7 @@
                         <input type="email" :maxlength="50" v-validate="'required|email|min:9|max:50'" name="email"
                                data-vv-as="Mail" :class="{'text-danger': errors.has('email') }"
                                v-model="form.email" class="form-control form-material" placeholder="Mail">
-                        <span v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</span>
+                        <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
                     </div>
                 </div>
                 <div class="col-12 mt-md-3">
@@ -42,7 +42,7 @@
                         <input type="text" :maxlength="16" v-validate="'required|numeric|min:9|max:16'" name="phone"
                                data-vv-as="Telefono" :class="{'text-danger': errors.has('phone') }"
                                v-model="form.phone" class="form-control form-material" placeholder="Telefono">
-                        <span v-show="errors.has('phone')" class="help text-danger">{{ errors.first('phone') }}</span>
+                        <small v-show="errors.has('phone')" class="help text-danger">{{ errors.first('phone') }}</small>
                     </div>
                 </div>
                 <div class="col-12 mt-md-3">
@@ -52,8 +52,7 @@
                         <input type="password" :maxlength="16" name="phone"
                                data-vv-as="Password" :class="{'text-danger': errors.has('Password') }"
                                v-model="form.Password" class="form-control form-material" placeholder="Password">
-                        <span v-show="errors.has('Password')"
-                              class="help text-danger">{{ errors.first('Password') }}</span>
+                        <span v-show="errors.has('Password')" class="help text-danger">{{ errors.first('Password') }}</span>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,11 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\Admin\TagTranslationController;
+use App\Models\Admin\Language;
+use App\Models\Admin\Status;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +18,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Schema::defaultStringLength(191);
+
+        Carbon::setLocale(\App::getLocale());
+
+        // if ( Schema::hasTable('languages') && Schema::hasTable('statuses') && Schema::hasTable('status_translations') ) {
+        //     $tags      = TagTranslationController::getTagsValues(\App::getLocale());
+        //     // $statuses  = Status::byLanguage(\App::getLocale())->pluck('name', 'id');
+        //     // $languages = Language::all()->pluck('name', 'id');
+
+        //     view()->share(['tags' => $tags]);
+        //     // view()->share(['tags' => $tags, 'statuses' => $statuses, 'languages' => $languages]);
+        // }
     }
 
     /**
