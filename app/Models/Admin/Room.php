@@ -78,7 +78,7 @@ class Room extends Model
         'subtitle1',
         'subtitle2',
         'description',
-        // 'price',
+        'price',
         'services',
         'galery'
     ];
@@ -210,7 +210,7 @@ class Room extends Model
      *
      * @return string
      */
-    /*public function getPriceAttribute()
+    public function getPriceAttribute()
     {
         $dt = Carbon::now();
 
@@ -226,8 +226,8 @@ class Room extends Model
             }
         });
 
-        return number_format($currentRoomSeason->first()->price, 2);
-    }*/
+        return number_format($currentRoomSeason->first()->price, 2, '.', '');
+    }
 
     /**
      * Get the services of the room.

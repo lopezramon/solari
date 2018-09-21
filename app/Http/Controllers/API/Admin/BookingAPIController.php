@@ -56,16 +56,24 @@ class BookingAPIController extends AppBaseController
      * GET|HEAD /bookings
      *
      * @param Request $request
+     * @param integer $user_id
      * @return Response
      */
-    /*public function index(Request $request)
+    public function index(Request $request, $user_id)
     {
         $this->bookingRepository->pushCriteria(new RequestCriteria($request));
         $this->bookingRepository->pushCriteria(new LimitOffsetCriteria($request));
-        $bookings = $this->bookingRepository->all();
 
-        return $this->sendResponse($bookings->toArray(), 'Bookings retrieved successfully');
-    }*/
+        // OBTENEMOS LAS ORDENES QUE PERTENECEN AL USUARIO Y QUE TIENEN show_to_user=1
+        $bookings = $this->bookingRepository->findWhere(['user_id' => $user_id, 'show_to_user' => 1]);
+
+        $bookingsWithRelations = collect();
+        foreach ($bookings as $booking) {
+            $bookingsWithRelations->push( $this->bookingRepository->findCustomized($booking->id) );
+        }
+
+        return $this->sendResponse($bookingsWithRelations->toArray(), 'Bookings retrieved successfully');
+    }
 
     /**
      * Store a newly created Booking in storage.
@@ -239,7 +247,7 @@ class BookingAPIController extends AppBaseController
             return $this->sendError('Booking not found');
         }
 
-        // $orderWithRelations = $this->orderRepository->getOrderWithRelations($order);
+        // $bookingWithRelations = $this->bookingRepository->getOrderWithRelations($booking);
         $bookingWithRelations = $this->bookingRepository->findCustomized($booking->id);
 
         return $this->sendResponse($bookingWithRelations, 'Booking retrieved successfully');

@@ -71,6 +71,7 @@ class RoomRepository extends BaseRepository
         });
 
         // helper personalizado para eliminar el model translation (ultimo index de cada elemento de la coleccion)
+        // dd($data->toArray());
         $array = $this->clearUnusedColumns($data->toArray());
 
         return $array;
@@ -179,6 +180,7 @@ class RoomRepository extends BaseRepository
         $data = $this->findWithoutFail($id, $columns);
 
         // helper personalizado para eliminar el model translation (ultimo index de cada elemento de la coleccion)
+        // dd($data->toArray());
         $array = $this->clearUnusedColumns($data->toArray());
 
         return $array;
