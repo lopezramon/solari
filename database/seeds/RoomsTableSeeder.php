@@ -137,7 +137,8 @@ class RoomsTableSeeder extends Seeder
                     'end_date'          => '2018/06/15',
                     'price'             => 29.99,
                     'additional_price'  => 8.44,
-                    'pet_price'         => 6.00
+                    'pet_price'         => 6.00,
+                    'iva'               => 0.22
                 ],
                 [
                     'room_id'           => 1,
@@ -145,7 +146,8 @@ class RoomsTableSeeder extends Seeder
                     'end_date'          => '2018/12/31',
                     'price'             => 59.99,
                     'additional_price'  => 10.44,
-                    'pet_price'         => 9.00
+                    'pet_price'         => 9.00,
+                    'iva'               => 0.22
                 ]
             ]);
             DB::table('rows')->insert( //rows.id => 1

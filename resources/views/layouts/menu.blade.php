@@ -127,4 +127,7 @@
             });
         });
     </script>
-@endpush
+@endpush<li class="{{ Request::is('formDatas*') ? 'active' : '' }}">
+    <a href="{!! route('admin.formDatas.index') !!}"><i class="fa fa-edit"></i><span>Form Datas</span></a>
+</li>
+

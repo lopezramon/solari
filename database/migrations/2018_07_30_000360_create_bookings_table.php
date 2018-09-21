@@ -15,16 +15,18 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('subtotal', 8, 2)->nullable()->default(null);
-            $table->float('tax', 5)->nullable()->default(null);
-            $table->double('total', 8, 2)->nullable()->default(null);
+            $table->string('code', 10)->nullable()->default(null);
 
             $table->unsignedInteger('user_id')->nullable()->default(null);
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->string('no_register_user_name')->nullable()->default(null);
-            $table->string('no_register_user_email')->nullable()->default(null);
-            $table->string('no_register_user_phone')->nullable()->default(null);
+            $table->date('checkin_date');
+            $table->date('checkout_date');
+
+            $table->double('subtotal', 12, 2)->nullable()->default(null);
+            $table->double('iva', 12, 2)->nullable()->default(null);
+            $table->double('total', 12, 2)->nullable()->default(null);
+            $table->text('comment')->nullable()->default(null);
 
             $table->unsignedInteger('status_id')->default(1);
             $table->foreign('status_id')->references('id')->on('statuses');

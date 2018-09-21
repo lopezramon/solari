@@ -6,22 +6,20 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Booking
+ * Class FormData
  * @package App\Models\Admin
- * @version August 28, 2018, 11:03 pm CEST
+ * @version September 20, 2018, 10:35 pm CEST
  *
- * @property \App\Models\Admin\Status status
- * @property \App\Models\Admin\User user
  * @property \Illuminate\Database\Eloquent\Collection activities
  * @property \Illuminate\Database\Eloquent\Collection activityCategoryTranslations
  * @property \Illuminate\Database\Eloquent\Collection activityTranslations
  * @property \Illuminate\Database\Eloquent\Collection additionalCategoryTranslations
  * @property \Illuminate\Database\Eloquent\Collection additionalTranslations
  * @property \Illuminate\Database\Eloquent\Collection additionals
- * @property \Illuminate\Database\Eloquent\Collection blogCategoryTranslations
  * @property \Illuminate\Database\Eloquent\Collection blogComments
  * @property \Illuminate\Database\Eloquent\Collection blogTranslations
  * @property \Illuminate\Database\Eloquent\Collection BookingDetail
+ * @property \Illuminate\Database\Eloquent\Collection bookings
  * @property \Illuminate\Database\Eloquent\Collection brandTranslations
  * @property \Illuminate\Database\Eloquent\Collection eventCategoryTranslations
  * @property \Illuminate\Database\Eloquent\Collection eventTranslations
@@ -31,10 +29,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection permissionRole
  * @property \Illuminate\Database\Eloquent\Collection permissionUser
  * @property \Illuminate\Database\Eloquent\Collection productCategoryTranslations
+ * @property \Illuminate\Database\Eloquent\Collection productFeatureCategoryTranslations
+ * @property \Illuminate\Database\Eloquent\Collection productFeatureTranslations
+ * @property \Illuminate\Database\Eloquent\Collection productFeatures
  * @property \Illuminate\Database\Eloquent\Collection productPresentationTranslations
  * @property \Illuminate\Database\Eloquent\Collection productPresentationsProducts
+ * @property \Illuminate\Database\Eloquent\Collection productSubcategories
  * @property \Illuminate\Database\Eloquent\Collection productSubcategoryTranslations
  * @property \Illuminate\Database\Eloquent\Collection productTranslations
+ * @property \Illuminate\Database\Eloquent\Collection requestCategoryTranslations
  * @property \Illuminate\Database\Eloquent\Collection roleUser
  * @property \Illuminate\Database\Eloquent\Collection roomCategoryTranslations
  * @property \Illuminate\Database\Eloquent\Collection roomSeasonTranslations
@@ -50,21 +53,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection statusTranslations
  * @property \Illuminate\Database\Eloquent\Collection tagTranslations
  * @property \Illuminate\Database\Eloquent\Collection userAddresses
- * @property float subtotal
- * @property float iva
- * @property float total
- * @property integer user_id
- * @property string no_register_user_name
- * @property string no_register_user_email
- * @property string no_register_user_phone
- * @property integer status_id
+ * @property string email
+ * @property string name
+ * @property string lastname
+ * @property string phone
  */
-class Booking extends Model
+class FormData extends Model
 {
     use SoftDeletes;
 
-    public $table = 'bookings';
-
+    public $table = 'form_data';
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -73,15 +72,10 @@ class Booking extends Model
 
 
     public $fillable = [
-        'code',
-        'user_id',
-        'checkin_date',
-        'checkout_date',
-        'subtotal',
-        'iva',
-        'total',
-        'comment',
-        'status_id'
+        'email',
+        'name',
+        'lastname',
+        'phone'
     ];
 
     /**
@@ -91,17 +85,10 @@ class Booking extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'code' => 'string',
-        'user_id' => 'integer',
-
-        'checkin_date' => 'date',
-        'checkout_date' => 'date',
-
-        'subtotal' => 'float',
-        'iva' => 'float',
-        'total' => 'float',
-        'comment' => 'string',
-        'status_id' => 'integer'
+        'email' => 'string',
+        'name' => 'string',
+        'lastname' => 'string',
+        'phone' => 'string'
     ];
 
     /**
@@ -110,24 +97,8 @@ class Booking extends Model
      * @var array
      */
     public static $rules = [
-
+        
     ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function status()
-    {
-        return $this->belongsTo(\App\Models\Admin\Status::class);
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function user()
-    {
-        return $this->belongsTo(\App\Models\Admin\User::class);
-    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

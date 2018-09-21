@@ -63,7 +63,7 @@ class BookingDetail extends Model
     use SoftDeletes;
 
     public $table = 'booking_details';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -72,12 +72,13 @@ class BookingDetail extends Model
 
 
     public $fillable = [
-        'checkin_date',
-        'checkout_date',
-        'persons_amount',
         'booking_id',
         'row_id',
-        'payment_method_id'
+        'adult_quantity',
+        'form_data_id',
+        'payment_method_id',
+        'iva_item',
+        'total_item'
     ];
 
     /**
@@ -87,12 +88,13 @@ class BookingDetail extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'checkin_date' => 'date',
-        'checkout_date' => 'date',
-        'persons_amount' => 'integer',
         'booking_id' => 'integer',
         'row_id' => 'integer',
-        'payment_method_id' => 'integer'
+        'adult_quantity' => 'integer',
+        'form_data_id' => 'integer',
+        'payment_method_id' => 'integer',
+        'iva_item' => 'float',
+        'total_item' => 'float'
     ];
 
     /**
@@ -101,7 +103,7 @@ class BookingDetail extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

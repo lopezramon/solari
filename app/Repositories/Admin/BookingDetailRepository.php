@@ -20,12 +20,13 @@ class BookingDetailRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'checkin_date',
-        'checkout_date',
-        'persons_amount',
         'booking_id',
         'row_id',
-        'payment_method_id'
+        'adult_quantity',
+        'form_data_id',
+        'payment_method_id',
+        'iva_item',
+        'total_item'
     ];
 
     /**
