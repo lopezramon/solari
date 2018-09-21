@@ -3,8 +3,9 @@
         <section class="bg-contact">
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="rounded bg-form-contact ">
-                        <h2 class="text-center text-separation py-4 text-uppercase">Inicio de sesion</h2>
+                    <div class="rounded bg-form-contact">
+                        <div class="py-2"></div>
+                        <h2 class="text-center text-separation py-4 text-uppercase">Recuperar contraseña</h2>
 
                         <template v-if="loading">
                             <div class="container d-flex justify-content-center">
@@ -17,7 +18,12 @@
                         </template>
 
                         <template v-else>
-                            <form class="py-4">
+                            <form>
+                                <div class="text-pwd text-center">Encuentra tu
+                                    <img src="/images/logos/logo_luxury_pequeño_black.png" alt="logo luxury" width="30">
+                                    LUXURY ROOM
+                                </div>
+                                <div class="py-2"></div>
                                 <div class="form-group">
                                     <label for="email" class="text-uppercase">Email</label>
                                     <span v-show="errors.has('email')" :class="{'text-danger': errors.has('email') }">*</span>
@@ -26,29 +32,10 @@
                                            v-model="form.email" class="form-control" placeholder="Email">
                                     <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="password" class="text-uppercase">Password</label>
-                                    <span v-show="errors.has('password')" class="help text-danger">*</span>
-                                    <input id="password" type="password" :maxlength="16" v-model="form.password" v-validate="'required|min:8|max:16'"
-                                           name="password" :class="{'text-danger': errors.has('password') }"
-                                           class="form-control" placeholder="Password">
-                                    <span v-show="errors.has('password')" class="help text-danger">{{ errors.first('password') }}</span>
-                                </div>
-
-                                <div class="col-12">
-                                    <a href="#" @click.prevent="forgotPassword">¿Ha olvidado la contraseña?</a>
-                                </div>
-
                                 <div class="row text-center py-4">
-                                    <div class="col-lg-4 py-2">
-                                        <button :disabled="errors.any() || isDisabled" @click="login" type="button" class="btn btn-primary text-bold">
-                                            <span class="text-btn-white">Login</span>
-                                        </button>
-                                    </div>
-                                    <div class="col-lg-8 py-2">
-                                        <button @click="redirectToCreateAccount" type="button" class="btn btn-primary-new text-bold">
-                                            <span class="text-btn-white">¿No tienes cuenta aún? Creala!</span>
+                                    <div class="col-12 py-2">
+                                        <button type="button" :disabled="errors.any() || isDisabled" @click="ValidEmail" class="btn btn-primary text-bold">
+                                            <span class="text-btn-white">CONTINUA</span>
                                         </button>
                                     </div>
                                 </div>
@@ -57,39 +44,50 @@
                     </div>
                 </div>
             </div>
+            <div class="container-fluid response">
+                <div class="row justify-content-center">
+                    <div class="rounded bg-form-contact">
+                        <div class="text-center text-separation"><h2>ASSITENZA PASSWORD</h2></div>
+                        <div class="text-center py-4">
+                            <img class="img-fluid m-auto" src="/images/iconos/check-circle.svg" alt=""></div>
+                        <div class="text-center">We sent you recovery link to <br>
+                            <strong>andrea.ramos@gmail.com</strong> successfully
+                        </div>
+                        <div class="py-4"></div>
 
+                    </div>
+                </div>
+            </div>
         </section>
         <section>
             <div class="container py-4 hide-movil">
                 <div class="row">
-                    <div class="col-lg-2 d-flex" ></div>
-                    <div class="col-lg-2 d-flex" >
+                    <div class="col-lg-2 d-flex"></div>
+                    <div class="col-lg-2 d-flex">
                         <div class="rounded text-center flex-fill">
-                            <img width="105" src="/images/iconos/team.svg" alt="team"  class="rounded icon-contact">    
+                            <img width="100" src="/images/home/services-slider/neveta.png" alt="neveta" class="rounded icon-contact">
                         </div>
-                    
+
                     </div>
-                    
+
                     <div class="col-lg-2 d-flex">
                         <div class="text-center rounded flex-fill">
-                            <img width="105" src="/images/iconos/smartphone.svg" alt="phone"  class="rounded icon-contact">
-                            
+                            <img width="100" src="/images/home/services-slider/neveta.png" alt="neveta" class="rounded icon-contact">
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-2 d-flex">
-                        <div class="rounded text-center flex-fill" >
-                            <img width="105" src="/images/iconos/email.svg" alt="email" class="rounded icon-contact">
-                            
+                        <div class="rounded text-center flex-fill">
+                            <img width="100" src="/images/home/services-slider/neveta.png" alt="neveta" class="rounded icon-contact">
                         </div>
                     </div>
+
                     <div class="col-lg-2 d-flex">
                         <div class="text-center flex-fill" style="">
-                            <img width="105" src="/images/iconos/follow.svg" alt="follow" class="rounded icon-contact">
-                            
+                            <img width="100" src="/images/home/services-slider/nolegio.png" alt="nolegio" class="rounded icon-contact">
                         </div>
-                        <div class="col-lg-2 d-flex"></div>
                     </div>
+                    <div class="col-lg-2 d-flex"></div>
                 </div>
             </div>
         </section>
@@ -121,13 +119,14 @@
                     <div class="col-lg-2 d-flex">
                         <div class="text-center flex-fill">
                             <h5 class="text-separation">FOLLOW US</h5>
-                            <div>aaluxuryroom<br>aaluxuryroom</div>
+                            <div><!--<img src="/images/iconos/facebook-01.svg" alt="logo luxury" width="30" >-->
+                                aaluxuryroom<br>aaluxuryroom
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-2 d-flex"></div>
                 </div>
             </div>
-
         </section>
         <section class="py-4"></section>
     </div>
@@ -139,73 +138,61 @@
         components: { PulseLoader },
         data() {
             return {
-                form: { email: null, password: null },
+                root: null,
+                form: { email: null },
                 color: '#1b1b1b',
                 size: '15px',
                 loading: false,
             }
         },
         mounted() {
-            this.validarIntLogin();
+            this.root = window.location.origin;
         },
         computed: {
-            isDisabled() { return !this.form.email || !this.form.password }
+            isDisabled() { return !this.form.email }
         },
         methods: {
-            login() {
+            ValidEmail() {
                 this.loading = true;
                 this.$validator.validateAll().then((result) => {
                     if (result) {
-                        axios.post('/login', this.form).then((res) => {
+                        let slf = this;
+                        axios.post('api/forgotPassword', this.form).then((res) => {
                             if (res.status === 200) {
-
-                                var admin = res.data.admin;
-                                this.$store.dispatch('setSession', res.data).then(() => {
+                                if (slf.$store.getters.getSession.length > 0) {
                                     this.loading = false;
-                                    let slf = this;
-                                    this.showAlert('success', 'Usuario autenticado con exito');
-                                    setTimeout(() => {
-                                        (admin === true) ? location.href = '/home' : slf.$router.push('/')
-                                    }, 1800);
-
-                                }).catch(() => {console.log('error store')});
+                                    this.showAlert('error', 'Error', 'Es necesario cerrar la sesion para continuar');
+                                } else {
+                                    if (res.data.oper === true) {
+                                        this.loading = false;
+                                        this.showAlert('success', 'Se te ha enviado un correo para cambiar tu clave');
+                                        this.form.email = null;
+                                        this.$router.push('/clientLogin');
+                                    } else {
+                                        this.loading = false;
+                                        this.showAlert('error', 'Error', res.data.msg);
+                                    }
+                                }
                             }
                         })
                             .catch((error) => {
-                                switch (error.response.status) {
-                                    case 401:
-                                        this.loading = false;
-                                        this.showAlert('error', 'El usuario no esta registrado');
-                                        break;
-                                    case 500:
-                                        this.loading = false;
-                                        this.showAlert('error', 'Error de conexión');
-                                        break;
-                                }
-                            })
+                                this.loading = false;
+                                this.showAlert('error', 'Error', error.response.data.msg);
+                            });
                     }
-                }).catch(() => { console.log('error form') });
+                }).catch(() => {
+                    console.log('error form')
+                });
             },
-            redirectToCreateAccount() {
-                this.$router.push('/createAccount');
-            },
-            validarIntLogin() {
-                let authenticated = this.$store.getters.getauthenticated;
-                if (authenticated) {
-                    this.$router.push('/');
-                }
-            },
-            forgotPassword() {
-                this.$router.push('/setPassword');
-            },
-            showAlert(type, title) {
+            showAlert(type, title, text) {
                 this.$swal({
                     position: 'center',
                     type: type,
                     title: title,
+                    text: text,
                     showConfirmButton: false,
                     showCloseButton: true,
-                });
+                })
             }
         }
     }
@@ -288,4 +275,32 @@
 
         }
     }
+
+    .form-control {
+        outline: none;
+        border-bottom: 1px solid #373737;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+        border-bottom: 1px solid #373737;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+    }
+
+    .text-pwd {
+        font-size: 0.8rem;
+    }
+
+    .response {
+        display: none;
+    }
+
 </style>
