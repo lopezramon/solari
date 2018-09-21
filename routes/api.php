@@ -122,7 +122,7 @@ Route::get('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@show');
 // Booking
 // Route::get('admin/bookings', 'API\Admin\BookingAPIController@index');
 Route::post('admin/bookings', 'API\Admin\BookingAPIController@store');
-// Route::get('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@show');
+Route::get('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@show');
 // Route::put('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@update');
 // Route::patch('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@update');
 // Route::delete('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@destroy');
