@@ -23,9 +23,9 @@
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
                                                 <label>Nombre</label>
-                                                <span class="text-success" :class="{'text-danger': errors.has('name') }">*</span>
+                                                <span class="text-success" :class="{'text-danger': errors.has('name')}">*</span>
                                                 <input type="text" :maxlength="30" v-validate="'required|alpha|min:2|max:30'" name="name"
-                                                       data-vv-as="Nombre" :class="{'text-danger': errors.has('name') }"
+                                                       data-vv-as="Nombre" :class="{'text-danger': errors.has('name')}"
                                                        v-model="form.name" class="form-control" placeholder="Nombre">
                                                 <small v-show="errors.has('name')" class="help text-danger">{{ errors.first('name') }}</small>
                                             </div>
@@ -34,9 +34,9 @@
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
                                                 <label>Apellido</label>
-                                                <span class="text-success" :class="{'text-danger': errors.has('lastname') }">*</span>
+                                                <span class="text-success" :class="{'text-danger': errors.has('lastname')}">*</span>
                                                 <input type="text" :maxlength="30" v-validate="'required|alpha|min:2|max:30'"
-                                                       name="lastname" data-vv-as="Apellido" :class="{'text-danger': errors.has('lastname') }"
+                                                       name="lastname" data-vv-as="Apellido" :class="{'text-danger': errors.has('lastname')}"
                                                        v-model="form.lastname" class="form-control" placeholder="Apellido">
                                                 <small v-show="errors.has('lastname')" class="help text-danger">{{ errors.first('lastname') }}</small>
                                             </div>
@@ -47,9 +47,9 @@
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
                                                 <label>Telefono</label>
-                                                <span class="text-success" :class="{'text-danger': errors.has('phone') }">*</span>
+                                                <span class="text-success" :class="{'text-danger': errors.has('phone')}">*</span>
                                                 <input type="text" :maxlength="16" v-validate="'required|numeric|min:9|max:16'" name="phone"
-                                                       data-vv-as="Telefono" :class="{'text-danger': errors.has('phone') }"
+                                                       data-vv-as="Telefono" :class="{'text-danger': errors.has('phone')}"
                                                        v-model="form.phone" class="form-control" placeholder="Telefono">
                                                 <small v-show="errors.has('phone')" class="help text-danger">{{ errors.first('phone') }}</small>
                                             </div>
@@ -57,12 +57,36 @@
 
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
+                                                <label>Telefono Opcional</label>
+                                                <span class="text-success" :class="{'text-danger': errors.has('optionalPhone')}">*</span>
+                                                <input type="text" :maxlength="16" v-validate="'numeric|min:9|max:16'" name="optionalPhone"
+                                                       data-vv-as="Telefono" :class="{'text-danger': errors.has('optionalPhone')}"
+                                                       v-model="form.optionalPhone" class="form-control" placeholder="Telefono">
+                                                <small v-show="errors.has('optionalPhone')" class="help text-danger">{{ errors.first('optionalPhone') }}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6">
+                                            <div class="form-group">
                                                 <label>Email</label>
-                                                <span class="text-success" :class="{'text-danger': errors.has('email') }">*</span>
+                                                <span class="text-success" :class="{'text-danger': errors.has('email')}">*</span>
                                                 <input type="email" :maxlength="50" v-validate="'required|email|min:9|max:50'" name="email"
-                                                       data-vv-as="Email" :class="{'text-danger': errors.has('email') || errorMail }"
+                                                       data-vv-as="Email" :class="{ 'text-danger': errors.has('email') || errorMail }"
                                                        v-model="form.email" class="form-control" placeholder="Email">
                                                 <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Cod Fiscale/P.IVA</label>
+                                                <span class="text-success" :class="{'text-danger': errors.has('fiscalCode')}">*</span>
+                                                <input type="text" :maxlength="16" v-validate="'required|alpha_num|min:16|max:16'" name="fiscalCode"
+                                                       data-vv-as="Cod Fiscale/P.IVA" :class="{'text-danger': errors.has('fiscalCode')}"
+                                                       v-model="form.fiscalCode" class="form-control" placeholder="Cod Fiscale/P.IVA">
+                                                <small v-show="errors.has('fiscalCode')" class="help text-danger">{{  errors.first('fiscalCode') }}</small>
                                             </div>
                                         </div>
                                     </div>
@@ -71,10 +95,10 @@
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
                                                 <label>Password</label>
-                                                <span class="text-success" :class="{'text-danger': errors.has('password') }">*</span>
-                                                <input type="password" :maxlength="16" class="form-control"
-                                                       placeholder="****" ref="password" v-validate="'required|min:8|max:16'" name="password"
-                                                       data-vv-as="Password" :class="{'text-danger': errors.has('password') }" v-model="form.password">
+                                                <span class="text-success" :class="{'text-danger': errors.has('password')}">*</span>
+                                                <input type="password" :maxlength="16" class="form-control" placeholder="********" ref="password"
+                                                       v-validate="'required|min:8|max:16'" name="password" data-vv-as="Password"
+                                                       :class="{'text-danger': errors.has('password')}" v-model="form.password">
                                                 <span v-show="errors.has('password')" class="help text-danger">{{ errors.first('password') }}</span>
                                             </div>
                                         </div>
@@ -82,10 +106,10 @@
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
                                                 <label>Confirma la password</label>
-                                                <span class="text-success" :class="{'text-danger': errors.has('passwordConfirm') }">*</span>
-                                                <input type="password" :maxlength="16" class="form-control" placeholder="*****"
+                                                <span class="text-success" :class="{'text-danger': errors.has('passwordConfirm')}">*</span>
+                                                <input type="password" :maxlength="16" class="form-control" placeholder="********"
                                                        v-validate="'required|min:8|max:16|confirmed:password'" name="passwordConfirm" v-model="form.passwordConfirm"
-                                                       data-vv-as="Password" :class="{'text-danger': (errors.has('passwordConfirm') || errorPassword) }">
+                                                       data-vv-as="Password" :class="{ 'text-danger': (errors.has('passwordConfirm') || errorPassword) }">
                                                 <span v-show="errors.has('passwordConfirm')" class="help text-danger">{{ errors.first('passwordConfirm')}}</span>
                                             </div>
                                         </div>
@@ -191,14 +215,12 @@
                     <div class="col-lg-2 d-flex"></div>
                 </div>
             </div>
-
         </section>
         <section class="py-4"></section>
     </div>
 </template>
 <script>
     import { PulseLoader } from 'vue-spinner/dist/vue-spinner.min';
-    // import myCaptcha from 'vue-captcha';
     export default {
         components: { PulseLoader },
         data() {
@@ -208,6 +230,8 @@
                     lastname: null,
                     email: null,
                     phone: null,
+                    optionalPhone: null,
+                    fiscalCode: null,
                     password: null,
                     passwordConfirm: null,
                     terms: null
@@ -218,17 +242,18 @@
                 color: '#1b1b1b',
                 size: '15px',
                 loading: false,
-                captcha: false,
             }
         },
         computed: {
             isDisabled() {
-                return !this.form.name || !this.form.lastname || !this.form.email || !this.form.phone || !this.form.password || !this.form.passwordConfirm || !this.form.terms
+                return !this.form.name || !this.form.lastname || !this.form.email || !this.form.phone || !this.form.password || !this.form.passwordConfirm || !this.form.fiscalCode || !this.form.terms
             }
         },
         methods: {
             saveUser() {
+                this.loading = true;
                 if (this.form.password !== this.form.passwordConfirm) {
+                    this.loading = false;
                     this.errorPassword = "text-danger";
                 } else {
                     this.$validator.validateAll().then((result) => {
@@ -238,29 +263,33 @@
                             slf.errorEmail = null;
 
                             axios.post('/register', this.form).then((res) => {
-                                if (res.status == 200) {
+                                if (res.status === 200) {
                                     var data = res.data;
-                                    slf.$store.dispatch('setSession', data).then((r) => {
+                                    console.log('resp: ' + res.data);
+                                    slf.$store.dispatch('setSession', data).then(() => {
                                         let slf = this;
+                                        this.loading = false;
                                         this.showAlert('success', 'Cuenta creada con exito!');
                                         slf.$router.push('/');
                                     }).catch(() => {
+                                        this.loading = false;
                                         console.log('error store');
                                         this.showAlert('error', 'Por favor revisa los datos enviados');
                                     });
                                 }
                             })
                                 .catch((error) => {
-                                    if (error.response.status = 422) {
-                                        if (error.response.data.error != undefined) {
+                                    if (error.response.status === 422) {
+                                        if (error.response.data.error !== undefined) {
                                             let message = error.response.data.error.email[0];
                                             this.errorMail = 'text-danger';
+                                            this.loading = false;
                                             this.showAlert('error', message, 'verifica el correo: ' + this.form.email);
                                         }
                                     }
                                 })
                         }
-                    }).catch(() => { console.log('error form') });
+                    }).catch(() => { this.loading = false; console.log('error form') });
                 }
             },
             RedirectToLogin() { this.$router.push('/clientLogin'); },
@@ -278,7 +307,6 @@
     }
 </script>
 <style scoped>
-
     .bg-contact {
         widows: 100%;
         min-height: 620px;

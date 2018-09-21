@@ -34,6 +34,7 @@ import newsletter from '../components/landing/newsletter.vue';
 import aboutUs from '../components/landing/aboutUs.vue';
 import homeCamere from '../components/landing/homeCamere.vue';
 import contactUs from '../components/landing/contactUs.vue';
+import formBooking from '../components/landing/form.vue';
 // generale
 import navbar from '../components/general/navbar.vue';
 import footer from '../components/general/footer.vue';
@@ -77,6 +78,7 @@ Vue.component('navbar', navbar);
 Vue.component('gfooter', footer);
 Vue.component('jumperr', jumperr);
 Vue.component('header_landing', headerLanding);
+Vue.component('form_booking',formBooking);
 Vue.component('slider_olbia', sliderOlbia);
 Vue.component('services', services);
 Vue.component('esperience', esperience);
