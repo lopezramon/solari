@@ -76,8 +76,7 @@ class LoginController extends Controller
             $user = $this->guard()->user();
             $user->generateToken();
 
-            // $request->session()->regenerate();
-
+            $user = array_add($user, 'details', $user->userDetails->toarray());
             $admin = $user->isRole('admin') ? true : false;
 
 
