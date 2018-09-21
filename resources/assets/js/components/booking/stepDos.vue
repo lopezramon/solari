@@ -2,7 +2,6 @@
     <div>
         <header_booking/>
         <nav_booking/>
-
         <div class="container my-4">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-5">
@@ -120,12 +119,18 @@
 
                     <div class="text-center mt-4">
                         <div>
-                            <a @click.prevent="paypal()" class="pointer">
-                                <img class="pointer" width="100px" src="/images/iconos/paypal_logo.png" alt="paypal">
-                            </a>
-                            <p class="mt-2">
-                                Haz click en la imagen para procesar el pago
-                            </p>
+                            <template  v-if="loading">
+                                 <scale-loader  :loading="loading" :color="color" :size="size"></scale-loader>
+                            </template>
+                            <template v-else>
+                                 <a @click.stop="paypal()" class="pointer">
+                                    <img class="pointer" width="100px" src="/images/iconos/paypal_logo.png" alt="paypal">      
+                                </a>
+                                <p class="mt-2">
+                                    Haz click en la imagen para procesar el pago
+                                </p>
+                            </template>
+                           
                         </div>
                     </div>
                 </div>
@@ -135,6 +140,7 @@
     </div>
 </template>
 <script>
+
 export default {
     data(){
         return {
@@ -148,6 +154,9 @@ export default {
             comentario:null,
             rooms:[],
             orden:null,
+            color: '#4fcaa5',
+            size: '20px',
+            loading: false,
             // disabledActivo: false,
             // terminos:false
         }
@@ -228,8 +237,8 @@ export default {
         },
         paypal(){
             var slf=this;
-            this.$validator.validateAll().then((result) => {
-                
+            this.$validator.validateAll().then((result) => { 
+             if(result){
                 var rooms=this.$store.getters.getCart;
                 var form=[];
                 for(var i in rooms){
@@ -245,18 +254,20 @@ export default {
                 objform.datos_reserva=form;
                 objform.cart=this.$store.getters.getBooking;
                 objform.user_id=this.user.id;
-                this.orden=objform;
-                                
+                this.orden=objform; 
+                this.loading=true;           
                 axios.post('/paypal',this.orden).then((res) => {
                     if(res){
                         var url=res.data.url;
+                        // this.loading=false;     
                         window.location.href=url;
                     }
                 }).catch((error) => {
-                    
+                    this.loading=false;     
                 });
-
+             }            
             }).catch(() => {
+                this.loading=false;
                 console.log('error form')
             });
         }

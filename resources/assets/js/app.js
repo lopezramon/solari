@@ -9,6 +9,7 @@ window.Vue = require('vue');
 import store from './vuex'
 
 Vue.use(require('vue-moment'));
+Vue.component('scale-loader', require('vue-spinner/src/ScaleLoader.vue'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

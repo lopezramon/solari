@@ -11,7 +11,7 @@
                     <!-- slider -->
                     <div class="col-12 col-lg-8 mb-3">
                         <swiper :options="swiperOption">
-                            <swiper-slide v-for="(slide, index) in room.gallery" :key="index">
+                            <swiper-slide v-for="(slide, index) in room.galery" :key="index">
                                 <img class="img-fluid" :src="slide.image" alt="">
                             </swiper-slide>
                             <div class="swiper-pagination" slot="pagination"></div>
