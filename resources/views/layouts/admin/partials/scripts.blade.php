@@ -27,7 +27,7 @@
         $('.app_logout').on('click', function(e) {
             $.ajax({
                 type: "POST",
-                url: 'http://localhost:8090/logout',
+                url: '/logout',
                 data: $(this).serialize(),
 
                 success: function( response ) {
