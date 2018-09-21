@@ -131,7 +131,13 @@ class BookingAPIController extends AppBaseController
         $booking = $this->bookingRepository->update($bookingData, $booking->id);
 
         // ENVIAR CORREOOO
-        // $bookingWithRelations = $this->bookingRepository->getBookingWithRelations($booking); #PENDIENTE
+        $bookingWithRelations = $this->bookingRepository->findCustomized($booking->id);
+
+        // $bookingWithRelations = $bookingWithRelations->transform(function($booki){
+        //     $booki->room = $this->roomRepository->findCustomized($booki->room_id);
+        //     return $booki;
+        // });
+        // dd($bookingWithRelations);
         // $sended = $this->sendMail($bookingWithRelations, 'booking'); #PENDIENTE
         $sended = 'OK';
 
@@ -142,7 +148,7 @@ class BookingAPIController extends AppBaseController
             $message = 'Booking saved successfully, email not sended';
         }
 
-        return $this->sendResponse($booking->toArray(), $message);
+        return $this->sendResponse($bookingWithRelations, $message);
     }
 
     /**
@@ -203,6 +209,7 @@ class BookingAPIController extends AppBaseController
         $bookingDetail['total_item']        = $ivaAndPrice['price'];
         $bookingDetail['iva_item']          = $ivaAndPrice['iva'];
 
+        // dd($ivaAndPrice);
         return $this->bookingDetailRepository->create($bookingDetail);
     }
 
