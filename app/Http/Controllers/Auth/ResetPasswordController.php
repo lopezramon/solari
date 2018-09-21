@@ -61,7 +61,7 @@ class ResetPasswordController extends Controller
      */
     public function resetFront(Request $request)
     {
-        
+
        $data_user= User::where('email',$request->email)->first();
        $this->validate($request, $this->rules(), $this->validationErrorMessages());
 
@@ -90,7 +90,7 @@ class ResetPasswordController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
      */
     public function sendResetFailedResponseFront(Request $request, $response)
-    {   
+    {
         $errors=trans($response);
         return response()->json( [ 'oper' => false, 'errors' => $errors ], 422);
     }
