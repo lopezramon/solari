@@ -51,7 +51,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection tagTranslations
  * @property \Illuminate\Database\Eloquent\Collection userAddresses
  * @property float subtotal
- * @property float tax
+ * @property float iva
  * @property float total
  * @property integer user_id
  * @property string no_register_user_name
@@ -64,7 +64,7 @@ class Booking extends Model
     use SoftDeletes;
 
     public $table = 'bookings';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -73,13 +73,14 @@ class Booking extends Model
 
 
     public $fillable = [
-        'subtotal',
-        'tax',
-        'total',
+        'code',
         'user_id',
-        'no_register_user_name',
-        'no_register_user_email',
-        'no_register_user_phone',
+        'checkin_date',
+        'checkout_date',
+        'subtotal',
+        'iva',
+        'total',
+        'comment',
         'status_id'
     ];
 
@@ -94,13 +95,16 @@ class Booking extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'subtotal' => 'float',
-        'tax' => 'float',
-        'total' => 'float',
+        'code' => 'string',
         'user_id' => 'integer',
-        'no_register_user_name' => 'string',
-        'no_register_user_email' => 'string',
-        'no_register_user_phone' => 'string',
+
+        'checkin_date' => 'date',
+        'checkout_date' => 'date',
+
+        'subtotal' => 'float',
+        'iva' => 'float',
+        'total' => 'float',
+        'comment' => 'string',
         'status_id' => 'integer'
     ];
 
@@ -110,7 +114,7 @@ class Booking extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

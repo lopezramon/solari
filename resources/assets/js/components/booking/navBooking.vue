@@ -1,15 +1,15 @@
 <template>
     <div>
         <nav class="d-none d-md-flex">
-            <a href="#" class="d-flex flex-column justify-content-center" :class="{'active':Class('/booking/step-1')}">
+            <a href="#" class="d-flex flex-column justify-content-center active">
                 <span class="text-small">1</span>
                 <span>AVAILABILITY</span>
             </a>
-            <a href="#" class="d-flex flex-column justify-content-center" :class="{'active':Class('/booking/step-2')}">
+            <a href="#" class="d-flex flex-column justify-content-center">
                 <span class="text-small">2</span>
                 <span>PAYMENT</span>
             </a>
-            <a href="#" class="d-flex flex-column justify-content-center" :class="{'active':Class('/booking/step-3')}">
+            <a href="#" class="d-flex flex-column justify-content-center">
                 <span class="text-small">3</span>
                 <span>FINISH</span>
             </a>
@@ -55,20 +55,3 @@ span.text-small {
     line-height: 1;
 }
 </style>
-<script>
-export default {
-    data(){
-        return {
-          
-        }
-    },
-    methods:{
-       Class(ruta){
-         if(ruta==window.location.pathname){
-            return true;
-         }
-         return false;
-        }
-    }
-}
-</script>

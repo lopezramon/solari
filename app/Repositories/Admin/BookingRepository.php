@@ -20,13 +20,14 @@ class BookingRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'subtotal',
-        'tax',
-        'total',
+        'code',
         'user_id',
-        'no_register_user_name',
-        'no_register_user_email',
-        'no_register_user_phone',
+        'checkin_date',
+        'checkout_date',
+        'subtotal',
+        'iva',
+        'total',
+        'comment',
         'status_id'
     ];
 
@@ -52,7 +53,6 @@ class BookingRepository extends BaseRepository
     {
         return Booking::class;
     }
-
 
     /**
      * Generate code with the given id.
@@ -187,5 +187,4 @@ class BookingRepository extends BaseRepository
 
         return $array;
     }
-
 }

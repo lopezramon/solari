@@ -48,8 +48,7 @@ class RoomRepository extends BaseRepository
      * Retrieve customized data of repository.
      *
      * @param array $columns
-     * @param array $where
-     * @param array $ids
+     * @param array $dates
      *
      * @return array
      */
@@ -62,33 +61,42 @@ class RoomRepository extends BaseRepository
         // SI VIENEN DATES
         $data = $dataAll->transform(function($room, $key) use($dates) {
 
-            $price = 0; // entero para guardar el precio de la habitacion segun el rango
-            $two_seasons = false; // flag para saber si el rango esta en dos temporadas
+            // ASIGNO EL PRICE CORRESPONDIENTE SEGUN LA(S)
+            // TEMPORADA(S) EN LA(S) QUE SE ENCUENTRE EL RANGO DEL REQUEST
+            $ivaAndPrice    = $this->getCurrentIvaAndPrice($room, $dates);
+            $room->price    = $ivaAndPrice['price'];
+            $room->iva      = $ivaAndPrice['iva'];
 
-            // recorro cada una de las temporadas de la habitacion
-            foreach ($room->roomSeasons->sortBy('start_date') as $key => $season) {
+            return $room;
+        });
 
-                // OBTENGO LOS VALORES DEL RANGO A BUSCAR (con Carbon)
-                $checkin_request = Carbon::createFromFormat('Y-m-d H', $dates[0][2].' 0');
-                $checkout_request = Carbon::createFromFormat('Y-m-d H', $dates[1][2].' 0');
+        // helper personalizado para eliminar el model translation (ultimo index de cada elemento de la coleccion)
+        $array = $this->clearUnusedColumns($data->toArray());
 
-                // SI ENTRA EN ESTE IF: EL RANGO DE CONSULTA SE ENCUENTRA EN UNA SOLA TEMPORADA
-                if ( $season->start_date->lessThanOrEqualTo($checkin_request) &&
-                    $season->end_date->greaterThanOrEqualTo($checkout_request) ) {
+        return $array;
+    }
 
-                    /*print_r([
-                        'first',
-                        $season->id
-                    ]);*/
+    /**
+     * Retrieve the total price for the room.
+     *
+     * @param Room $room
+     * @param array $dates
+     *
+     * @return float $price
+     */
+    public function getCurrentIvaAndPrice($room, $dates)
+    {
+        $price = 0; // entero para guardar el precio de la habitacion segun el rango
+        $iva = 0;   // entero para guardar el iva de la habitacion segun el rango
+        $isOneSeason  = false; // flag para saber si el rango esta en una temporada
+        $isTwoSeasons = false; // flag para saber si el rango esta en dos temporadas
 
-                    $days = $checkin_request->diffInDays($checkout_request) + 1;
-                    $price = $days * $season->price;
-                }
+        // recorro cada una de las temporadas de la habitacion
+        foreach ($room->roomSeasons->sortBy('start_date') as $key => $season) {
 
-                // SI ENTRA EN ESTE IF: EL RANGO DE CONSULTA SE ENCUENTRA EN DOS O MAS TEMPORADAS
-                else if ( $season->start_date->lessThanOrEqualTo($checkin_request) &&
-                    $season->end_date->lessThan($checkout_request) ) {
-
+            // OBTENGO LOS VALORES DEL RANGO A BUSCAR (con Carbon)
+            $checkin_request = Carbon::createFromFormat('Y-m-d H', $dates['checkin'].' 0');
+            $checkout_request = Carbon::createFromFormat('Y-m-d H', $dates['checkout'].' 0');
 
             // dd($season->start_date);
             // dd($checkin_request);
@@ -102,10 +110,10 @@ class RoomRepository extends BaseRepository
             if ( $season->start_date->lessThanOrEqualTo($checkin_request) &&
                 $season->end_date->greaterThanOrEqualTo($checkout_request) ) {
 
-
-                    $days   = $checkin_request->diffInDays($season->end_date) + 1;
-                    $price  = $days * $season->price;
-
+                // asigno la cantidad de dias a reservar y el precio
+                $days   = $checkin_request->diffInDays($checkout_request) + 1;
+                $price  = $days * $season->price;
+                $iva    = $price * $season->iva;
 
                 // levanto el flag de que ya estoy en una temporada
                 $isOneSeason = true;
@@ -118,28 +126,26 @@ class RoomRepository extends BaseRepository
                 $season->start_date->lessThanOrEqualTo($checkin_request) &&
                 $season->end_date->lessThan($checkout_request) ) {
 
-
-                    // CAPTURO LA SEASON DONDE TERMINA EL RANGO
-                    if ( $checkout_request->between($season->start_date, $season->end_date) ) {
-                        $days2  = $season->start_date->diffInDays($checkout_request) + 1;
-                        $price2 = $days2 * $season->price;
+                // asigno la cantidad de dias a reservar y el precio
+                $days   = $checkin_request->diffInDays($season->end_date) + 1;
+                $price  = $days * $season->price;
+                $iva    = $price * $season->iva;
 
                 // levanto el flag de que el rango sobrepasa la temporada actual
                 $isTwoSeasons = true;
                 // dd('b');
-
             }
 
-            // print '**';
-            // print_r($price);
-            // exit('**boom');
+            // valido si el rango sobrepasa la temporada actual
+            if ( $isTwoSeasons ) {
 
-            // ASIGNO EL PRICE RESULTANTE
-            $room->price = number_format($price, 2);
+                // CAPTURO LA SEASON DONDE TERMINA EL RANGO
+                if ( $checkout_request->between($season->start_date, $season->end_date) ) {
 
-            return $room;
-        });
-
+                    // asigno la cantidad de dias a reservar y el precio PARA ESTA TEMPORADA
+                    $days2  = $season->start_date->diffInDays($checkout_request) + 1;
+                    $price2 = $days2 * $season->price;
+                    $iva2   = $price2 * $season->iva;
 
                     // SUMO LOS DIAS Y PRECIO DE ESTA TEMPORADA A LOS VALORES DE LA TEMPORADA ANTERIOR
                     $price  += $price2;
@@ -155,7 +161,6 @@ class RoomRepository extends BaseRepository
             'price' => number_format($price, 2, '.', ''),
             'iva'   => number_format($iva, 2, '.', '')
         ];
-
     }
 
     /**
@@ -173,15 +178,19 @@ class RoomRepository extends BaseRepository
 
         $data = $this->findWithoutFail($id, $columns);
 
-        // dd($data->toArray());
-
         // helper personalizado para eliminar el model translation (ultimo index de cada elemento de la coleccion)
-        // $array = $data->toArray();
         $array = $this->clearUnusedColumns($data->toArray());
 
         return $array;
     }
 
+    /**
+     * Clear unnecesary columns in collection or objet model.
+     *
+     * @param array(Collection)|array|(Model) $array
+     *
+     * @return array
+     */
     private function clearUnusedColumns( $array )
     {
         if ( !empty($array) ) {
@@ -210,8 +219,6 @@ class RoomRepository extends BaseRepository
                 $array = $array['room'];
             }
         }
-
-        // dd($array);
 
         return $array;
     }

@@ -63,6 +63,7 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
+
         $validator = $this->validateLoginFront($request);
 
         if ($validator->fails()) {
@@ -71,19 +72,19 @@ class LoginController extends Controller
 
         if ($this->attemptLogin($request)) {
             $this->sendLoginResponse($request);
-            
+
             $user = $this->guard()->user();
             $user->generateToken();
 
             $user = array_add($user, 'details', $user->userDetails->toarray());
             $admin = $user->isRole('admin') ? true : false;
-            
+
 
             return response()->json(
                 [
-                    'status' => 'success' , 
-                    'message' => 'Usuario exitoso.', 
-                    'data' => $user->toArray(), 
+                    'status' => 'success' ,
+                    'message' => 'Usuario exitoso.',
+                    'data' => $user->toArray(),
                     'admin' => $admin
                 ],200);
         }
@@ -100,7 +101,7 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         $user = Auth::user();
-        
+
         if ($user) {
             $user->api_token = null;
             $user->save();

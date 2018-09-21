@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\API\Admin;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\Admin\CreateBookingAPIRequest;
 use App\Http\Requests\API\Admin\UpdateBookingAPIRequest;
 use App\Models\Admin\Booking;
+use App\Repositories\Admin\BookingDetailRepository;
 use App\Repositories\Admin\BookingRepository;
+use App\Repositories\Admin\FormDataRepository;
+use App\Repositories\Admin\RoomRepository;
+use App\Repositories\Admin\UserRepository;
 use Illuminate\Http\Request;
-use App\Http\Controllers\AppBaseController;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
@@ -22,9 +26,29 @@ class BookingAPIController extends AppBaseController
     /** @var  BookingRepository */
     private $bookingRepository;
 
-    public function __construct(BookingRepository $bookingRepo)
+    /** @var  BookingDetailRepository */
+    private $bookingDetailRepository;
+
+    /** @var  FormDataRepository */
+    private $formDataRepository;
+
+    /** @var  UserRepository */
+    private $userRepository;
+
+    /** @var  RoomRepository */
+    private $roomRepository;
+
+    public function __construct(BookingRepository $bookingRepo,
+        BookingDetailRepository $bookingDetailRepo,
+        FormDataRepository $formDataRepo,
+        UserRepository $userRepo,
+        RoomRepository $roomRepo)
     {
         $this->bookingRepository = $bookingRepo;
+        $this->bookingDetailRepository = $bookingDetailRepo;
+        $this->formDataRepository = $formDataRepo;
+        $this->userRepository = $userRepo;
+        $this->roomRepository = $roomRepo;
     }
 
     /**
@@ -34,14 +58,14 @@ class BookingAPIController extends AppBaseController
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request)
+    /*public function index(Request $request)
     {
         $this->bookingRepository->pushCriteria(new RequestCriteria($request));
         $this->bookingRepository->pushCriteria(new LimitOffsetCriteria($request));
         $bookings = $this->bookingRepository->all();
 
         return $this->sendResponse($bookings->toArray(), 'Bookings retrieved successfully');
-    }
+    }*/
 
     /**
      * Store a newly created Booking in storage.
@@ -183,10 +207,20 @@ class BookingAPIController extends AppBaseController
         return $this->bookingDetailRepository->create($bookingDetail);
     }
 
+    /**
+     * Set and store the form data for the given booking detail.
+     *
+     * @param object    $roomItem
+     *
+     * @return FormData
+     */
+    private function setFormDataModel( $roomItem )
+    {
+        $formData           = [];
+        $formData['name']   = $roomItem->name;
+        $formData['email']  = $roomItem->email;
 
-        $bookings = $this->bookingRepository->create($input);
-
-        return $this->sendResponse($bookings->toArray(), 'Booking saved successfully');
+        return $this->formDataRepository->create($formData);
     }
 
     /**
@@ -199,7 +233,6 @@ class BookingAPIController extends AppBaseController
      */
     public function show($id)
     {
-        /** @var Booking $booking */
         $booking = $this->bookingRepository->findWithoutFail($id);
 
         if (empty($booking)) {
@@ -221,11 +254,10 @@ class BookingAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdateBookingAPIRequest $request)
+    /*public function update($id, UpdateBookingAPIRequest $request)
     {
         $input = $request->all();
 
-        /** @var Booking $booking */
         $booking = $this->bookingRepository->findWithoutFail($id);
 
         if (empty($booking)) {
@@ -235,7 +267,7 @@ class BookingAPIController extends AppBaseController
         $booking = $this->bookingRepository->update($input, $id);
 
         return $this->sendResponse($booking->toArray(), 'Booking updated successfully');
-    }
+    }*/
 
     /**
      * Remove the specified Booking from storage.
@@ -245,9 +277,8 @@ class BookingAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
+    /*public function destroy($id)
     {
-        /** @var Booking $booking */
         $booking = $this->bookingRepository->findWithoutFail($id);
 
         if (empty($booking)) {
@@ -257,5 +288,5 @@ class BookingAPIController extends AppBaseController
         $booking->delete();
 
         return $this->sendResponse($id, 'Booking deleted successfully');
-    }
+    }*/
 }

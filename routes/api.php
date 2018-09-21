@@ -127,6 +127,7 @@ Route::get('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@show');
 // Route::patch('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@update');
 // Route::delete('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@destroy');
 
+
 // Route::get('admin/blogs', 'API\Admin\BlogAPIController@index');
 // Route::post('admin/blogs', 'API\Admin\BlogAPIController@store');
 // Route::get('admin/blogs/{blogs}', 'API\Admin\BlogAPIController@show');
@@ -186,14 +187,6 @@ Route::get('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@show');
 // Route::delete('admin/room_categories/{room_categories}', 'API\Admin\RoomCategoryAPIController@destroy');
 
 
-Route::post('admin/rooms', 'API\Admin\RoomAPIController@index');
-// Route::post('admin/rooms', 'API\Admin\RoomAPIController@store');
-Route::get('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@show');
-// Route::put('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@update');
-// Route::patch('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@update');
-// Route::delete('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@destroy');
-
-
 // Route::get('admin/room_seasons', 'API\Admin\RoomSeasonAPIController@index');
 // Route::post('admin/room_seasons', 'API\Admin\RoomSeasonAPIController@store');
 // Route::get('admin/room_seasons/{room_seasons}', 'API\Admin\RoomSeasonAPIController@show');
@@ -224,14 +217,6 @@ Route::get('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@show');
 // Route::put('admin/event_categories/{event_categories}', 'API\Admin\EventCategoryAPIController@update');
 // Route::patch('admin/event_categories/{event_categories}', 'API\Admin\EventCategoryAPIController@update');
 // Route::delete('admin/event_categories/{event_categories}', 'API\Admin\EventCategoryAPIController@destroy');
-
-
-// Route::get('admin/bookings', 'API\Admin\BookingAPIController@index');
-// Route::post('admin/bookings', 'API\Admin\BookingAPIController@store');
-// Route::get('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@show');
-// Route::put('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@update');
-// Route::patch('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@update');
-// Route::delete('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@destroy');
 
 
 // Route::get('admin/booking_details', 'API\Admin\BookingDetailAPIController@index');
@@ -304,3 +289,11 @@ Route::get('admin/request_categories/{request_categories}', 'API\Admin\RequestCa
 Route::put('admin/request_categories/{request_categories}', 'API\Admin\RequestCategoryAPIController@update');
 Route::patch('admin/request_categories/{request_categories}', 'API\Admin\RequestCategoryAPIController@update');
 Route::delete('admin/request_categories/{request_categories}', 'API\Admin\RequestCategoryAPIController@destroy');
+
+
+Route::get('admin/form_datas', 'Admin\FormDataAPIController@index');
+Route::post('admin/form_datas', 'Admin\FormDataAPIController@store');
+Route::get('admin/form_datas/{form_datas}', 'Admin\FormDataAPIController@show');
+Route::put('admin/form_datas/{form_datas}', 'Admin\FormDataAPIController@update');
+Route::patch('admin/form_datas/{form_datas}', 'Admin\FormDataAPIController@update');
+Route::delete('admin/form_datas/{form_datas}', 'Admin\FormDataAPIController@destroy');

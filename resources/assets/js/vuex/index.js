@@ -4,7 +4,7 @@ import Session from './modules/Session.js'
 import Booking from './modules/Booking.js'
 import createPersistedState from 'vuex-persistedstate'
 import * as Cookie from 'js-cookie'
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 let store = new Vuex.Store({
     modules:{
@@ -12,12 +12,11 @@ let store = new Vuex.Store({
         Booking,
     },plugins: [
          createPersistedState({
-             paths: ['Session.user','Booking.booking'],
+             paths: ['Session.user', 'Session.authenticated', 'Booking.booking'],
              getItem: key => Cookies.get(key),
              setItem: (key, value) => Cookies.set(key, value, { expires: 3, secure: true }),
              removeItem: key => Cookies.remove(key)
          })
-      ]   
-})
-
+      ]
+});
 export default store;

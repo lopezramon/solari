@@ -9,7 +9,6 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper, {});
 
-
 // Vee-Validate
 import VeeValidate from 'vee-validate';
 Vue.use(VeeValidate);
@@ -19,61 +18,69 @@ import VueSweetalert2 from 'vue-sweetalert2';
 Vue.use(VueSweetalert2);
 
 /*
- * Components
+ * Imports
  */
 
 // Landing
-import AppContent from '../components/landing/AppContent.vue';
-import headerLanding from '../components/landing/header.vue';
-import sliderOlbia from '../components/landing/sliderOlbia.vue';
-import services from '../components/landing/services.vue';
-import esperience from '../components/landing/esperience.vue';
-import galleryHorizontal from '../components/landing/galleryHorizontal.vue';
-import mapa from '../components/landing/mapa.vue';
-import newsletter from '../components/landing/newsletter.vue';
-import aboutUs from '../components/landing/aboutUs.vue';
-import homeCamere from '../components/landing/homeCamere.vue';
-import contactUs from '../components/landing/contactUs.vue';
-import formBooking from '../components/landing/form.vue';
-// generale
-import navbar from '../components/general/navbar.vue';
-import footer from '../components/general/footer.vue';
-import jumperr from '../components/general/jumperr.vue';
+import AppContent from '../components/landing/AppContent';
+import headerLanding from '../components/landing/header';
+import sliderOlbia from '../components/landing/sliderOlbia';
+import services from '../components/landing/services';
+import esperience from '../components/landing/esperience';
+import galleryHorizontal from '../components/landing/galleryHorizontal';
+import mapa from '../components/landing/mapa';
+import newsletter from '../components/landing/newsletter';
+import aboutUs from '../components/landing/aboutUs';
+import homeCamere from '../components/landing/homeCamere';
+import contactUs from '../components/landing/contactUs';
+import formBooking from '../components/landing/form';
+
+// general
+import navbar from '../components/general/navbar';
+import footer from '../components/general/footer';
+import jumperr from '../components/general/jumperr';
+
 // Suites
-import suites from '../components/suites/suites.vue';
-import headerSuites from '../components/suites/headerSuites.vue';
-import navSuites from '../components/suites/navSuites.vue';
-import gallerySuites from '../components/suites/gallerySuites.vue';
-import infoSuites from '../components/suites/infoSuites.vue';
-import iconsServices from '../components/suites/iconsServices.vue';
-import generalServices from '../components/suites/generalServices.vue';
-import listServices from '../components/suites/listServices.vue';
+import suites from '../components/suites/suites';
+import headerSuites from '../components/suites/headerSuites';
+import navSuites from '../components/suites/navSuites';
+import gallerySuites from '../components/suites/gallerySuites';
+import infoSuites from '../components/suites/infoSuites';
+import iconsServices from '../components/suites/iconsServices';
+import generalServices from '../components/suites/generalServices';
+import listServices from '../components/suites/listServices';
+
 // user
-import createAccount from '../components/user/createAccount.vue';
-import clientLogin from '../components/user/clientLogin.vue';
-import resetPassword from '../components/user/resetPassword.vue';
+import createAccount from '../components/user/createAccount';
+import clientLogin from '../components/user/clientLogin';
+import setPassword from '../components/user/setPassword';
+import resetPassword from '../components/user/resetPassword';
+
 //booking
-import stepUno from '../components/booking/stepUno.vue';
-import stepDos from '../components/booking/stepDos.vue';
-import stepTres from '../components/booking/stepTres.vue';
-import headerBooking from '../components/booking/headerBooking.vue';
-import navBooking from '../components/booking/navBooking.vue';
-import formConsulta from '../components/booking/formConsulta.vue';
-import resumen from '../components/booking/resumen.vue';
-import rooms from '../components/booking/rooms.vue';
+import stepUno from '../components/booking/stepUno';
+import stepDos from '../components/booking/stepDos';
+import stepTres from '../components/booking/stepTres';
+import headerBooking from '../components/booking/headerBooking';
+import navBooking from '../components/booking/navBooking';
+import formConsulta from '../components/booking/formConsulta';
+import resumen from '../components/booking/resumen';
+import rooms from '../components/booking/rooms';
+
 // My account
-//import AccountContent from '../components/myaccount/AccountContent.vue';
+import delate_account from '../components/myaccount/delate_account';
+import user_detail from '../components/myaccount/user_detail';
+import navaccount from '../components/myaccount/navaccount';
+import headerAccount from '../components/myaccount/headerAccount';
+import account_table from '../components/myaccount/account_table';
+import myOrderDetail from '../components/myaccount/myOrderDetail.vue';
 // Error pages
 import Error404 from '../components/general/error404.vue';
 import Error500 from '../components/general/error500.vue';
-import delate_account from '../components/myaccount/delate_account.vue';
-import user_detail from '../components/myaccount/user_detail.vue';
-import navaccount from '../components/myaccount/navaccount.vue';
-import headerAccount from '../components/myaccount/headerAccount.vue';
-import account_table from '../components/myaccount/account_table.vue';
 
 
-//componentes generales
+/*
+ * Components
+ */
 Vue.component('navbar', navbar);
 Vue.component('gfooter', footer);
 Vue.component('jumperr', jumperr);
@@ -87,7 +94,6 @@ Vue.component('mapa', mapa);
 Vue.component('newsletter', newsletter);
 Vue.component('aboutus', aboutUs);
 Vue.component('home_camere', homeCamere);
-//
 Vue.component('headerSuites', headerSuites);
 Vue.component('navSuites', navSuites);
 Vue.component('gallerySuites', gallerySuites);
@@ -95,7 +101,6 @@ Vue.component('infoSuites', infoSuites);
 Vue.component('iconsServices', iconsServices);
 Vue.component('generalServices', generalServices);
 Vue.component('listServices', listServices);
-//
 Vue.component('rooms', rooms);
 Vue.component('resumen', resumen);
 Vue.component('form_consulta', formConsulta);
@@ -106,9 +111,7 @@ Vue.component('navaccount', navaccount);
 Vue.component('headerAccount', headerAccount);
 
 
-
-//rutas
-
+// Routes
 let router = new Router({
     mode:'history',
     routes: [
@@ -133,10 +136,14 @@ let router = new Router({
             component: delate_account
         },
         {
-
             path: '/account_table',
             name: 'account_table',
             component: account_table
+        },
+        {
+            path: '/my-order-detail',
+            name: 'myOrderDetail',
+            component: myOrderDetail
         },
         {
 
@@ -160,7 +167,6 @@ let router = new Router({
             component: stepTres
         },
         {
-        
             path: '/clientLogin',
             name: 'clientLogin',
             component: clientLogin
@@ -171,7 +177,12 @@ let router = new Router({
             component: createAccount
         },
         {
-            path: '/resetPassword',
+            path: '/setPassword',
+            name: 'setPassword',
+            component: setPassword
+        },
+        {
+            path: '/password/reseted/:hash',
             name: 'resetPassword',
             component: resetPassword
         },
@@ -185,11 +196,8 @@ let router = new Router({
             name: 'error500',
             component: Error500
         },
-        
-         
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
-})
-
+});
 export default router
