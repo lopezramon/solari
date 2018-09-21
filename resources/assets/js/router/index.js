@@ -1,23 +1,26 @@
 import Vue from 'vue'
-import Router from 'vue-router'
 
+// Router Vue
+import Router from 'vue-router'
 Vue.use(Router);
 
-//                swiper slider
-// -------------------------------------------------
+// Swiper slider
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper, {});
-// -------------------------------------------------
 
-//                Vee-Validate slider
-// -------------------------------------------------
+
+// Vee-Validate
 import VeeValidate from 'vee-validate';
 Vue.use(VeeValidate);
-// -------------------------------------------------
 
+// Sweetalert2
+import VueSweetalert2 from 'vue-sweetalert2';
+Vue.use(VueSweetalert2);
 
-//Registro de componentes
+/*
+ * Components
+ */
 
 // Landing
 import AppContent from '../components/landing/AppContent.vue';
@@ -59,12 +62,14 @@ import resumen from '../components/booking/resumen.vue';
 import rooms from '../components/booking/rooms.vue';
 // My account
 //import AccountContent from '../components/myaccount/AccountContent.vue';
-import user_detail from '../components/myaccount/user_detail.vue';
-import navaccount from '../components/myaccount/navaccount.vue';
-import headerAccount from '../components/myaccount/headerAccount.vue';
 // Error pages
 import Error404 from '../components/general/error404.vue';
 import Error500 from '../components/general/error500.vue';
+import delate_account from '../components/myaccount/delate_account.vue';
+import user_detail from '../components/myaccount/user_detail.vue';
+import navaccount from '../components/myaccount/navaccount.vue';
+import headerAccount from '../components/myaccount/headerAccount.vue';
+import account_table from '../components/myaccount/account_table.vue';
 
 
 //componentes generales
@@ -120,7 +125,18 @@ let router = new Router({
             name: 'user_detail',
             component: user_detail
         },
-        {       
+        {
+            path: '/delate_account',
+            name: 'delate_account',
+            component: delate_account
+        },
+        {
+
+            path: '/account_table',
+            name: 'account_table',
+            component: account_table
+        },
+        {
 
             path: '/contactUs',
             name: 'contactUs',

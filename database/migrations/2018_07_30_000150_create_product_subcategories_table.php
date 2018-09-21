@@ -1,0 +1,43 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateProductSubcategoriesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('product_subcategories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('code', 10)->nullable()->default(null);
+
+            $table->unsignedInteger('product_category_id');
+            $table->foreign('product_category_id')->references('id')->on('product_categories');
+
+            $table->string('image', 250)->nullable()->default(null);
+
+            $table->unsignedInteger('status_id')->default(1);
+            $table->foreign('status_id')->references('id')->on('statuses');
+
+
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('product_subcategories');
+    }
+}
