@@ -170,7 +170,7 @@ Route::post('password/reset','Auth\ResetPasswordController@resetFront');
 // Route::delete('admin/room_categories/{room_categories}', 'API\Admin\RoomCategoryAPIController@destroy');
 
 
-Route::get('admin/rooms', 'API\Admin\RoomAPIController@index');
+Route::post('admin/rooms', 'API\Admin\RoomAPIController@index');
 // Route::post('admin/rooms', 'API\Admin\RoomAPIController@store');
 Route::get('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@show');
 // Route::put('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@update');

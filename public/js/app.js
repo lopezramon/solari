@@ -105551,81 +105551,65 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     el: '.swiper-pagination'
                 }
             },
-            /*rooms: [
-                {
-                    title: 'ROOM 101',
-                    subtitle: 'Camera Matrimoniale con Balance',
-                    description: 'Camera Matrimoniale climatizzata con minibar e pavimento piastrellato/in marmo.',
-                    gallery: [
-                        {image: '/images/home/gallery-slider-map/21.jpg'},
-                        {image: '/images/home/gallery-slider-map/18.jpg'},
-                        {image: '/images/home/gallery-slider-map/22.jpeg'},
-                        {image: '/images/home/gallery-slider-map/23.jpeg'},
-                    ],
-                    catacteristica: 'Camera Doppia Di 13 M2',
-                    services: [
-                        {name: 'terrazzo'},
-                        {name: 'Canali pay per view'},
-                        {name: 'Armadio / guardaroba'},
-                        {name: 'Vassoio di cortesia'},
-                        {name: 'Radio'},
-                        {name: 'Carta igienica'},
-                    ],
-                    price: 200,
-                },
-                {
-                    title: 'ROOM 102',
-                    subtitle: 'Camera King',
-                    description: 'Camera Matrimoniale climatizzata con minibar e pavimento piastrellato/in marmo.',
-                    gallery: [
-                        {image: '/images/home/gallery-slider-map/21.jpg'},
-                        {image: '/images/home/gallery-slider-map/18.jpg'},
-                        {image: '/images/home/gallery-slider-map/22.jpeg'},
-                        {image: '/images/home/gallery-slider-map/23.jpeg'},
-                    ],
-                    catacteristica: 'Camera Doppia Di 13 M2',
-                    services: [
-                        {name: 'terrazzo'},
-                        {name: 'Canali pay per view'},
-                        {name: 'Armadio / guardaroba'},
-                        {name: 'Vassoio di cortesia'},
-                        {name: 'Radio'},
-                        {name: 'Carta igienica'},
-                    ],
-                    price: 200,
-                }
-            ]*/
-            rooms: [{
-                id: 1,
-                name: 'ROOM 101',
-                subtitle1: 'Camera Matrimoniale con Balance',
-                subtitle2: 'Camera Doppia Di 13 M2',
-                description: 'Camera Matrimoniale climatizzata con minibar e pavimento piastrellato/in marmo.',
-                price: 59.05,
-                services: [{
-                    id: 1,
-                    name: ' terrazzo'
-                }, {
-                    id: 2,
-                    name: ' Canali pay per view'
-                }, {
-                    id: 3,
-                    name: 'Armadio / guardaroba'
-                }, {
-                    id: 4,
-                    name: 'Armadio / guardaroba'
-                }, {
-                    id: 5,
-                    name: ' Radio'
-                }, {
-                    id: 6,
-                    name: ' Carta igienica'
-                }],
-                gallery: [{ image: '/images/home/gallery-slider-map/21.jpg' }, { image: '/images/home/gallery-slider-map/18.jpg' }, { image: '/images/home/gallery-slider-map/22.jpeg' }, { image: '/images/home/gallery-slider-map/23.jpeg' }]
-            }]
+            root: null,
+            rooms: [
+                // {
+                //     id: 1,
+                //     name: 'ROOM 101',
+                //     subtitle1: 'Camera Matrimoniale con Balance',
+                //     subtitle2: 'Camera Doppia Di 13 M2',
+                //     description: 'Camera Matrimoniale climatizzata con minibar e pavimento piastrellato/in marmo.',
+                //     price: 59.05,
+                //     services:[
+                //         {
+                //             id: 1,
+                //             name: ' terrazzo'
+                //         },
+                //         {
+                //             id: 2,
+                //             name: ' Canali pay per view'
+                //         },
+                //         {
+                //             id: 3,
+                //             name: 'Armadio / guardaroba'
+                //         },
+                //         {
+                //             id: 4,
+                //             name: 'Armadio / guardaroba'
+                //         },
+                //         {
+                //             id:5,
+                //             name: ' Radio',
+                //         },
+                //         {
+                //             id:6,
+                //             name: ' Carta igienica',
+                //         }
+                //     ],
+                //     gallery: [
+                //         {image: '/images/home/gallery-slider-map/21.jpg'},
+                //         {image: '/images/home/gallery-slider-map/18.jpg'},
+                //         {image: '/images/home/gallery-slider-map/22.jpeg'},
+                //         {image: '/images/home/gallery-slider-map/23.jpeg'},
+                //     ], 
+                //}
+            ]
         };
     },
     methods: {
+        getBooking: function getBooking() {
+            var data = this.$store.getters.getBooking;
+            var form = {};
+            form.checkin = data.checkin;
+            form.checkout = data.checkout;
+            form.adult_quantity = data.adult;
+            var slf = this;
+            axios.post(this.root + '/api/admin/rooms', form).then(function (res) {
+                if (res.status == 200) {
+                    slf.rooms = res.data.data.rooms;
+                }
+            }).catch(function (error) {});
+        },
         AddCart: function AddCart(item) {
             this.$store.commit('addCart', { list: item });
             this.$swal({
@@ -105644,9 +105628,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
             }
             return false;
+        },
+        listRooms: function listRooms() {
+            axios.get(this.root + '/api/admin/rooms', this).then(function (res) {
+                if (res.status == 200) {}
+            }).catch(function (error) {});
         }
-    }, computed: {
-        listRooms: function listRooms() {}
+    }, computed: {},
+    mounted: function mounted() {
+        this.root = window.location.origin;
+        this.getBooking();
     }
 });
 
@@ -105665,9 +105656,9 @@ var render = function() {
         _c("div", { staticClass: "container-fluid" }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-12" }, [
-              _c("h2", { domProps: { textContent: _vm._s(room.title) } }),
+              _c("h2", { domProps: { textContent: _vm._s(room.name) } }),
               _vm._v(" "),
-              _c("h3", { domProps: { textContent: _vm._s(room.subtitle) } }),
+              _c("h3", { domProps: { textContent: _vm._s(room.subtitle1) } }),
               _vm._v(" "),
               _c("p", { domProps: { textContent: _vm._s(room.description) } })
             ]),
@@ -105702,9 +105693,7 @@ var render = function() {
             ),
             _vm._v(" "),
             _c("div", { staticClass: "col-12 col-lg-4" }, [
-              _c("h4", {
-                domProps: { textContent: _vm._s(room.catacteristica) }
-              }),
+              _c("h4", { domProps: { textContent: _vm._s(room.subtitle2) } }),
               _vm._v(" "),
               _c(
                 "p",
