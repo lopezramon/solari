@@ -25630,7 +25630,7 @@ function updateLink (link, options, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(18);
-module.exports = __webpack_require__(226);
+module.exports = __webpack_require__(230);
 
 
 /***/ }),
@@ -49459,6 +49459,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_myaccount_headerAccount_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_43__components_myaccount_headerAccount_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_myaccount_account_table_vue__ = __webpack_require__(222);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_myaccount_account_table_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_44__components_myaccount_account_table_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_myaccount_myOrderDetail_vue__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_myaccount_myOrderDetail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_45__components_myaccount_myOrderDetail_vue__);
 
 
 // Router Vue
@@ -49528,6 +49530,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_5_vue_
 
 
 
+
 //componentes generales
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('navbar', __WEBPACK_IMPORTED_MODULE_18__components_general_navbar_vue___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('gfooter', __WEBPACK_IMPORTED_MODULE_19__components_general_footer_vue___default.a);
@@ -49585,6 +49588,10 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
         path: '/account_table',
         name: 'account_table',
         component: __WEBPACK_IMPORTED_MODULE_44__components_myaccount_account_table_vue___default.a
+    }, {
+        path: '/my-order-detail',
+        name: 'myOrderDetail',
+        component: __WEBPACK_IMPORTED_MODULE_45__components_myaccount_myOrderDetail_vue___default.a
     }, {
 
         path: '/contactUs',
@@ -84340,7 +84347,11 @@ var staticRenderFns = [
               _c("td", [_vm._v("ACTIVO")]),
               _vm._v(" "),
               _c("td", [
-                _c("img", { attrs: { src: "images/iconos/view.png", alt: "" } })
+                _c("a", { attrs: { href: "/my-order-detail" } }, [
+                  _c("img", {
+                    attrs: { src: "images/iconos/view.png", alt: "" }
+                  })
+                ])
               ])
             ]),
             _vm._v(" "),
@@ -84352,7 +84363,11 @@ var staticRenderFns = [
               _c("td", { staticClass: "text-danger" }, [_vm._v("CANCELADA")]),
               _vm._v(" "),
               _c("td", [
-                _c("img", { attrs: { src: "images/iconos/view.png", alt: "" } })
+                _c("a", { attrs: { href: "/my-order-detail" } }, [
+                  _c("img", {
+                    attrs: { src: "images/iconos/view.png", alt: "" }
+                  })
+                ])
               ])
             ]),
             _vm._v(" "),
@@ -84382,6 +84397,330 @@ if (false) {
 
 /***/ }),
 /* 226 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(227)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(229)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-ce960dc4"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/myaccount/myOrderDetail.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-ce960dc4", Component.options)
+  } else {
+    hotAPI.reload("data-v-ce960dc4", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 227 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(228);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("12c368c7", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ce960dc4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./myOrderDetail.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ce960dc4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./myOrderDetail.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 228 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.bg-secondary[data-v-ce960dc4]{\n    background-color: #c7c7c7 !important;\n}\n.form-control[data-v-ce960dc4]{\n    background-color: transparent;\n    border-radius: 0px;\n}\n.form-control[data-v-ce960dc4]:focus {\n    border-color: #ced4da;\n}\n.delete[data-v-ce960dc4]{\n    cursor: pointer;\n}\n.map[data-v-ce960dc4]{\n    width: 100%;\n    height: 260px;\n}\n.map iframe[data-v-ce960dc4]{\n    width: 100%;\n    height: 100%;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 229 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("headerAccount"),
+      _vm._v(" "),
+      _c("navaccount"),
+      _vm._v(" "),
+      _vm._m(0)
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container my-4" }, [
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-12 col-lg-5" }, [
+          _c("div", { staticClass: "border" }, [
+            _c("div", { staticClass: "bg-secondary border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("Datos reserva")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("Numero de reserva:")
+              ]),
+              _vm._v(" 663332323\n                    ")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("Reservado por:")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("Numero de identidad:")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("Telefono:")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "border" }, [
+            _c("div", { staticClass: "bg-secondary border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("Datos del responsable")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("Reservado Para:")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("Email:")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("Numero:")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "border" }, [
+            _c("div", { staticClass: "bg-secondary border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("Datos de la reserva")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("ROOM:")
+              ]),
+              _vm._v(" 101\n                    ")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("ROOM:")
+              ]),
+              _vm._v(" 102\n                    ")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("Cantidadde visitantes:")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("Fecha de entrada")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("Fecha de Salida")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "border-bottom p-2" }, [
+              _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                _vm._v("Precio")
+              ]),
+              _vm._v(" $80\n                    ")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "border bg-secondary" }, [
+            _c(
+              "div",
+              {
+                staticClass: "border-bottom p-2 d-flex justify-content-between"
+              },
+              [
+                _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                  _vm._v("ROOM 101")
+                ]),
+                _vm._v(" "),
+                _c("span", [_vm._v("$1000")])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "border-bottom p-2 d-flex justify-content-between"
+              },
+              [
+                _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                  _vm._v("ROOM 102")
+                ]),
+                _vm._v(" "),
+                _c("span", [_vm._v("$1000")])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "border-bottom p-2 d-flex justify-content-between"
+              },
+              [
+                _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                  _vm._v("ROOM 103")
+                ]),
+                _vm._v(" "),
+                _c("span", [_vm._v("$1000")])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "border-bottom p-2 d-flex justify-content-between"
+              },
+              [
+                _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                  _vm._v("ROOM 104")
+                ]),
+                _vm._v(" "),
+                _c("span", [_vm._v("$1000")])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "border-bottom p-2 d-flex justify-content-between"
+              },
+              [
+                _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                  _vm._v("Precio total:")
+                ]),
+                _vm._v(" "),
+                _c("strong", [_vm._v("$1000")])
+              ]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12 col-lg-5" }, [
+          _c("div", { staticClass: "map mb-3" }, [
+            _c("iframe", {
+              staticStyle: { border: "0" },
+              attrs: {
+                src:
+                  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48231.14914404061!2d9.457766413671393!3d40.92787347617706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d94b04024bea79%3A0x7bfe3270a490c808!2s07026+Olbia%2C+Olbia-Tempio%2C+Italia!5e0!3m2!1ses!2sve!4v1537229576871",
+                frameborder: "0",
+                allowfullscreen: ""
+              }
+            })
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-ce960dc4", module.exports)
+  }
+}
+
+/***/ }),
+/* 230 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

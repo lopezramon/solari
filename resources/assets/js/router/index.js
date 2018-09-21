@@ -67,6 +67,7 @@ import user_detail from '../components/myaccount/user_detail.vue';
 import navaccount from '../components/myaccount/navaccount.vue';
 import headerAccount from '../components/myaccount/headerAccount.vue';
 import account_table from '../components/myaccount/account_table.vue';
+import myOrderDetail from '../components/myaccount/myOrderDetail.vue';
 
 
 //componentes generales
@@ -133,6 +134,11 @@ let router = new Router({
             path: '/account_table',
             name: 'account_table',
             component: account_table
+        },
+        {
+            path: '/my-order-detail',
+            name: 'myOrderDetail',
+            component: myOrderDetail
         },
         {
 

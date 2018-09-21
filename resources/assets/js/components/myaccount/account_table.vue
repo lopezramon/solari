@@ -39,13 +39,13 @@ FIN MERGE ERICK BRANCH LARAVEL -->
           <td>123123123</td>
           <td>01/02/2011</td>
           <td>ACTIVO</td>
-          <td><img src="images/iconos/view.png" alt=""></td>
+          <td><a href="/my-order-detail"><img src="images/iconos/view.png" alt=""></a></td>
         </tr>
         <tr class="text-center">
           <td>123123123</td>
           <td>01/02/2011</td>
           <td class="text-danger">CANCELADA</td>
-          <td><img src="images/iconos/view.png" alt=""></td>
+          <td><a href="/my-order-detail"><img src="images/iconos/view.png" alt=""></a></td>
         </tr>
         <tr>
           <th scope="row">3</th>
