@@ -25,7 +25,7 @@ class MailController extends Controller
 
 		try{
 			Mail::send($request['plantilla'], $request, function ($message) use ($subject) {
-				$message->to("info@pizzeriadaadriano.com")->subject($subject);
+				$message->to("info@luxury.com")->subject($subject);
 			});
 		}catch(\Swift_TransportException $e){
 			return $e->getMessage();

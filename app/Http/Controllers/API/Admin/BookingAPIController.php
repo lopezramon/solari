@@ -131,18 +131,18 @@ class BookingAPIController extends AppBaseController
         $booking = $this->bookingRepository->update($bookingData, $booking->id);
 
         // ENVIAR CORREOOO
-        // $bookingWithRelations = $this->bookingRepository->getBookingWithRelations($booking); #PENDIENTE
+        $bookingWithRelations = $this->bookingRepository->findCustomized($booking->id);
         // $sended = $this->sendMail($bookingWithRelations, 'booking'); #PENDIENTE
-        $sended = 'OK';
+        $sended = 'NOK';
 
-        if( $sended=='OK' ){
+        if( $sended == 'OK' ){
             $message = 'Booking saved successfully, email sended';
         }
         else{
             $message = 'Booking saved successfully, email not sended';
         }
 
-        return $this->sendResponse($booking->toArray(), $message);
+        return $this->sendResponse($bookingWithRelations, $message);
     }
 
     /**
@@ -203,6 +203,7 @@ class BookingAPIController extends AppBaseController
         $bookingDetail['total_item']        = $ivaAndPrice['price'];
         $bookingDetail['iva_item']          = $ivaAndPrice['iva'];
 
+        // dd($ivaAndPrice);
         return $this->bookingDetailRepository->create($bookingDetail);
     }
 
@@ -230,7 +231,7 @@ class BookingAPIController extends AppBaseController
      *
      * @return Response
      */
-    /*public function show($id)
+    public function show($id)
     {
         $booking = $this->bookingRepository->findWithoutFail($id);
 
@@ -238,8 +239,11 @@ class BookingAPIController extends AppBaseController
             return $this->sendError('Booking not found');
         }
 
-        return $this->sendResponse($booking->toArray(), 'Booking retrieved successfully');
-    }*/
+        // $orderWithRelations = $this->orderRepository->getOrderWithRelations($order);
+        $bookingWithRelations = $this->bookingRepository->findCustomized($booking->id);
+
+        return $this->sendResponse($bookingWithRelations, 'Booking retrieved successfully');
+    }
 
     /**
      * Update the specified Booking in storage.

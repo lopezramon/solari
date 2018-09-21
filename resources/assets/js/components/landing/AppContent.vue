@@ -3,6 +3,7 @@
 
 
         <header_landing/>
+        <form_booking/>
         <aboutus/>
         <home_camere/>
         <slider_olbia/>
