@@ -132,16 +132,10 @@ class BookingAPIController extends AppBaseController
 
         // ENVIAR CORREOOO
         $bookingWithRelations = $this->bookingRepository->findCustomized($booking->id);
-
-        // $bookingWithRelations = $bookingWithRelations->transform(function($booki){
-        //     $booki->room = $this->roomRepository->findCustomized($booki->room_id);
-        //     return $booki;
-        // });
-        // dd($bookingWithRelations);
         // $sended = $this->sendMail($bookingWithRelations, 'booking'); #PENDIENTE
-        $sended = 'OK';
+        $sended = 'NOK';
 
-        if( $sended=='OK' ){
+        if( $sended == 'OK' ){
             $message = 'Booking saved successfully, email sended';
         }
         else{
@@ -237,7 +231,7 @@ class BookingAPIController extends AppBaseController
      *
      * @return Response
      */
-    /*public function show($id)
+    public function show($id)
     {
         $booking = $this->bookingRepository->findWithoutFail($id);
 
@@ -245,8 +239,11 @@ class BookingAPIController extends AppBaseController
             return $this->sendError('Booking not found');
         }
 
-        return $this->sendResponse($booking->toArray(), 'Booking retrieved successfully');
-    }*/
+        // $orderWithRelations = $this->orderRepository->getOrderWithRelations($order);
+        $bookingWithRelations = $this->bookingRepository->findCustomized($booking->id);
+
+        return $this->sendResponse($bookingWithRelations, 'Booking retrieved successfully');
+    }
 
     /**
      * Update the specified Booking in storage.
