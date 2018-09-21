@@ -30,6 +30,7 @@ import esperience from '../components/landing/esperience';
 import galleryHorizontal from '../components/landing/galleryHorizontal';
 import mapa from '../components/landing/mapa';
 import newsletter from '../components/landing/newsletter';
+import unsubscribeNewsletter from '../components/landing/unsubscribenewsletter';
 import aboutUs from '../components/landing/aboutUs';
 import homeCamere from '../components/landing/homeCamere';
 import contactUs from '../components/landing/contactUs';
@@ -189,6 +190,11 @@ let router = new Router({
             path: '/error500',
             name: 'error500',
             component: Error500
+        },
+        {
+            path: '/unsubscribeNewsletter/:email',
+            name: 'unsubscribeNewsletter',
+            component: unsubscribeNewsletter
         },
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }
