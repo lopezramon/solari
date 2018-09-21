@@ -22,9 +22,10 @@ class CreateRoomSeasonsTable extends Migration
             $table->date('start_date');
             $table->date('end_date');
 
-            $table->double('price', 10, 2);
-            $table->double('additional_price', 10, 2)->nullable()->default(null);
-            $table->double('pet_price', 10, 2)->nullable()->default(null);
+            $table->double('price', 12, 2);
+            $table->double('additional_price', 12, 2)->nullable()->default(null);
+            $table->double('pet_price', 12, 2)->nullable()->default(null);
+            $table->double('iva', 12, 2);
 
             $table->unsignedInteger('status_id')->default(1);
             $table->foreign('status_id')->references('id')->on('statuses');

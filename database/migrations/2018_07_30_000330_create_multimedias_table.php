@@ -20,7 +20,7 @@ class CreateMultimediasTable extends Migration
             $table->string('description', 50)->nullable()->default(null);
             $table->integer('width')->default(1);
             $table->integer('height')->default(1);
-            $table->double('size', 5, 2)->default(1);
+            $table->double('size', 12, 2)->default(1);
             $table->string('path', 100)->default('storage/multimedia');
             $table->timestamps();
             $table->softDeletes();
