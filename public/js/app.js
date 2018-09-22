@@ -25630,7 +25630,7 @@ function updateLink (link, options, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(18);
-module.exports = __webpack_require__(243);
+module.exports = __webpack_require__(239);
 
 
 /***/ }),
@@ -49397,75 +49397,75 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_landing_mapa___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_landing_mapa__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_landing_newsletter__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_landing_newsletter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_landing_newsletter__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_landing_aboutUs__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_landing_aboutUs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_landing_aboutUs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_landing_homeCamere__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_landing_homeCamere___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_landing_homeCamere__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_landing_contactUs__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_landing_contactUs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_landing_contactUs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_landing_form__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_landing_form___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_landing_form__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_general_navbar__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_general_navbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_general_navbar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_general_footer__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_general_footer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_general_footer__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_general_jumperr__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_general_jumperr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_general_jumperr__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_suites_suites__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_suites_suites___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_suites_suites__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_suites_headerSuites__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_suites_headerSuites___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_suites_headerSuites__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_suites_navSuites__ = __webpack_require__(139);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_suites_navSuites___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__components_suites_navSuites__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_suites_gallerySuites__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_suites_gallerySuites___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__components_suites_gallerySuites__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_suites_infoSuites__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_suites_infoSuites___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__components_suites_infoSuites__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_suites_iconsServices__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_suites_iconsServices___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__components_suites_iconsServices__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_suites_generalServices__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_suites_generalServices___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__components_suites_generalServices__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_suites_listServices__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_suites_listServices___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28__components_suites_listServices__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_user_createAccount__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_user_createAccount___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29__components_user_createAccount__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_user_clientLogin__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_user_clientLogin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30__components_user_clientLogin__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_user_setPassword__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_user_setPassword___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31__components_user_setPassword__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_user_resetPassword__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_user_resetPassword___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32__components_user_resetPassword__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_booking_stepUno__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_booking_stepUno___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33__components_booking_stepUno__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_booking_stepDos__ = __webpack_require__(186);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_booking_stepDos___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34__components_booking_stepDos__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_booking_stepTres__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_booking_stepTres___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35__components_booking_stepTres__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_booking_headerBooking__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_booking_headerBooking___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36__components_booking_headerBooking__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_booking_navBooking__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_booking_navBooking___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37__components_booking_navBooking__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_booking_formConsulta__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_booking_formConsulta___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38__components_booking_formConsulta__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_booking_resumen__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_booking_resumen___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_39__components_booking_resumen__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_booking_rooms__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_booking_rooms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_40__components_booking_rooms__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_myaccount_delate_account__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_myaccount_delate_account___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_41__components_myaccount_delate_account__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_myaccount_user_detail__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_myaccount_user_detail___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_42__components_myaccount_user_detail__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_myaccount_navaccount__ = __webpack_require__(217);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_myaccount_navaccount___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_43__components_myaccount_navaccount__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_myaccount_headerAccount__ = __webpack_require__(222);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_myaccount_headerAccount___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_44__components_myaccount_headerAccount__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_myaccount_account_table__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_myaccount_account_table___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_45__components_myaccount_account_table__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_myaccount_myOrderDetail_vue__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_myaccount_myOrderDetail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_46__components_myaccount_myOrderDetail_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_general_error404_vue__ = __webpack_require__(235);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_landing_unsubscribenewsletter__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_landing_unsubscribenewsletter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_landing_unsubscribenewsletter__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_landing_aboutUs__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_landing_aboutUs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_landing_aboutUs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_landing_homeCamere__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_landing_homeCamere___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_landing_homeCamere__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_landing_contactUs__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_landing_contactUs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_landing_contactUs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_landing_form__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_landing_form___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_landing_form__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_general_navbar__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_general_navbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_general_navbar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_general_footer__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_general_footer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_general_footer__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_general_jumperr__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_general_jumperr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_general_jumperr__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_suites_suites__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_suites_suites___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_suites_suites__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_suites_headerSuites__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_suites_headerSuites___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__components_suites_headerSuites__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_suites_navSuites__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_suites_navSuites___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__components_suites_navSuites__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_suites_gallerySuites__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_suites_gallerySuites___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__components_suites_gallerySuites__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_suites_infoSuites__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_suites_infoSuites___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__components_suites_infoSuites__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_suites_iconsServices__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_suites_iconsServices___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__components_suites_iconsServices__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_suites_generalServices__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_suites_generalServices___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28__components_suites_generalServices__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_suites_listServices__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_suites_listServices___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29__components_suites_listServices__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_user_createAccount__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_user_createAccount___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30__components_user_createAccount__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_user_clientLogin__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_user_clientLogin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31__components_user_clientLogin__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_user_setPassword__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_user_setPassword___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_32__components_user_setPassword__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_user_resetPassword__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_user_resetPassword___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33__components_user_resetPassword__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_booking_stepUno__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_booking_stepUno___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34__components_booking_stepUno__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_booking_stepDos__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_booking_stepDos___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35__components_booking_stepDos__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_booking_stepTres__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_booking_stepTres___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36__components_booking_stepTres__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_booking_headerBooking__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_booking_headerBooking___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37__components_booking_headerBooking__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_booking_navBooking__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_booking_navBooking___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38__components_booking_navBooking__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_booking_formConsulta__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_booking_formConsulta___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_39__components_booking_formConsulta__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_booking_resumen__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_booking_resumen___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_40__components_booking_resumen__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_booking_rooms__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_booking_rooms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_41__components_booking_rooms__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_myaccount_delate_account__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_myaccount_delate_account___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_42__components_myaccount_delate_account__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_myaccount_user_detail__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_myaccount_user_detail___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_43__components_myaccount_user_detail__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_myaccount_navaccount__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_myaccount_navaccount___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_44__components_myaccount_navaccount__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_myaccount_headerAccount__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_myaccount_headerAccount___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_45__components_myaccount_headerAccount__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_myaccount_account_table__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_myaccount_account_table___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_46__components_myaccount_account_table__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_general_error404_vue__ = __webpack_require__(231);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_general_error404_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_47__components_general_error404_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_general_error500_vue__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_general_error500_vue__ = __webpack_require__(235);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_general_error500_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_48__components_general_error500_vue__);
 
 
@@ -49491,6 +49491,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_5_vue_
  */
 
 // Landing
+
 
 
 
@@ -49549,34 +49550,34 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_5_vue_
 /*
  * Components
  */
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('navbar', __WEBPACK_IMPORTED_MODULE_18__components_general_navbar___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('gfooter', __WEBPACK_IMPORTED_MODULE_19__components_general_footer___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('jumperr', __WEBPACK_IMPORTED_MODULE_20__components_general_jumperr___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('navbar', __WEBPACK_IMPORTED_MODULE_19__components_general_navbar___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('gfooter', __WEBPACK_IMPORTED_MODULE_20__components_general_footer___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('jumperr', __WEBPACK_IMPORTED_MODULE_21__components_general_jumperr___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('header_landing', __WEBPACK_IMPORTED_MODULE_7__components_landing_header___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('form_booking', __WEBPACK_IMPORTED_MODULE_17__components_landing_form___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('form_booking', __WEBPACK_IMPORTED_MODULE_18__components_landing_form___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('slider_olbia', __WEBPACK_IMPORTED_MODULE_8__components_landing_sliderOlbia___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('services', __WEBPACK_IMPORTED_MODULE_9__components_landing_services___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('esperience', __WEBPACK_IMPORTED_MODULE_10__components_landing_esperience___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('gallery_horizontal', __WEBPACK_IMPORTED_MODULE_11__components_landing_galleryHorizontal___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('mapa', __WEBPACK_IMPORTED_MODULE_12__components_landing_mapa___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('newsletter', __WEBPACK_IMPORTED_MODULE_13__components_landing_newsletter___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('aboutus', __WEBPACK_IMPORTED_MODULE_14__components_landing_aboutUs___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('home_camere', __WEBPACK_IMPORTED_MODULE_15__components_landing_homeCamere___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('headerSuites', __WEBPACK_IMPORTED_MODULE_22__components_suites_headerSuites___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('navSuites', __WEBPACK_IMPORTED_MODULE_23__components_suites_navSuites___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('gallerySuites', __WEBPACK_IMPORTED_MODULE_24__components_suites_gallerySuites___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('infoSuites', __WEBPACK_IMPORTED_MODULE_25__components_suites_infoSuites___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('iconsServices', __WEBPACK_IMPORTED_MODULE_26__components_suites_iconsServices___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('generalServices', __WEBPACK_IMPORTED_MODULE_27__components_suites_generalServices___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('listServices', __WEBPACK_IMPORTED_MODULE_28__components_suites_listServices___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('rooms', __WEBPACK_IMPORTED_MODULE_40__components_booking_rooms___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('resumen', __WEBPACK_IMPORTED_MODULE_39__components_booking_resumen___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('form_consulta', __WEBPACK_IMPORTED_MODULE_38__components_booking_formConsulta___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('nav_booking', __WEBPACK_IMPORTED_MODULE_37__components_booking_navBooking___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('header_booking', __WEBPACK_IMPORTED_MODULE_36__components_booking_headerBooking___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('user_detail', __WEBPACK_IMPORTED_MODULE_42__components_myaccount_user_detail___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('navaccount', __WEBPACK_IMPORTED_MODULE_43__components_myaccount_navaccount___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('headerAccount', __WEBPACK_IMPORTED_MODULE_44__components_myaccount_headerAccount___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('aboutus', __WEBPACK_IMPORTED_MODULE_15__components_landing_aboutUs___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('home_camere', __WEBPACK_IMPORTED_MODULE_16__components_landing_homeCamere___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('headerSuites', __WEBPACK_IMPORTED_MODULE_23__components_suites_headerSuites___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('navSuites', __WEBPACK_IMPORTED_MODULE_24__components_suites_navSuites___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('gallerySuites', __WEBPACK_IMPORTED_MODULE_25__components_suites_gallerySuites___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('infoSuites', __WEBPACK_IMPORTED_MODULE_26__components_suites_infoSuites___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('iconsServices', __WEBPACK_IMPORTED_MODULE_27__components_suites_iconsServices___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('generalServices', __WEBPACK_IMPORTED_MODULE_28__components_suites_generalServices___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('listServices', __WEBPACK_IMPORTED_MODULE_29__components_suites_listServices___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('rooms', __WEBPACK_IMPORTED_MODULE_41__components_booking_rooms___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('resumen', __WEBPACK_IMPORTED_MODULE_40__components_booking_resumen___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('form_consulta', __WEBPACK_IMPORTED_MODULE_39__components_booking_formConsulta___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('nav_booking', __WEBPACK_IMPORTED_MODULE_38__components_booking_navBooking___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('header_booking', __WEBPACK_IMPORTED_MODULE_37__components_booking_headerBooking___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('user_detail', __WEBPACK_IMPORTED_MODULE_43__components_myaccount_user_detail___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('navaccount', __WEBPACK_IMPORTED_MODULE_44__components_myaccount_navaccount___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('headerAccount', __WEBPACK_IMPORTED_MODULE_45__components_myaccount_headerAccount___default.a);
 
 // Routes
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
@@ -49588,56 +49589,51 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     }, {
         path: '/suites',
         name: 'suites',
-        component: __WEBPACK_IMPORTED_MODULE_21__components_suites_suites___default.a
+        component: __WEBPACK_IMPORTED_MODULE_22__components_suites_suites___default.a
     }, {
         path: '/myaccount',
         name: 'user_detail',
-        component: __WEBPACK_IMPORTED_MODULE_42__components_myaccount_user_detail___default.a
+        component: __WEBPACK_IMPORTED_MODULE_43__components_myaccount_user_detail___default.a
     }, {
         path: '/delate_account',
         name: 'delate_account',
-        component: __WEBPACK_IMPORTED_MODULE_41__components_myaccount_delate_account___default.a
+        component: __WEBPACK_IMPORTED_MODULE_42__components_myaccount_delate_account___default.a
     }, {
         path: '/account_table',
         name: 'account_table',
-        component: __WEBPACK_IMPORTED_MODULE_45__components_myaccount_account_table___default.a
+        component: __WEBPACK_IMPORTED_MODULE_46__components_myaccount_account_table___default.a
     }, {
-        path: '/my-order-detail',
-        name: 'myOrderDetail',
-        component: __WEBPACK_IMPORTED_MODULE_46__components_myaccount_myOrderDetail_vue___default.a
-    }, {
-
         path: '/contactUs',
         name: 'contactUs',
-        component: __WEBPACK_IMPORTED_MODULE_16__components_landing_contactUs___default.a
+        component: __WEBPACK_IMPORTED_MODULE_17__components_landing_contactUs___default.a
     }, {
         path: '/booking/step-1',
         name: 'stepUno',
-        component: __WEBPACK_IMPORTED_MODULE_33__components_booking_stepUno___default.a
+        component: __WEBPACK_IMPORTED_MODULE_34__components_booking_stepUno___default.a
     }, {
         path: '/booking/step-2',
         name: 'stepDos',
-        component: __WEBPACK_IMPORTED_MODULE_34__components_booking_stepDos___default.a
+        component: __WEBPACK_IMPORTED_MODULE_35__components_booking_stepDos___default.a
     }, {
         path: '/booking/step-3',
         name: 'stepTres',
-        component: __WEBPACK_IMPORTED_MODULE_35__components_booking_stepTres___default.a
+        component: __WEBPACK_IMPORTED_MODULE_36__components_booking_stepTres___default.a
     }, {
         path: '/clientLogin',
         name: 'clientLogin',
-        component: __WEBPACK_IMPORTED_MODULE_30__components_user_clientLogin___default.a
+        component: __WEBPACK_IMPORTED_MODULE_31__components_user_clientLogin___default.a
     }, {
         path: '/createAccount',
         name: 'createAccount',
-        component: __WEBPACK_IMPORTED_MODULE_29__components_user_createAccount___default.a
+        component: __WEBPACK_IMPORTED_MODULE_30__components_user_createAccount___default.a
     }, {
         path: '/setPassword',
         name: 'setPassword',
-        component: __WEBPACK_IMPORTED_MODULE_31__components_user_setPassword___default.a
+        component: __WEBPACK_IMPORTED_MODULE_32__components_user_setPassword___default.a
     }, {
         path: '/password/reseted/:hash',
         name: 'resetPassword',
-        component: __WEBPACK_IMPORTED_MODULE_32__components_user_resetPassword___default.a
+        component: __WEBPACK_IMPORTED_MODULE_33__components_user_resetPassword___default.a
     }, {
         path: '/error404',
         name: 'error404',
@@ -49646,6 +49642,10 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
         path: '/error500',
         name: 'error500',
         component: __WEBPACK_IMPORTED_MODULE_48__components_general_error500_vue___default.a
+    }, {
+        path: '/unsubscribeNewsletter/:email',
+        name: 'unsubscribeNewsletter',
+        component: __WEBPACK_IMPORTED_MODULE_14__components_landing_unsubscribenewsletter___default.a
     }], scrollBehavior: function scrollBehavior(to, from, savedPosition) {
         return { x: 0, y: 0 };
     }
@@ -81615,7 +81615,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             form: {
                 email: null,
                 password: null,
-                passwordConfirm: null,
+                password_confirmation: null,
                 token: this.$route.params.hash
             },
             color: '#1b1b1b',
@@ -81629,7 +81629,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         isDisabled: function isDisabled() {
-            return !this.form.email || !this.form.password || !this.form.passwordConfirm;
+            return !this.form.email || !this.form.password || !this.form.password_confirmation;
         }
     },
     methods: {
@@ -81637,7 +81637,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             this.loading = true;
-            if (this.form.passwordConfirm !== this.form.password) {
+            if (this.form.password_confirmation !== this.form.password) {
                 this.validpass = true;
                 this.showAlert('warning', 'las claves deben coincidir');
                 this.loading = false;
@@ -81656,7 +81656,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var slf = this;
             axios.post(this.root + '/api/password/reset', this.form).then(function (res) {
-                console.log(res);
+                // console.log(res);
                 if (res.status === 200) {
                     _this2.loading = false;
                     _this2.showAlert('success', 'La clave a sido cambiada con exito');
@@ -81901,7 +81901,9 @@ var render = function() {
                           {
                             staticClass: "text-success",
                             class: {
-                              "text-danger": _vm.errors.has("passwordConfirm")
+                              "text-danger": _vm.errors.has(
+                                "password_confirmation"
+                              )
                             }
                           },
                           [_vm._v("*")]
@@ -81919,23 +81921,24 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.passwordConfirm,
-                              expression: "form.passwordConfirm"
+                              value: _vm.form.password_confirmation,
+                              expression: "form.password_confirmation"
                             }
                           ],
                           staticClass: "form-control",
                           class: {
                             "text-danger":
-                              _vm.errors.has("passwordConfirm") || _vm.validpass
+                              _vm.errors.has("password_confirmation") ||
+                              _vm.validpass
                           },
                           attrs: {
                             type: "password",
                             maxlength: 16,
                             placeholder: "********",
-                            name: "passwordConfirm",
+                            name: "password_confirmation",
                             "data-vv-as": "Password"
                           },
-                          domProps: { value: _vm.form.passwordConfirm },
+                          domProps: { value: _vm.form.password_confirmation },
                           on: {
                             click: function($event) {
                               $event.preventDefault()
@@ -81947,7 +81950,7 @@ var render = function() {
                               }
                               _vm.$set(
                                 _vm.form,
-                                "passwordConfirm",
+                                "password_confirmation",
                                 $event.target.value
                               )
                             }
@@ -81961,13 +81964,18 @@ var render = function() {
                               {
                                 name: "show",
                                 rawName: "v-show",
-                                value: _vm.errors.has("passwordConfirm"),
-                                expression: "errors.has('passwordConfirm')"
+                                value: _vm.errors.has("password_confirmation"),
+                                expression:
+                                  "errors.has('password_confirmation')"
                               }
                             ],
                             staticClass: "help text-danger"
                           },
-                          [_vm._v(_vm._s(_vm.errors.first("passwordConfirm")))]
+                          [
+                            _vm._v(
+                              _vm._s(_vm.errors.first("password_confirmation"))
+                            )
+                          ]
                         )
                       ]),
                       _vm._v(" "),
@@ -85474,11 +85482,7 @@ var staticRenderFns = [
               _c("td", [_vm._v("ACTIVO")]),
               _vm._v(" "),
               _c("td", [
-                _c("a", { attrs: { href: "/my-order-detail" } }, [
-                  _c("img", {
-                    attrs: { src: "images/iconos/view.png", alt: "" }
-                  })
-                ])
+                _c("img", { attrs: { src: "images/iconos/view.png", alt: "" } })
               ])
             ]),
             _vm._v(" "),
@@ -85490,11 +85494,7 @@ var staticRenderFns = [
               _c("td", { staticClass: "text-danger" }, [_vm._v("CANCELADA")]),
               _vm._v(" "),
               _c("td", [
-                _c("a", { attrs: { href: "/my-order-detail" } }, [
-                  _c("img", {
-                    attrs: { src: "images/iconos/view.png", alt: "" }
-                  })
-                ])
+                _c("img", { attrs: { src: "images/iconos/view.png", alt: "" } })
               ])
             ]),
             _vm._v(" "),
@@ -85541,330 +85541,6 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-ce960dc4"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/myaccount/myOrderDetail.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-ce960dc4", Component.options)
-  } else {
-    hotAPI.reload("data-v-ce960dc4", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 232 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(233);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("12c368c7", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ce960dc4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./myOrderDetail.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ce960dc4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./myOrderDetail.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 233 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.bg-secondary[data-v-ce960dc4]{\n    background-color: #c7c7c7 !important;\n}\n.form-control[data-v-ce960dc4]{\n    background-color: transparent;\n    border-radius: 0px;\n}\n.form-control[data-v-ce960dc4]:focus {\n    border-color: #ced4da;\n}\n.delete[data-v-ce960dc4]{\n    cursor: pointer;\n}\n.map[data-v-ce960dc4]{\n    width: 100%;\n    height: 260px;\n}\n.map iframe[data-v-ce960dc4]{\n    width: 100%;\n    height: 100%;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 234 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("headerAccount"),
-      _vm._v(" "),
-      _c("navaccount"),
-      _vm._v(" "),
-      _vm._m(0)
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container my-4" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-12 col-lg-5" }, [
-          _c("div", { staticClass: "border" }, [
-            _c("div", { staticClass: "bg-secondary border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("Datos reserva")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("Numero de reserva:")
-              ]),
-              _vm._v(" 663332323\n                    ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("Reservado por:")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("Numero de identidad:")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("Telefono:")
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "border" }, [
-            _c("div", { staticClass: "bg-secondary border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("Datos del responsable")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("Reservado Para:")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("Email:")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("Numero:")
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "border" }, [
-            _c("div", { staticClass: "bg-secondary border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("Datos de la reserva")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("ROOM:")
-              ]),
-              _vm._v(" 101\n                    ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("ROOM:")
-              ]),
-              _vm._v(" 102\n                    ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("Cantidadde visitantes:")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("Fecha de entrada")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("Fecha de Salida")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "border-bottom p-2" }, [
-              _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                _vm._v("Precio")
-              ]),
-              _vm._v(" $80\n                    ")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "border bg-secondary" }, [
-            _c(
-              "div",
-              {
-                staticClass: "border-bottom p-2 d-flex justify-content-between"
-              },
-              [
-                _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                  _vm._v("ROOM 101")
-                ]),
-                _vm._v(" "),
-                _c("span", [_vm._v("$1000")])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "border-bottom p-2 d-flex justify-content-between"
-              },
-              [
-                _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                  _vm._v("ROOM 102")
-                ]),
-                _vm._v(" "),
-                _c("span", [_vm._v("$1000")])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "border-bottom p-2 d-flex justify-content-between"
-              },
-              [
-                _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                  _vm._v("ROOM 103")
-                ]),
-                _vm._v(" "),
-                _c("span", [_vm._v("$1000")])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "border-bottom p-2 d-flex justify-content-between"
-              },
-              [
-                _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                  _vm._v("ROOM 104")
-                ]),
-                _vm._v(" "),
-                _c("span", [_vm._v("$1000")])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "border-bottom p-2 d-flex justify-content-between"
-              },
-              [
-                _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                  _vm._v("Precio total:")
-                ]),
-                _vm._v(" "),
-                _c("strong", [_vm._v("$1000")])
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-lg-5" }, [
-          _c("div", { staticClass: "map mb-3" }, [
-            _c("iframe", {
-              staticStyle: { border: "0" },
-              attrs: {
-                src:
-                  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48231.14914404061!2d9.457766413671393!3d40.92787347617706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d94b04024bea79%3A0x7bfe3270a490c808!2s07026+Olbia%2C+Olbia-Tempio%2C+Italia!5e0!3m2!1ses!2sve!4v1537229576871",
-                frameborder: "0",
-                allowfullscreen: ""
-              }
-            })
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-ce960dc4", module.exports)
-  }
-}
-
-/***/ }),
-/* 235 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(236)
-}
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(238)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
 var __vue_scopeId__ = "data-v-6f20da0e"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
@@ -85898,13 +85574,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 236 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(237);
+var content = __webpack_require__(233);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -85924,7 +85600,7 @@ if(false) {
 }
 
 /***/ }),
-/* 237 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -85938,7 +85614,7 @@ exports.push([module.i, "\n.bg-contact[data-v-6f20da0e] {\n    widows: 100%;\n  
 
 
 /***/ }),
-/* 238 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -86008,19 +85684,19 @@ if (false) {
 }
 
 /***/ }),
-/* 239 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(240)
+  __webpack_require__(236)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(242)
+var __vue_template__ = __webpack_require__(238)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -86059,13 +85735,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 240 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(241);
+var content = __webpack_require__(237);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -86085,7 +85761,7 @@ if(false) {
 }
 
 /***/ }),
-/* 241 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -86099,7 +85775,7 @@ exports.push([module.i, "\n.bg-contact[data-v-b862916a] {\n    widows: 100%;\n  
 
 
 /***/ }),
-/* 242 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -86161,10 +85837,99 @@ if (false) {
 }
 
 /***/ }),
-/* 243 */
+/* 239 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 240 */,
+/* 241 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(242)
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/landing/unsubscribenewsletter.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0e76fccb", Component.options)
+  } else {
+    hotAPI.reload("data-v-0e76fccb", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 242 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return { email: this.$route.params.email };
+    },
+    beforeMount: function beforeMount() {
+        var _this = this;
+
+        axios.get('/api/unsubscribe/newsletter/' + this.email).then(function (res) {
+            if (res.status === 200) {
+                console.log(res);
+                _this.$router.push('/');
+                _this.showAlert('success', 'La tua mail è stata cancellata ');
+            }
+        }).catch(function (error) {
+            var data = JSON.parse(error.request.response);
+            console.log(data);
+            _this.$router.push('/');
+            _this.showAlert('error', 'La tua mail non è registrata');
+        });
+    },
+
+    methods: {
+        showAlert: function showAlert(type, title) {
+            this.$swal({
+                position: 'center',
+                type: type,
+                title: title,
+                showConfirmButton: false,
+                showCloseButton: true
+            });
+        }
+    }
+});
 
 /***/ })
 /******/ ]);
