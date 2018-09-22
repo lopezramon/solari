@@ -176,5 +176,236 @@ class RoomsTableSeeder extends Seeder
                     'multimedia_id' => 2  //id del multimedias.id
                 ]
             ]);
+            DB::table('rooms')->insert( //rooms.id => 2
+                [
+                    'slug'                  => 'room101',
+                    'image'                 => '/storage/multimedia/menu_categorias_1.jpg',
+                    'room_category_id'      => 1
+                ]
+            );
+            DB::table('room_translations')->insert(
+                [
+                    'room_id'       => 2, //incremental
+                    'language_id'   => 1,
+                    'name'          => 'ROOM 102',
+                    'subtitle1'     => 'Camera di Parlo',
+                    'subtitle2'     => 'Camera de 13 M2',
+                    'description'   => 'Lorem ipsum di parlo la camara do 13 M2 in Sardegnia.'
+                ]
+            );
+            DB::table('rooms_services')->insert([
+                [
+                    'room_id'       => 2,
+                    'service_id'    => 1,
+                ],
+                [
+                    'room_id'       => 2,
+                    'service_id'    => 2,
+                ],
+                [
+                    'room_id'       => 2,
+                    'service_id'    => 3,
+                ]
+            ]);
+            DB::table('room_seasons')->insert([
+                [
+                    'room_id'           => 2,
+                    'start_date'        => '2018/01/01',
+                    'end_date'          => '2018/06/15',
+                    'price'             => 29.99,
+                    'additional_price'  => 8.44,
+                    'pet_price'         => 6.00,
+                    'iva'               => 0.22
+                ],
+                [
+                    'room_id'           => 2,
+                    'start_date'        => '2018/06/16',
+                    'end_date'          => '2018/12/31',
+                    'price'             => 59.99,
+                    'additional_price'  => 10.44,
+                    'pet_price'         => 9.00,
+                    'iva'               => 0.22
+                ]
+            ]);
+            DB::table('rows')->insert( //rows.id => 2
+                [
+                    'rowable_type' => 'App\Models\Admin\Room',
+                    'rowable_id'   => 2 //incremental
+                ]
+            );
+            DB::table('multimedias')->insert([
+                [
+                    'name'          => '/storage/galery/room101_1.jpg', //multimedias.id => 3
+                    'description'   => 'Imagine 1 da ROOM 101' // title de la imagen
+                ],
+                [
+                    'name'          => '/storage/galery/room101_2.jpg', //multimedias.id => 4
+                    'description'   => 'Imagine 2 da ROOM 101' // title de la imagen
+                ]
+            ]);
+            DB::table('rows_multimedias')->insert([
+                [
+                    'row_id'        => 2, //id del rows.id
+                    'multimedia_id' => 3  //id del multimedias.id
+                ],
+                [
+                    'row_id'        => 2, //id del rows.id
+                    'multimedia_id' => 4  //id del multimedias.id
+                ]
+            ]);
+            DB::table('rooms')->insert( //rooms.id => 3
+                [
+                    'slug'                  => 'room103',
+                    'image'                 => '/storage/multimedia/menu_categorias_1.jpg',
+                    'room_category_id'      => 1
+                ]
+            );
+            DB::table('room_translations')->insert(
+                [
+                    'room_id'       => 3, //incremental
+                    'language_id'   => 1,
+                    'name'          => 'ROOM 103',
+                    'subtitle1'     => 'Camera di Parlo',
+                    'subtitle2'     => 'Camera de 13 M2',
+                    'description'   => 'Lorem ipsum di parlo la camara do 13 M2 in Sardegnia.'
+                ]
+            );
+            DB::table('rooms_services')->insert([
+                [
+                    'room_id'       => 3,
+                    'service_id'    => 1,
+                ],
+                [
+                    'room_id'       => 3,
+                    'service_id'    => 2,
+                ],
+                [
+                    'room_id'       => 3,
+                    'service_id'    => 3,
+                ]
+            ]);
+            DB::table('room_seasons')->insert([
+                [
+                    'room_id'           => 3,
+                    'start_date'        => '2018/01/01',
+                    'end_date'          => '2018/06/15',
+                    'price'             => 29.99,
+                    'additional_price'  => 8.44,
+                    'pet_price'         => 6.00,
+                    'iva'               => 0.22
+                ],
+                [
+                    'room_id'           => 3,
+                    'start_date'        => '2018/06/16',
+                    'end_date'          => '2018/12/31',
+                    'price'             => 59.99,
+                    'additional_price'  => 10.44,
+                    'pet_price'         => 9.00,
+                    'iva'               => 0.22
+                ]
+            ]);
+            DB::table('rows')->insert( //rows.id => 3
+                [
+                    'rowable_type' => 'App\Models\Admin\Room',
+                    'rowable_id'   => 3 //incremental
+                ]
+            );
+            DB::table('multimedias')->insert([
+                [
+                    'name'          => '/storage/galery/room103_1.jpg', //multimedias.id => 5
+                    'description'   => 'Imagine 1 da ROOM 103' // title de la imagen
+                ],
+                [
+                    'name'          => '/storage/galery/room103_2.jpg', //multimedias.id => 6
+                    'description'   => 'Imagine 2 da ROOM 103' // title de la imagen
+                ]
+            ]);
+            DB::table('rows_multimedias')->insert([
+                [
+                    'row_id'        => 3, //id del rows.id
+                    'multimedia_id' => 5  //id del multimedias.id
+                ],
+                [
+                    'row_id'        => 3, //id del rows.id
+                    'multimedia_id' => 6  //id del multimedias.id
+                ]
+            ]);
+            DB::table('rooms')->insert( //rooms.id => 4
+                [
+                    'slug'                  => 'room104',
+                    'image'                 => '/storage/multimedia/menu_categorias_1.jpg',
+                    'room_category_id'      => 1
+                ]
+            );
+            DB::table('room_translations')->insert(
+                [
+                    'room_id'       => 4, //incremental
+                    'language_id'   => 1,
+                    'name'          => 'ROOM 104',
+                    'subtitle1'     => 'Camera di Parlo',
+                    'subtitle2'     => 'Camera de 13 M2',
+                    'description'   => 'Lorem ipsum di parlo la camara do 13 M2 in Sardegnia.'
+                ]
+            );
+            DB::table('rooms_services')->insert([
+                [
+                    'room_id'       => 4,
+                    'service_id'    => 1,
+                ],
+                [
+                    'room_id'       => 4,
+                    'service_id'    => 2,
+                ],
+                [
+                    'room_id'       => 4,
+                    'service_id'    => 3,
+                ]
+            ]);
+            DB::table('room_seasons')->insert([
+                [
+                    'room_id'           => 4,
+                    'start_date'        => '2018/01/01',
+                    'end_date'          => '2018/06/15',
+                    'price'             => 29.99,
+                    'additional_price'  => 8.44,
+                    'pet_price'         => 6.00,
+                    'iva'               => 0.22
+                ],
+                [
+                    'room_id'           => 4,
+                    'start_date'        => '2018/06/16',
+                    'end_date'          => '2018/12/31',
+                    'price'             => 59.99,
+                    'additional_price'  => 10.44,
+                    'pet_price'         => 9.00,
+                    'iva'               => 0.22
+                ]
+            ]);
+            DB::table('rows')->insert( //rows.id => 4
+                [
+                    'rowable_type' => 'App\Models\Admin\Room',
+                    'rowable_id'   => 4 //incremental
+                ]
+            );
+            DB::table('multimedias')->insert([
+                [
+                    'name'          => '/storage/galery/room104_1.jpg', //multimedias.id => 7
+                    'description'   => 'Imagine 1 da ROOM 104' // title de la imagen
+                ],
+                [
+                    'name'          => '/storage/galery/room104_2.jpg', //multimedias.id => 8
+                    'description'   => 'Imagine 2 da ROOM 104' // title de la imagen
+                ]
+            ]);
+            DB::table('rows_multimedias')->insert([
+                [
+                    'row_id'        => 4, //id del rows.id
+                    'multimedia_id' => 7  //id del multimedias.id
+                ],
+                [
+                    'row_id'        => 4, //id del rows.id
+                    'multimedia_id' => 8  //id del multimedias.id
+                ]
+            ]);
     }
 }
