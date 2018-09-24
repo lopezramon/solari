@@ -70803,7 +70803,6 @@ var index_esm = {
     booking: {
       checkin: '2018-09-18',
       checkout: '2018-09-25',
-      adult: 2,
       cart: [],
       total: 0
     }
@@ -105829,7 +105828,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         if (res) {
                             var url = res.data.url;
                             // this.loading=false;     
-                            window.location.href = url;
+                            // window.location.href=url;
                         }
                     }).catch(function (error) {
                         _this.loading = false;

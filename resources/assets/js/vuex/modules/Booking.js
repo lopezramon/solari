@@ -3,7 +3,6 @@ export default {
       booking:{
          checkin:'2018-09-18',
          checkout:'2018-09-25',
-         adult:2,
          cart:[],
          total:0,
       },

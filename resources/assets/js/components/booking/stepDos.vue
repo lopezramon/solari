@@ -260,7 +260,7 @@ export default {
                     if(res){
                         var url=res.data.url;
                         // this.loading=false;     
-                        window.location.href=url;
+                        // window.location.href=url;
                     }
                 }).catch((error) => {
                     this.loading=false;     
