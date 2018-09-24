@@ -67,13 +67,14 @@ class RoomRepository extends BaseRepository
             // TEMPORADA(S) EN LA(S) QUE SE ENCUENTRE EL RANGO DEL REQUEST
             $ivaAndPrice = $this->getCurrentIvaAndPrice($room, $dates);
             $roomTransformed['price']    = $ivaAndPrice['price'];
-            $roomTransformed['iva']      = $ivaAndPrice['iva'];
+            // $roomTransformed['iva']      = $ivaAndPrice['iva'];
 
             return $roomTransformed;
         });
 
         // helper personalizado para eliminar el model translation (ultimo index de cada elemento de la coleccion)
         $array = $this->clearUnusedColumns($data->toArray());
+        // $array = $data->toArray();
 
         return $array;
     }
@@ -100,6 +101,8 @@ class RoomRepository extends BaseRepository
             $checkin_request = Carbon::createFromFormat('Y-m-d H', $dates['checkin'].' 0');
             $checkout_request = Carbon::createFromFormat('Y-m-d H', $dates['checkout'].' 0');
 
+            // dd([$checkin_request, $checkout_request]);
+
             // dd($season->start_date);
             // dd($checkin_request);
             // dd($season->start_date->lessThanOrEqualTo($checkin_request));
@@ -119,7 +122,6 @@ class RoomRepository extends BaseRepository
 
                 // levanto el flag de que ya estoy en una temporada
                 $isOneSeason = true;
-                // dd('a');
                 break;
             }
 
@@ -135,8 +137,8 @@ class RoomRepository extends BaseRepository
 
                 // levanto el flag de que el rango sobrepasa la temporada actual
                 $isTwoSeasons = true;
-                // dd($season->end_date);
-                break;
+                // dd($price);
+                // break;
             }
 
             // valido si el rango sobrepasa la temporada actual

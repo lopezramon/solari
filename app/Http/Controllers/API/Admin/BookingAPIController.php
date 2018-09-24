@@ -86,32 +86,29 @@ class BookingAPIController extends AppBaseController
     public function store(CreateBookingAPIRequest $request)
     {
         $input = $request->all();
-        /*$input = (object)[
-            'orden' => (object)[
-                'cart' => (object)[
-                    'adult' => 2,
-                    'cart'  => [
-                        'id' => 1
-                    ],
-                    'checkin'   => '2018-09-18',
-                    'checkout'  => '2018-09-25',
-                    'total'     => 59.05,
-                    'iva'       => 12.99
+        /*$input = [
+            'comentario'    => 'Hola 2',
+            'datos_reserva' => [
+                [
+                    'idroom'    => 1,
+                    'email'     => 'steven.sucre@jumperr.com',
+                    'name'      => 'Steven Sucre',
+                    'numero'    => '1'
+                ]
+            ],
+            'cart' => [
+                'checkin'   => '2018-09-18',
+                'checkout'  => '2018-09-25',
+                'adult'     => 2,
+                'cart'  => [
+                    'id' => 1
                 ],
-                'comentario'    => 'Hola',
-                'datos_reserva' => [
-                    (object)[
-                        'email'     => 'steven.sucre@jumperr.com',
-                        'idroom'    => 1,
-                        'name'      => 'Steven Sucre',
-                        'numero'    => '1'
-                    ]
-                ],
-                'user_id'       => 1
-            ]
+                'total'     => 59.05
+            ],
+            'user_id'       => 1
         ];*/
 
-        $data = (array)$input->orden;
+        $data = (array)$input;
 
         // montos
         $total  = 0;
@@ -169,11 +166,8 @@ class BookingAPIController extends AppBaseController
         $booking['user_id']         = $user->id ?? null;
 
         // DATOS DE LA ORDEN
-        $booking['checkin_date']    = $data['cart']->checkin;
-        $booking['checkout_date']   = $data['cart']->checkout;
-        $booking['subtotal']        = $data['cart']->total - $data['cart']->iva;
-        $booking['iva']             = $data['cart']->iva;
-        $booking['total']           = $data['cart']->total;
+        $booking['checkin_date']    = $data['cart']['checkin'];
+        $booking['checkout_date']   = $data['cart']['checkout'];
         $booking['comment']         = $data['comentario'];
 
         return $this->bookingRepository->create($booking);
@@ -189,14 +183,14 @@ class BookingAPIController extends AppBaseController
      */
     private function setBookingDetailModel( $roomItem, $booking )
     {
-        $roomId = $roomItem->idroom;
+        $roomId = $roomItem['idroom'];
         $room = $this->roomRepository->findWithoutFail($roomId);
 
         // booking datail
         $bookingDetail                      = [];
         $bookingDetail['booking_id']        = $booking->id;
         $bookingDetail['row_id']            = $room->row->id;
-        $bookingDetail['adult_quantity']    = $roomItem->numero;
+        $bookingDetail['adult_quantity']    = $roomItem['numero'];
 
         // form data
         $formData = $this->setFormDataModel( $roomItem );
@@ -225,8 +219,8 @@ class BookingAPIController extends AppBaseController
     private function setFormDataModel( $roomItem )
     {
         $formData           = [];
-        $formData['name']   = $roomItem->name;
-        $formData['email']  = $roomItem->email;
+        $formData['name']   = $roomItem['name'];
+        $formData['email']  = $roomItem['email'];
 
         return $this->formDataRepository->create($formData);
     }
