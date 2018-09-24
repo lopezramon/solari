@@ -54,24 +54,25 @@ class RoomRepository extends BaseRepository
      */
     public function getCustomized($columns = null, $dates = null)
     {
+        // dd($dates);
         $columns = $columns ?? $this->customDefaultColumns;
 
         $dataAll = $this->all($columns);
 
         // SI VIENEN DATES
         $data = $dataAll->transform(function($room, $key) use($dates) {
+            $roomTransformed = $room->toArray();
 
             // ASIGNO EL PRICE CORRESPONDIENTE SEGUN LA(S)
             // TEMPORADA(S) EN LA(S) QUE SE ENCUENTRE EL RANGO DEL REQUEST
-            $ivaAndPrice    = $this->getCurrentIvaAndPrice($room, $dates);
-            $room->price    = $ivaAndPrice['price'];
-            $room->iva      = $ivaAndPrice['iva'];
+            $ivaAndPrice = $this->getCurrentIvaAndPrice($room, $dates);
+            $roomTransformed['price']    = $ivaAndPrice['price'];
+            $roomTransformed['iva']      = $ivaAndPrice['iva'];
 
-            return $room;
+            return $roomTransformed;
         });
 
         // helper personalizado para eliminar el model translation (ultimo index de cada elemento de la coleccion)
-        // dd($data->toArray());
         $array = $this->clearUnusedColumns($data->toArray());
 
         return $array;
