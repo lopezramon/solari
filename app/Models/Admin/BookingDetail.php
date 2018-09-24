@@ -174,6 +174,25 @@ class BookingDetail extends Model
     public function getFormDataAttribute()
     {
         return $this->formInfo;
-        // dd( $this->formInfo );
+    }
+
+    /**
+     * ACCESSOR iva_item.
+     *
+     * @return string
+     */
+    public function getIvaItemAttribute($iva_item)
+    {
+        return number_format($iva_item, 2, '.', '');
+    }
+
+    /**
+     * ACCESSOR total_item.
+     *
+     * @return string
+     */
+    public function getTotalItemAttribute($total_item)
+    {
+        return number_format($total_item, 2, '.', '');
     }
 }

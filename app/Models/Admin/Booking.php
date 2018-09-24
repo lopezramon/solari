@@ -159,4 +159,34 @@ class Booking extends Model
             ];
         });
     }
+
+    /**
+     * ACCESSOR subtotal.
+     *
+     * @return string
+     */
+    public function getSubtotalAttribute($subtotal)
+    {
+        return number_format($subtotal, 2, '.', '');
+    }
+
+    /**
+     * ACCESSOR iva.
+     *
+     * @return string
+     */
+    public function getIvaAttribute($iva)
+    {
+        return number_format($iva, 2, '.', '');
+    }
+
+    /**
+     * ACCESSOR total.
+     *
+     * @return string
+     */
+    public function getTotalAttribute($total)
+    {
+        return number_format($total, 2, '.', '');
+    }
 }
