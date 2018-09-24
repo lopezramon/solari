@@ -70784,6 +70784,9 @@ var index_esm = {
     },
     getTotal: function getTotal(state) {
       return state.booking.total;
+    },
+    getBooking: function getBooking(state) {
+      return state.booking;
     }
   },
   mutations: {
