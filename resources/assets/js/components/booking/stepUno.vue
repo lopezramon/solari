@@ -12,7 +12,7 @@
                     <form_consulta/>
                     <resumen/>
 
-                    <div>
+                    <div>   
                         <!-- habilatar el link solo cuando se acepten los terminos -->
                             <div class="form-group">
                                 <input v-model="terminos" type="checkbox" name="terminos" id="" required >
@@ -43,7 +43,7 @@ export default {
                 this.$router.push('/booking/step-2');
             }else{
                 this.showAlert('error', 'Errore!!', 'carrello vuoto')
-            }
+            }            
         },showAlert(type, title, text) {
             this.$swal({
                 position: 'center',

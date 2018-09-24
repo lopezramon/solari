@@ -83,15 +83,15 @@
                     <div class="map mb-3">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48231.14914404061!2d9.457766413671393!3d40.92787347617706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d94b04024bea79%3A0x7bfe3270a490c808!2s07026+Olbia%2C+Olbia-Tempio%2C+Italia!5e0!3m2!1ses!2sve!4v1537229576871" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
-
+                    
                     <!-- datos rooms -->
                     <div class="border bg-secondary">
                         <template v-for="room in orden.reserva">
                         <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">{{room.room}}</strong>
-                            <span>€ {{room.price.toFixed(2)}}</span>
+                            <strong class="m-0 text-uppercase">{{room.room}}</strong> 
+                            <span>€ {{room.price.toFixed(2)}}</span> 
                         </div>
-                        </template>
+                        </template>    
                     </div>
 
                     <div class="text-center mt-4">
