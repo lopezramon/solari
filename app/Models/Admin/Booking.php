@@ -158,10 +158,12 @@ class Booking extends Model
             $column_index  = count($bookingDetail->room)-1;
             $column_index2 = count($bookingDetail->room)-2;
             $column_index3 = count($bookingDetail->room)-3;
+            $column_index4 = count($bookingDetail->room)-4;
             $array_temp = ['room' => $bookingDetail->room];
             delete_col($array_temp, $column_index);
             delete_col($array_temp, $column_index2);
             delete_col($array_temp, $column_index3);
+            delete_col($array_temp, $column_index4);
             $bookingDetail->room            = $array_temp['room'];
 
             $bookingDetail->iva_item        = $bookingDet->iva_item;

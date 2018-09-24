@@ -2,6 +2,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+Vue.use(require('vue-moment'));
+Vue.component('scale-loader', require('vue-spinner/src/ScaleLoader.vue'));
 
 /*vuex*/
 import store from './vuex'
@@ -19,3 +21,4 @@ const app = new Vue({
     router,
     store
 });
+
