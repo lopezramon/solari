@@ -105865,17 +105865,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         cancelButtonText: 'Continuar'
                     }).then(function (result) {
                         if (!result.value) {
-                            console.log(_this.orden);
-                            // axios.post('/paypal',this.orden).then((res) => {
-                            //     if(res){
-                            //         var url=res.data.url;
-                            //         // this.loading=false;     
-                            //         // window.location.href=url;
-                            //     }
-                            // }).catch((error) => {
-                            //     this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
-                            //     this.loading=false;     
-                            // });
+                            // console.log(this.orden);
+                            axios.post('/paypal', _this.orden).then(function (res) {
+                                if (res) {
+                                    var url = res.data.url;
+                                    // this.loading=false;     
+                                    // window.location.href=url;
+                                }
+                            }).catch(function (error) {
+                                _this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal');
+                                _this.loading = false;
+                            });
                         } else {
                             console.log("cancelar");
                         }

@@ -24,11 +24,15 @@ use PayPal\Rest\ApiContext;
 use Redirect;
 use Session;
 use URL;
+use App\Repositories\Admin\BookingRepository;
 
 
 
 class PaypalController extends Controller
 {
+    /** @var  BookingRepository */
+    private $bookingRepository;
+
     public function __construct(BookingRepository $bookingRepo)
     {
         /** PayPal api context **/
@@ -38,6 +42,8 @@ class PaypalController extends Controller
             $paypal_conf['secret'])
         );
         $this->_api_context->setConfig($paypal_conf['settings']);
+
+        $this->bookingRepository = $bookingRepo;
     }
 
 
@@ -45,9 +51,12 @@ class PaypalController extends Controller
 
     public function payWithpaypal(Request $request)
     {
-        $data=$request;
-        dd($data);
-        $total=$data["cart"]["total"];
+        $data = $request;
+        
+        $booking = $this->bookingRepository->createCustomized($data);
+        dd($booking);
+
+        $total = $data["cart"]["total"];
 
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');

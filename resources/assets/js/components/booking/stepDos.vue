@@ -282,17 +282,17 @@ export default {
                     cancelButtonText: 'Continuar'
                   }).then((result) => {
                     if (!result.value) {
-                        console.log(this.orden);
-                        // axios.post('/paypal',this.orden).then((res) => {
-                        //     if(res){
-                        //         var url=res.data.url;
-                        //         // this.loading=false;     
-                        //         // window.location.href=url;
-                        //     }
-                        // }).catch((error) => {
-                        //     this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
-                        //     this.loading=false;     
-                        // });
+                        // console.log(this.orden);
+                        axios.post('/paypal',this.orden).then((res) => {
+                            if(res){
+                                var url=res.data.url;
+                                // this.loading=false;     
+                                // window.location.href=url;
+                            }
+                        }).catch((error) => {
+                            this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
+                            this.loading=false;     
+                        });
                     }else{
                         console.log("cancelar")
                     }
