@@ -132,14 +132,11 @@ class BookingRepository extends BaseRepository
         $bookingDetail['row_id']            = $room->row->id;
         $bookingDetail['adult_quantity']    = $roomItem['numero'];
 
-        // $bookingDetail['form_data_id']    = 1; #COLOCAR NULLABLE
-
         // montos
         $dates = [
             'checkin'   => $booking->checkin_date->toDateString(),
             'checkout'  => $booking->checkout_date->toDateString()
         ];
-        #PENDIENTE ESTOS TRES (3)
         $ivaAndPrice = $room->getCurrentIvaAndPrice($room, $dates);
         $bookingDetail['total_item']        = $ivaAndPrice['price'];
         $bookingDetail['iva_item']          = $ivaAndPrice['iva'];
