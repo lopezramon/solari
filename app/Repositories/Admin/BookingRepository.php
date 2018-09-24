@@ -36,6 +36,7 @@ class BookingRepository extends BaseRepository
      */
     protected $customDefaultColumns = [
         'id',
+        'code',
         'user_id',
         'checkin_date',
         'checkout_date',
