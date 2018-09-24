@@ -84,9 +84,13 @@
         methods: {
             filtersData(){
                 let data=this.$store.getters.getDataFilter;
-                this.checkin=Vue.moment(data.checkin).format('YYYY/MM/DD');
-                this.checkout=Vue.moment(data.checkout).format('YYYY/MM/DD');
-                this.minCheckout=Vue.moment(this.checkin).add(1, 'day').format('YYYY/MM/DD');
+                if(data.checkin!=null){
+                    this.checkin=Vue.moment(data.checkin).format('YYYY/MM/DD');
+                    this.minCheckout=Vue.moment(this.checkin).add(1, 'day').format('YYYY/MM/DD');
+                }
+                if(data.checkout!=null){
+                    this.checkout=Vue.moment(data.checkout).format('YYYY/MM/DD');
+                }
             },
             filterData(){
                 this.$validator.validateAll().then((result) => {

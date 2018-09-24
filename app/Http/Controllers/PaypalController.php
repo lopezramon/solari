@@ -29,7 +29,7 @@ use URL;
 
 class PaypalController extends Controller
 {
-    public function __construct()
+    public function __construct(BookingRepository $bookingRepo)
     {
         /** PayPal api context **/
         $paypal_conf = \Config::get('paypal');
@@ -110,7 +110,7 @@ class PaypalController extends Controller
         Session::forget('paypal_payment_id');
         if (empty(Input::get('PayerID')) || empty(Input::get('token'))) {
             \Session::put('error', 'Payment failed');
-            return Redirect::to('/booking/step-2?error');
+            return Redirect::to('/booking/step-2?error=true');
         }
         $payment = Payment::get($payment_id, $this->_api_context);
         $execution = new PaymentExecution();

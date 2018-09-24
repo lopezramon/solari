@@ -1,8 +1,8 @@
 export default {
     state: {
       booking:{
-         checkin:'2018-09-18',
-         checkout:'2018-09-25',
+         checkin:null,
+         checkout:null,
          cart:[],
          total:0,
       },

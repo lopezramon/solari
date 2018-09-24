@@ -70801,8 +70801,8 @@ var index_esm = {
 /* harmony default export */ __webpack_exports__["a"] = ({
   state: {
     booking: {
-      checkin: '2018-09-18',
-      checkout: '2018-09-25',
+      checkin: null,
+      checkout: null,
       cart: [],
       total: 0
     }
@@ -97832,7 +97832,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* formulario booking */\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\r\n\tmin-width: 100%;\r\n\tdisplay: block;\r\n\tmargin: 0;\n}\n.form-booking .form-control[data-v-66d06953]{\r\n\tborder: 0px solid transparent;\n}\n.form-booking .form-control[data-v-66d06953]:focus {\r\n    color: #495057;\r\n    background-color: #fff;\r\n    border-color: transparent;\r\n    outline: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2rem transparent;\r\n            box-shadow: 0 0 0 0.2rem transparent;\n}\n.hr[data-v-66d06953]{\r\n\twidth: 100%;\r\n    height: 1px;\r\n    background-color: transparent;\r\n    border: 0.5px solid #555;\n}\n.form-booking .btn-primary[data-v-66d06953]{\r\n\tbackground-color: #2ac093;\r\n    border-color: #2ac093;\n}\n.form-booking .btn-primary[data-v-66d06953]:hover {\r\n    color: #fff;\r\n    background-color: #2ac093;\r\n    border-color: #2ac093;\n}\n.form-booking .btn-primary.focus[data-v-66d06953], .form-booking .btn-primary[data-v-66d06953]:focus{\r\n\t-webkit-box-shadow: 0 0 0 0.2rem #2ac0938a;\r\n\t        box-shadow: 0 0 0 0.2rem #2ac0938a;\n}\n.form-booking .btn-primary[data-v-66d06953]:not(:disabled):not(.disabled):active{\r\n\tcolor: #fff;\r\n    background-color: #2ac093;\r\n    border-color: #2ac093;\n}\n.form-booking .btn-lg[data-v-66d06953] {\r\n    padding: .3rem 1rem;\r\n    font-size: 1.25rem;\r\n    line-height: 1.2;\r\n    border-radius: 1rem;\n}\n.form-booking select.form-control[data-v-66d06953] {\r\n\ttext-align-last:center;\n}\n@media screen and (min-width: 992px){\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\r\n\t\tmin-width: 180px;\r\n\t\twidth: auto;\r\n\t\tdisplay: block;\r\n\t\tmargin: 0;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* formulario booking */\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\r\n\tmin-width: 100%;\r\n\tdisplay: block;\r\n\tmargin: 0;\n}\n.form-booking .form-control[data-v-66d06953]{\r\n\tborder: 0px solid transparent;\n}\n.form-booking .form-control[data-v-66d06953]:focus {\r\n    color: #495057;\r\n    background-color: #fff;\r\n    border-color: transparent;\r\n    outline: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2rem transparent;\r\n            box-shadow: 0 0 0 0.2rem transparent;\n}\n.hr[data-v-66d06953]{\r\n\twidth: 100%;\r\n    height: 1px;\r\n    background-color: transparent;\r\n    border: 0.5px solid #555;\n}\n.form-booking .btn-primary[data-v-66d06953]{\r\n\tbackground-color: #2ac093;\r\n    border-color: #2ac093;\n}\n.form-booking .btn-primary[data-v-66d06953]:hover {\r\n    color: #fff;\r\n    background-color: #2ac093;\r\n    border-color: #2ac093;\n}\n.form-booking .btn-primary.focus[data-v-66d06953], .form-booking .btn-primary[data-v-66d06953]:focus{\r\n\t-webkit-box-shadow: 0 0 0 0.2rem #2ac0938a;\r\n\t        box-shadow: 0 0 0 0.2rem #2ac0938a;\n}\n.form-booking .btn-primary[data-v-66d06953]:not(:disabled):not(.disabled):active{\r\n\tcolor: #fff;\r\n    background-color: #2ac093;\r\n    border-color: #2ac093;\n}\n.form-booking .btn-lg[data-v-66d06953] {\r\n    padding: .3rem 1rem;\r\n    font-size: 1.25rem;\r\n    line-height: 1.2;\r\n    border-radius: 1rem;\n}\n.form-booking select.form-control[data-v-66d06953] {\r\n\ttext-align-last:center;\n}\n@media screen and (min-width: 992px){\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\r\n\t\tmin-width: 180px;\r\n\t\twidth: auto;\r\n\t\tdisplay: block;\r\n\t\tmargin: 0;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -97936,9 +97936,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         filtersData: function filtersData() {
             var data = this.$store.getters.getDataFilter;
-            this.checkin = Vue.moment(data.checkin).format('YYYY/MM/DD');
-            this.checkout = Vue.moment(data.checkout).format('YYYY/MM/DD');
-            this.minCheckout = Vue.moment(this.checkin).add(1, 'day').format('YYYY/MM/DD');
+            if (data.checkin != null) {
+                this.checkin = Vue.moment(data.checkin).format('YYYY/MM/DD');
+                this.minCheckout = Vue.moment(this.checkin).add(1, 'day').format('YYYY/MM/DD');
+            }
+            if (data.checkout != null) {
+                this.checkout = Vue.moment(data.checkout).format('YYYY/MM/DD');
+            }
         },
         filterData: function filterData() {
             var _this = this;
@@ -105331,6 +105335,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             terminos: false
         };
     },
+    mounted: function mounted() {
+        var data = this.$store.getters.getDataFilter;
+        if (data.checkin == null || data.checkout == null) {
+            this.showAlert('error', 'Errore!!', 'carrello vuoto');
+        }
+    },
+
     methods: {
         nextStep: function nextStep() {
             var total = this.$store.getters.getTotal;
@@ -105341,6 +105352,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         },
         showAlert: function showAlert(type, title, text) {
+            var _this = this;
+
             this.$swal({
                 position: 'center',
                 type: type,
@@ -105348,6 +105361,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 text: text,
                 showConfirmButton: false,
                 showCloseButton: true
+            }).then(function (value) {
+                _this.$router.push('/');
             });
         }
     }
@@ -105729,7 +105744,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         getAuthenticated: function getAuthenticated() {
-            return this.$store.getters.getAuthenticated;
+            return this.$store.getters.getauthenticated;
         },
         listRooms: function listRooms() {
             this.rooms = this.$store.getters.getCart;
@@ -105748,18 +105763,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     }, mounted: function mounted() {
         this.getDataUser();
+        this.validUrlError();
         if (this.$store.getters.getTotal == 0) {
             this.showAlert('error', 'Errore!!', 'carrello vuoto');
         }
     },
     methods: {
         getDataUser: function getDataUser() {
-            var data = this.$store.getters.getUser;
-            if (data.id != null) {
-                this.user.name_reserva = data.name + ' ' + data.lastname;
-                this.user.telef_reserva = data.phone;
-                this.user.identidad_reserva = data.identidad;
-                this.user.id = data.id;
+            var data = this.$store.getters.getSession;
+            if (data[0] != undefined) {
+                this.user.name_reserva = data[0].name + ' ' + data[0].lastname;
+                this.user.telef_reserva = data[0].phone;
+                this.user.identidad_reserva = data[0].fiscalCode;
+                this.user.id = data[0].id;
             }
         },
         showAlert: function showAlert(type, title, text) {
@@ -105801,6 +105817,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.cant_visitantes = 0;
             }
         },
+        getParameterByName: function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        },
+        validUrlError: function validUrlError() {
+            var error = this.getParameterByName('error');
+            if (error == "true") {
+                this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal');
+                this.loading = false;
+            }
+        },
         paypal: function paypal() {
             var _this = this;
 
@@ -105824,14 +105853,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     objform.user_id = _this.user.id;
                     _this.orden = objform;
                     _this.loading = true;
-                    axios.post('/paypal', _this.orden).then(function (res) {
-                        if (res) {
-                            var url = res.data.url;
-                            // this.loading=false;     
-                            // window.location.href=url;
+
+                    _this.$swal({
+                        title: '',
+                        text: "Esta de acuerdo en ser redireccionado a la plataforma de paypal?",
+                        type: 'info',
+                        showCancelButton: true,
+                        confirmButtonColor: '#FE2E2E',
+                        cancelButtonColor: '#4fcaa5',
+                        confirmButtonText: 'Cancelar',
+                        cancelButtonText: 'Continuar'
+                    }).then(function (result) {
+                        if (!result.value) {
+                            console.log(_this.orden);
+                            // axios.post('/paypal',this.orden).then((res) => {
+                            //     if(res){
+                            //         var url=res.data.url;
+                            //         // this.loading=false;     
+                            //         // window.location.href=url;
+                            //     }
+                            // }).catch((error) => {
+                            //     this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
+                            //     this.loading=false;     
+                            // });
+                        } else {
+                            console.log("cancelar");
                         }
-                    }).catch(function (error) {
-                        _this.loading = false;
                     });
                 }
             }).catch(function () {
