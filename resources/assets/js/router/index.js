@@ -163,7 +163,7 @@ let router = new Router({
             component: stepDos
         },
         {
-            path: '/booking/step-3',
+            path: '/booking/step-3/:id',
             name: 'stepTres',
             component: stepTres
         },

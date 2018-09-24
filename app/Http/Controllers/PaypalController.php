@@ -51,11 +51,11 @@ class PaypalController extends Controller
 
     public function payWithpaypal(Request $request)
     {
-        $data = $request;
         
-        $booking = $this->bookingRepository->createCustomized($data);
-        dd($booking);
 
+        $data = $request;
+        Session::put('data_order',$data);
+    
         $total = $data["cart"]["total"];
 
         $payer = new Payer();
@@ -127,8 +127,11 @@ class PaypalController extends Controller
         /**Execute the payment **/
         $result = $payment->execute($execution, $this->_api_context);
         if ($result->getState() == 'approved') {
+            $data=Session::get('data_order');
+            Session::forget('data_order');
+            $booking = $this->bookingRepository->createCustomized($data);
             \Session::put('success', 'Payment success');
-            return Redirect::to('/booking/step-3');
+            return Redirect::to('/booking/step-3/'.$booking->code);
         }
     }
 }

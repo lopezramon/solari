@@ -70804,7 +70804,12 @@ var index_esm = {
       checkin: null,
       checkout: null,
       cart: [],
-      total: 0
+      total: 0,
+      responsable: {
+        name: null,
+        phone: null,
+        identidad: null
+      }
     }
   },
   actions: {},
@@ -70827,22 +70832,38 @@ var index_esm = {
     }
   },
   mutations: {
-    setFilter: function setFilter(state, _ref) {
+    destroyState: function destroyState(state) {
+      Vue.set(state.booking, 'checkin', null);
+      Vue.set(state.booking, 'checkout', null);
+      Vue.set(state.booking, 'cart', []);
+      Vue.set(state.booking, 'total', 0);
+      Vue.set(state.booking.responsable, 'name', null);
+      Vue.set(state.booking.responsable, 'phone', null);
+      Vue.set(state.booking.responsable, 'identidad', null);
+    },
+    setResponReser: function setResponReser(state, _ref) {
       var list = _ref.list;
+
+      Vue.set(state.booking.responsable, 'name', list.name_reserva);
+      Vue.set(state.booking.responsable, 'phone', list.telef_reserva);
+      Vue.set(state.booking.responsable, 'identidad', list.identidad_reserva);
+    },
+    setFilter: function setFilter(state, _ref2) {
+      var list = _ref2.list;
 
       Vue.set(state.booking, 'checkin', list.checkin);
       Vue.set(state.booking, 'checkout', list.checkout);
     },
-    addCart: function addCart(state, _ref2) {
-      var list = _ref2.list;
+    addCart: function addCart(state, _ref3) {
+      var list = _ref3.list;
 
       var total = state.booking.total;
       total = +parseFloat(list.price);
       state.booking.cart.push(list);
       Vue.set(state.booking, 'total', total);
     },
-    removerItem: function removerItem(state, _ref3) {
-      var list = _ref3.list;
+    removerItem: function removerItem(state, _ref4) {
+      var list = _ref4.list;
 
       var list_cart = state.booking.cart;
       for (var i in list_cart) {
@@ -71404,7 +71425,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
         name: 'stepDos',
         component: __WEBPACK_IMPORTED_MODULE_35__components_booking_stepDos___default.a
     }, {
-        path: '/booking/step-3',
+        path: '/booking/step-3/:id',
         name: 'stepTres',
         component: __WEBPACK_IMPORTED_MODULE_36__components_booking_stepTres___default.a
     }, {
@@ -105836,6 +105857,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var slf = this;
             this.$validator.validateAll().then(function (result) {
                 if (result) {
+                    _this.$store.commit('setResponReser', { list: slf.user });
                     var rooms = _this.$store.getters.getCart;
                     var form = [];
                     for (var i in rooms) {
@@ -105853,7 +105875,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     objform.user_id = _this.user.id;
                     _this.orden = objform;
                     _this.loading = true;
-
+                    console.log(_this.orden);
                     _this.$swal({
                         title: '',
                         text: "Esta de acuerdo en ser redireccionado a la plataforma de paypal?",
@@ -106721,38 +106743,118 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
+            color: '#4fcaa5',
+            size: '200px',
+            loading: true,
+            id: this.$route.params.id,
             orden: {
-                orden: 'XXXXXXX',
-                name: 'Fulano de Tal',
-                identidad: '13332323223',
-                phone: '4334433443',
-                reserva: [{
-                    name: 'Sherly Rubio',
-                    email: 'sherly_lala',
-                    numero: 2,
-                    room: 'XXXXXX',
-                    room_id: 2,
-                    price: 22
-                }],
-                cant_visitantes: 2,
-                total: 80,
-                comentario: 'es lo mas tripa del mundo'
+                checking: null,
+                checkout: null,
+                orden: null,
+                name: null,
+                identidad: null,
+                phone: null,
+                reserva: [],
+                cant_visitantes: null,
+                total: null,
+                subtotal: null,
+                iva: null,
+                comentario: null
             }
         };
     },
 
-    computed: {
-        getCheckin: function getCheckin() {
-            var data = this.$store.getters.getDataFilter;
-            return Vue.moment(data.checkin).format('YYYY/MMM/DD').toUpperCase();
+    computed: {}, mounted: function mounted() {
+        this.$store.commit('destroyState');
+        this.getOrder();
+    },
+    methods: {
+        showAlert: function showAlert(type, title, text) {
+            this.$swal({
+                position: 'center',
+                type: type,
+                title: title,
+                text: text,
+                showConfirmButton: false,
+                showCloseButton: true
+            });
         },
-        getCheckout: function getCheckout() {
-            var data = this.$store.getters.getDataFilter;
-            return Vue.moment(data.checkout).format('YYYY/MMM/DD').toUpperCase();
+        aceptar: function aceptar() {
+            this.$router.push('/');
+        },
+        getOrder: function getOrder() {
+            var _this = this;
+
+            var slf = this;
+            axios.get('/api/admin/bookings/' + this.id).then(function (res) {
+                if (res) {
+                    slf.orden.checking = res.data.data.booking.checkin_date;
+                    slf.orden.checkout = res.data.data.booking.checkout_date;
+                    slf.orden.orden = res.data.data.booking.code;
+                    var orden = res.data.data.booking.rooms;
+                    var arr = [];
+                    var cant_visitantes = 0;
+                    for (var i in orden) {
+                        var obj = {};
+                        obj.name = orden[i].form_data.name;
+                        if (orden[i].form_data.lastname != null) {
+                            obj.name += ' ' + orden[i].form_data.lastname;
+                        }
+                        obj.email = orden[i].form_data.email;
+                        obj.numero = orden[i].adult_quantity;
+                        cant_visitantes += parseInt(orden[i].adult_quantity);
+                        //console.log(orden[i].room.name)
+                        obj.room = orden[i].room.name;
+                        obj.price = parseFloat(orden[i].room.price).toFixed(2);
+                        arr.push(obj);
+                    }
+                    slf.orden.cant_visitantes = cant_visitantes;
+                    slf.orden.comentario = res.data.data.booking.comment;
+                    slf.orden.total = parseFloat(res.data.data.booking.total);
+                    slf.orden.subtotal = parseFloat(res.data.data.booking.subtotal);
+                    slf.orden.iva = parseFloat(res.data.data.booking.iva);
+                    slf.orden.reserva = arr;
+                    slf.loading = false;
+                }
+            }).catch(function (error) {
+                _this.showAlert('error', 'Errore!!', 'error en el servidor');
+                _this.loading = false;
+            });
         }
     }
 });
@@ -106772,204 +106874,327 @@ var render = function() {
       _vm._v(" "),
       _c("nav_booking"),
       _vm._v(" "),
-      _c("div", { staticClass: "container my-4" }, [
-        _c("div", { staticClass: "row justify-content-center" }, [
-          _c("div", { staticClass: "col-12 col-lg-5" }, [
-            _c("div", { staticClass: "border" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("div", { staticClass: "border-bottom p-2" }, [
-                _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                  _vm._v("Numero de reserva:")
-                ]),
-                _vm._v(" " + _vm._s(_vm.orden.orden) + "\n                    ")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "border-bottom p-2" }, [
-                _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                  _vm._v("Reservado por:")
-                ]),
-                _vm._v(" " + _vm._s(_vm.orden.name) + "\n                    ")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "border-bottom p-2" }, [
-                _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                  _vm._v("Numero de identidad:")
-                ]),
-                _vm._v(
-                  " " + _vm._s(_vm.orden.identidad) + "\n                    "
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "border-bottom p-2" }, [
-                _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                  _vm._v("Telefono:")
-                ]),
-                _vm._v(" " + _vm._s(_vm.orden.phone) + "\n                    ")
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "border" },
-              [
-                _vm._l(_vm.orden.reserva, function(room) {
-                  return [
+      _c(
+        "div",
+        { staticClass: "container my-4" },
+        [
+          _vm.loading
+            ? [
+                _c("scale-loader", {
+                  attrs: {
+                    loading: _vm.loading,
+                    color: _vm.color,
+                    size: _vm.size
+                  }
+                })
+              ]
+            : [
+                _c("div", { staticClass: "row justify-content-center" }, [
+                  _c("div", { staticClass: "col-12 col-lg-5" }, [
+                    _c("div", { staticClass: "border" }, [
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "border-bottom p-2" }, [
+                        _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                          _vm._v("Numero de reserva:")
+                        ]),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.orden.orden) +
+                            "\n                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "border-bottom p-2" }, [
+                        _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                          _vm._v("Reservado por:")
+                        ]),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.orden.name) +
+                            "\n                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "border-bottom p-2" }, [
+                        _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                          _vm._v("Numero de identidad:")
+                        ]),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.orden.identidad) +
+                            "\n                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "border-bottom p-2" }, [
+                        _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                          _vm._v("Telefono:")
+                        ]),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.orden.phone) +
+                            "\n                    "
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
                     _c(
                       "div",
-                      { staticClass: "bg-secondary border-bottom p-2" },
+                      { staticClass: "border" },
                       [
-                        _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                          _vm._v("Datos del responsable " + _vm._s(room.room))
-                        ])
-                      ]
+                        _vm._l(_vm.orden.reserva, function(room) {
+                          return [
+                            _c(
+                              "div",
+                              { staticClass: "bg-secondary border-bottom p-2" },
+                              [
+                                _c(
+                                  "strong",
+                                  { staticClass: "m-0 text-uppercase" },
+                                  [
+                                    _vm._v(
+                                      "Datos del responsable " +
+                                        _vm._s(room.room)
+                                    )
+                                  ]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "border-bottom p-2" }, [
+                              _c(
+                                "strong",
+                                { staticClass: "m-0 text-uppercase" },
+                                [_vm._v("Reservado Para:")]
+                              ),
+                              _vm._v(
+                                " " +
+                                  _vm._s(room.name) +
+                                  "\n                        "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "border-bottom p-2" }, [
+                              _c(
+                                "strong",
+                                { staticClass: "m-0 text-uppercase" },
+                                [_vm._v("Email:")]
+                              ),
+                              _vm._v(
+                                " " +
+                                  _vm._s(room.email) +
+                                  "\n                        "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "border-bottom p-2" }, [
+                              _c(
+                                "strong",
+                                { staticClass: "m-0 text-uppercase" },
+                                [_vm._v("Numero:")]
+                              ),
+                              _vm._v(
+                                " " +
+                                  _vm._s(room.numero) +
+                                  "\n                        "
+                              )
+                            ])
+                          ]
+                        })
+                      ],
+                      2
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "border-bottom p-2" }, [
-                      _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                        _vm._v("Reservado Para:")
-                      ]),
-                      _vm._v(
-                        " " + _vm._s(room.name) + "\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "border-bottom p-2" }, [
-                      _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                        _vm._v("Email:")
-                      ]),
-                      _vm._v(
-                        " " + _vm._s(room.email) + "\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "border-bottom p-2" }, [
-                      _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                        _vm._v("Numero:")
-                      ]),
-                      _vm._v(
-                        " " + _vm._s(room.numero) + "\n                        "
-                      )
-                    ])
-                  ]
-                })
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "border" },
-              [
-                _vm._m(1),
-                _vm._v(" "),
-                _vm._l(_vm.orden.reserva, function(room) {
-                  return [
-                    _c("div", { staticClass: "border-bottom p-2" }, [
-                      _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                        _vm._v("ROOM:")
-                      ]),
-                      _vm._v(" " + _vm._s(room.room) + "\n                    ")
-                    ])
-                  ]
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "border-bottom p-2" }, [
-                  _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                    _vm._v("Cantidadde visitantes:")
-                  ]),
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(_vm.orden.cant_visitantes) +
-                      "\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "border-bottom p-2" }, [
-                  _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                    _vm._v("Fecha de entrada")
-                  ]),
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(_vm.getCheckin) +
-                      "\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "border-bottom p-2" }, [
-                  _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                    _vm._v("Fecha de Salida")
-                  ]),
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(_vm.getCheckout) +
-                      "\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "border-bottom p-2" }, [
-                  _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                    _vm._v("Precio")
-                  ]),
-                  _vm._v(
-                    " € " +
-                      _vm._s(_vm.orden.total.toFixed(2)) +
-                      "\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "border-bottom p-2" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                      _vm._v("COMENTARIOS")
-                    ]),
-                    _vm._v(
-                      "\n                          " +
-                        _vm._s(_vm.orden.comentario) +
-                        "\n                        "
-                    )
-                  ])
-                ])
-              ],
-              2
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 col-lg-5" }, [
-            _vm._m(2),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "border bg-secondary" },
-              [
-                _vm._l(_vm.orden.reserva, function(room) {
-                  return [
                     _c(
                       "div",
-                      {
-                        staticClass:
-                          "border-bottom p-2 d-flex justify-content-between"
-                      },
+                      { staticClass: "border" },
                       [
-                        _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                          _vm._v(_vm._s(room.room))
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _vm._l(_vm.orden.reserva, function(room) {
+                          return [
+                            _c("div", { staticClass: "border-bottom p-2" }, [
+                              _c(
+                                "strong",
+                                { staticClass: "m-0 text-uppercase" },
+                                [_vm._v("ROOM:")]
+                              ),
+                              _vm._v(
+                                " " +
+                                  _vm._s(room.room) +
+                                  "\n                    "
+                              )
+                            ])
+                          ]
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "border-bottom p-2" }, [
+                          _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                            _vm._v("Cantidadde visitantes:")
+                          ]),
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.orden.cant_visitantes) +
+                              "\n                    "
+                          )
                         ]),
                         _vm._v(" "),
-                        _c("span", [
-                          _vm._v("€ " + _vm._s(room.price.toFixed(2)))
+                        _c("div", { staticClass: "border-bottom p-2" }, [
+                          _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                            _vm._v("Fecha de entrada")
+                          ]),
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.orden.checking) +
+                              "\n                    "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "border-bottom p-2" }, [
+                          _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                            _vm._v("Fecha de Salida")
+                          ]),
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.orden.checkout) +
+                              "\n                    "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "border-bottom p-2" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "strong",
+                              { staticClass: "m-0 text-uppercase" },
+                              [_vm._v("COMENTARIOS")]
+                            ),
+                            _vm._v(
+                              "\n                          " +
+                                _vm._s(_vm.orden.comentario) +
+                                "\n                        "
+                            )
+                          ])
                         ])
-                      ]
+                      ],
+                      2
                     )
-                  ]
-                })
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _vm._m(3)
-          ])
-        ])
-      ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12 col-lg-5" }, [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "border" },
+                      [
+                        _vm._l(_vm.orden.reserva, function(room) {
+                          return [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "border-bottom p-2 d-flex justify-content-between"
+                              },
+                              [
+                                _c(
+                                  "strong",
+                                  { staticClass: "m-0 text-uppercase" },
+                                  [_vm._v(_vm._s(room.room))]
+                                ),
+                                _vm._v(" "),
+                                _c("span", [_vm._v("€ " + _vm._s(room.price))])
+                              ]
+                            )
+                          ]
+                        })
+                      ],
+                      2
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "border" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "border-bottom p-2 d-flex justify-content-between"
+                        },
+                        [
+                          _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                            _vm._v("Subtotal")
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [
+                            _vm._v("€ " + _vm._s(_vm.orden.subtotal))
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "border-bottom p-2 d-flex justify-content-between"
+                        },
+                        [
+                          _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                            _vm._v("Iva")
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("€ " + _vm._s(_vm.orden.iva))])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "border bg-secondary" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "border-bottom p-2 d-flex justify-content-between"
+                        },
+                        [
+                          _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                            _vm._v("Total")
+                          ]),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("€ " + _vm._s(_vm.orden.total))])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-center mt-4" }, [
+                      _vm._m(4),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary text-uppercase",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.aceptar()
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                            Aceptar\n                        "
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+        ],
+        2
+      )
     ],
     1
   )
@@ -107015,12 +107240,26 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center mt-4" }, [
-      _c("div", [
-        _c("h2", { staticClass: "text-uppercase" }, [_vm._v("Gracias")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("Tu reservacion esta archivada")])
-      ])
+    return _c("div", { staticClass: "border bg-secondary" }, [
+      _c(
+        "div",
+        { staticClass: "border-bottom p-2 d-flex justify-content-between" },
+        [
+          _c("strong", { staticClass: "m-0 text-uppercase text-center" }, [
+            _vm._v("Detalle")
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("h2", { staticClass: "text-uppercase" }, [_vm._v("Gracias")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Tu reservacion esta archivada")])
     ])
   }
 ]
@@ -107321,18 +107560,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {};
-    },
+  data: function data() {
+    return {};
+  },
 
-    methods: {
-        Class: function Class(ruta) {
-            if (ruta == window.location.pathname) {
-                return true;
-            }
-            return false;
-        }
+  methods: {
+    Class: function Class(ruta) {
+      if (ruta == window.location.pathname) {
+        return true;
+      }
+      if (ruta == '/booking/step-3' && window.location.pathname != '/booking/step-1' && window.location.pathname != '/booking/step-2') {
+        return true;
+      }
+      return false;
     }
+  }
 });
 
 /***/ }),

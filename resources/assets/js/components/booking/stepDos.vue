@@ -253,6 +253,7 @@ export default {
             var slf=this;
             this.$validator.validateAll().then((result) => { 
              if(result){
+                this.$store.commit('setResponReser',{list: slf.user}); 
                 var rooms=this.$store.getters.getCart;
                 var form=[];
                 for(var i in rooms){
@@ -270,8 +271,8 @@ export default {
                 objform.user_id=this.user.id;
                 this.orden=objform; 
                 this.loading=true;  
-
-                   this.$swal({
+                console.log(this.orden);
+                this.$swal({
                     title: '',
                     text: "Esta de acuerdo en ser redireccionado a la plataforma de paypal?",
                     type: 'info',
