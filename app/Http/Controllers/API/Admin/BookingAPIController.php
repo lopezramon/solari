@@ -86,13 +86,13 @@ class BookingAPIController extends AppBaseController
     public function store(CreateBookingAPIRequest $request)
     {
         $input = $request->all();
-        /*$input = [
+        $input = [
             'comentario'    => 'Hola 2',
             'datos_reserva' => [
                 [
                     'idroom'    => 1,
-                    'email'     => 'steven.sucre@jumperr.com',
-                    'name'      => 'Steven Sucre',
+                    'email'     => 'steven.sucre2@jumperr.com',
+                    'name'      => 'Steven Sucre2',
                     'numero'    => '1'
                 ]
             ],
@@ -106,38 +106,18 @@ class BookingAPIController extends AppBaseController
                 'total'     => 59.05
             ],
             'user_id'       => 1
-        ];*/
+        ];
 
         $data = (array)$input;
 
-        // montos
-        $total  = 0;
-        $iva    = 0;
-
         // Save Booking
-        $booking = $this->setBookingModel( $data );
+        $booking = $this->bookingRepository->createCustomized($data);
 
-        foreach ($data['datos_reserva'] as $key => $roomItem) {
-
-            // Save BookingDetail
-            $bookingDetail = $this->setBookingDetailModel($roomItem, $booking);
-
-            // montos para el BookingDetail
-            $total  += $bookingDetail->total_item;
-            $iva    += $bookingDetail->iva_item;
-        }
-
-        // Update Booking (para guardar los montos y generar codigo)
-        $bookingData = [];
-        $bookingData['subtotal']    = $total - $iva;
-        $bookingData['iva']         = $iva;
-        $bookingData['total']       = $total;
-        $bookingData['code']        = $this->bookingRepository->generateCode($booking->id);
-        $booking = $this->bookingRepository->update($bookingData, $booking->id);
-
-        // ENVIAR CORREOOO
+        // Get BookingWithRelations
         $bookingWithRelations = $this->bookingRepository->findCustomized($booking->id);
-        // $sended = $this->sendMail($bookingWithRelations, 'booking'); #PENDIENTE
+
+        // Guardar Correo
+        // $sended = $this->bookingRepository->sendMail($bookingWithRelations, 'booking'); #PENDIENTE
         $sended = 'NOK';
 
         if( $sended == 'OK' ){
@@ -148,81 +128,6 @@ class BookingAPIController extends AppBaseController
         }
 
         return $this->sendResponse($bookingWithRelations, $message);
-    }
-
-    /**
-     * Set and store the booking.
-     *
-     * @param array $data
-     *
-     * @return Booking
-     */
-    private function setBookingModel( $data )
-    {
-        $booking                    = [];
-
-        // RELACION CON MODELO USER
-        $user                       = $this->userRepository->findWithoutFail($data['user_id']);
-        $booking['user_id']         = $user->id ?? null;
-
-        // DATOS DE LA ORDEN
-        $booking['checkin_date']    = $data['cart']['checkin'];
-        $booking['checkout_date']   = $data['cart']['checkout'];
-        $booking['comment']         = $data['comentario'];
-
-        return $this->bookingRepository->create($booking);
-    }
-
-    /**
-     * Set and store the booking detail.
-     *
-     * @param object    $roomItem
-     * @param Order     $booking
-     *
-     * @return BookingDetail
-     */
-    private function setBookingDetailModel( $roomItem, $booking )
-    {
-        $roomId = $roomItem['idroom'];
-        $room = $this->roomRepository->findWithoutFail($roomId);
-
-        // booking datail
-        $bookingDetail                      = [];
-        $bookingDetail['booking_id']        = $booking->id;
-        $bookingDetail['row_id']            = $room->row->id;
-        $bookingDetail['adult_quantity']    = $roomItem['numero'];
-
-        // form data
-        $formData = $this->setFormDataModel( $roomItem );
-        $bookingDetail['form_data_id']      = $formData->id;
-
-        // montos
-        $dates = [
-            'checkin'   => $booking->checkin_date->toDateString(),
-            'checkout'  => $booking->checkout_date->toDateString()
-        ];
-        $ivaAndPrice = $this->roomRepository->getCurrentIvaAndPrice($room, $dates);
-        $bookingDetail['total_item']        = $ivaAndPrice['price'];
-        $bookingDetail['iva_item']          = $ivaAndPrice['iva'];
-
-        // dd($ivaAndPrice);
-        return $this->bookingDetailRepository->create($bookingDetail);
-    }
-
-    /**
-     * Set and store the form data for the given booking detail.
-     *
-     * @param object    $roomItem
-     *
-     * @return FormData
-     */
-    private function setFormDataModel( $roomItem )
-    {
-        $formData           = [];
-        $formData['name']   = $roomItem['name'];
-        $formData['email']  = $roomItem['email'];
-
-        return $this->formDataRepository->create($formData);
     }
 
     /**
