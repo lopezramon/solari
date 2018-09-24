@@ -85,8 +85,8 @@ class BookingAPIController extends AppBaseController
      */
     public function store(CreateBookingAPIRequest $request)
     {
-        // $input = $request->all();
-        $input = (object)[
+        $input = $request->all();
+        /*$input = (object)[
             'orden' => (object)[
                 'cart' => (object)[
                     'adult' => 2,
@@ -109,7 +109,7 @@ class BookingAPIController extends AppBaseController
                 ],
                 'user_id'       => 1
             ]
-        ];
+        ];*/
 
         $data = (array)$input->orden;
 
