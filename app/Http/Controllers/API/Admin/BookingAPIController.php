@@ -91,8 +91,8 @@ class BookingAPIController extends AppBaseController
             'datos_reserva' => [
                 [
                     'idroom'    => 1,
-                    'email'     => 'steven.sucre2@jumperr.com',
-                    'name'      => 'Steven Sucre2',
+                    'email'     => 'otro.sucre2@jumperr.com',
+                    'name'      => 'Otro Sucre2',
                     'numero'    => '1'
                 ]
             ],
@@ -105,7 +105,7 @@ class BookingAPIController extends AppBaseController
                 ],
                 'total'     => 59.05
             ],
-            'user_id'       => 1
+            'user_id'       => 2
         ];*/
 
         $data = (array)$input;
