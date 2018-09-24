@@ -130,7 +130,7 @@ class Booking extends Model
      **/
     public function user()
     {
-        return $this->belongsTo(\App\Models\Admin\User::class);
+        return $this->belongsTo(\App\User::class);
     }
 
     /**
