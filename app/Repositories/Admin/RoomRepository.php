@@ -100,6 +100,8 @@ class RoomRepository extends BaseRepository
             $checkin_request = Carbon::createFromFormat('Y-m-d H', $dates['checkin'].' 0');
             $checkout_request = Carbon::createFromFormat('Y-m-d H', $dates['checkout'].' 0');
 
+            // dd([$checkin_request, $checkout_request]);
+
             // dd($season->start_date);
             // dd($checkin_request);
             // dd($season->start_date->lessThanOrEqualTo($checkin_request));
@@ -119,7 +121,7 @@ class RoomRepository extends BaseRepository
 
                 // levanto el flag de que ya estoy en una temporada
                 $isOneSeason = true;
-                // dd('a');
+                dd('a');
                 break;
             }
 
@@ -135,8 +137,8 @@ class RoomRepository extends BaseRepository
 
                 // levanto el flag de que el rango sobrepasa la temporada actual
                 $isTwoSeasons = true;
-                // dd($season->end_date);
-                break;
+                // dd($price);
+                // break;
             }
 
             // valido si el rango sobrepasa la temporada actual
