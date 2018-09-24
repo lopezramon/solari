@@ -112,7 +112,7 @@ Route::post('password/reset','Auth\ResetPasswordController@resetFront');
 
 
 // Room
-Route::get('admin/rooms', 'API\Admin\RoomAPIController@index');
+Route::post('admin/rooms', 'API\Admin\RoomAPIController@index');
 // Route::post('admin/rooms', 'API\Admin\RoomAPIController@store');
 Route::get('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@show');
 // Route::put('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@update');

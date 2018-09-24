@@ -24,7 +24,10 @@ export default {
        },
        getTotal: state => {
         return state.booking.total;
-       }
+       },
+       getBooking: state => {
+        return state.booking;
+       },
     },
     mutations:{
       setFilter(state,{ list }){ 

@@ -12,33 +12,35 @@
                             <strong class="m-0 text-uppercase">Datos Comprador</strong>
                         </div>
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Numero de reserva:</strong> 663332323
+                            <strong class="m-0 text-uppercase">Numero de reserva:</strong> {{orden.orden}}
                         </div>
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Reservado por:</strong> Fulano Detal
+                            <strong class="m-0 text-uppercase">Reservado por:</strong> {{orden.name}}
                         </div>
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Numero de identidad:</strong> 20.261.862
+                            <strong class="m-0 text-uppercase">Numero de identidad:</strong> {{orden.identidad}}
                         </div>
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Telefono:</strong> 555-55-5555
+                            <strong class="m-0 text-uppercase">Telefono:</strong> {{orden.phone}}
                         </div>
                     </div>
 
                     <!-- Datos del responsable -->
                     <div class="border">
-                        <div class="bg-secondary border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Datos del responsable</strong>
-                        </div>
-                        <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Reservado Para:</strong> shery Rubio
-                        </div>
-                        <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Email:</strong> pepe@gmail.com
-                        </div>
-                        <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Numero:</strong> 555-5454-4323
-                        </div>
+                        <template v-for="room in orden.reserva" >
+                            <div class="bg-secondary border-bottom p-2">
+                                <strong class="m-0 text-uppercase">Datos del responsable {{room.room}}</strong>
+                            </div>
+                            <div class="border-bottom p-2">
+                                <strong class="m-0 text-uppercase">Reservado Para:</strong> {{room.name}}
+                            </div>
+                            <div class="border-bottom p-2">
+                                <strong class="m-0 text-uppercase">Email:</strong> {{room.email}}
+                            </div>
+                            <div class="border-bottom p-2">
+                                <strong class="m-0 text-uppercase">Numero:</strong> {{room.numero}}
+                            </div>
+                        </template>
                     </div>
 
                     <!-- Datos de reserva -->
@@ -46,28 +48,31 @@
                         <div class="bg-secondary border-bottom p-2">
                             <strong class="m-0 text-uppercase">Datos de la reserva</strong>
                         </div>
+                        <template v-for="room in orden.reserva">
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">ROOM:</strong> 101
+                            <strong class="m-0 text-uppercase">ROOM:</strong> {{room.room}}
                         </div>
-                        <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">ROOM:</strong> 102
-                        </div>
+                        </template>
                         <div class="border-bottom p-2">
                             <strong class="m-0 text-uppercase">Cantidadde visitantes:</strong>
+                            {{orden.cant_visitantes}}
                         </div>
                         <div class="border-bottom p-2">
                             <strong class="m-0 text-uppercase">Fecha de entrada</strong>
+                            {{getCheckin}}
                         </div>
                         <div class="border-bottom p-2">
                             <strong class="m-0 text-uppercase">Fecha de Salida</strong>
+                            {{getCheckout}}
                         </div>
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Precio</strong> $80
+                            <strong class="m-0 text-uppercase">Precio</strong> € {{orden.total.toFixed(2)}}
                         </div>
                         <!-- textarea -->
                         <div class="border-bottom p-2">
                             <div class="form-group">
-                                <textarea class="form-control">COMENTARIOS:</textarea>
+                              <strong class="m-0 text-uppercase">COMENTARIOS</strong>
+                              {{orden.comentario}}
                             </div>
                         </div>
                     </div>
@@ -81,27 +86,12 @@
                     
                     <!-- datos rooms -->
                     <div class="border bg-secondary">
+                        <template v-for="room in orden.reserva">
                         <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">ROOM 101</strong> 
-                            <span>$1000</span> 
+                            <strong class="m-0 text-uppercase">{{room.room}}</strong> 
+                            <span>€ {{room.price.toFixed(2)}}</span> 
                         </div>
-                        <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">ROOM 102</strong> 
-                            <span>$1000</span> 
-                        </div>
-                        <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">ROOM 103</strong> 
-                            <span>$1000</span> 
-                        </div>
-                        <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">ROOM 104</strong> 
-                            <span>$1000</span> 
-                        </div>
-                        <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">Precio total:</strong> 
-                            <strong>$1000</strong> 
-                        </div>
-                        
+                        </template>    
                     </div>
 
                     <div class="text-center mt-4">
@@ -135,3 +125,40 @@ h2{
     height: 100%;
 }
 </style>
+<script>
+    export default {
+    data(){
+        return {
+            orden:{
+                orden:'XXXXXXX',
+                name: 'Fulano de Tal',
+                identidad:'13332323223',
+                phone:'4334433443',
+                reserva:[
+                    {
+                        name: 'Sherly Rubio',
+                        email: 'sherly_lala',
+                        numero: 2,
+                        room:'XXXXXX',
+                        room_id:2,
+                        price: 22,
+                    }
+                ],
+                cant_visitantes:2,
+                total:80,
+                comentario: 'es lo mas tripa del mundo'
+            }
+        }
+    },
+    computed:{
+       getCheckin(){
+            let data=this.$store.getters.getDataFilter;
+            return Vue.moment(data.checkin).format('YYYY/MMM/DD').toUpperCase();
+        },
+        getCheckout(){
+            let data=this.$store.getters.getDataFilter;
+            return Vue.moment(data.checkout).format('YYYY/MMM/DD').toUpperCase();
+        },
+    }
+}
+</script>
