@@ -81,6 +81,11 @@ class BookingDetail extends Model
         'total_item'
     ];
 
+    protected $appends = [
+        'room',
+        'form_data'
+    ];
+
     /**
      * The attributes that should be casted to native types.
      *
@@ -128,5 +133,47 @@ class BookingDetail extends Model
     public function row()
     {
         return $this->belongsTo(\App\Models\Admin\Row::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function formInfo()
+    {
+        // dd($this->belongsTo(\App\Models\Admin\FormData::class));
+        return $this->belongsTo(\App\Models\Admin\FormData::class, 'form_data_id');
+    }
+
+    /**
+     * Get the Room of the BookingDetail.
+     *
+     * @return array
+     */
+    public function getRoomAttribute()
+    {
+        $room           = $this->row->rowable->select('id', 'image')->first()->toArray();
+        $column_index   = count($room)-1;
+        $column_index2  = count($room)-2;
+        $column_index3  = count($room)-3;
+        $column_index4  = count($room)-4;
+        $array_temp     = ['room' => $room];
+        delete_col($array_temp, $column_index);
+        delete_col($array_temp, $column_index2);
+        delete_col($array_temp, $column_index3);
+        delete_col($array_temp, $column_index4);
+        $room           = $array_temp['room'];
+
+        return $room;
+    }
+
+    /**
+     * Get the FormData of the BookingDetail.
+     *
+     * @return array
+     */
+    public function getFormDataAttribute()
+    {
+        return $this->formInfo;
+        // dd( $this->formInfo );
     }
 }
