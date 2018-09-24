@@ -132,7 +132,7 @@ class BookingRepository extends BaseRepository
         $bookingDetail['row_id']            = $room->row->id;
         $bookingDetail['adult_quantity']    = $roomItem['numero'];
 
-        $bookingDetail['form_data_id']    = 1; #COLOCAR NULLABLE
+        // $bookingDetail['form_data_id']    = 1; #COLOCAR NULLABLE
 
         // montos
         $dates = [
