@@ -187,7 +187,7 @@ export default {
        }   
     },methods:{
         getDataUser(){
-            let data=this.$store.getters.getSession;
+            let data=this.$store.getters.getUser;
             if(data.id!=null){
                 this.user.name_reserva=data.name+' '+data.lastname;
                 this.user.telef_reserva=data.phone;
