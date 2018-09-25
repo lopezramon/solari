@@ -54,17 +54,6 @@
                                                 <small v-show="errors.has('phone')" class="help text-danger">{{ errors.first('phone') }}</small>
                                             </div>
                                         </div>
-
-                                        <div class="col-12 col-sm-6">
-                                            <div class="form-group">
-                                                <label>Telefono Opcional</label>
-                                                <span class="text-success" :class="{'text-danger': errors.has('optionalPhone')}">*</span>
-                                                <input type="text" :maxlength="16" v-validate="'numeric|min:9|max:16'" name="optionalPhone"
-                                                       data-vv-as="Telefono" :class="{'text-danger': errors.has('optionalPhone')}"
-                                                       v-model="form.optionalPhone" class="form-control" placeholder="Telefono">
-                                                <small v-show="errors.has('optionalPhone')" class="help text-danger">{{ errors.first('optionalPhone') }}</small>
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <div class="row">
