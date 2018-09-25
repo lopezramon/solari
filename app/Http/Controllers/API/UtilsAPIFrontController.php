@@ -85,9 +85,8 @@ class UtilsAPIFrontController extends AppBaseController
             if(empty($newsletter)){
                 return response()->json(["success"=>true,"message"=>"El email no existe..!"],301);
             }
-            $newsletter->delete();
-            // $newsletter->forceDelete();
-            return response()->json(["success"=>true,"message"=>$newsletter,"delete"=>'on'],200);
+            $newsletter->forceDelete();
+            return response()->json(["success"=>true,"message"=>$newsletter],200);
         }catch(Exeption $e){
             return response()->json(["success"=>true,"message"=>$e->message()],500);
         }

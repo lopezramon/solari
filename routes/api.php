@@ -112,7 +112,7 @@ Route::post('password/reset','Auth\ResetPasswordController@resetFront');
 
 
 // Room
-Route::get('admin/rooms', 'API\Admin\RoomAPIController@index');
+Route::post('admin/rooms', 'API\Admin\RoomAPIController@index');
 // Route::post('admin/rooms', 'API\Admin\RoomAPIController@store');
 Route::get('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@show');
 // Route::put('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@update');
@@ -120,7 +120,7 @@ Route::get('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@show');
 // Route::delete('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@destroy');
 
 // Booking
-// Route::get('admin/bookings', 'API\Admin\BookingAPIController@index');
+Route::get('admin/bookings/user/{user_id}', 'API\Admin\BookingAPIController@index');
 Route::post('admin/bookings', 'API\Admin\BookingAPIController@store');
 Route::get('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@show');
 // Route::put('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@update');

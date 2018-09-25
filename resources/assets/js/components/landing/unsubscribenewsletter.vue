@@ -8,13 +8,13 @@
                 if (res.status === 200) {
                     console.log(res);
                     this.$router.push('/');
-                    this.showAlert('success', 'La tua mail è stata cancellata ');
+                    this.showAlert('success', 'Se ha cancelado tu subscripcion');
                 }
             }).catch((error) => {
                 let data = JSON.parse(error.request.response);
                 console.log(data);
                 this.$router.push('/');
-                this.showAlert('error', 'La tua mail non è registrata');
+                this.showAlert('error', 'El correo no se encuentra registrado');
             })
         },
         methods: {

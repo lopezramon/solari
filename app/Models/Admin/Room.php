@@ -78,7 +78,7 @@ class Room extends Model
         'subtitle1',
         'subtitle2',
         'description',
-        // 'price',
+        'price',
         'services',
         'galery'
     ];
@@ -210,7 +210,7 @@ class Room extends Model
      *
      * @return string
      */
-    /*public function getPriceAttribute()
+    public function getPriceAttribute()
     {
         $dt = Carbon::now();
 
@@ -226,8 +226,8 @@ class Room extends Model
             }
         });
 
-        return number_format($currentRoomSeason->first()->price, 2);
-    }*/
+        return number_format($currentRoomSeason->first()->price, 2, '.', '');
+    }
 
     /**
      * Get the services of the room.
@@ -258,5 +258,92 @@ class Room extends Model
             $image->title   = $multim->multimedia->description;
             return $image;
         });
+    }
+
+    /**
+     * Retrieve the total price for the room.
+     *
+     * @param Room $room
+     * @param array $dates
+     *
+     * @return float $price
+     */
+    public function getCurrentIvaAndPrice($room, $dates)
+    {
+        $price = 0; // entero para guardar el precio de la habitacion segun el rango
+        $iva = 0;   // entero para guardar el iva de la habitacion segun el rango
+        $isOneSeason  = false; // flag para saber si el rango esta en una temporada
+        $isTwoSeasons = false; // flag para saber si el rango esta en dos temporadas
+
+        // recorro cada una de las temporadas de la habitacion
+        foreach ($room->roomSeasons->sortBy('start_date') as $key => $season) {
+
+            // OBTENGO LOS VALORES DEL RANGO A BUSCAR (con Carbon)
+            $checkin_request = Carbon::createFromFormat('Y-m-d H', $dates['checkin'].' 0');
+            $checkout_request = Carbon::createFromFormat('Y-m-d H', $dates['checkout'].' 0');
+
+            // dd($season->start_date);
+            // dd($checkin_request);
+            // dd($season->start_date->lessThanOrEqualTo($checkin_request));
+            // dd($season->end_date);
+            // dd($checkout_request);
+            // dd($season->end_date->greaterThanOrEqualTo($checkout_request));
+            // dd($season->end_date->lessThan($checkout_request));
+
+            // SI ENTRA EN ESTE IF: EL RANGO DE CONSULTA SE ENCUENTRA EN UNA SOLA TEMPORADA
+            if ( $season->start_date->lessThanOrEqualTo($checkin_request) &&
+                $season->end_date->greaterThanOrEqualTo($checkout_request) ) {
+
+                // asigno la cantidad de dias a reservar y el precio
+                $days   = $checkin_request->diffInDays($checkout_request) + 1;
+                $price  = $days * $season->price;
+                $iva    = $price * $season->iva;
+
+                // levanto el flag de que ya estoy en una temporada
+                $isOneSeason = true;
+                break;
+            }
+
+            // SI ENTRA EN ESTE IF: EL RANGO DE CONSULTA SE ENCUENTRA EN DOS O MAS TEMPORADAS
+            else if ( $season->start_date->lessThanOrEqualTo($checkin_request) &&
+                $season->end_date->lessThan($checkout_request) &&
+                $checkin_request->between($season->start_date, $season->end_date) ) {
+
+                // asigno la cantidad de dias a reservar y el precio
+                $days   = $checkin_request->diffInDays($season->end_date) + 1;
+                $price  = $days * $season->price;
+                $iva    = $price * $season->iva;
+
+                // levanto el flag de que el rango sobrepasa la temporada actual
+                $isTwoSeasons = true;
+                // dd($price);
+                // break;
+            }
+
+            // valido si el rango sobrepasa la temporada actual
+            if ( $isTwoSeasons ) {
+
+                // CAPTURO LA SEASON DONDE TERMINA EL RANGO
+                if ( $checkout_request->between($season->start_date, $season->end_date) ) {
+
+                    // asigno la cantidad de dias a reservar y el precio PARA ESTA TEMPORADA
+                    $days2  = $season->start_date->diffInDays($checkout_request) + 1;
+                    $price2 = $days2 * $season->price;
+                    $iva2   = $price2 * $season->iva;
+
+                    // SUMO LOS DIAS Y PRECIO DE ESTA TEMPORADA A LOS VALORES DE LA TEMPORADA ANTERIOR
+                    $price  += $price2;
+                    $iva    += $iva2;
+                    $days   += $days2;
+                }
+                // dd('c');
+            }
+            // dd('s');
+        }
+
+        return [
+            'price' => number_format($price, 2, '.', ''),
+            'iva'   => number_format($iva, 2, '.', '')
+        ];
     }
 }

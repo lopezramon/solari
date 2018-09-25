@@ -4,6 +4,10 @@
         <nav_booking/>
 
         <div class="container my-4">
+            <template  v-if="loading">
+                 <scale-loader  :loading="loading" :color="color" :size="size"></scale-loader>
+            </template>
+            <template v-else>
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-5">
                     <!-- Datos del responsable -->
@@ -12,33 +16,35 @@
                             <strong class="m-0 text-uppercase">Datos Comprador</strong>
                         </div>
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Numero de reserva:</strong> 663332323
+                            <strong class="m-0 text-uppercase">Numero de reserva:</strong> {{orden.orden}}
                         </div>
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Reservado por:</strong> Fulano Detal
+                            <strong class="m-0 text-uppercase">Reservado por:</strong> {{orden.name}}
                         </div>
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Numero de identidad:</strong> 20.261.862
+                            <strong class="m-0 text-uppercase">Numero de identidad:</strong> {{orden.identidad}}
                         </div>
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Telefono:</strong> 555-55-5555
+                            <strong class="m-0 text-uppercase">Telefono:</strong> {{orden.phone}}
                         </div>
                     </div>
 
                     <!-- Datos del responsable -->
                     <div class="border">
-                        <div class="bg-secondary border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Datos del responsable</strong>
-                        </div>
-                        <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Reservado Para:</strong> shery Rubio
-                        </div>
-                        <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Email:</strong> pepe@gmail.com
-                        </div>
-                        <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Numero:</strong> 555-5454-4323
-                        </div>
+                        <template v-for="room in orden.reserva" >
+                            <div class="bg-secondary border-bottom p-2">
+                                <strong class="m-0 text-uppercase">Datos del responsable {{room.room}}</strong>
+                            </div>
+                            <div class="border-bottom p-2">
+                                <strong class="m-0 text-uppercase">Reservado Para:</strong> {{room.name}}
+                            </div>
+                            <div class="border-bottom p-2">
+                                <strong class="m-0 text-uppercase">Email:</strong> {{room.email}}
+                            </div>
+                            <div class="border-bottom p-2">
+                                <strong class="m-0 text-uppercase">Numero:</strong> {{room.numero}}
+                            </div>
+                        </template>
                     </div>
 
                     <!-- Datos de reserva -->
@@ -46,28 +52,31 @@
                         <div class="bg-secondary border-bottom p-2">
                             <strong class="m-0 text-uppercase">Datos de la reserva</strong>
                         </div>
+                        <template v-for="room in orden.reserva">
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">ROOM:</strong> 101
+                            <strong class="m-0 text-uppercase">ROOM:</strong> {{room.room}}
                         </div>
-                        <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">ROOM:</strong> 102
-                        </div>
+                        </template>
                         <div class="border-bottom p-2">
                             <strong class="m-0 text-uppercase">Cantidadde visitantes:</strong>
+                            {{orden.cant_visitantes}}
                         </div>
                         <div class="border-bottom p-2">
                             <strong class="m-0 text-uppercase">Fecha de entrada</strong>
+                            {{orden.checking}}
                         </div>
                         <div class="border-bottom p-2">
                             <strong class="m-0 text-uppercase">Fecha de Salida</strong>
+                            {{orden.checkout}}
                         </div>
-                        <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Precio</strong> $80
-                        </div>
+                        <!-- <div class="border-bottom p-2">
+                            <strong class="m-0 text-uppercase">Precio</strong> € {{orden.total}}
+                        </div> -->
                         <!-- textarea -->
                         <div class="border-bottom p-2">
                             <div class="form-group">
-                                <textarea class="form-control">COMENTARIOS:</textarea>
+                              <strong class="m-0 text-uppercase">COMENTARIOS</strong>
+                              {{orden.comentario}}
                             </div>
                         </div>
                     </div>
@@ -82,26 +91,32 @@
                     <!-- datos rooms -->
                     <div class="border bg-secondary">
                         <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">ROOM 101</strong> 
-                            <span>$1000</span> 
+                            <strong class="m-0 text-uppercase text-center">Detalle</strong> 
+                        </div>
+                    </div>
+                    <div class="border">
+                        <template v-for="room in orden.reserva">
+                        <div class="border-bottom p-2 d-flex justify-content-between">
+                            <strong class="m-0 text-uppercase">{{room.room}}</strong> 
+                            <span>€ {{room.price}}</span> 
+                        </div>
+                        </template>
+                    </div>
+                    <div class="border">
+                        <div class="border-bottom p-2 d-flex justify-content-between">
+                            <strong class="m-0 text-uppercase">Subtotal</strong> 
+                            <span>€ {{orden.subtotal}}</span> 
                         </div>
                         <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">ROOM 102</strong> 
-                            <span>$1000</span> 
+                            <strong class="m-0 text-uppercase">Iva</strong> 
+                            <span>€ {{orden.iva}}</span> 
                         </div>
+                    </div>
+                    <div class="border bg-secondary">
                         <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">ROOM 103</strong> 
-                            <span>$1000</span> 
-                        </div>
-                        <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">ROOM 104</strong> 
-                            <span>$1000</span> 
-                        </div>
-                        <div class="border-bottom p-2 d-flex justify-content-between">
-                            <strong class="m-0 text-uppercase">Precio total:</strong> 
-                            <strong>$1000</strong> 
-                        </div>
-                        
+                            <strong class="m-0 text-uppercase">Total</strong> 
+                            <span>€ {{orden.total}}</span> 
+                        </div>    
                     </div>
 
                     <div class="text-center mt-4">
@@ -109,9 +124,15 @@
                             <h2 class="text-uppercase">Gracias</h2>
                             <p>Tu reservacion esta archivada</p>
                         </div>
+                        <div>
+                             <button type="button" @click.prevent="aceptar()" class="btn btn-primary text-uppercase">
+                                Aceptar
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+            </template>
         </div>
 
     </div>
@@ -135,3 +156,88 @@ h2{
     height: 100%;
 }
 </style>
+<script>
+    export default {
+    data(){
+        return {
+            color: '#4fcaa5',
+            size: '200px',
+            loading: true,
+            id: this.$route.params.id,
+            orden:{
+                checking:null,
+                checkout:null,
+                orden:null,
+                name: null,
+                identidad:null,
+                phone:null,
+                reserva:[],
+                cant_visitantes:null,
+                total:null,
+                subtotal:null,
+                iva:null,
+                comentario: null,
+            }
+        }
+    },
+    computed:{
+
+    },mounted(){
+        this.$store.commit('destroyState');
+        this.getOrder();
+
+    },methods:{
+        showAlert(type, title, text) {
+            this.$swal({
+                position: 'center',
+                type: type,
+                title: title,
+                text: text,
+                showConfirmButton: false,
+                showCloseButton: true,
+            })
+        },
+        aceptar(){
+            this.$router.push('/');
+        },
+        getOrder(){
+            let slf=this;
+            axios.get('/api/admin/bookings/'+this.id).then((res) => {
+                if(res){
+                   slf.orden.checking=res.data.data.booking.checkin_date;
+                   slf.orden.checkout=res.data.data.booking.checkout_date;
+                   slf.orden.orden=res.data.data.booking.code;
+                   let orden=res.data.data.booking.rooms;
+                   const arr=[];
+                   let cant_visitantes=0;
+                   for(let i in orden){                     
+                     let obj={};
+                     obj.name=orden[i].form_data.name;
+                     if(orden[i].form_data.lastname!=null){
+                        obj.name+=' '+orden[i].form_data.lastname;
+                     }
+                     obj.email=orden[i].form_data.email;
+                     obj.numero=orden[i].adult_quantity;
+                     cant_visitantes+=parseInt(orden[i].adult_quantity);
+                     //console.log(orden[i].room.name)
+                     obj.room=orden[i].room.name;
+                     obj.price=parseFloat(orden[i].room.price).toFixed(2);
+                     arr.push(obj);
+                   }
+                   slf.orden.cant_visitantes=cant_visitantes;
+                   slf.orden.comentario=res.data.data.booking.comment;
+                   slf.orden.total=parseFloat(res.data.data.booking.total);
+                   slf.orden.subtotal=parseFloat(res.data.data.booking.subtotal);
+                   slf.orden.iva=parseFloat(res.data.data.booking.iva);
+                   slf.orden.reserva=arr;
+                   slf.loading=false;  
+                   
+                }
+            }).catch((error) => {
+                this.showAlert('error', 'Errore!!', 'error en el servidor')
+                this.loading=false;     
+            });
+        }
+    }
+}
+</script>

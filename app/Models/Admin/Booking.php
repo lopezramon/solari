@@ -130,7 +130,7 @@ class Booking extends Model
      **/
     public function user()
     {
-        return $this->belongsTo(\App\Models\Admin\User::class);
+        return $this->belongsTo(\App\User::class);
     }
 
     /**
@@ -149,24 +149,44 @@ class Booking extends Model
     public function getRoomsAttribute()
     {
         return $this->bookingDetails->transform(function($bookingDet, $key){
-            $bookingDetail                  = (object)[];
-            $bookingDetail->id              = $bookingDet->id;
-
-            $bookingDetail->adult_quantity  = $bookingDet->adult_quantity;
-
-            $bookingDetail->room            = $bookingDet->row->rowable->toArray();
-            $column_index  = count($bookingDetail->room)-1;
-            $column_index2 = count($bookingDetail->room)-2;
-            $column_index3 = count($bookingDetail->room)-3;
-            $array_temp = ['room' => $bookingDetail->room];
-            delete_col($array_temp, $column_index);
-            delete_col($array_temp, $column_index2);
-            delete_col($array_temp, $column_index3);
-            $bookingDetail->room            = $array_temp['room'];
-
-            $bookingDetail->iva_item        = $bookingDet->iva_item;
-            $bookingDetail->total_item      = $bookingDet->total_item;
-            return $bookingDetail;
+            return (object)[
+                'id'                => $bookingDet->id,
+                'adult_quantity'    => $bookingDet->adult_quantity,
+                'room'              => $bookingDet->room,
+                'form_data'          => $bookingDet->formInfo,
+                'iva_item'          => $bookingDet->iva_item,
+                'total_item'        => $bookingDet->total_item,
+            ];
         });
+    }
+
+    /**
+     * ACCESSOR subtotal.
+     *
+     * @return string
+     */
+    public function getSubtotalAttribute($subtotal)
+    {
+        return number_format($subtotal, 2, '.', '');
+    }
+
+    /**
+     * ACCESSOR iva.
+     *
+     * @return string
+     */
+    public function getIvaAttribute($iva)
+    {
+        return number_format($iva, 2, '.', '');
+    }
+
+    /**
+     * ACCESSOR total.
+     *
+     * @return string
+     */
+    public function getTotalAttribute($total)
+    {
+        return number_format($total, 2, '.', '');
     }
 }
