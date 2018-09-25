@@ -26,7 +26,7 @@
                                    <label for="fullname" class="text-uppercase">Nombre completo</label>
                                    <span v-show="errors.has('fullname')" class="help text-danger">*</span>
                                    <input id="fullname" type="text" :maxlength="30" v-validate="'required|alpha_spaces|min:2|max:30'" name="fullname" data-vv-as="Nombre completo"
-                                          :class="{'text-danger': errors.has('fullname') }" v-model="form.fullname" class="form-control" placeholder="Agrega tu nombre completo">
+                                          :class="{'text-danger': errors.has('fullname') }" v-model="form.name" class="form-control" placeholder="Agrega tu nombre completo">
                                    <small v-show="errors.has('fullname')" class="help text-danger">{{ errors.first('fullname') }}</small>
                                </div>
 
@@ -60,7 +60,7 @@
                                <div class="form-group">
                                    <label for="message" class="text-uppercase">Tu mensaje</label>
                                    <span v-show="errors.has('message')" class="help text-danger">*</span>
-                                   <textarea id="message" v-model="form.message" :maxlength="150" v-validate="'required|min:2|max:150'"
+                                   <textarea id="message" v-model="form.msg" :maxlength="150" v-validate="'required|min:2|max:150'"
                                              name="message" data-vv-as="Mensaje" :class="{'is-danger': errors.has('message') }"
                                              class="form-control" placeholder="Escribe tu mensaje aquí..." rows="3"></textarea>
                                    <small v-show="errors.has('message')" class="help text-danger">{{ errors.first('message') }}</small>
@@ -165,11 +165,11 @@
         data() {
             return {
                 form: {
-                    fullname: null,
+                    name: null,
                     email: null,
                     subject: null,
                     phone: null,
-                    message: null,
+                    msg: null,
                 },
                 color: '#1b1b1b',
                 size: '15px',
@@ -178,7 +178,7 @@
         },
         computed: {
             isDisabled() {
-                return !this.form.fullname || !this.form.email || !this.form.subject || !this.form.phone || !this.form.message
+                return !this.form.name || !this.form.email || !this.form.subject || !this.form.phone || !this.form.msg
             }
         },
         methods: {
@@ -215,7 +215,7 @@
                     email: null,
                     subject: null,
                     phone: null,
-                    message: null,
+                    msg: null,
                 }
             }
         }
