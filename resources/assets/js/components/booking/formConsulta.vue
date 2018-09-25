@@ -47,27 +47,6 @@
                     />
                     <span v-show="errors.has('checkout')" class="help text-danger">{{ errors.first('checkout') }}</span>
                 </div>
-                <!--
-                <div class="form-group col-12 col-lg-6">
-                    <label for="adulti">Adulti</label>
-                    <select name="adulti" class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-                <div class="form-group col-12 col-lg-6">
-                    <label for="bambino">Bambino</label>
-                    <select name="bambino" class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>-->
                 <div class="form-group col-12 text-center">
                     <button type="button" @click.prevent="filterData()" class="btn btn-primary text-uppercase">
                         Cerca

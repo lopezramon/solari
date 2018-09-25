@@ -163,7 +163,7 @@ export default {
     },
     computed:{
         getAuthenticated(){
-          return this.$store.getters.getAuthenticated;
+          return this.$store.getters.getauthenticated;
         },
         listRooms(){
           this.rooms=this.$store.getters.getCart;
@@ -182,17 +182,18 @@ export default {
         }
     },mounted(){
         this.getDataUser();
+        this.validUrlError();
        if(this.$store.getters.getTotal==0){
             this.showAlert('error', 'Errore!!', 'carrello vuoto')
        }   
     },methods:{
         getDataUser(){
-            let data=this.$store.getters.getUser;
-            if(data.id!=null){
-                this.user.name_reserva=data.name+' '+data.lastname;
-                this.user.telef_reserva=data.phone;
-                this.user.identidad_reserva=data.identidad;
-                this.user.id=data.id;
+            let data=this.$store.getters.getSession;
+            if(data[0]!=undefined){
+                this.user.name_reserva=data[0].name+' '+data[0].lastname;
+                this.user.telef_reserva=data[0].phone;
+                this.user.identidad_reserva=data[0].fiscalCode;
+                this.user.id=data[0].id;
             }
             
         },
@@ -235,10 +236,24 @@ export default {
              this.cant_visitantes=0;
            }    
         },
+        getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        },
+        validUrlError(){
+            var error = this.getParameterByName('error');
+            if(error=="true"){
+                this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
+                this.loading=false;  
+            }
+        },
         paypal(){
             var slf=this;
             this.$validator.validateAll().then((result) => { 
              if(result){
+                this.$store.commit('setResponReser',{list: slf.user}); 
                 var rooms=this.$store.getters.getCart;
                 var form=[];
                 for(var i in rooms){
@@ -255,16 +270,38 @@ export default {
                 objform.cart=this.$store.getters.getBooking;
                 objform.user_id=this.user.id;
                 this.orden=objform; 
-                this.loading=true;           
-                axios.post('/paypal',this.orden).then((res) => {
-                    if(res){
-                        var url=res.data.url;
-                        // this.loading=false;     
-                        window.location.href=url;
+                this.loading=true;  
+                console.log(this.orden);
+                this.$swal({
+                    title: '',
+                    text: "Esta de acuerdo en ser redireccionado a la plataforma de paypal?",
+                    type: 'info',
+                    showCancelButton: true,
+                    confirmButtonColor: '#FE2E2E',
+                    cancelButtonColor: '#4fcaa5',
+                    confirmButtonText: 'Cancelar',
+                    cancelButtonText: 'Continuar'
+                  }).then((result) => {
+                    if (!result.value) {
+                        axios.post('/paypal',this.orden).then((res) => {
+                            if(res){
+                                var url=res.data.url;
+                                this.loading=false; 
+                                if(url!=undefined){
+                                    window.location.href=url;
+                                }else{
+                                     this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
+                                }
+                                
+                            }
+                        }).catch((error) => {
+                            this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
+                            this.loading=false;     
+                        });
+                    }else{
+                        console.log("cancelar")
                     }
-                }).catch((error) => {
-                    this.loading=false;     
-                });
+                  })
              }            
             }).catch(() => {
                 this.loading=false;

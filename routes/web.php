@@ -12,6 +12,9 @@
 */
 Auth::routes();
 
+Route::post('/paypal', 'PaypalController@payWithpaypal');
+Route::get('status', 'PaypalController@getPaymentStatus');
+
 Route::post('register', 'Auth\RegisterController@register');
 
 Route::middleware(['auth','hasrole:admin'])->group(function () {

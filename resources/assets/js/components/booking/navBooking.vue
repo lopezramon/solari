@@ -67,6 +67,9 @@ export default {
          if(ruta==window.location.pathname){
             return true;
          }
+         if(ruta=='/booking/step-3' && (window.location.pathname!='/booking/step-1' && window.location.pathname!='/booking/step-2') ){
+           return true;
+         }
          return false;
         }
     }

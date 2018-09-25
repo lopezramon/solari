@@ -1,11 +1,15 @@
 export default {
     state: {
       booking:{
-         checkin:'2018-09-18',
-         checkout:'2018-09-25',
-         adult:2,
+         checkin:null,
+         checkout:null,
          cart:[],
          total:0,
+         responsable:{
+          name:null,
+          phone:null,
+          identidad:null,
+         }
       },
     },
     actions:{
@@ -30,6 +34,20 @@ export default {
        },
     },
     mutations:{
+      destroyState (state){ 
+        Vue.set(state.booking,'checkin',null);
+        Vue.set(state.booking,'checkout',null);
+        Vue.set(state.booking,'cart',[]); 
+        Vue.set(state.booking,'total',0); 
+        Vue.set(state.booking.responsable,'name',null); 
+        Vue.set(state.booking.responsable,'phone',null); 
+        Vue.set(state.booking.responsable,'identidad',null); 
+      },
+      setResponReser(state,{ list }){ 
+        Vue.set(state.booking.responsable,'name',list.name_reserva); 
+        Vue.set(state.booking.responsable,'phone',list.telef_reserva); 
+        Vue.set(state.booking.responsable,'identidad',list.identidad_reserva);
+      },
       setFilter(state,{ list }){ 
         Vue.set(state.booking,'checkin',list.checkin);
         Vue.set(state.booking,'checkout',list.checkout); 

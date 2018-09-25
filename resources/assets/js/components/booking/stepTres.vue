@@ -4,6 +4,10 @@
         <nav_booking/>
 
         <div class="container my-4">
+            <template  v-if="loading">
+                 <scale-loader  :loading="loading" :color="color" :size="size"></scale-loader>
+            </template>
+            <template v-else>
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-5">
                     <!-- Datos del responsable -->
@@ -59,15 +63,15 @@
                         </div>
                         <div class="border-bottom p-2">
                             <strong class="m-0 text-uppercase">Fecha de entrada</strong>
-                            {{getCheckin}}
+                            {{orden.checking}}
                         </div>
                         <div class="border-bottom p-2">
                             <strong class="m-0 text-uppercase">Fecha de Salida</strong>
-                            {{getCheckout}}
+                            {{orden.checkout}}
                         </div>
-                        <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Precio</strong> € {{orden.total.toFixed(2)}}
-                        </div>
+                        <!-- <div class="border-bottom p-2">
+                            <strong class="m-0 text-uppercase">Precio</strong> € {{orden.total}}
+                        </div> -->
                         <!-- textarea -->
                         <div class="border-bottom p-2">
                             <div class="form-group">
@@ -86,12 +90,33 @@
                     
                     <!-- datos rooms -->
                     <div class="border bg-secondary">
+                        <div class="border-bottom p-2 d-flex justify-content-between">
+                            <strong class="m-0 text-uppercase text-center">Detalle</strong> 
+                        </div>
+                    </div>
+                    <div class="border">
                         <template v-for="room in orden.reserva">
                         <div class="border-bottom p-2 d-flex justify-content-between">
                             <strong class="m-0 text-uppercase">{{room.room}}</strong> 
-                            <span>€ {{room.price.toFixed(2)}}</span> 
+                            <span>€ {{room.price}}</span> 
                         </div>
-                        </template>    
+                        </template>
+                    </div>
+                    <div class="border">
+                        <div class="border-bottom p-2 d-flex justify-content-between">
+                            <strong class="m-0 text-uppercase">Subtotal</strong> 
+                            <span>€ {{orden.subtotal}}</span> 
+                        </div>
+                        <div class="border-bottom p-2 d-flex justify-content-between">
+                            <strong class="m-0 text-uppercase">Iva</strong> 
+                            <span>€ {{orden.iva}}</span> 
+                        </div>
+                    </div>
+                    <div class="border bg-secondary">
+                        <div class="border-bottom p-2 d-flex justify-content-between">
+                            <strong class="m-0 text-uppercase">Total</strong> 
+                            <span>€ {{orden.total}}</span> 
+                        </div>    
                     </div>
 
                     <div class="text-center mt-4">
@@ -99,9 +124,15 @@
                             <h2 class="text-uppercase">Gracias</h2>
                             <p>Tu reservacion esta archivada</p>
                         </div>
+                        <div>
+                             <button type="button" @click.prevent="aceptar()" class="btn btn-primary text-uppercase">
+                                Aceptar
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+            </template>
         </div>
 
     </div>
@@ -129,36 +160,84 @@ h2{
     export default {
     data(){
         return {
+            color: '#4fcaa5',
+            size: '200px',
+            loading: true,
+            id: this.$route.params.id,
             orden:{
-                orden:'XXXXXXX',
-                name: 'Fulano de Tal',
-                identidad:'13332323223',
-                phone:'4334433443',
-                reserva:[
-                    {
-                        name: 'Sherly Rubio',
-                        email: 'sherly_lala',
-                        numero: 2,
-                        room:'XXXXXX',
-                        room_id:2,
-                        price: 22,
-                    }
-                ],
-                cant_visitantes:2,
-                total:80,
-                comentario: 'es lo mas tripa del mundo'
+                checking:null,
+                checkout:null,
+                orden:null,
+                name: null,
+                identidad:null,
+                phone:null,
+                reserva:[],
+                cant_visitantes:null,
+                total:null,
+                subtotal:null,
+                iva:null,
+                comentario: null,
             }
         }
     },
     computed:{
-       getCheckin(){
-            let data=this.$store.getters.getDataFilter;
-            return Vue.moment(data.checkin).format('YYYY/MMM/DD').toUpperCase();
+
+    },mounted(){
+        this.$store.commit('destroyState');
+        this.getOrder();
+
+    },methods:{
+        showAlert(type, title, text) {
+            this.$swal({
+                position: 'center',
+                type: type,
+                title: title,
+                text: text,
+                showConfirmButton: false,
+                showCloseButton: true,
+            })
         },
-        getCheckout(){
-            let data=this.$store.getters.getDataFilter;
-            return Vue.moment(data.checkout).format('YYYY/MMM/DD').toUpperCase();
+        aceptar(){
+            this.$router.push('/');
         },
+        getOrder(){
+            let slf=this;
+            axios.get('/api/admin/bookings/'+this.id).then((res) => {
+                if(res){
+                   slf.orden.checking=res.data.data.booking.checkin_date;
+                   slf.orden.checkout=res.data.data.booking.checkout_date;
+                   slf.orden.orden=res.data.data.booking.code;
+                   let orden=res.data.data.booking.rooms;
+                   const arr=[];
+                   let cant_visitantes=0;
+                   for(let i in orden){                     
+                     let obj={};
+                     obj.name=orden[i].form_data.name;
+                     if(orden[i].form_data.lastname!=null){
+                        obj.name+=' '+orden[i].form_data.lastname;
+                     }
+                     obj.email=orden[i].form_data.email;
+                     obj.numero=orden[i].adult_quantity;
+                     cant_visitantes+=parseInt(orden[i].adult_quantity);
+                     //console.log(orden[i].room.name)
+                     obj.room=orden[i].room.name;
+                     obj.price=parseFloat(orden[i].room.price).toFixed(2);
+                     arr.push(obj);
+                   }
+                   slf.orden.cant_visitantes=cant_visitantes;
+                   slf.orden.comentario=res.data.data.booking.comment;
+                   slf.orden.total=parseFloat(res.data.data.booking.total);
+                   slf.orden.subtotal=parseFloat(res.data.data.booking.subtotal);
+                   slf.orden.iva=parseFloat(res.data.data.booking.iva);
+                   slf.orden.reserva=arr;
+                   slf.loading=false;  
+                   
+                }
+            }).catch((error) => {
+                this.showAlert('error', 'Errore!!', 'error en el servidor')
+                this.loading=false;     
+            });
+        }
     }
 }
 </script>

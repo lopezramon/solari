@@ -51,47 +51,8 @@ export default {
                 }
             },
             root:null,
-             rooms:[
-                // {
-                //     id: 1,
-                //     name: 'ROOM 101',
-                //     subtitle1: 'Camera Matrimoniale con Balance',
-                //     subtitle2: 'Camera Doppia Di 13 M2',
-                //     description: 'Camera Matrimoniale climatizzata con minibar e pavimento piastrellato/in marmo.',
-                //     price: 59.05,
-                //     services:[
-                //         {
-                //             id: 1,
-                //             name: ' terrazzo'
-                //         },
-                //         {
-                //             id: 2,
-                //             name: ' Canali pay per view'
-                //         },
-                //         {
-                //             id: 3,
-                //             name: 'Armadio / guardaroba'
-                //         },
-                //         {
-                //             id: 4,
-                //             name: 'Armadio / guardaroba'
-                //         },
-                //         {
-                //             id:5,
-                //             name: ' Radio',
-                //         },
-                //         {
-                //             id:6,
-                //             name: ' Carta igienica',
-                //         }
-                //     ],
-                //     gallery: [
-                //         {image: '/images/home/gallery-slider-map/21.jpg'},
-                //         {image: '/images/home/gallery-slider-map/18.jpg'},
-                //         {image: '/images/home/gallery-slider-map/22.jpeg'},
-                //         {image: '/images/home/gallery-slider-map/23.jpeg'},
-                //     ], 
-                //}
+            rooms:[
+              
             ]
         }
     },methods:{
@@ -128,16 +89,6 @@ export default {
                 }
             }
             return false;
-        },
-        listRooms(){
-             axios.get(this.root+'/api/admin/rooms',this).then((res)=>{
-                  if (res.status == 200)  {
-                    
-                  }
-              })
-              .catch((error)=>{
-
-              })
         }
     },computed:{
         

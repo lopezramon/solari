@@ -36,7 +36,13 @@ export default {
             disabledActivo: false,
             terminos:false
         }
-    },methods:{
+    },mounted(){
+         let data=this.$store.getters.getDataFilter;
+         if(data.checkin==null || data.checkout==null){
+               this.showAlert('error', 'Errore!!', 'carrello vuoto')  
+         }
+    },
+    methods:{
         nextStep(){
             let total=this.$store.getters.getTotal;
             if(this.terminos && total>0){
@@ -53,6 +59,9 @@ export default {
                 showConfirmButton: false,
                 showCloseButton: true,
             })
+            .then((value) => {
+              this.$router.push('/');
+            });
         }
     }
 }

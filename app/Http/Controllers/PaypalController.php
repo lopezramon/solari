@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Http\Controllers\API\Admin\OrderAPIController;
 use App\Http\Controllers\Admin\MailController;
 use App\Mail\OrderMailable;
@@ -24,12 +22,14 @@ use PayPal\Rest\ApiContext;
 use Redirect;
 use Session;
 use URL;
-
-
+use App\Repositories\Admin\BookingRepository;
 
 class PaypalController extends Controller
 {
-    public function __construct()
+    /** @var  BookingRepository */
+    private $bookingRepository;
+
+    public function __construct(BookingRepository $bookingRepo)
     {
         /** PayPal api context **/
         $paypal_conf = \Config::get('paypal');
@@ -38,6 +38,7 @@ class PaypalController extends Controller
             $paypal_conf['secret'])
         );
         $this->_api_context->setConfig($paypal_conf['settings']);
+        $this->bookingRepository = $bookingRepo;
     }
 
 
@@ -45,9 +46,9 @@ class PaypalController extends Controller
 
     public function payWithpaypal(Request $request)
     {
-        $data=$request;
-        $total=$data["cart"]["total"];
-
+        $data = $request->all();
+        $request->session()->put('data_order',$data);
+        $total = $data["cart"]["total"];
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
         $item_1 = new Item();
@@ -109,7 +110,7 @@ class PaypalController extends Controller
         Session::forget('paypal_payment_id');
         if (empty(Input::get('PayerID')) || empty(Input::get('token'))) {
             \Session::put('error', 'Payment failed');
-            return Redirect::to('/booking/step-2?error');
+            return Redirect::to('/booking/step-2?error=true');
         }
         $payment = Payment::get($payment_id, $this->_api_context);
         $execution = new PaymentExecution();
@@ -117,8 +118,11 @@ class PaypalController extends Controller
         /**Execute the payment **/
         $result = $payment->execute($execution, $this->_api_context);
         if ($result->getState() == 'approved') {
+            $data=Session::get('data_order');
+            Session::forget('data_order');
+            $booking = $this->bookingRepository->createCustomized($data);
             \Session::put('success', 'Payment success');
-            return Redirect::to('/booking/step-3');
+            return Redirect::to('/booking/step-3/'.$booking->code);
         }
     }
 }
