@@ -69543,7 +69543,7 @@ var content = __webpack_require__(201);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("7ce39376", content, false, {});
+var update = __webpack_require__(3)("72fc4d2c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -93869,7 +93869,7 @@ var content = __webpack_require__(229);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("92643668", content, false, {});
+var update = __webpack_require__(3)("f00b5702", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -94122,7 +94122,7 @@ var content = __webpack_require__(234);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("67ba675e", content, false, {});
+var update = __webpack_require__(3)("0d6ecf8b", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -94501,7 +94501,7 @@ var content = __webpack_require__(239);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("5a99f1e0", content, false, {});
+var update = __webpack_require__(3)("db2d7e5a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -94525,7 +94525,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.border[data-v-043d8726]{\r\n    border: 1px solid #8a8a8a;\n}\r\n", ""]);
+exports.push([module.i, "\n.border[data-v-043d8726]{\n    border: 1px solid #8a8a8a;\n}\n", ""]);
 
 // exports
 
@@ -94838,7 +94838,7 @@ var content = __webpack_require__(244);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("5d15deda", content, false, {});
+var update = __webpack_require__(3)("436585e6", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -94862,7 +94862,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n#swipper-esperience-slider[data-v-2a0bbd34]{\r\n    background-color: #333;\n}\n.imagen-slider[data-v-2a0bbd34]{\r\n\tposition: relative;\r\n\toverflow: hidden;\n}\n.imagen-slider > img[data-v-2a0bbd34]{\r\n\twidth: 100%;\r\n\theight: auto;\n}\n.content-slider-image[data-v-2a0bbd34] {\r\n\tposition: absolute;\r\n\ttop:-200%;\r\n\tleft: 0;\r\n\twidth: 100%;\r\n\theight: auto;\r\n\tbackground-color: rgba(0,0,0,0.7);\r\n\t-webkit-transition:all 1s ease;\r\n\ttransition:all 1s ease;\r\n\t-moz-transition: all 1s ease;\n}\n.imagen-slider:hover .content-slider-image[data-v-2a0bbd34]{\r\n\ttop:  0px;\r\n\theight: 100%;\n}\n.content-middle-slider[data-v-2a0bbd34] {\r\n  top: 100%;\r\n  left: 15%;\r\n  -webkit-transform: translate(0%, 25%);\r\n  transform: translate(0%, 25%);\r\n  text-align: center;\n}\n.block-dark[data-v-2a0bbd34], .block-ligth[data-v-2a0bbd34]{\r\n    width: 100%;\r\n    height: 50px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\n}\n.block-dark[data-v-2a0bbd34] {\r\n    background-color: #585858;\n}\n.block-ligth[data-v-2a0bbd34] {\r\n    background-color: #848484;\n}\n.swiper-button-prev[data-v-2a0bbd34], \r\n    .swiper-container-rtl .swiper-button-next[data-v-2a0bbd34]{\r\n        background-image:url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23fff'%2F%3E%3C%2Fsvg%3E\");\r\n        left: 30px;\n}\n.swiper-button-next[data-v-2a0bbd34], \r\n    .swiper-container-rtl .swiper-button-prev[data-v-2a0bbd34]{\r\n        background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23fff'%2F%3E%3C%2Fsvg%3E\");\r\n        right: 30px;\n}\n@media screen and (min-width: 768px){\n.swiper-slide[data-v-2a0bbd34]{\r\n        margin: 0px !important;\n}\n}\n.myButton[data-v-2a0bbd34] {\r\n\tbackground-color:#ffffff;\r\n\tborder-radius:41px;\r\n\tdisplay:inline-block;\r\n\tcursor:pointer;\r\n\tcolor:#000000;\r\n\tfont-family:Arial;\r\n\tfont-size:14px;\r\n\tpadding:2px 15px;\r\n\ttext-decoration:none;\n}\n.myButton[data-v-2a0bbd34]:hover {\r\n\tbackground-color:#ffffff;\r\n\ttext-decoration: none;\r\n\tcolor:#000000;\n}\n.myButton[data-v-2a0bbd34]:active {\r\n\tposition:relative;\r\n\ttop:1px;\n}\r\n", ""]);
+exports.push([module.i, "\n#swipper-esperience-slider[data-v-2a0bbd34]{\n    background-color: #333;\n}\n.imagen-slider[data-v-2a0bbd34]{\n\tposition: relative;\n\toverflow: hidden;\n}\n.imagen-slider > img[data-v-2a0bbd34]{\n\twidth: 100%;\n\theight: auto;\n}\n.content-slider-image[data-v-2a0bbd34] {\n\tposition: absolute;\n\ttop:-200%;\n\tleft: 0;\n\twidth: 100%;\n\theight: auto;\n\tbackground-color: rgba(0,0,0,0.7);\n\t-webkit-transition:all 1s ease;\n\ttransition:all 1s ease;\n\t-moz-transition: all 1s ease;\n}\n.imagen-slider:hover .content-slider-image[data-v-2a0bbd34]{\n\ttop:  0px;\n\theight: 100%;\n}\n.content-middle-slider[data-v-2a0bbd34] {\n  top: 100%;\n  left: 15%;\n  -webkit-transform: translate(0%, 25%);\n  transform: translate(0%, 25%);\n  text-align: center;\n}\n.block-dark[data-v-2a0bbd34], .block-ligth[data-v-2a0bbd34]{\n    width: 100%;\n    height: 50px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.block-dark[data-v-2a0bbd34] {\n    background-color: #585858;\n}\n.block-ligth[data-v-2a0bbd34] {\n    background-color: #848484;\n}\n.swiper-button-prev[data-v-2a0bbd34], \n    .swiper-container-rtl .swiper-button-next[data-v-2a0bbd34]{\n        background-image:url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23fff'%2F%3E%3C%2Fsvg%3E\");\n        left: 30px;\n}\n.swiper-button-next[data-v-2a0bbd34], \n    .swiper-container-rtl .swiper-button-prev[data-v-2a0bbd34]{\n        background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23fff'%2F%3E%3C%2Fsvg%3E\");\n        right: 30px;\n}\n@media screen and (min-width: 768px){\n.swiper-slide[data-v-2a0bbd34]{\n        margin: 0px !important;\n}\n}\n.myButton[data-v-2a0bbd34] {\n\tbackground-color:#ffffff;\n\tborder-radius:41px;\n\tdisplay:inline-block;\n\tcursor:pointer;\n\tcolor:#000000;\n\tfont-family:Arial;\n\tfont-size:14px;\n\tpadding:2px 15px;\n\ttext-decoration:none;\n}\n.myButton[data-v-2a0bbd34]:hover {\n\tbackground-color:#ffffff;\n\ttext-decoration: none;\n\tcolor:#000000;\n}\n.myButton[data-v-2a0bbd34]:active {\n\tposition:relative;\n\ttop:1px;\n}\n", ""]);
 
 // exports
 
@@ -95537,7 +95537,7 @@ var content = __webpack_require__(249);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("4f307ad8", content, false, {});
+var update = __webpack_require__(3)("9b216576", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -95561,7 +95561,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.swiper-button-prev[data-v-a4f353d2], \r\n.swiper-container-rtl .swiper-button-next[data-v-a4f353d2]{\r\n    background-image:url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23fff'%2F%3E%3C%2Fsvg%3E\");\r\n    left: 30px;\n}\n.swiper-button-next[data-v-a4f353d2], \r\n.swiper-container-rtl .swiper-button-prev[data-v-a4f353d2]{\r\n    background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23fff'%2F%3E%3C%2Fsvg%3E\");\r\n    right: 30px;\n}\n.swiper-slide[data-v-a4f353d2]{\r\n    margin: 0px !important;\n}\r\n    \r\n", ""]);
+exports.push([module.i, "\n.swiper-button-prev[data-v-a4f353d2], \n.swiper-container-rtl .swiper-button-next[data-v-a4f353d2]{\n    background-image:url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23fff'%2F%3E%3C%2Fsvg%3E\");\n    left: 30px;\n}\n.swiper-button-next[data-v-a4f353d2], \n.swiper-container-rtl .swiper-button-prev[data-v-a4f353d2]{\n    background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23fff'%2F%3E%3C%2Fsvg%3E\");\n    right: 30px;\n}\n.swiper-slide[data-v-a4f353d2]{\n    margin: 0px !important;\n}\n    \n", ""]);
 
 // exports
 
@@ -95780,7 +95780,7 @@ var content = __webpack_require__(254);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("342ec18a", content, false, {});
+var update = __webpack_require__(3)("5decfc06", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -95804,7 +95804,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.google-maps[data-v-554e9a94] {\r\n    width: 100%;\r\n    height: 300px;\n}\n.google-maps iframe[data-v-554e9a94]{\r\n    width: 100%;\r\n    height: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.google-maps[data-v-554e9a94] {\n    width: 100%;\n    height: 300px;\n}\n.google-maps iframe[data-v-554e9a94]{\n    width: 100%;\n    height: 100%;\n}\n", ""]);
 
 // exports
 
@@ -95910,7 +95910,7 @@ var content = __webpack_require__(258);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("0049b9c4", content, false, {});
+var update = __webpack_require__(3)("fcfdd012", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -96454,7 +96454,7 @@ var content = __webpack_require__(265);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("a06bfd94", content, false, {});
+var update = __webpack_require__(3)("042b87e3", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -96478,7 +96478,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.image-aboutus[data-v-078b70cc]{\r\n\tmargin-top:40px; padding-bottom: 10px\n}\n.top[data-v-078b70cc] {\r\n\tmargin-top: 50px\n}\n.gray-us[data-v-078b70cc] {\r\nbackground-color: #f8f7fa;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.image-aboutus[data-v-078b70cc]{\n\tmargin-top:40px; padding-bottom: 10px\n}\n.top[data-v-078b70cc] {\n\tmargin-top: 50px\n}\n.gray-us[data-v-078b70cc] {\nbackground-color: #f8f7fa;\n}\n\n", ""]);
 
 // exports
 
@@ -96599,7 +96599,7 @@ var content = __webpack_require__(269);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("975b00d8", content, false, {});
+var update = __webpack_require__(3)("3589ddc7", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -96623,7 +96623,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.black[data-v-01225392] {\r\nbackground-color: #000000;\n}\n.imagen-room[data-v-01225392]{\r\n\tposition: relative;\r\n\toverflow: hidden;\r\n\tpadding-top: 30px;\n}\n.imagen-room > img[data-v-01225392]{\r\n\twidth: 100%;\r\n\theight: 100%;\n}\n.content-room-image[data-v-01225392]{\r\n\tposition: absolute;\r\n\ttop: -200%;\r\n\tleft: 0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tbackground-color: rgba(0,0,0,0.7);\r\n\t-webkit-transition:all 1s ease;\r\n\ttransition:all 1s ease;\r\n\t-moz-transition: all 1s ease;\r\n\tdisplay: -webkit-box;\r\n\tdisplay: -ms-flexbox;\r\n\tdisplay: flex;\r\n\t-webkit-box-pack: center;\r\n\t    -ms-flex-pack: center;\r\n\t        justify-content: center;\r\n\t-webkit-box-align: center;\r\n\t    -ms-flex-align: center;\r\n\t        align-items: center;\n}\n.imagen-room:hover .content-room-image[data-v-01225392]{\r\n\ttop: 0;\n}\n.myButton[data-v-01225392] {\r\n\tbackground-color:#ffffff;\r\n\tborder-radius:41px;\r\n\tdisplay:inline-block;\r\n\tcursor:pointer;\r\n\tcolor:#000000;\r\n\tfont-family:Arial;\r\n\tfont-size:16px;\r\n\tpadding:5px 18px;\r\n\ttext-decoration:none;\r\n\ttext-shadow:0px 1px 0px #2f6627;\n}\n.myButton[data-v-01225392]:hover {\r\n\tbackground-color:#ffffff;\r\n\ttext-decoration: none;\r\n\tcolor:#000000;\n}\n.myButton[data-v-01225392]:active {\r\n\tposition:relative;\r\n\ttop:1px;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.black[data-v-01225392] {\nbackground-color: #000000;\n}\n.imagen-room[data-v-01225392]{\n\tposition: relative;\n\toverflow: hidden;\n\tpadding-top: 30px;\n}\n.imagen-room > img[data-v-01225392]{\n\twidth: 100%;\n\theight: 100%;\n}\n.content-room-image[data-v-01225392]{\n\tposition: absolute;\n\ttop: -200%;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground-color: rgba(0,0,0,0.7);\n\t-webkit-transition:all 1s ease;\n\ttransition:all 1s ease;\n\t-moz-transition: all 1s ease;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-pack: center;\n\t    -ms-flex-pack: center;\n\t        justify-content: center;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n}\n.imagen-room:hover .content-room-image[data-v-01225392]{\n\ttop: 0;\n}\n.myButton[data-v-01225392] {\n\tbackground-color:#ffffff;\n\tborder-radius:41px;\n\tdisplay:inline-block;\n\tcursor:pointer;\n\tcolor:#000000;\n\tfont-family:Arial;\n\tfont-size:16px;\n\tpadding:5px 18px;\n\ttext-decoration:none;\n\ttext-shadow:0px 1px 0px #2f6627;\n}\n.myButton[data-v-01225392]:hover {\n\tbackground-color:#ffffff;\n\ttext-decoration: none;\n\tcolor:#000000;\n}\n.myButton[data-v-01225392]:active {\n\tposition:relative;\n\ttop:1px;\n}\n\n", ""]);
 
 // exports
 
@@ -96866,7 +96866,7 @@ var content = __webpack_require__(273);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("293fd53d", content, false, {});
+var update = __webpack_require__(3)("294b36ac", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -97070,11 +97070,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             form: {
-                fullname: null,
+                name: null,
                 email: null,
                 subject: null,
                 phone: null,
-                message: null
+                msg: null
             },
             color: '#1b1b1b',
             size: '15px',
@@ -97084,7 +97084,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         isDisabled: function isDisabled() {
-            return !this.form.fullname || !this.form.email || !this.form.subject || !this.form.phone || !this.form.message;
+            return !this.form.name || !this.form.email || !this.form.subject || !this.form.phone || !this.form.msg;
         }
     },
     methods: {
@@ -97123,7 +97123,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 email: null,
                 subject: null,
                 phone: null,
-                message: null
+                msg: null
             };
         }
     }
@@ -97227,8 +97227,8 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.fullname,
-                              expression: "form.fullname"
+                              value: _vm.form.name,
+                              expression: "form.name"
                             }
                           ],
                           staticClass: "form-control",
@@ -97241,17 +97241,13 @@ var render = function() {
                             "data-vv-as": "Nombre completo",
                             placeholder: "Agrega tu nombre completo"
                           },
-                          domProps: { value: _vm.form.fullname },
+                          domProps: { value: _vm.form.name },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.$set(
-                                _vm.form,
-                                "fullname",
-                                $event.target.value
-                              )
+                              _vm.$set(_vm.form, "name", $event.target.value)
                             }
                           }
                         }),
@@ -97541,8 +97537,8 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.message,
-                              expression: "form.message"
+                              value: _vm.form.msg,
+                              expression: "form.msg"
                             },
                             {
                               name: "validate",
@@ -97561,13 +97557,13 @@ var render = function() {
                             placeholder: "Escribe tu mensaje aquí...",
                             rows: "3"
                           },
-                          domProps: { value: _vm.form.message },
+                          domProps: { value: _vm.form.msg },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.$set(_vm.form, "message", $event.target.value)
+                              _vm.$set(_vm.form, "msg", $event.target.value)
                             }
                           }
                         }),
@@ -97829,7 +97825,7 @@ var content = __webpack_require__(278);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("5913417e", content, false, {});
+var update = __webpack_require__(3)("70511fb4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -97853,7 +97849,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* formulario booking */\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\r\n\tmin-width: 100%;\r\n\tdisplay: block;\r\n\tmargin: 0;\n}\n.form-booking .form-control[data-v-66d06953]{\r\n\tborder: 0px solid transparent;\n}\n.form-booking .form-control[data-v-66d06953]:focus {\r\n    color: #495057;\r\n    background-color: #fff;\r\n    border-color: transparent;\r\n    outline: 0;\r\n    -webkit-box-shadow: 0 0 0 0.2rem transparent;\r\n            box-shadow: 0 0 0 0.2rem transparent;\n}\n.hr[data-v-66d06953]{\r\n\twidth: 100%;\r\n    height: 1px;\r\n    background-color: transparent;\r\n    border: 0.5px solid #555;\n}\n.form-booking .btn-primary[data-v-66d06953]{\r\n\tbackground-color: #2ac093;\r\n    border-color: #2ac093;\n}\n.form-booking .btn-primary[data-v-66d06953]:hover {\r\n    color: #fff;\r\n    background-color: #2ac093;\r\n    border-color: #2ac093;\n}\n.form-booking .btn-primary.focus[data-v-66d06953], .form-booking .btn-primary[data-v-66d06953]:focus{\r\n\t-webkit-box-shadow: 0 0 0 0.2rem #2ac0938a;\r\n\t        box-shadow: 0 0 0 0.2rem #2ac0938a;\n}\n.form-booking .btn-primary[data-v-66d06953]:not(:disabled):not(.disabled):active{\r\n\tcolor: #fff;\r\n    background-color: #2ac093;\r\n    border-color: #2ac093;\n}\n.form-booking .btn-lg[data-v-66d06953] {\r\n    padding: .3rem 1rem;\r\n    font-size: 1.25rem;\r\n    line-height: 1.2;\r\n    border-radius: 1rem;\n}\n.form-booking select.form-control[data-v-66d06953] {\r\n\ttext-align-last:center;\n}\n@media screen and (min-width: 992px){\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\r\n\t\tmin-width: 180px;\r\n\t\twidth: auto;\r\n\t\tdisplay: block;\r\n\t\tmargin: 0;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* formulario booking */\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\n\tmin-width: 100%;\n\tdisplay: block;\n\tmargin: 0;\n}\n.form-booking .form-control[data-v-66d06953]{\n\tborder: 0px solid transparent;\n}\n.form-booking .form-control[data-v-66d06953]:focus {\n    color: #495057;\n    background-color: #fff;\n    border-color: transparent;\n    outline: 0;\n    -webkit-box-shadow: 0 0 0 0.2rem transparent;\n            box-shadow: 0 0 0 0.2rem transparent;\n}\n.hr[data-v-66d06953]{\n\twidth: 100%;\n    height: 1px;\n    background-color: transparent;\n    border: 0.5px solid #555;\n}\n.form-booking .btn-primary[data-v-66d06953]{\n\tbackground-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-primary[data-v-66d06953]:hover {\n    color: #fff;\n    background-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-primary.focus[data-v-66d06953], .form-booking .btn-primary[data-v-66d06953]:focus{\n\t-webkit-box-shadow: 0 0 0 0.2rem #2ac0938a;\n\t        box-shadow: 0 0 0 0.2rem #2ac0938a;\n}\n.form-booking .btn-primary[data-v-66d06953]:not(:disabled):not(.disabled):active{\n\tcolor: #fff;\n    background-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-lg[data-v-66d06953] {\n    padding: .3rem 1rem;\n    font-size: 1.25rem;\n    line-height: 1.2;\n    border-radius: 1rem;\n}\n.form-booking select.form-control[data-v-66d06953] {\n\ttext-align-last:center;\n}\n@media screen and (min-width: 992px){\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\n\t\tmin-width: 180px;\n\t\twidth: auto;\n\t\tdisplay: block;\n\t\tmargin: 0;\n}\n}\n", ""]);
 
 // exports
 
@@ -99196,7 +99192,7 @@ var content = __webpack_require__(322);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("44a27636", content, false, {});
+var update = __webpack_require__(3)("a24996d0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -99625,7 +99621,7 @@ var content = __webpack_require__(327);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("57b2ddfe", content, false, {});
+var update = __webpack_require__(3)("b559fe98", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -99649,7 +99645,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.bg-gray[data-v-4ccc2179]{\r\n    background-color: #373737;\n}\n.badge-dark[data-v-4ccc2179] {\r\n    color: #fff !important;\r\n    background-color: #373737 !important;\r\n    border: 1px solid #fff;\n}\n.size[data-v-4ccc2179] {\r\n\t\twidth: 25%;\r\n\t\theight: auto;\n}\n.size-other[data-v-4ccc2179] {\r\n\t\twidth: 10%;\r\n\t\theight: auto;\n}\n.size-other-2[data-v-4ccc2179] {\r\n    width: 7%;\r\n    height: auto;\n}\r\n", ""]);
+exports.push([module.i, "\n.bg-gray[data-v-4ccc2179]{\n    background-color: #373737;\n}\n.badge-dark[data-v-4ccc2179] {\n    color: #fff !important;\n    background-color: #373737 !important;\n    border: 1px solid #fff;\n}\n.size[data-v-4ccc2179] {\n\t\twidth: 25%;\n\t\theight: auto;\n}\n.size-other[data-v-4ccc2179] {\n\t\twidth: 10%;\n\t\theight: auto;\n}\n.size-other-2[data-v-4ccc2179] {\n    width: 7%;\n    height: auto;\n}\n", ""]);
 
 // exports
 
@@ -99979,7 +99975,7 @@ var content = __webpack_require__(331);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("b748807e", content, false, {});
+var update = __webpack_require__(3)("0e857324", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -100003,7 +99999,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.bg-black[data-v-d4d910ee]{\r\n    background-color: #000;\n}\r\n", ""]);
+exports.push([module.i, "\n.bg-black[data-v-d4d910ee]{\n    background-color: #000;\n}\n", ""]);
 
 // exports
 
@@ -100172,7 +100168,7 @@ var content = __webpack_require__(335);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("1664bd92", content, false, {});
+var update = __webpack_require__(3)("8fff34ac", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -100196,7 +100192,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n#rooms-suites[data-v-024e8888]{\r\n    background-color: #fff;\n}\r\n", ""]);
+exports.push([module.i, "\n#rooms-suites[data-v-024e8888]{\n    background-color: #fff;\n}\n", ""]);
 
 // exports
 
@@ -100300,7 +100296,7 @@ var content = __webpack_require__(339);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("173a7de2", content, false, {});
+var update = __webpack_require__(3)("35b6e015", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -100324,7 +100320,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\nheader[data-v-72b32196]{\r\n    background-color: #fff;\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\r\n    background-position: center;\r\n    width: 100%;\r\n    height: 130px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    -webkit-box-align: end;\r\n        -ms-flex-align: end;\r\n            align-items: flex-end;\r\n    text-align: center;\r\n    background-image: url('/images/home/gallery-slider-map/7.jpeg');\n}\n@media (min-width: 768px) {\nheader[data-v-72b32196]{\r\n        height: 280px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\nheader[data-v-72b32196]{\n    background-color: #fff;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    width: 100%;\n    height: 130px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n    text-align: center;\n    background-image: url('/images/home/gallery-slider-map/7.jpeg');\n}\n@media (min-width: 768px) {\nheader[data-v-72b32196]{\n        height: 280px;\n}\n}\n", ""]);
 
 // exports
 
@@ -100432,7 +100428,7 @@ var content = __webpack_require__(343);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("d4a2bd88", content, false, {});
+var update = __webpack_require__(3)("0689a3e9", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -100456,7 +100452,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\nnav[data-v-601d4ffe]{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: nowrap;\r\n        flex-wrap: nowrap;\r\n    -webkit-box-pack: start;\r\n        -ms-flex-pack: start;\r\n            justify-content: flex-start;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    -ms-flex-wrap: wrap;\r\n        flex-wrap: wrap;\n}\n@media screen and (min-width: 768px){\nnav[data-v-601d4ffe]{\r\n        -ms-flex-wrap: nowrap;\r\n            flex-wrap: nowrap;\n}\n}\nnav a[data-v-601d4ffe]{\r\n    background-color: #555;\r\n    color: #fff;\r\n    text-align: center;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    width: 100%;\r\n    height: 70px;\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    font-size: 1.6rem;\n}\nnav a.active[data-v-601d4ffe]{\r\n    background-color: #4fcaa5;\n}\na[data-v-601d4ffe]:hover{\r\n    text-decoration: none;\r\n    background-color: #4fcaa5;\n}\r\n", ""]);
+exports.push([module.i, "\nnav[data-v-601d4ffe]{\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: nowrap;\n        flex-wrap: nowrap;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n}\n@media screen and (min-width: 768px){\nnav[data-v-601d4ffe]{\n        -ms-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n}\n}\nnav a[data-v-601d4ffe]{\n    background-color: #555;\n    color: #fff;\n    text-align: center;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    width: 100%;\n    height: 70px;\n    font-family: 'Josefin Sans', sans-serif;\n    font-size: 1.6rem;\n}\nnav a.active[data-v-601d4ffe]{\n    background-color: #4fcaa5;\n}\na[data-v-601d4ffe]:hover{\n    text-decoration: none;\n    background-color: #4fcaa5;\n}\n", ""]);
 
 // exports
 
@@ -100562,7 +100558,7 @@ var content = __webpack_require__(347);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("34311ad8", content, false, {});
+var update = __webpack_require__(3)("357e01f6", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -100842,7 +100838,7 @@ var content = __webpack_require__(352);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("14f18d18", content, false, {});
+var update = __webpack_require__(3)("81123fea", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -100866,7 +100862,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*form*/\n.form-control[data-v-80fc7554] {\r\n    display: block;\r\n    width: 100%;\r\n    height: calc(2.19rem + 2px);\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 0.9rem;\r\n    line-height: 1.6;\r\n    color: #495057;\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid #ced4da;\r\n    border-radius: 0rem;\n}\n.reserva[data-v-80fc7554]{\r\n      border: 1px solid #ccc;\n}\nlabel[data-v-80fc7554]{\r\n      font-family: 'Josefin Sans', sans-serif;\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*form*/\n.form-control[data-v-80fc7554] {\n    display: block;\n    width: 100%;\n    height: calc(2.19rem + 2px);\n    padding: 0.375rem 0.75rem;\n    font-size: 0.9rem;\n    line-height: 1.6;\n    color: #495057;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid #ced4da;\n    border-radius: 0rem;\n}\n.reserva[data-v-80fc7554]{\n      border: 1px solid #ccc;\n}\nlabel[data-v-80fc7554]{\n      font-family: 'Josefin Sans', sans-serif;\n}\n", ""]);
 
 // exports
 
@@ -101091,7 +101087,7 @@ var content = __webpack_require__(356);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("519aca2a", content, false, {});
+var update = __webpack_require__(3)("02aaae57", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -101115,7 +101111,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\nimg[data-v-ba0238ca]{\r\n    width: 68px;\n}\np[data-v-ba0238ca]{\r\n    line-height: 1.2;\n}\n.border-content[data-v-ba0238ca] {\r\n    border: 1px solid #ccc;\r\n    border-radius: 10px;\r\n    max-width: 140px;\r\n    height: 140px;\r\n    background-color: #fff;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 1rem auto;\n}\r\n", ""]);
+exports.push([module.i, "\nimg[data-v-ba0238ca]{\n    width: 68px;\n}\np[data-v-ba0238ca]{\n    line-height: 1.2;\n}\n.border-content[data-v-ba0238ca] {\n    border: 1px solid #ccc;\n    border-radius: 10px;\n    max-width: 140px;\n    height: 140px;\n    background-color: #fff;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    margin: 1rem auto;\n}\n", ""]);
 
 // exports
 
@@ -101364,7 +101360,7 @@ var content = __webpack_require__(362);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("5a790cae", content, false, {});
+var update = __webpack_require__(3)("1d804848", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -101688,7 +101684,7 @@ var content = __webpack_require__(367);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("3b83b980", content, false, {});
+var update = __webpack_require__(3)("0aaff4a6", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -103071,7 +103067,7 @@ var content = __webpack_require__(372);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("3c94d7ba", content, false, {});
+var update = __webpack_require__(3)("8a6f69b2", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -103808,7 +103804,7 @@ var content = __webpack_require__(377);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("7af86fd8", content, false, {});
+var update = __webpack_require__(3)("40b73b81", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -104472,7 +104468,7 @@ var content = __webpack_require__(382);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("92c755d2", content, false, {});
+var update = __webpack_require__(3)("75c0a144", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -105564,7 +105560,7 @@ var content = __webpack_require__(390);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("2849d374", content, false, {});
+var update = __webpack_require__(3)("7cab5a21", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -105588,7 +105584,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.bg-secondary[data-v-4ee41f5f]{\r\n    background-color: #c7c7c7 !important;\n}\n.form-control[data-v-4ee41f5f]{\r\n    background-color: transparent;\r\n    border-radius: 0px;\n}\n.form-control[data-v-4ee41f5f]:focus {\r\n    border-color: #ced4da;\n}\n.map[data-v-4ee41f5f]{\r\n    width: 100%;\r\n    height: 260px;\n}\n.map iframe[data-v-4ee41f5f]{\r\n    width: 100%;\r\n    height: 100%;\n}\n.text-success[data-v-4ee41f5f]{\r\n    font-size: 1.5rem;\n}\n.pointer[data-v-4ee41f5f]{\r\n    cursor:pointer!important;\n}\r\n", ""]);
+exports.push([module.i, "\n.bg-secondary[data-v-4ee41f5f]{\n    background-color: #c7c7c7 !important;\n}\n.form-control[data-v-4ee41f5f]{\n    background-color: transparent;\n    border-radius: 0px;\n}\n.form-control[data-v-4ee41f5f]:focus {\n    border-color: #ced4da;\n}\n.map[data-v-4ee41f5f]{\n    width: 100%;\n    height: 260px;\n}\n.map iframe[data-v-4ee41f5f]{\n    width: 100%;\n    height: 100%;\n}\n.text-success[data-v-4ee41f5f]{\n    font-size: 1.5rem;\n}\n.pointer[data-v-4ee41f5f]{\n    cursor:pointer!important;\n}\n", ""]);
 
 // exports
 
@@ -106584,7 +106580,7 @@ var content = __webpack_require__(395);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("5532c123", content, false, {});
+var update = __webpack_require__(3)("e5fbdfd4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -106608,7 +106604,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.bg-secondary[data-v-d3a5d6b6]{\r\n    background-color: #c7c7c7 !important;\n}\nh2[data-v-d3a5d6b6]{\r\n    font-size: 3rem;\r\n    line-height: 1;\r\n    margin-bottom: 0rem;\n}\n.map[data-v-d3a5d6b6]{\r\n    width: 100%;\r\n    height: 260px;\n}\n.map iframe[data-v-d3a5d6b6]{\r\n    width: 100%;\r\n    height: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.bg-secondary[data-v-d3a5d6b6]{\n    background-color: #c7c7c7 !important;\n}\nh2[data-v-d3a5d6b6]{\n    font-size: 3rem;\n    line-height: 1;\n    margin-bottom: 0rem;\n}\n.map[data-v-d3a5d6b6]{\n    width: 100%;\n    height: 260px;\n}\n.map iframe[data-v-d3a5d6b6]{\n    width: 100%;\n    height: 100%;\n}\n", ""]);
 
 // exports
 
@@ -107337,7 +107333,7 @@ var content = __webpack_require__(400);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("44f18454", content, false, {});
+var update = __webpack_require__(3)("4f2c9541", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -107361,7 +107357,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\nheader[data-v-3f12dd4f]{\r\n    background-color: #fff;\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\r\n    background-position: center;\r\n    width: 100%;\r\n    height: 130px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    -webkit-box-align: end;\r\n        -ms-flex-align: end;\r\n            align-items: flex-end;\r\n    text-align: center;\r\n    background-image: url('/images/home/gallery-slider-map/7.jpeg');\n}\n@media (min-width: 768px) {\nheader[data-v-3f12dd4f]{\r\n        height: 280px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\nheader[data-v-3f12dd4f]{\n    background-color: #fff;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    width: 100%;\n    height: 130px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n    text-align: center;\n    background-image: url('/images/home/gallery-slider-map/7.jpeg');\n}\n@media (min-width: 768px) {\nheader[data-v-3f12dd4f]{\n        height: 280px;\n}\n}\n", ""]);
 
 // exports
 
@@ -107469,7 +107465,7 @@ var content = __webpack_require__(404);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("31608735", content, false, {});
+var update = __webpack_require__(3)("9ad03530", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -107493,7 +107489,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\nnav[data-v-355d1d83]{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: nowrap;\r\n        flex-wrap: nowrap;\r\n    -webkit-box-pack: start;\r\n        -ms-flex-pack: start;\r\n            justify-content: flex-start;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    -ms-flex-wrap: wrap;\r\n        flex-wrap: wrap;\n}\n@media screen and (min-width: 768px){\nnav[data-v-355d1d83]{\r\n        -ms-flex-wrap: nowrap;\r\n            flex-wrap: nowrap;\n}\n}\nnav a[data-v-355d1d83]{\r\n    background-color: #555;\r\n    color: #fff;\r\n    text-align: center;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    width: 100%;\r\n    height: 70px;\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    font-size: 1.6rem;\r\n    line-height: 1.1;\n}\nnav a.active[data-v-355d1d83]{\r\n    background-color: #4fcaa5;\n}\na[data-v-355d1d83]:hover{\r\n    text-decoration: none;\r\n    background-color: #4fcaa5;\n}\nspan.text-small[data-v-355d1d83] {\r\n    font-size: 1.2rem;\r\n    line-height: 1;\n}\r\n", ""]);
+exports.push([module.i, "\nnav[data-v-355d1d83]{\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: nowrap;\n        flex-wrap: nowrap;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n}\n@media screen and (min-width: 768px){\nnav[data-v-355d1d83]{\n        -ms-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n}\n}\nnav a[data-v-355d1d83]{\n    background-color: #555;\n    color: #fff;\n    text-align: center;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    width: 100%;\n    height: 70px;\n    font-family: 'Josefin Sans', sans-serif;\n    font-size: 1.6rem;\n    line-height: 1.1;\n}\nnav a.active[data-v-355d1d83]{\n    background-color: #4fcaa5;\n}\na[data-v-355d1d83]:hover{\n    text-decoration: none;\n    background-color: #4fcaa5;\n}\nspan.text-small[data-v-355d1d83] {\n    font-size: 1.2rem;\n    line-height: 1;\n}\n", ""]);
 
 // exports
 
@@ -107706,7 +107702,7 @@ var content = __webpack_require__(409);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("3ec30ce4", content, false, {});
+var update = __webpack_require__(3)("4f9baa57", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -107730,7 +107726,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*form*/\n.form-control[data-v-635a8fe6] {\r\n    display: block;\r\n    width: 100%;\r\n    height: calc(2.19rem + 2px);\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 0.9rem;\r\n    line-height: 1.6;\r\n    color: #495057;\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid #ced4da;\r\n    border-radius: 0rem;\n}\n.reserva[data-v-635a8fe6]{\r\n      border: 1px solid #ccc;\n}\nlabel[data-v-635a8fe6]{\r\n      font-family: 'Josefin Sans', sans-serif;\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*form*/\n.form-control[data-v-635a8fe6] {\n    display: block;\n    width: 100%;\n    height: calc(2.19rem + 2px);\n    padding: 0.375rem 0.75rem;\n    font-size: 0.9rem;\n    line-height: 1.6;\n    color: #495057;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid #ced4da;\n    border-radius: 0rem;\n}\n.reserva[data-v-635a8fe6]{\n      border: 1px solid #ccc;\n}\nlabel[data-v-635a8fe6]{\n      font-family: 'Josefin Sans', sans-serif;\n}\n", ""]);
 
 // exports
 
@@ -109584,7 +109580,7 @@ var content = __webpack_require__(426);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("7d8198c6", content, false, {});
+var update = __webpack_require__(3)("346229d0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -109608,7 +109604,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\nnav[data-v-f6fb4be2]{\r\n    display: none;\n}\nnav a[data-v-f6fb4be2]{\r\n    background-color: #555;\r\n    color: #fff;\r\n    text-align: center;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    width: 100%;\r\n    height: 70px;\r\n    font-family: 'Josefin Sans', sans-serif;\n}\nnav a.active[data-v-f6fb4be2]{\r\n    background-color: #4fcaa5;\n}\na.router-link-exact-active.router-link-active[data-v-f6fb4be2]{\r\n    color: #fff !important;\r\n    background-color: #4fcaa5;\n}\na[data-v-f6fb4be2]:hover{\r\n    text-decoration: none;\r\n    background-color: #4fcaa5;\n}\n@media (min-width: 768px){\nnav[data-v-f6fb4be2]{\r\n      display: -webkit-box;\r\n      display: -ms-flexbox;\r\n      display: flex;\r\n      -ms-flex-wrap: nowrap;\r\n          flex-wrap: nowrap;\r\n      -webkit-box-pack: start;\r\n          -ms-flex-pack: start;\r\n              justify-content: flex-start;\r\n      -webkit-box-align: center;\r\n          -ms-flex-align: center;\r\n              align-items: center;\n}\na[data-v-f6fb4be2]{\r\n        font-size: 1rem;\n}\n}\n@media (min-width: 992px){\na[data-v-f6fb4be2]{\r\n    font-size: 1.5rem !important;\n}\n}\r\n\r\n", ""]);
+exports.push([module.i, "\nnav[data-v-f6fb4be2]{\n    display: none;\n}\nnav a[data-v-f6fb4be2]{\n    background-color: #555;\n    color: #fff;\n    text-align: center;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    width: 100%;\n    height: 70px;\n    font-family: 'Josefin Sans', sans-serif;\n}\nnav a.active[data-v-f6fb4be2]{\n    background-color: #4fcaa5;\n}\na.router-link-exact-active.router-link-active[data-v-f6fb4be2]{\n    color: #fff !important;\n    background-color: #4fcaa5;\n}\na[data-v-f6fb4be2]:hover{\n    text-decoration: none;\n    background-color: #4fcaa5;\n}\n@media (min-width: 768px){\nnav[data-v-f6fb4be2]{\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -ms-flex-wrap: nowrap;\n          flex-wrap: nowrap;\n      -webkit-box-pack: start;\n          -ms-flex-pack: start;\n              justify-content: flex-start;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\na[data-v-f6fb4be2]{\n        font-size: 1rem;\n}\n}\n@media (min-width: 992px){\na[data-v-f6fb4be2]{\n    font-size: 1.5rem !important;\n}\n}\n\n", ""]);
 
 // exports
 
@@ -109809,7 +109805,7 @@ var content = __webpack_require__(431);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("7117605c", content, false, {});
+var update = __webpack_require__(3)("029fd949", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -109833,7 +109829,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\nheader[data-v-800efcea]{\r\n    background-color: #fff;\r\n    width: 100%;\r\n    height: 130px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    -webkit-box-align: end;\r\n        -ms-flex-align: end;\r\n            align-items: flex-end;\r\n    text-align: center;\n}\n@media (max-width: 768px) {\n.alto[data-v-800efcea]{\r\n        width: 50px;\n}\n}\n@media (min-width: 768px) {\nheader[data-v-800efcea]{\r\n        height: 280px;\n}\n.alto[data-v-800efcea]{\r\n        width: 100px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\nheader[data-v-800efcea]{\n    background-color: #fff;\n    width: 100%;\n    height: 130px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: end;\n        -ms-flex-align: end;\n            align-items: flex-end;\n    text-align: center;\n}\n@media (max-width: 768px) {\n.alto[data-v-800efcea]{\n        width: 50px;\n}\n}\n@media (min-width: 768px) {\nheader[data-v-800efcea]{\n        height: 280px;\n}\n.alto[data-v-800efcea]{\n        width: 100px;\n}\n}\n", ""]);
 
 // exports
 
@@ -110009,7 +110005,7 @@ var content = __webpack_require__(436);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("63df3cb3", content, false, {});
+var update = __webpack_require__(3)("153094c0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -110199,7 +110195,7 @@ var content = __webpack_require__(440);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("fd8a204c", content, false, {});
+var update = __webpack_require__(3)("12c368c7", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -110223,7 +110219,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.bg-secondary[data-v-ce960dc4]{\r\n    background-color: #c7c7c7 !important;\n}\n.form-control[data-v-ce960dc4]{\r\n    background-color: transparent;\r\n    border-radius: 0px;\n}\n.form-control[data-v-ce960dc4]:focus {\r\n    border-color: #ced4da;\n}\n.delete[data-v-ce960dc4]{\r\n    cursor: pointer;\n}\n.map[data-v-ce960dc4]{\r\n    width: 100%;\r\n    height: 260px;\n}\n.map iframe[data-v-ce960dc4]{\r\n    width: 100%;\r\n    height: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.bg-secondary[data-v-ce960dc4]{\n    background-color: #c7c7c7 !important;\n}\n.form-control[data-v-ce960dc4]{\n    background-color: transparent;\n    border-radius: 0px;\n}\n.form-control[data-v-ce960dc4]:focus {\n    border-color: #ced4da;\n}\n.delete[data-v-ce960dc4]{\n    cursor: pointer;\n}\n.map[data-v-ce960dc4]{\n    width: 100%;\n    height: 260px;\n}\n.map iframe[data-v-ce960dc4]{\n    width: 100%;\n    height: 100%;\n}\n", ""]);
 
 // exports
 
@@ -110523,7 +110519,7 @@ var content = __webpack_require__(444);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("f84f164a", content, false, {});
+var update = __webpack_require__(3)("88b07864", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -110547,7 +110543,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.bg-contact[data-v-6f20da0e] {\r\n    widows: 100%;\r\n    min-height: 620px;\r\n    padding-top: 200px;\r\n    padding-bottom: 100px;\r\n    background-image: url(\"/images/home/header-slider/header-image-1.jpg\");\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\r\n    background-position: center;\n}\n.bg-form-contact[data-v-6f20da0e] {\r\nbackground-color: white;\r\nwidth: 50%;\r\nheight: auto;\r\npadding: 0% 5%;\n}\n.text-separation[data-v-6f20da0e] {\r\n    letter-spacing: 0.2rem\n}\n.icon-contact[data-v-6f20da0e] {\r\nborder: 1px solid #8a8a8a;\r\npadding:20px 20px 20px 20px\n}\n.text-btn-white[data-v-6f20da0e] {\r\n    font-size: 1.3rem;\r\n    letter-spacing: 0.2rem;\r\n    font-weight: bold;\n}\n@media (max-width: 600px) {\n.bg-form-contact[data-v-6f20da0e] {\r\n    width: 90%;\r\n    height: auto;\r\n    padding: 0% 5%;\n}\n.hide-movil[data-v-6f20da0e] {\r\n   display: none;\n}\n.show-movil[data-v-6f20da0e] {\r\n      padding: 5%;\n}\n.text-separation[data-v-6f20da0e] {\r\n    letter-spacing: 0.2rem;\r\n    padding-top: 10%;\n}\n}\n@media (max-width: 800px) {\n.hide-movil[data-v-6f20da0e] {\r\n   display: none;\n}\n.show-movil[data-v-6f20da0e] {\r\n      padding: 10%;\n}\n.text-separation[data-v-6f20da0e] {\r\n    letter-spacing: 0.2rem;\r\n    padding-top: 10%;\n}\n}\n.form-control[data-v-6f20da0e] {\r\n     outline: none;\r\n     border-bottom: 1px solid #373737;\r\n     border-top: 0;\r\n     border-left: 0;\r\n     border-right: 0;\r\n     border-radius: 0;\n}\n.form-control[data-v-6f20da0e]:focus {\r\n    -webkit-box-shadow:none;\r\n            box-shadow:none;\r\n    border-bottom: 1px solid #373737;\r\n    border-top: 0;\r\n    border-left: 0;\r\n    border-right: 0;\r\n    border-radius: 0;\n}\n.grazie[data-v-6f20da0e] {\r\n    font-size: 4rem;\r\n    letter-spacing: 0.4rem;\n}\n.error[data-v-6f20da0e] {\r\n    font-size: 9rem;\r\n    letter-spacing: 0.4rem;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.bg-contact[data-v-6f20da0e] {\n    widows: 100%;\n    min-height: 620px;\n    padding-top: 200px;\n    padding-bottom: 100px;\n    background-image: url(\"/images/home/header-slider/header-image-1.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n}\n.bg-form-contact[data-v-6f20da0e] {\nbackground-color: white;\nwidth: 50%;\nheight: auto;\npadding: 0% 5%;\n}\n.text-separation[data-v-6f20da0e] {\n    letter-spacing: 0.2rem\n}\n.icon-contact[data-v-6f20da0e] {\nborder: 1px solid #8a8a8a;\npadding:20px 20px 20px 20px\n}\n.text-btn-white[data-v-6f20da0e] {\n    font-size: 1.3rem;\n    letter-spacing: 0.2rem;\n    font-weight: bold;\n}\n@media (max-width: 600px) {\n.bg-form-contact[data-v-6f20da0e] {\n    width: 90%;\n    height: auto;\n    padding: 0% 5%;\n}\n.hide-movil[data-v-6f20da0e] {\n   display: none;\n}\n.show-movil[data-v-6f20da0e] {\n      padding: 5%;\n}\n.text-separation[data-v-6f20da0e] {\n    letter-spacing: 0.2rem;\n    padding-top: 10%;\n}\n}\n@media (max-width: 800px) {\n.hide-movil[data-v-6f20da0e] {\n   display: none;\n}\n.show-movil[data-v-6f20da0e] {\n      padding: 10%;\n}\n.text-separation[data-v-6f20da0e] {\n    letter-spacing: 0.2rem;\n    padding-top: 10%;\n}\n}\n.form-control[data-v-6f20da0e] {\n     outline: none;\n     border-bottom: 1px solid #373737;\n     border-top: 0;\n     border-left: 0;\n     border-right: 0;\n     border-radius: 0;\n}\n.form-control[data-v-6f20da0e]:focus {\n    -webkit-box-shadow:none;\n            box-shadow:none;\n    border-bottom: 1px solid #373737;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-radius: 0;\n}\n.grazie[data-v-6f20da0e] {\n    font-size: 4rem;\n    letter-spacing: 0.4rem;\n}\n.error[data-v-6f20da0e] {\n    font-size: 9rem;\n    letter-spacing: 0.4rem;\n}\n\n", ""]);
 
 // exports
 
@@ -110684,7 +110680,7 @@ var content = __webpack_require__(448);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("b630b86c", content, false, {});
+var update = __webpack_require__(3)("46921a86", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -110708,7 +110704,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.bg-contact[data-v-b862916a] {\r\n    widows: 100%;\r\n    min-height: 620px;\r\n    padding-top: 200px;\r\n    padding-bottom: 100px;\r\n    background-image: url(\"/images/home/header-slider/header-image-1.jpg\");\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\r\n    background-position: center;\n}\n.bg-form-contact[data-v-b862916a] {\r\nbackground-color: white;\r\nwidth: 50%;\r\nheight: auto;\r\npadding: 0% 5%;\n}\n.text-separation[data-v-b862916a] {\r\n    letter-spacing: 0.2rem\n}\n.icon-contact[data-v-b862916a] {\r\nborder: 1px solid #8a8a8a;\r\npadding:20px 20px 20px 20px\n}\n.text-btn-white[data-v-b862916a] {\r\n    font-size: 1.3rem;\r\n    letter-spacing: 0.2rem;\r\n    font-weight: bold;\n}\n@media (max-width: 600px) {\n.bg-form-contact[data-v-b862916a] {\r\n    width: 90%;\r\n    height: auto;\r\n    padding: 0% 5%;\n}\n.hide-movil[data-v-b862916a] {\r\n   display: none;\n}\n.show-movil[data-v-b862916a] {\r\n      padding: 5%;\n}\n.text-separation[data-v-b862916a] {\r\n    letter-spacing: 0.2rem;\r\n    padding-top: 10%;\n}\n}\n@media (max-width: 800px) {\n.hide-movil[data-v-b862916a] {\r\n   display: none;\n}\n.show-movil[data-v-b862916a] {\r\n      padding: 10%;\n}\n.text-separation[data-v-b862916a] {\r\n    letter-spacing: 0.2rem;\r\n    padding-top: 10%;\n}\n}\n.form-control[data-v-b862916a] {\r\n     outline: none;\r\n     border-bottom: 1px solid #373737;\r\n     border-top: 0;\r\n     border-left: 0;\r\n     border-right: 0;\r\n     border-radius: 0;\n}\n.form-control[data-v-b862916a]:focus {\r\n    -webkit-box-shadow:none;\r\n            box-shadow:none;\r\n    border-bottom: 1px solid #373737;\r\n    border-top: 0;\r\n    border-left: 0;\r\n    border-right: 0;\r\n    border-radius: 0;\n}\n.grazie[data-v-b862916a] {\r\n    font-size: 4rem;\r\n    letter-spacing: 0.4rem;\n}\n.error[data-v-b862916a] {\r\n    font-size: 9rem;\r\n    letter-spacing: 0.4rem;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.bg-contact[data-v-b862916a] {\n    widows: 100%;\n    min-height: 620px;\n    padding-top: 200px;\n    padding-bottom: 100px;\n    background-image: url(\"/images/home/header-slider/header-image-1.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n}\n.bg-form-contact[data-v-b862916a] {\nbackground-color: white;\nwidth: 50%;\nheight: auto;\npadding: 0% 5%;\n}\n.text-separation[data-v-b862916a] {\n    letter-spacing: 0.2rem\n}\n.icon-contact[data-v-b862916a] {\nborder: 1px solid #8a8a8a;\npadding:20px 20px 20px 20px\n}\n.text-btn-white[data-v-b862916a] {\n    font-size: 1.3rem;\n    letter-spacing: 0.2rem;\n    font-weight: bold;\n}\n@media (max-width: 600px) {\n.bg-form-contact[data-v-b862916a] {\n    width: 90%;\n    height: auto;\n    padding: 0% 5%;\n}\n.hide-movil[data-v-b862916a] {\n   display: none;\n}\n.show-movil[data-v-b862916a] {\n      padding: 5%;\n}\n.text-separation[data-v-b862916a] {\n    letter-spacing: 0.2rem;\n    padding-top: 10%;\n}\n}\n@media (max-width: 800px) {\n.hide-movil[data-v-b862916a] {\n   display: none;\n}\n.show-movil[data-v-b862916a] {\n      padding: 10%;\n}\n.text-separation[data-v-b862916a] {\n    letter-spacing: 0.2rem;\n    padding-top: 10%;\n}\n}\n.form-control[data-v-b862916a] {\n     outline: none;\n     border-bottom: 1px solid #373737;\n     border-top: 0;\n     border-left: 0;\n     border-right: 0;\n     border-radius: 0;\n}\n.form-control[data-v-b862916a]:focus {\n    -webkit-box-shadow:none;\n            box-shadow:none;\n    border-bottom: 1px solid #373737;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-radius: 0;\n}\n.grazie[data-v-b862916a] {\n    font-size: 4rem;\n    letter-spacing: 0.4rem;\n}\n.error[data-v-b862916a] {\n    font-size: 9rem;\n    letter-spacing: 0.4rem;\n}\n\n", ""]);
 
 // exports
 
