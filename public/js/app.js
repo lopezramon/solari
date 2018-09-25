@@ -102871,11 +102871,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             form: {
-                fullname: null,
+                name: null,
                 email: null,
                 subject: null,
                 phone: null,
-                message: null
+                msg: null
             },
             color: '#1b1b1b',
             size: '15px',
@@ -102885,7 +102885,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         isDisabled: function isDisabled() {
-            return !this.form.fullname || !this.form.email || !this.form.subject || !this.form.phone || !this.form.message;
+            return !this.form.name || !this.form.email || !this.form.subject || !this.form.phone || !this.form.msg;
         }
     },
     methods: {
@@ -102924,7 +102924,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 email: null,
                 subject: null,
                 phone: null,
-                message: null
+                msg: null
             };
         }
     }
@@ -103028,8 +103028,8 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.fullname,
-                              expression: "form.fullname"
+                              value: _vm.form.name,
+                              expression: "form.name"
                             }
                           ],
                           staticClass: "form-control",
@@ -103042,17 +103042,13 @@ var render = function() {
                             "data-vv-as": "Nombre completo",
                             placeholder: "Agrega tu nombre completo"
                           },
-                          domProps: { value: _vm.form.fullname },
+                          domProps: { value: _vm.form.name },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.$set(
-                                _vm.form,
-                                "fullname",
-                                $event.target.value
-                              )
+                              _vm.$set(_vm.form, "name", $event.target.value)
                             }
                           }
                         }),
@@ -103342,8 +103338,8 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.message,
-                              expression: "form.message"
+                              value: _vm.form.msg,
+                              expression: "form.msg"
                             },
                             {
                               name: "validate",
@@ -103362,13 +103358,13 @@ var render = function() {
                             placeholder: "Escribe tu mensaje aquí...",
                             rows: "3"
                           },
-                          domProps: { value: _vm.form.message },
+                          domProps: { value: _vm.form.msg },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.$set(_vm.form, "message", $event.target.value)
+                              _vm.$set(_vm.form, "msg", $event.target.value)
                             }
                           }
                         }),
