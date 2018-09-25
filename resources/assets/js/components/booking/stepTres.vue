@@ -204,8 +204,8 @@ h2{
             let slf=this;
             axios.get('/api/admin/bookings/'+this.id).then((res) => {
                 if(res){
-                   slf.orden.checking=res.data.data.booking.checkin_date;
-                   slf.orden.checkout=res.data.data.booking.checkout_date;
+                   slf.orden.checking=Vue.moment(res.data.data.booking.checkin_date).format('YYYY/MMM/DD').toUpperCase();
+                   slf.orden.checkout=Vue.moment(res.data.data.booking.checkout).format('YYYY/MMM/DD').toUpperCase();
                    slf.orden.orden=res.data.data.booking.code;
                    let orden=res.data.data.booking.rooms;
                    const arr=[];
