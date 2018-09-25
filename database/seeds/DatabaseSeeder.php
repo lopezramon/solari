@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             StatusesTableSeeder::class,
             LanguagesTableSeeder::class,
-            ScreensTableSeeder::class,
+            //ScreensTableSeeder::class,
             StatusTranslationsTableSeeder::class,
             RolesTableSeeder::class,
             UsersTableSeeder::class,

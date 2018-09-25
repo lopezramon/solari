@@ -11,7 +11,16 @@ Vue.use(VueAwesomeSwiper, {});
 
 // Vee-Validate
 import VeeValidate from 'vee-validate';
-Vue.use(VeeValidate);
+// import VeeValidateEn from '../../js/vee-validate-languaje/en';
+// import VeeValidateIt from '../../js/vee-validate-languaje/it';
+Vue.use(VeeValidate, {
+    // locale: 'it',
+    fieldsBagName: 'veeFields',
+    // dictionary: {
+    //     it: VeeValidateIt,
+    //     en: VeeValidateEn
+    // }
+});
 
 // Sweetalert2
 import VueSweetalert2 from 'vue-sweetalert2';
@@ -142,7 +151,7 @@ let router = new Router({
             component: account_table
         },
         {
-            path: '/my-order-detail',
+            path: '/my-order-detail/:id',
             name: 'myOrderDetail',
             component: myOrderDetail
         },
