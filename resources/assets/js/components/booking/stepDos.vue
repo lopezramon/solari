@@ -283,12 +283,16 @@ export default {
                     cancelButtonText: 'Continuar'
                   }).then((result) => {
                     if (!result.value) {
-                        // console.log(this.orden);
                         axios.post('/paypal',this.orden).then((res) => {
                             if(res){
                                 var url=res.data.url;
-                                // this.loading=false;     
-                                // window.location.href=url;
+                                this.loading=false; 
+                                if(url!=undefined){
+                                    window.location.href=url;
+                                }else{
+                                     this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
+                                }
+                                
                             }
                         }).catch((error) => {
                             this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')

@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Http\Controllers\API\Admin\OrderAPIController;
 use App\Http\Controllers\Admin\MailController;
 use App\Mail\OrderMailable;
@@ -26,8 +24,6 @@ use Session;
 use URL;
 use App\Repositories\Admin\BookingRepository;
 
-
-
 class PaypalController extends Controller
 {
     /** @var  BookingRepository */
@@ -42,7 +38,6 @@ class PaypalController extends Controller
             $paypal_conf['secret'])
         );
         $this->_api_context->setConfig($paypal_conf['settings']);
-
         $this->bookingRepository = $bookingRepo;
     }
 
@@ -51,13 +46,9 @@ class PaypalController extends Controller
 
     public function payWithpaypal(Request $request)
     {
-        
-
-        $data = $request;
-        Session::put('data_order',$data);
-    
+        $data = $request->all();
+        $request->session()->put('data_order',$data);
         $total = $data["cart"]["total"];
-
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
         $item_1 = new Item();
