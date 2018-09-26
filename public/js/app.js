@@ -76600,7 +76600,8 @@ var index_esm = {
       responsable: {
         name: null,
         phone: null,
-        identidad: null
+        identidad: null,
+        email: null
       }
     }
   },
@@ -76632,6 +76633,7 @@ var index_esm = {
       Vue.set(state.booking.responsable, 'name', null);
       Vue.set(state.booking.responsable, 'phone', null);
       Vue.set(state.booking.responsable, 'identidad', null);
+      Vue.set(state.booking.responsable, 'email', null);
     },
     setResponReser: function setResponReser(state, _ref) {
       var list = _ref.list;
@@ -76639,6 +76641,7 @@ var index_esm = {
       Vue.set(state.booking.responsable, 'name', list.name_reserva);
       Vue.set(state.booking.responsable, 'phone', list.telef_reserva);
       Vue.set(state.booking.responsable, 'identidad', list.identidad_reserva);
+      Vue.set(state.booking.responsable, 'email', list.email);
     },
     setFilter: function setFilter(state, _ref2) {
       var list = _ref2.list;
@@ -111537,6 +111540,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -111546,7 +111575,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 name_reserva: null,
                 telef_reserva: null,
                 identidad_reserva: null,
-                id: null
+                id: null,
+                email: null
             },
             cant_visitantes: 0,
             comentario: null,
@@ -111684,20 +111714,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         cancelButtonText: 'Continuar'
                     }).then(function (result) {
                         if (!result.value) {
-                            axios.post('/paypal', _this.orden).then(function (res) {
-                                if (res) {
-                                    var url = res.data.url;
-                                    _this.loading = false;
-                                    if (url != undefined) {
-                                        window.location.href = url;
-                                    } else {
-                                        _this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal');
-                                    }
-                                }
-                            }).catch(function (error) {
-                                _this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal');
-                                _this.loading = false;
-                            });
+                            console.log(_this.orden);
+                            // axios.post('/paypal',this.orden).then((res) => {
+                            //     if(res){
+                            //         var url=res.data.url;
+                            //         this.loading=false; 
+                            //         if(url!=undefined){
+                            //             window.location.href=url;
+                            //         }else{
+                            //              this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
+                            //         }
+
+                            //     }
+                            // }).catch((error) => {
+                            //     this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
+                            //     this.loading=false;     
+                            // });
                         } else {
                             console.log("cancelar");
                         }
@@ -111733,13 +111765,36 @@ var render = function() {
               _vm._m(0),
               _vm._v(" "),
               _c("div", { staticClass: "border-bottom p-2" }, [
-                _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                  _vm._v("Reservado por:")
-                ]),
+                _c(
+                  "label",
+                  {
+                    staticClass: "font-weight-bold",
+                    attrs: { for: "name_reserva" }
+                  },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass: "text-success",
+                        class: { "text-danger": _vm.errors.has("name_reserva") }
+                      },
+                      [_vm._v("*")]
+                    ),
+                    _vm._v(
+                      "\n                            Reservado Para\n                        "
+                    )
+                  ]
+                ),
                 _vm._v(" "),
                 !_vm.getAuthenticated
                   ? _c("input", {
                       directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required",
+                          expression: "'required'"
+                        },
                         {
                           name: "model",
                           rawName: "v-model",
@@ -111748,7 +111803,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { type: "text" },
+                      attrs: { type: "text", name: "name_reserva" },
                       domProps: { value: _vm.user.name_reserva },
                       on: {
                         input: function($event) {
@@ -111769,17 +111824,58 @@ var render = function() {
                   ? _c("span", { staticClass: "font-weight-bold" }, [
                       _vm._v(_vm._s(_vm.user.name_reserva))
                     ])
-                  : _vm._e()
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "small",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("name_reserva"),
+                        expression: "errors.has('name_reserva')"
+                      }
+                    ],
+                    staticClass: "help text-danger"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("name_reserva")))]
+                )
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "border-bottom p-2" }, [
-                _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                  _vm._v("Numero de identidad:")
-                ]),
+                _c(
+                  "label",
+                  {
+                    staticClass: "font-weight-bold",
+                    attrs: { for: "identidad_reserva" }
+                  },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass: "text-success",
+                        class: {
+                          "text-danger": _vm.errors.has("identidad_reserva")
+                        }
+                      },
+                      [_vm._v("*")]
+                    ),
+                    _vm._v(
+                      "\n                           Numero de identidad:\n                        "
+                    )
+                  ]
+                ),
                 _vm._v(" "),
                 !_vm.getAuthenticated
                   ? _c("input", {
                       directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required|numeric",
+                          expression: "'required|numeric'"
+                        },
                         {
                           name: "model",
                           rawName: "v-model",
@@ -111788,7 +111884,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { type: "text" },
+                      attrs: { type: "text", name: "identidad_reserva" },
                       domProps: { value: _vm.user.identidad_reserva },
                       on: {
                         input: function($event) {
@@ -111809,17 +111905,58 @@ var render = function() {
                   ? _c("span", { staticClass: "font-weight-bold" }, [
                       _vm._v(_vm._s(_vm.user.identidad_reserva))
                     ])
-                  : _vm._e()
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "small",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("identidad_reserva"),
+                        expression: "errors.has('identidad_reserva')"
+                      }
+                    ],
+                    staticClass: "help text-danger"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("identidad_reserva")))]
+                )
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "border-bottom p-2" }, [
-                _c("strong", { staticClass: "m-0 text-uppercase" }, [
-                  _vm._v("Telefono:")
-                ]),
+                _c(
+                  "label",
+                  {
+                    staticClass: "font-weight-bold",
+                    attrs: { for: "telef_reserva" }
+                  },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass: "text-success",
+                        class: {
+                          "text-danger": _vm.errors.has("telef_reserva")
+                        }
+                      },
+                      [_vm._v("*")]
+                    ),
+                    _vm._v(
+                      "\n                           Telefono:\n                        "
+                    )
+                  ]
+                ),
                 _vm._v(" "),
                 !_vm.getAuthenticated
                   ? _c("input", {
                       directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required|numeric",
+                          expression: "'required|numeric'"
+                        },
                         {
                           name: "model",
                           rawName: "v-model",
@@ -111828,7 +111965,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { type: "text" },
+                      attrs: { name: "telef_reserva", type: "text" },
                       domProps: { value: _vm.user.telef_reserva },
                       on: {
                         input: function($event) {
@@ -111849,7 +111986,98 @@ var render = function() {
                   ? _c("span", { staticClass: "font-weight-bold" }, [
                       _vm._v(_vm._s(_vm.user.telef_reserva))
                     ])
-                  : _vm._e()
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "small",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("telef_reserva"),
+                        expression: "errors.has('telef_reserva')"
+                      }
+                    ],
+                    staticClass: "help text-danger"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("telef_reserva")))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "border-bottom p-2" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "font-weight-bold",
+                    attrs: { for: "telef_reserva" }
+                  },
+                  [
+                    _c(
+                      "span",
+                      {
+                        staticClass: "text-success",
+                        class: { "text-danger": _vm.errors.has("email") }
+                      },
+                      [_vm._v("*")]
+                    ),
+                    _vm._v(
+                      "\n                           Email:\n                        "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                !_vm.getAuthenticated
+                  ? _c("input", {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required|email",
+                          expression: "'required|email'"
+                        },
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.user.email,
+                          expression: "user.email"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "email", type: "email" },
+                      domProps: { value: _vm.user.email },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.user, "email", $event.target.value)
+                        }
+                      }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.getAuthenticated
+                  ? _c("span", { staticClass: "font-weight-bold" }, [
+                      _vm._v(_vm._s(_vm.user.email))
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "small",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("email"),
+                        expression: "errors.has('email')"
+                      }
+                    ],
+                    staticClass: "help text-danger"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("email")))]
+                )
               ])
             ]),
             _vm._v(" "),

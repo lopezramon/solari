@@ -9,6 +9,7 @@ export default {
           name:null,
           phone:null,
           identidad:null,
+          email:null,
          }
       },
     },
@@ -42,11 +43,13 @@ export default {
         Vue.set(state.booking.responsable,'name',null); 
         Vue.set(state.booking.responsable,'phone',null); 
         Vue.set(state.booking.responsable,'identidad',null); 
+        Vue.set(state.booking.responsable,'email',null); 
       },
       setResponReser(state,{ list }){ 
         Vue.set(state.booking.responsable,'name',list.name_reserva); 
         Vue.set(state.booking.responsable,'phone',list.telef_reserva); 
         Vue.set(state.booking.responsable,'identidad',list.identidad_reserva);
+        Vue.set(state.booking.responsable,'email',list.email);
       },
       setFilter(state,{ list }){ 
         Vue.set(state.booking,'checkin',list.checkin);

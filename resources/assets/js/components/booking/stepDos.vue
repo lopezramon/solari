@@ -14,19 +14,45 @@
                             <strong class="m-0 text-uppercase">Numero de reserva:</strong> {{}}
                         </div> -->
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Reservado por:</strong>
-                            <input v-if="!getAuthenticated" type="text" v-model="user.name_reserva" class="form-control">
+                            <!-- <strong class="m-0 text-uppercase">Reservado por:</strong> -->
+                            <label for="name_reserva" class="font-weight-bold">  
+                                <span class="text-success" :class="{'text-danger': errors.has('name_reserva') }">*</span>
+                                Reservado Para
+                            </label>
+                            <input v-if="!getAuthenticated"  v-validate="'required'" type="text" name="name_reserva" v-model="user.name_reserva" class="form-control">
                             <span v-if="getAuthenticated" class="font-weight-bold">{{user.name_reserva}}</span>
+                            <small v-show="errors.has('name_reserva')" class="help text-danger">{{ errors.first('name_reserva') }}</small>
+
                         </div>
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Numero de identidad:</strong>
-                            <input v-if="!getAuthenticated" type="text" v-model="user.identidad_reserva" class="form-control">
+                             <label for="identidad_reserva" class="font-weight-bold">  
+                                <span class="text-success" :class="{'text-danger': errors.has('identidad_reserva') }">*</span>
+                               Numero de identidad:
+                            </label>
+                           <!--  <strong class="m-0 text-uppercase">Numero de identidad:</strong> -->
+                            <input v-if="!getAuthenticated" type="text" name="identidad_reserva" v-validate="'required|numeric'" v-model="user.identidad_reserva" class="form-control">
                             <span v-if="getAuthenticated"class="font-weight-bold">{{user.identidad_reserva}}</span>
+                            <small v-show="errors.has('identidad_reserva')" class="help text-danger">{{ errors.first('identidad_reserva') }}</small>
                         </div>
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Telefono:</strong>
-                            <input v-if="!getAuthenticated" type="text" v-model="user.telef_reserva" class="form-control">
+                            <label for="telef_reserva" class="font-weight-bold">  
+                                <span class="text-success" :class="{'text-danger': errors.has('telef_reserva') }">*</span>
+                               Telefono:
+                            </label>
+                            <!-- <strong class="m-0 text-uppercase">Telefono:</strong> -->
+                            <input v-validate="'required|numeric'" name="telef_reserva" v-if="!getAuthenticated" type="text" v-model="user.telef_reserva" class="form-control">
                             <span v-if="getAuthenticated" class="font-weight-bold">{{user.telef_reserva}}</span>
+                            <small v-show="errors.has('telef_reserva')" class="help text-danger">{{ errors.first('telef_reserva') }}</small>
+                        </div>
+                         <div class="border-bottom p-2">
+                            <label for="telef_reserva" class="font-weight-bold">  
+                                <span class="text-success" :class="{'text-danger': errors.has('email') }">*</span>
+                               Email:
+                            </label>
+                            <!-- <strong class="m-0 text-uppercase">Email:</strong> -->
+                            <input v-validate="'required|email'" name="email" v-if="!getAuthenticated" type="email" v-model="user.email" class="form-control">
+                            <span v-if="getAuthenticated" class="font-weight-bold">{{user.email}}</span>
+                            <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
                         </div>
                     </div>
 
@@ -149,6 +175,7 @@ export default {
                 telef_reserva:null,
                 identidad_reserva:null,
                 id:null,
+                email:null,
             },
             cant_visitantes:0,
             comentario:null,
@@ -283,21 +310,22 @@ export default {
                     cancelButtonText: 'Continuar'
                   }).then((result) => {
                     if (!result.value) {
-                        axios.post('/paypal',this.orden).then((res) => {
-                            if(res){
-                                var url=res.data.url;
-                                this.loading=false; 
-                                if(url!=undefined){
-                                    window.location.href=url;
-                                }else{
-                                     this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
-                                }
+                        console.log(this.orden);
+                        // axios.post('/paypal',this.orden).then((res) => {
+                        //     if(res){
+                        //         var url=res.data.url;
+                        //         this.loading=false; 
+                        //         if(url!=undefined){
+                        //             window.location.href=url;
+                        //         }else{
+                        //              this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
+                        //         }
                                 
-                            }
-                        }).catch((error) => {
-                            this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
-                            this.loading=false;     
-                        });
+                        //     }
+                        // }).catch((error) => {
+                        //     this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
+                        //     this.loading=false;     
+                        // });
                     }else{
                         console.log("cancelar")
                     }
