@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\AppBaseController;
+use App\Http\Controllers\MailController;
 use App\Http\Requests\API\Admin\CreateBookingAPIRequest;
 use App\Http\Requests\API\Admin\UpdateBookingAPIRequest;
 use App\Models\Admin\Booking;
@@ -86,7 +87,7 @@ class BookingAPIController extends AppBaseController
     public function store(CreateBookingAPIRequest $request)
     {
         $input = $request->all();
-        /*$input = [
+        $input = [
             'comentario'    => 'Hola 2',
             'datos_reserva' => [
                 [
@@ -105,8 +106,14 @@ class BookingAPIController extends AppBaseController
                 ],
                 'total'     => 59.05
             ],
-            'user_id'       => 2
-        ];*/
+            'responsable' => [
+              'name'        => 'Carla',
+              'email'       => 'steven.sucre@jumperr.com',
+              'phone'       => '323232232323',
+              'identidad'   => '2332233223'
+            ],
+            'user_id'       => 2,
+        ];
 
         $data = (array)$input;
 
@@ -117,7 +124,7 @@ class BookingAPIController extends AppBaseController
         $bookingWithRelations = $this->bookingRepository->findCustomized($booking->id);
 
         // Guardar Correo
-        // $sended = $this->bookingRepository->sendMail($bookingWithRelations, 'booking'); #PENDIENTE
+        $sended = $this->sendMail($bookingWithRelations, 'tests'); #PENDIENTE
         $sended = 'NOK';
 
         if( $sended == 'OK' ){
@@ -128,6 +135,26 @@ class BookingAPIController extends AppBaseController
         }
 
         return $this->sendResponse($bookingWithRelations, $message);
+    }
+
+    /**
+     * Send the mail of the invoice and the purchase BOOKING
+     * @param array $bookingWithRelations
+     * @param string $template
+     * @return void
+     */
+    public function sendMail( $bookingWithRelations, $template )
+    {
+        $request = [
+            'subject'   => 'Subject TEST',
+            'msg'       => json_encode($bookingWithRelations),
+            'email'     => $bookingWithRelations['responsable']['email'],
+            'data'      => (array)$bookingWithRelations
+        ];
+
+        // dd($bookingWithRelations['responsable']);
+
+        return MailController::sendMail($request, $template);
     }
 
     /**
