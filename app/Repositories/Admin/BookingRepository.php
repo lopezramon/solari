@@ -46,6 +46,12 @@ class BookingRepository extends BaseRepository
         'iva',
         'total',
         'comment',
+
+        'responsable_name',
+        'responsable_email',
+        'responsable_phone',
+        'responsable_identification',
+
         'status_id'
     ];
 
@@ -109,6 +115,12 @@ class BookingRepository extends BaseRepository
         $booking['checkin_date']    = $data['cart']['checkin'];
         $booking['checkout_date']   = $data['cart']['checkout'];
         $booking['comment']         = $data['comentario'];
+
+        // DATOS DEL RESPONSABLE
+        $booking['responsable_name']            = $data['responsable']['name'];
+        $booking['responsable_email']           = $data['responsable']['email'];
+        $booking['responsable_phone']           = $data['responsable']['phone'];
+        $booking['responsable_identification']  = $data['responsable']['identidad'];
 
         return $this->create($booking);
     }
@@ -212,7 +224,7 @@ class BookingRepository extends BaseRepository
      *
      * @return array
      */
-    public function findCustomized($id, $columns = null)
+    public function findCustomized( $id, $columns = null )
     {
         $columns = $columns ?? $this->customDefaultColumns;
 
