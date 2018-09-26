@@ -111714,22 +111714,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         cancelButtonText: 'Continuar'
                     }).then(function (result) {
                         if (!result.value) {
-                            console.log(_this.orden);
-                            // axios.post('/paypal',this.orden).then((res) => {
-                            //     if(res){
-                            //         var url=res.data.url;
-                            //         this.loading=false; 
-                            //         if(url!=undefined){
-                            //             window.location.href=url;
-                            //         }else{
-                            //              this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
-                            //         }
-
-                            //     }
-                            // }).catch((error) => {
-                            //     this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal')
-                            //     this.loading=false;     
-                            // });
+                            axios.post('/paypal', _this.orden).then(function (res) {
+                                if (res) {
+                                    var url = res.data.url;
+                                    _this.loading = false;
+                                    if (url != undefined) {
+                                        window.location.href = url;
+                                    } else {
+                                        _this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal');
+                                    }
+                                }
+                            }).catch(function (error) {
+                                _this.showAlert('error', 'Errore!!', 'Operacion Invalidad por Paypal');
+                                _this.loading = false;
+                            });
                         } else {
                             console.log("cancelar");
                         }
@@ -112802,6 +112800,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -112851,6 +112852,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var slf = this;
             axios.get('/api/admin/bookings/' + this.id).then(function (res) {
                 if (res) {
+                    console.log(res.data.data.booking);
+                    slf.orden.name = res.data.data.booking.responsable_name;
+                    slf.orden.identidad = res.data.data.booking.responsable_identification;
+                    slf.orden.phone = res.data.data.booking.responsable_phone;
+                    slf.orden.email = res.data.data.booking.responsable_email;
                     slf.orden.checking = Vue.moment(res.data.data.booking.checkin_date).format('YYYY/MMM/DD').toUpperCase();
                     slf.orden.checkout = Vue.moment(res.data.data.booking.checkout).format('YYYY/MMM/DD').toUpperCase();
                     slf.orden.orden = res.data.data.booking.code;
@@ -112962,6 +112968,17 @@ var render = function() {
                         _vm._v(
                           " " +
                             _vm._s(_vm.orden.phone) +
+                            "\n                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "border-bottom p-2" }, [
+                        _c("strong", { staticClass: "m-0 text-uppercase" }, [
+                          _vm._v("Email:")
+                        ]),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.orden.email) +
                             "\n                    "
                         )
                       ])

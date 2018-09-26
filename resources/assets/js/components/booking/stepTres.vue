@@ -27,6 +27,9 @@
                         <div class="border-bottom p-2">
                             <strong class="m-0 text-uppercase">Telefono:</strong> {{orden.phone}}
                         </div>
+                        <div class="border-bottom p-2">
+                            <strong class="m-0 text-uppercase">Email:</strong> {{orden.email}}
+                        </div>
                     </div>
 
                     <!-- Datos del responsable -->
@@ -204,6 +207,11 @@ h2{
             let slf=this;
             axios.get('/api/admin/bookings/'+this.id).then((res) => {
                 if(res){
+                console.log(res.data.data.booking);
+                   slf.orden.name=res.data.data.booking.responsable_name;
+                   slf.orden.identidad=res.data.data.booking.responsable_identification;
+                   slf.orden.phone=res.data.data.booking.responsable_phone;
+                   slf.orden.email=res.data.data.booking.responsable_email;
                    slf.orden.checking=Vue.moment(res.data.data.booking.checkin_date).format('YYYY/MMM/DD').toUpperCase();
                    slf.orden.checkout=Vue.moment(res.data.data.booking.checkout).format('YYYY/MMM/DD').toUpperCase();
                    slf.orden.orden=res.data.data.booking.code;

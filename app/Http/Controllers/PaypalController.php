@@ -48,6 +48,8 @@ class PaypalController extends Controller
     {
         $data = $request->all();
         $request->session()->put('data_order',$data);
+        // $booking = $this->bookingRepository->createCustomized($data);
+        // dd("aqui");
         $total = $data["cart"]["total"];
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');

@@ -117,10 +117,10 @@ class BookingRepository extends BaseRepository
         $booking['comment']         = $data['comentario'];
 
         // DATOS DEL RESPONSABLE
-        $booking['responsable_name']            = $data['responsable']['name'];
-        $booking['responsable_email']           = $data['responsable']['email'];
-        $booking['responsable_phone']           = $data['responsable']['phone'];
-        $booking['responsable_identification']  = $data['responsable']['identidad'];
+        $booking['responsable_name']            = $data['cart']['responsable']['name'];
+        $booking['responsable_email']           = $data['cart']['responsable']['email'];
+        $booking['responsable_phone']           = $data['cart']['responsable']['phone'];
+        $booking['responsable_identification']  = $data['cart']['responsable']['identidad'];
 
         return $this->create($booking);
     }
