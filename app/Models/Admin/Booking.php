@@ -81,11 +81,19 @@ class Booking extends Model
         'iva',
         'total',
         'comment',
+
+        'responsable_name',
+        'responsable_email',
+        'responsable_phone',
+        'responsable_identification',
+
+        'show_to_user',
         'status_id'
     ];
 
     protected $appends = [
-        'rooms'
+        'rooms',
+        'responsable'
     ];
 
     /**
@@ -158,6 +166,21 @@ class Booking extends Model
                 'total_item'        => $bookingDet->total_item,
             ];
         });
+    }
+
+    /**
+     * Get the responsable of the Booking.
+     *
+     * @return array
+     */
+    public function getResponsableAttribute()
+    {
+        return [
+            'name'          => $this->responsable_name,
+            'email'         => $this->responsable_email,
+            'phone'         => $this->responsable_phone,
+            'identidad'     => $this->responsable_identification,
+        ];
     }
 
     /**

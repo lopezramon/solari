@@ -29,6 +29,12 @@ class CreateBookingsTable extends Migration
             $table->double('total', 12, 2)->nullable()->default(null);
             $table->text('comment')->nullable()->default(null);
 
+            // DATOS DEL RESPONSABLE
+            $table->text('responsable_name')->nullable()->default(null);
+            $table->text('responsable_email')->nullable()->default(null);
+            $table->text('responsable_phone')->nullable()->default(null);
+            $table->text('responsable_identification')->nullable()->default(null);
+
             // BOOLEAN PARA EL FRONT-END
             $table->smallInteger('show_to_user')->nullable()->default(1)->comment('1:Show, 0:Hide.');
 
