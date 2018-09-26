@@ -87,6 +87,7 @@ class Booking extends Model
         'responsable_phone',
         'responsable_identification',
 
+        'show_to_user',
         'status_id'
     ];
 

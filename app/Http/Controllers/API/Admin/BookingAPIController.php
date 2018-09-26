@@ -65,7 +65,7 @@ class BookingAPIController extends AppBaseController
         $this->bookingRepository->pushCriteria(new RequestCriteria($request));
         $this->bookingRepository->pushCriteria(new LimitOffsetCriteria($request));
 
-        // OBTENEMOS LAS ORDENES QUE PERTENECEN AL USUARIO Y QUE TIENEN show_to_user=1
+        // OBTENEMOS LAS BOOKINGS QUE PERTENECEN AL USUARIO Y QUE TIENEN show_to_user=1
         $bookings = $this->bookingRepository->findWhere(['user_id' => $user_id, 'show_to_user' => 1]);
 
         $bookingsWithRelations = collect();
@@ -173,10 +173,33 @@ class BookingAPIController extends AppBaseController
             return $this->sendError('Booking not found');
         }
 
-        // $bookingWithRelations = $this->bookingRepository->getOrderWithRelations($booking);
+        // $bookingWithRelations = $this->bookingRepository->getBookingWithRelations($booking);
         $bookingWithRelations = $this->bookingRepository->findCustomized($booking->id);
 
         return $this->sendResponse(['booking' => $bookingWithRelations], 'Booking retrieved successfully');
+    }
+
+    /**
+     * Update the field 'show_to_user' to '0'.
+     * PUT/PATCH /bookings/hide/{id}
+     *
+     * @param  int $id
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function hide($id, Request $request)
+    {
+        /** @var Booking $booking */
+        $booking = $this->bookingRepository->findWithoutFail($id);
+
+        if (empty($booking)) {
+            return $this->sendError('Booking not found');
+        }
+
+        $booking = $this->bookingRepository->update(['show_to_user' => 0], $id);
+
+        return $this->sendResponse($booking->id, 'Booking hidden successfully');
     }
 
     /**
