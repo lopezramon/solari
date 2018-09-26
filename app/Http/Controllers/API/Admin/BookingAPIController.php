@@ -87,7 +87,7 @@ class BookingAPIController extends AppBaseController
     public function store(CreateBookingAPIRequest $request)
     {
         $input = $request->all();
-        $input = [
+        /*$input = [
             'comentario'    => 'Hola 2',
             'datos_reserva' => [
                 [
@@ -113,7 +113,7 @@ class BookingAPIController extends AppBaseController
               'identidad'   => '2332233223'
             ],
             'user_id'       => 2,
-        ];
+        ];*/
 
         $data = (array)$input;
 
