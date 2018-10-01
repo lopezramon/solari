@@ -137,7 +137,14 @@
                     cancelButtonText: 'Continuar'
                   }).then((result) => {
                     if (!result.value) {
-                        console.log("continuar");
+                      axios.post(this.root+'/api/admin/bookings/hide/'+row.code,{'_method':'PUT'}).then((res)=>{
+                        if (res.status == 200)  {                           
+                            this.listRooms();
+                        }
+                      })
+                      .catch((error)=>{
+                        slf.showAlert('error', 'Errore!!', '')
+                      })
                     }else{
                         console.log("cancelar")
                     }

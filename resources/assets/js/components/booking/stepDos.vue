@@ -222,9 +222,11 @@ export default {
         getDataUser(){
             let data=this.$store.getters.getSession;
             if(data[0]!=undefined){
+                console.log(data[0]);
                 this.user.name_reserva=data[0].name+' '+data[0].lastname;
                 this.user.telef_reserva=data[0].phone;
                 this.user.identidad_reserva=data[0].fiscalCode;
+                this.user.email=data[0].email;
                 this.user.id=data[0].id;
             }
             

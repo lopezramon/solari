@@ -67,8 +67,7 @@ export default {
               if (res.status == 200)  {
                 slf.rooms=res.data.data.rooms;
               }
-            })
-              .catch((error)=>{
+            }).catch((error)=>{
                 slf.showAlert('error', 'Errore!!', 'refrescar la pagina')
             })
         },
