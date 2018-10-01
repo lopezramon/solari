@@ -35,6 +35,17 @@ export default {
        },
     },
     mutations:{
+      deleteAll(state,{ list }){ 
+        for(var a in list){
+          var list_cart=state.booking.cart;
+          for(var i in list_cart){
+            if(list_cart[i].id==list[a].id){
+               Vue.delete(state.booking.cart,i);
+               Vue.set(state.booking, 'total',Math.abs(state.booking.total-list[a].price));
+            }
+          }
+        }
+      },
       destroyState (state){ 
         Vue.set(state.booking,'checkin',null);
         Vue.set(state.booking,'checkout',null);
@@ -57,7 +68,7 @@ export default {
       },
       addCart(state,{ list }){
         var total=state.booking.total;
-        total=+parseFloat(list.price);
+        total+=parseFloat(list.price);
         state.booking.cart.push(list);
         Vue.set(state.booking,'total',total); 
       },

@@ -36,6 +36,7 @@ class RoomAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
+       
         $this->roomRepository->pushCriteria(new RequestCriteria($request));
         $this->roomRepository->pushCriteria(new LimitOffsetCriteria($request));
 

@@ -76625,6 +76625,19 @@ var index_esm = {
     }
   },
   mutations: {
+    deleteAll: function deleteAll(state, _ref) {
+      var list = _ref.list;
+
+      for (var a in list) {
+        var list_cart = state.booking.cart;
+        for (var i in list_cart) {
+          if (list_cart[i].id == list[a].id) {
+            Vue.delete(state.booking.cart, i);
+            Vue.set(state.booking, 'total', Math.abs(state.booking.total - list[a].price));
+          }
+        }
+      }
+    },
     destroyState: function destroyState(state) {
       Vue.set(state.booking, 'checkin', null);
       Vue.set(state.booking, 'checkout', null);
@@ -76635,30 +76648,30 @@ var index_esm = {
       Vue.set(state.booking.responsable, 'identidad', null);
       Vue.set(state.booking.responsable, 'email', null);
     },
-    setResponReser: function setResponReser(state, _ref) {
-      var list = _ref.list;
+    setResponReser: function setResponReser(state, _ref2) {
+      var list = _ref2.list;
 
       Vue.set(state.booking.responsable, 'name', list.name_reserva);
       Vue.set(state.booking.responsable, 'phone', list.telef_reserva);
       Vue.set(state.booking.responsable, 'identidad', list.identidad_reserva);
       Vue.set(state.booking.responsable, 'email', list.email);
     },
-    setFilter: function setFilter(state, _ref2) {
-      var list = _ref2.list;
+    setFilter: function setFilter(state, _ref3) {
+      var list = _ref3.list;
 
       Vue.set(state.booking, 'checkin', list.checkin);
       Vue.set(state.booking, 'checkout', list.checkout);
     },
-    addCart: function addCart(state, _ref3) {
-      var list = _ref3.list;
+    addCart: function addCart(state, _ref4) {
+      var list = _ref4.list;
 
       var total = state.booking.total;
-      total = +parseFloat(list.price);
+      total += parseFloat(list.price);
       state.booking.cart.push(list);
       Vue.set(state.booking, 'total', total);
     },
-    removerItem: function removerItem(state, _ref4) {
-      var list = _ref4.list;
+    removerItem: function removerItem(state, _ref5) {
+      var list = _ref5.list;
 
       var list_cart = state.booking.cart;
       for (var i in list_cart) {
@@ -111566,6 +111579,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -111584,7 +111601,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             orden: null,
             color: '#4fcaa5',
             size: '20px',
-            loading: false
+            loading: false,
+            eliminar_all: []
             // disabledActivo: false,
             // terminos:false
         };
@@ -111635,6 +111653,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 showConfirmButton: false,
                 showCloseButton: true
             });
+        },
+        deleteAll: function deleteAll() {
+            if (this.eliminar_all.length > 0) {
+                var arr = [];
+                var data = this.$store.getters.getCart;
+
+                for (var i in data) {
+                    var element = data[i].id;
+                    for (var a in this.eliminar_all) {
+                        if (this.eliminar_all[a] == element) {
+                            arr.push(data[i]);
+                        }
+                    }
+                }
+                if (arr.length > 0) {
+                    this.$store.commit('deleteAll', { list: arr });
+                    if (this.$store.getters.getCart.length == 0) {
+                        this.$router.push('/booking/step-1');
+                    }
+                }
+            } else {
+                this.showAlert('error', 'Errore!!', 'Debe seleccionar un producto');
+            }
         },
         deleteItem: function deleteItem(item) {
             this.$store.commit('removerItem', { list: item });
@@ -112407,38 +112448,82 @@ var render = function() {
                           "border-bottom p-2 d-flex justify-content-between"
                       },
                       [
+                        _c("span", [
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.eliminar_all,
+                                expression: "eliminar_all"
+                              }
+                            ],
+                            attrs: { type: "checkbox", title: "eliminar" },
+                            domProps: {
+                              value: room.id,
+                              checked: Array.isArray(_vm.eliminar_all)
+                                ? _vm._i(_vm.eliminar_all, room.id) > -1
+                                : _vm.eliminar_all
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = _vm.eliminar_all,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = room.id,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      (_vm.eliminar_all = $$a.concat([$$v]))
+                                  } else {
+                                    $$i > -1 &&
+                                      (_vm.eliminar_all = $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1)))
+                                  }
+                                } else {
+                                  _vm.eliminar_all = $$c
+                                }
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
                         _c("strong", { staticClass: "m-0 text-uppercase" }, [
                           _vm._v(_vm._s(room.name))
                         ]),
                         _vm._v(" "),
-                        _c("span", [_vm._v("€ " + _vm._s(room.price))]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "pointer",
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                _vm.deleteItem(room)
-                              }
-                            }
-                          },
-                          [
-                            _c("img", {
-                              staticClass: "pointer",
-                              attrs: {
-                                width: "22",
-                                src: "/images/iconos/delete.svg",
-                                alt: "delete"
-                              }
-                            })
-                          ]
-                        )
+                        _c("span", [_vm._v("€ " + _vm._s(room.price))])
                       ]
                     )
                   ]
-                })
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "border-bottom p-2 d-flex justify-content-between"
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary btn-sm",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.deleteAll()
+                          }
+                        }
+                      },
+                      [_vm._v("Eliminar seleccionados")]
+                    )
+                  ]
+                )
               ],
               2
             ),
@@ -114186,19 +114271,58 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             botonActivo: false,
-            rooms_cart: []
+            rooms_cart: [],
+            eliminar_all: []
         };
     },
 
     methods: {
         remover: function remover(item) {
             this.$store.commit('removerItem', { list: item });
+        },
+        deleteAll: function deleteAll() {
+            if (this.eliminar_all.length > 0) {
+                var arr = [];
+                var data = this.$store.getters.getCart;
+
+                for (var i in data) {
+                    var element = data[i].id;
+                    for (var a in this.eliminar_all) {
+                        if (this.eliminar_all[a] == element) {
+                            arr.push(data[i]);
+                        }
+                    }
+                }
+                if (arr.length > 0) {
+                    this.$store.commit('deleteAll', { list: arr });
+                }
+            } else {
+                this.showAlert('error', 'Errore!!', 'Debe seleccionar un producto');
+            }
+        },
+        showAlert: function showAlert(type, title, text) {
+            var _this = this;
+
+            this.$swal({
+                position: 'center',
+                type: type,
+                title: title,
+                text: text,
+                showConfirmButton: false,
+                showCloseButton: true
+            }).then(function (value) {
+                _this.$router.push('/');
+            });
         }
     },
     mounted: function mounted() {},
@@ -114273,33 +114397,76 @@ var render = function() {
                       "div",
                       { staticClass: "d-flex justify-content-between" },
                       [
+                        _c("span", [
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.eliminar_all,
+                                expression: "eliminar_all"
+                              }
+                            ],
+                            attrs: { type: "checkbox", title: "eliminar" },
+                            domProps: {
+                              value: room.id,
+                              checked: Array.isArray(_vm.eliminar_all)
+                                ? _vm._i(_vm.eliminar_all, room.id) > -1
+                                : _vm.eliminar_all
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = _vm.eliminar_all,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = room.id,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      (_vm.eliminar_all = $$a.concat([$$v]))
+                                  } else {
+                                    $$i > -1 &&
+                                      (_vm.eliminar_all = $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1)))
+                                  }
+                                } else {
+                                  _vm.eliminar_all = $$c
+                                }
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
                         _c("span", { staticClass: "title" }, [
                           _vm._v(_vm._s(room.name))
                         ]),
                         _vm._v(" "),
                         _c("span", { staticClass: "price" }, [
                           _vm._v("€ " + _vm._s(room.price))
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary btn-sm",
-                              attrs: { type: "button" },
-                              on: {
-                                click: function($event) {
-                                  $event.preventDefault()
-                                  _vm.remover(room)
-                                }
-                              }
-                            },
-                            [_vm._v("remover")]
-                          )
                         ])
                       ]
                     )
-                  })
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "border-bottom" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary btn-sm",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            _vm.deleteAll()
+                          }
+                        }
+                      },
+                      [_vm._v("Eliminar seleccionados")]
+                    )
+                  ])
                 ],
                 2
               )
@@ -114449,15 +114616,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getBooking: function getBooking() {
             var data = this.$store.getters.getBooking;
             var form = {};
-            form.checkin = data.checkin;
-            form.checkout = data.checkout;
+            form.checkin = Vue.moment(data.checkin).format('YYYY-MM-DD');
+            form.checkout = Vue.moment(data.checkout).format('YYYY-MM-DD');
             form.adult_quantity = data.adult;
             var slf = this;
             axios.post(this.root + '/api/admin/rooms', form).then(function (res) {
                 if (res.status == 200) {
                     slf.rooms = res.data.data.rooms;
                 }
-            }).catch(function (error) {});
+            }).catch(function (error) {
+                slf.showAlert('error', 'Errore!!', 'refrescar la pagina');
+            });
         },
         AddCart: function AddCart(item) {
             this.$store.commit('addCart', { list: item });
@@ -114477,6 +114646,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
             }
             return false;
+        },
+        showAlert: function showAlert(type, title, text) {
+            this.$swal({
+                position: 'center',
+                type: type,
+                title: title,
+                text: text,
+                showConfirmButton: false,
+                showCloseButton: true
+            }).then(function (value) {
+                // this.$router.push('/');
+            });
         }
     }, computed: {},
     mounted: function mounted() {

@@ -59,8 +59,8 @@ export default {
         getBooking(){
            let data=this.$store.getters.getBooking;
            let form={};
-           form.checkin=data.checkin;
-           form.checkout=data.checkout;
+           form.checkin=Vue.moment(data.checkin).format('YYYY-MM-DD');
+           form.checkout=Vue.moment(data.checkout).format('YYYY-MM-DD');
            form.adult_quantity=data.adult;
            let slf=this;
            axios.post(this.root+'/api/admin/rooms',form).then((res)=>{
@@ -69,7 +69,7 @@ export default {
               }
             })
               .catch((error)=>{
-
+                slf.showAlert('error', 'Errore!!', 'refrescar la pagina')
             })
         },
         AddCart(item){
@@ -89,6 +89,18 @@ export default {
                 }
             }
             return false;
+        },showAlert(type, title, text) {
+            this.$swal({
+                position: 'center',
+                type: type,
+                title: title,
+                text: text,
+                showConfirmButton: false,
+                showCloseButton: true,
+            })
+            .then((value) => {
+              // this.$router.push('/');
+            });
         }
     },computed:{
         

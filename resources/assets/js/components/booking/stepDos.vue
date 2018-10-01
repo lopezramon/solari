@@ -136,11 +136,15 @@
                     <div class="border bg-secondary">
                         <template v-for="room in listRooms">
                             <div class="border-bottom p-2 d-flex justify-content-between">
+                                <span>&nbsp;<input type="checkbox" :value="room.id" v-model="eliminar_all" title="eliminar"></span>
                                 <strong class="m-0 text-uppercase">{{room.name}}</strong> 
                                 <span>€ {{room.price}}</span> 
-                                <a class="pointer" @click.prevent="deleteItem(room)" ><img width="22" src="/images/iconos/delete.svg" alt="delete" class="pointer"></a>
+                                <!-- <a class="pointer" @click.prevent="deleteItem(room)" ><img width="22" src="/images/iconos/delete.svg" alt="delete" class="pointer"></a> -->
                             </div>
                         </template>
+                         <div class="border-bottom p-2 d-flex justify-content-between">
+                            <button type="button" class="btn btn-primary btn-sm" @click.prevent="deleteAll()">Eliminar seleccionados</button>
+                        </div>
                     </div>
 
                     <div class="text-center mt-4">
@@ -184,6 +188,7 @@ export default {
             color: '#4fcaa5',
             size: '20px',
             loading: false,
+            eliminar_all:[]
             // disabledActivo: false,
             // terminos:false
         }
@@ -233,6 +238,30 @@ export default {
                 showConfirmButton: false,
                 showCloseButton: true,
             })
+        },
+        deleteAll(){
+           if(this.eliminar_all.length>0){
+             var arr=[];
+             let data=this.$store.getters.getCart;
+
+             for (var i in data){
+                var element=data[i].id;
+                for (var a in this.eliminar_all){
+                    if(this.eliminar_all[a]==element){
+                       arr.push(data[i]);
+                    }
+
+                }
+             }
+             if(arr.length>0){
+               this.$store.commit('deleteAll',{list:arr}); 
+               if(this.$store.getters.getCart.length==0){
+                this.$router.push('/booking/step-1');
+               }  
+             }
+           }else{
+             this.showAlert('error', 'Errore!!', 'Debe seleccionar un producto')
+           }
         },
         deleteItem(item){
            this.$store.commit('removerItem',{list: item}); 
