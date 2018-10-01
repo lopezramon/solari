@@ -49,6 +49,7 @@ import formBooking from '../components/landing/form';
 import navbar from '../components/general/navbar';
 import footer from '../components/general/footer';
 import jumperr from '../components/general/jumperr';
+import termini from '../components/general/termini';
 
 // Suites
 import suites from '../components/suites/suites';
@@ -119,6 +120,7 @@ Vue.component('header_booking', headerBooking);
 Vue.component('user_detail', user_detail);
 Vue.component('navaccount', navaccount);
 Vue.component('headerAccount', headerAccount);
+
 
 
 // Routes
@@ -210,6 +212,11 @@ let router = new Router({
             path: '/unsubscribeNewsletter/:email',
             name: 'unsubscribeNewsletter',
             component: unsubscribeNewsletter
+        },
+        {
+            path: '/termini',
+            name: 'termini',
+            component: termini
         },
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }
