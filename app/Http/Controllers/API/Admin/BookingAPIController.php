@@ -87,7 +87,7 @@ class BookingAPIController extends AppBaseController
     public function store(CreateBookingAPIRequest $request)
     {
         $input = $request->all();
-        $input = [
+        /*$input = [
             'comentario'    => 'Hola 2',
             'datos_reserva' => [
                 [
@@ -113,7 +113,7 @@ class BookingAPIController extends AppBaseController
               'identidad'   => '2332233223'
             ],
             'user_id'       => 2,
-        ];
+        ];*/
 
         $data = (array)$input;
 
@@ -123,9 +123,8 @@ class BookingAPIController extends AppBaseController
         // Get BookingWithRelations
         $bookingWithRelations = $this->bookingRepository->findCustomized($booking->id);
 
-        // Guardar Correo
+        // Enviar Correo
         $sended = $this->sendMail($bookingWithRelations, 'order'); #PENDIENTE
-        $sended = 'NOK';
 
         if( $sended == 'OK' ){
             $message = 'Booking saved successfully, email sended';
