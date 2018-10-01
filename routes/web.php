@@ -390,3 +390,7 @@ Route::patch('admin/formDatas/{formDatas}', ['as'=> 'admin.formDatas.update', 'u
 Route::delete('admin/formDatas/{formDatas}', ['as'=> 'admin.formDatas.destroy', 'uses' => 'Admin\FormDataController@destroy']);
 Route::get('admin/formDatas/{formDatas}', ['as'=> 'admin.formDatas.show', 'uses' => 'Admin\FormDataController@show']);
 Route::get('admin/formDatas/{formDatas}/edit', ['as'=> 'admin.formDatas.edit', 'uses' => 'Admin\FormDataController@edit']);
+
+Route::get('password/reseted/{token}', function(){
+	return;
+})->name('password.reset');

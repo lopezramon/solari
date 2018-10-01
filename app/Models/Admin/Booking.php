@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\Traits\DatesTranslator;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -61,7 +62,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Booking extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, DatesTranslator;
 
     public $table = 'bookings';
 
