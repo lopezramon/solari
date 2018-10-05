@@ -1,4 +1,4 @@
-/*fomularios*/
+    /*fomularios*/
 .form-control.form-material {
     display: block;
     width: 100%;
@@ -9,8 +9,8 @@
     color: #000;
     background-color: transparent;
     background-clip: padding-box;
-    border: 0px solid #ced4da;
-    border-bottom: 1px solid #ced4da;
+    border: 0px solid #000;
+    border-bottom: 1px solid #000;
     border-radius: 0rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }

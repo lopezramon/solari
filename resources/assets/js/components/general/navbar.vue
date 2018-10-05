@@ -4,8 +4,8 @@
             <aside class="top-info d-none d-md-block bg-black">
                     <div class="container header-black">
                         <div class="row">
-                            <div class="col-6"><a href="https://goo.gl/maps/V6ZaLt3XSM22" target="_black">Via alessandro nanni 58, Italia, Olbia</a></div>
-                            <div class="col-6 text-right"><a href="tel:07891710013">0789-1710013</a> | <a href="tel3471757188">34-71757188</a></div>
+                            <div class="col-6 py-2"><a href="https://goo.gl/maps/V6ZaLt3XSM22" target="_black ">Via alessandro nanni 58, Italia, Olbia</a></div>
+                            <div class="col-6 text-right py-2"><a href="tel:07891710013">0789-1710013</a> | <a href="tel3471757188">34-71757188</a> <img src="/images/iconos/facebook-logo.svg" alt="facebook" width="27"> <img src="/images/iconos/instagram-logo.svg" alt="instagram" width="27"></div>
                         </div>
                     </div>
             </aside>
@@ -21,12 +21,14 @@
                     </a>
 
                     <div class="action-menu ml-auto ml-md-0 order-md-12 d-inline-flex align-items-center">
-                        <a href="#" class="text-white"><img src="/images/iconos/facebook.png" alt="facebook" width="24"> &nbsp;</a>
+                        <a href="#" class="font-2 d-md-none pr-1 mr-1">
+                        <img src="/images/iconos/instagram-logo.svg" alt="instagram" width="27">
+                        </a>
                         <a href="#" class="font-2 d-md-none pr-1 mr-1">
                             <img src="/images/iconos/facebook.png" alt="facebook" width="24"> |
                         </a>
                         <a href="#" class="text-white font-1 d-inline-flex align-items-center">
-                            <img src="/images/iconos/facebook.png" alt="facebook" width="24">
+                            <img src="/images/iconos/world.svg" alt="facebook" width="24"> 
                             &nbsp;<span class="text-uppercase">{{ lang }}</span>
                         </a>
                     </div>

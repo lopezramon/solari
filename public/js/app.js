@@ -103055,7 +103055,7 @@ var render = function() {
                               expression: "form.name"
                             }
                           ],
-                          staticClass: "form-control",
+                          staticClass: "form-control form-material",
                           class: { "text-danger": _vm.errors.has("fullname") },
                           attrs: {
                             id: "fullname",
@@ -103134,7 +103134,7 @@ var render = function() {
                               expression: "form.email"
                             }
                           ],
-                          staticClass: "form-control",
+                          staticClass: "form-control form-material",
                           class: { "text-danger": _vm.errors.has("email") },
                           attrs: {
                             id: "email",
@@ -103213,7 +103213,7 @@ var render = function() {
                               expression: "form.phone"
                             }
                           ],
-                          staticClass: "form-control",
+                          staticClass: "form-control form-material",
                           class: { "text-danger": _vm.errors.has("phone") },
                           attrs: {
                             id: "phone",
@@ -103292,7 +103292,7 @@ var render = function() {
                               expression: "form.subject"
                             }
                           ],
-                          staticClass: "form-control",
+                          staticClass: "form-control form-material",
                           class: { "text-danger": _vm.errors.has("subject") },
                           attrs: {
                             id: "subject",
@@ -103371,7 +103371,7 @@ var render = function() {
                               expression: "'required|min:2|max:150'"
                             }
                           ],
-                          staticClass: "form-control",
+                          staticClass: "form-control form-material",
                           class: { "is-danger": _vm.errors.has("message") },
                           attrs: {
                             id: "message",
@@ -105127,6 +105127,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -105220,12 +105222,12 @@ var render = function() {
                   [
                     _c("img", {
                       attrs: {
-                        src: "/images/iconos/facebook.png",
+                        src: "/images/iconos/world.svg",
                         alt: "facebook",
                         width: "24"
                       }
                     }),
-                    _vm._v("\n                         "),
+                    _vm._v(" \n                         "),
                     _c("span", { staticClass: "text-uppercase" }, [
                       _vm._v(_vm._s(_vm.lang))
                     ])
@@ -105373,27 +105375,43 @@ var staticRenderFns = [
     return _c("aside", { staticClass: "top-info d-none d-md-block bg-black" }, [
       _c("div", { staticClass: "container header-black" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-6" }, [
+          _c("div", { staticClass: "col-6 py-2" }, [
             _c(
               "a",
               {
                 attrs: {
                   href: "https://goo.gl/maps/V6ZaLt3XSM22",
-                  target: "_black"
+                  target: "_black "
                 }
               },
               [_vm._v("Via alessandro nanni 58, Italia, Olbia")]
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-6 text-right" }, [
+          _c("div", { staticClass: "col-6 text-right py-2" }, [
             _c("a", { attrs: { href: "tel:07891710013" } }, [
               _vm._v("0789-1710013")
             ]),
             _vm._v(" | "),
             _c("a", { attrs: { href: "tel3471757188" } }, [
               _vm._v("34-71757188")
-            ])
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              attrs: {
+                src: "/images/iconos/facebook-logo.svg",
+                alt: "facebook",
+                width: "27"
+              }
+            }),
+            _vm._v(" "),
+            _c("img", {
+              attrs: {
+                src: "/images/iconos/instagram-logo.svg",
+                alt: "instagram",
+                width: "27"
+              }
+            })
           ])
         ])
       ])
@@ -105434,16 +105452,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "text-white", attrs: { href: "#" } }, [
-      _c("img", {
-        attrs: {
-          src: "/images/iconos/facebook.png",
-          alt: "facebook",
-          width: "24"
-        }
-      }),
-      _vm._v("  ")
-    ])
+    return _c(
+      "a",
+      { staticClass: "font-2 d-md-none pr-1 mr-1", attrs: { href: "#" } },
+      [
+        _c("img", {
+          attrs: {
+            src: "/images/iconos/instagram-logo.svg",
+            alt: "instagram",
+            width: "27"
+          }
+        })
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -108590,7 +108611,7 @@ var render = function() {
                                     expression: "form.name"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger": _vm.errors.has("name")
                                 },
@@ -108664,7 +108685,7 @@ var render = function() {
                                     expression: "form.lastname"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger": _vm.errors.has("lastname")
                                 },
@@ -108741,7 +108762,7 @@ var render = function() {
                                     expression: "form.phone"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger": _vm.errors.has("phone")
                                 },
@@ -108817,7 +108838,7 @@ var render = function() {
                                     expression: "form.optionalPhone"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger": _vm.errors.has("optionalPhone")
                                 },
@@ -108897,7 +108918,7 @@ var render = function() {
                                     expression: "form.email"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger":
                                     _vm.errors.has("email") || _vm.errorMail
@@ -108973,7 +108994,7 @@ var render = function() {
                                     expression: "form.fiscalCode"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger": _vm.errors.has("fiscalCode")
                                 },
@@ -109050,7 +109071,7 @@ var render = function() {
                                   }
                                 ],
                                 ref: "password",
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger": _vm.errors.has("password")
                                 },
@@ -109128,7 +109149,7 @@ var render = function() {
                                     expression: "form.passwordConfirm"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger":
                                     _vm.errors.has("passwordConfirm") ||
@@ -109269,7 +109290,7 @@ var render = function() {
                                 "router-link",
                                 {
                                   staticClass: "text-success link",
-                                  attrs: { to: "/terms" }
+                                  attrs: { to: "/termini" }
                                 },
                                 [_vm._v("Terminos y condiciones de uso")]
                               )
@@ -109887,7 +109908,7 @@ var render = function() {
                               expression: "form.email"
                             }
                           ],
-                          staticClass: "form-control",
+                          staticClass: "form-control form-material",
                           class: { "text-danger": _vm.errors.has("email") },
                           attrs: {
                             id: "email",
@@ -109966,7 +109987,7 @@ var render = function() {
                               expression: "'required|min:8|max:16'"
                             }
                           ],
-                          staticClass: "form-control",
+                          staticClass: "form-control form-material",
                           class: { "text-danger": _vm.errors.has("password") },
                           attrs: {
                             id: "password",
