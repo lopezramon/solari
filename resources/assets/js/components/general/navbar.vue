@@ -33,12 +33,31 @@
 
                     <div class="navbar-collapse collapse justify-content-center" id="navbarNav">
                         <ul class="navbar-nav text-center">
-                            <li class="nav-item py-md-2"><a href="#chisiamo" class="nav-link">Chi Siamo</a></li>
-                            <li class="nav-item py-md-2"><a href="#camera" class="nav-link">Suites</a></li>
-                            <li class="nav-item py-md-2"><a href="#servizi" class="nav-link">Servizi</a></li>
-                            <li class="nav-item py-md-2"><a href="#esperienze" class="nav-link">Esperienze</a></li>
-                            <li class="nav-item py-md-2"><a href="/contactUs" class="nav-link">contatti</a></li>
-
+                            <router-link to="/#chisiamo" @click.native="scrollFix('#chisiamo')" class="nav-item py-md-2" exact>
+                            <a class="nav-link">
+                                Chi Siamo
+                            </a>
+                            </router-link>
+                            <router-link to="/#camera" @click.native="scrollFix('#camera')" class="nav-item py-md-2" exact>
+                            <a class="nav-link">
+                                Suites
+                            </a>
+                            </router-link>
+                            <router-link to="/#servizi" @click.native="scrollFix('#servizi')" class="nav-item py-md-2" exact>
+                            <a class="nav-link">
+                                Servizi
+                            </a>
+                            </router-link>
+                            <router-link to="/#esperienze" @click.native="scrollFix('#esperienze')" class="nav-item py-md-2" exact>
+                            <a class="nav-link">
+                                Esperienze
+                            </a>
+                            </router-link>
+                            <router-link to="/contactUs" class="nav-item py-md-2" exact>
+                            <a class="nav-link">
+                                contatti
+                            </a>
+                            </router-link>
                             <li class="nav-item py-md-2">
                                 <a :href="GetRoute" class="nav-link">
                                     <span v-if="isAuth">Il mio account</span>
@@ -67,9 +86,34 @@
                     return '/myAccount';
                 } else return '/clientLogin';
             }
+        },
+
+methods: {
+            scrollFix(hash) {
+              setTimeout(() => $('html, body').animate({
+              scrollTop: $(hash).offset().top
+              }, 2000), 1)
+            },
+            redirectToHome() { return this.$router.push('/'); },
+            validateLogin() {
+                let authenticated = this.$store.getters.getauthenticated;
+                if (authenticated) {
+                    this.isAuth = true;
+                }
+            },
+            logout() {
+                axios.post('/logout').then((res) => {
+                    if (res.status === 200) {
+                        this.$store.dispatch('deleteSession');
+                        location.href = '/'
+                    }
+                }).catch((error) => {})
+            }
         }
     }
 </script>
+
+
 <style scoped>
     .content-nav{
         position: absolute;
