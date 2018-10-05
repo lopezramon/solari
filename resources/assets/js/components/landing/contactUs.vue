@@ -26,7 +26,7 @@
                                    <label for="fullname" class="text-uppercase">Nombre completo</label>
                                    <span v-show="errors.has('fullname')" class="help text-danger">*</span>
                                    <input id="fullname" type="text" :maxlength="30" v-validate="'required|alpha_spaces|min:2|max:30'" name="fullname" data-vv-as="Nombre completo"
-                                          :class="{'text-danger': errors.has('fullname') }" v-model="form.name" class="form-control" placeholder="Agrega tu nombre completo">
+                                          :class="{'text-danger': errors.has('fullname') }" v-model="form.name" class="form-control form-material" placeholder="Agrega tu nombre completo">
                                    <small v-show="errors.has('fullname')" class="help text-danger">{{ errors.first('fullname') }}</small>
                                </div>
 
@@ -35,7 +35,7 @@
                                    <span v-show="errors.has('email')" class="help text-danger">*</span>
                                    <input id="email" type="text" :maxlength="50" v-validate="'required|email|min:9|max:50'" name="email"
                                           data-vv-as="Email" :class="{'text-danger': errors.has('email') }"
-                                          v-model="form.email" class="form-control" placeholder="Email">
+                                          v-model="form.email" class="form-control form-material" placeholder="Email">
                                    <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
                                </div>
 
@@ -44,7 +44,7 @@
                                    <span v-show="errors.has('phone')" class="help text-danger">*</span>
                                    <input id="phone" type="text" :maxlength="16" v-validate="'required|numeric|min:9|max:16'" name="phone"
                                           data-vv-as="Telefono" :class="{'text-danger': errors.has('phone') }"
-                                          v-model="form.phone" class="form-control" placeholder="Telefono">
+                                          v-model="form.phone" class="form-control form-material" placeholder="Telefono">
                                    <small v-show="errors.has('phone')" class="help text-danger">{{ errors.first('phone') }}</small>
                                </div>
 
@@ -53,7 +53,7 @@
                                    <span v-show="errors.has('subject')" class="help text-danger">*</span>
                                    <input id="subject" type="text" :maxlength="50" v-validate="'required|min:2|max:50'" name="subject"
                                           data-vv-as="Asunto" :class="{'text-danger': errors.has('subject') }"
-                                          v-model="form.subject" class="form-control" placeholder="Agrega un Asunto">
+                                          v-model="form.subject" class="form-control form-material" placeholder="Agrega un Asunto">
                                    <small v-show="errors.has('subject')" class="help text-danger">{{ errors.first('subject') }}</small>
 
                                </div>
@@ -62,7 +62,7 @@
                                    <span v-show="errors.has('message')" class="help text-danger">*</span>
                                    <textarea id="message" v-model="form.msg" :maxlength="150" v-validate="'required|min:2|max:150'"
                                              name="message" data-vv-as="Mensaje" :class="{'is-danger': errors.has('message') }"
-                                             class="form-control" placeholder="Escribe tu mensaje aquí..." rows="3"></textarea>
+                                             class="form-control form-material" placeholder="Escribe tu mensaje aquí..." rows="3"></textarea>
                                    <small v-show="errors.has('message')" class="help text-danger">{{ errors.first('message') }}</small>
 
                                </div>

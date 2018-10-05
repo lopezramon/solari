@@ -26,7 +26,7 @@
                                                 <span class="text-success" :class="{'text-danger': errors.has('name')}">*</span>
                                                 <input type="text" :maxlength="30" v-validate="'required|alpha|min:2|max:30'" name="name"
                                                        data-vv-as="Nombre" :class="{'text-danger': errors.has('name')}"
-                                                       v-model="form.name" class="form-control" placeholder="Nombre">
+                                                       v-model="form.name" class="form-control form-material" placeholder="Nombre">
                                                 <small v-show="errors.has('name')" class="help text-danger">{{ errors.first('name') }}</small>
                                             </div>
                                         </div>
@@ -37,7 +37,7 @@
                                                 <span class="text-success" :class="{'text-danger': errors.has('lastname')}">*</span>
                                                 <input type="text" :maxlength="30" v-validate="'required|alpha|min:2|max:30'"
                                                        name="lastname" data-vv-as="Apellido" :class="{'text-danger': errors.has('lastname')}"
-                                                       v-model="form.lastname" class="form-control" placeholder="Apellido">
+                                                       v-model="form.lastname" class="form-control form-material" placeholder="Apellido">
                                                 <small v-show="errors.has('lastname')" class="help text-danger">{{ errors.first('lastname') }}</small>
                                             </div>
                                         </div>
@@ -50,7 +50,7 @@
                                                 <span class="text-success" :class="{'text-danger': errors.has('phone')}">*</span>
                                                 <input type="text" :maxlength="16" v-validate="'required|numeric|min:9|max:16'" name="phone"
                                                        data-vv-as="Telefono" :class="{'text-danger': errors.has('phone')}"
-                                                       v-model="form.phone" class="form-control" placeholder="Telefono">
+                                                       v-model="form.phone" class="form-control form-material" placeholder="Telefono">
                                                 <small v-show="errors.has('phone')" class="help text-danger">{{ errors.first('phone') }}</small>
                                             </div>
                                         </div>
@@ -61,7 +61,7 @@
                                                 <span class="text-success" :class="{'text-danger': errors.has('optionalPhone')}">*</span>
                                                 <input type="text" :maxlength="16" v-validate="'numeric|min:9|max:16'" name="optionalPhone"
                                                        data-vv-as="Telefono" :class="{'text-danger': errors.has('optionalPhone')}"
-                                                       v-model="form.optionalPhone" class="form-control" placeholder="Telefono">
+                                                       v-model="form.optionalPhone" class="form-control form-material" placeholder="Telefono">
                                                 <small v-show="errors.has('optionalPhone')" class="help text-danger">{{ errors.first('optionalPhone') }}</small>
                                             </div>
                                         </div>
@@ -74,7 +74,7 @@
                                                 <span class="text-success" :class="{'text-danger': errors.has('email')}">*</span>
                                                 <input type="email" :maxlength="50" v-validate="'required|email|min:9|max:50'" name="email"
                                                        data-vv-as="Email" :class="{ 'text-danger': errors.has('email') || errorMail }"
-                                                       v-model="form.email" class="form-control" placeholder="Email">
+                                                       v-model="form.email" class="form-control form-material" placeholder="Email">
                                                 <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
                                             </div>
                                         </div>
@@ -85,7 +85,7 @@
                                                 <span class="text-success" :class="{'text-danger': errors.has('fiscalCode')}">*</span>
                                                 <input type="text" :maxlength="16" v-validate="'required|alpha_num|min:16|max:16'" name="fiscalCode"
                                                        data-vv-as="Cod Fiscale/P.IVA" :class="{'text-danger': errors.has('fiscalCode')}"
-                                                       v-model="form.fiscalCode" class="form-control" placeholder="Cod Fiscale/P.IVA">
+                                                       v-model="form.fiscalCode" class="form-control form-material" placeholder="Cod Fiscale/P.IVA">
                                                 <small v-show="errors.has('fiscalCode')" class="help text-danger">{{  errors.first('fiscalCode') }}</small>
                                             </div>
                                         </div>
@@ -96,7 +96,7 @@
                                             <div class="form-group">
                                                 <label>Password</label>
                                                 <span class="text-success" :class="{'text-danger': errors.has('password')}">*</span>
-                                                <input type="password" :maxlength="16" class="form-control" placeholder="********" ref="password"
+                                                <input type="password" :maxlength="16" class="form-control form-material" placeholder="********" ref="password"
                                                        v-validate="'required|min:8|max:16'" name="password" data-vv-as="Password"
                                                        :class="{'text-danger': errors.has('password')}" v-model="form.password">
                                                 <span v-show="errors.has('password')" class="help text-danger">{{ errors.first('password') }}</span>
@@ -107,7 +107,7 @@
                                             <div class="form-group">
                                                 <label>Confirma la password</label>
                                                 <span class="text-success" :class="{'text-danger': errors.has('passwordConfirm')}">*</span>
-                                                <input type="password" :maxlength="16" class="form-control" placeholder="********"
+                                                <input type="password" :maxlength="16" class="form-control form-material" placeholder="********"
                                                        v-validate="'required|min:8|max:16|confirmed:password'" name="passwordConfirm" v-model="form.passwordConfirm"
                                                        data-vv-as="Password" :class="{ 'text-danger': (errors.has('passwordConfirm') || errorPassword) }">
                                                 <span v-show="errors.has('passwordConfirm')" class="help text-danger">{{ errors.first('passwordConfirm')}}</span>
@@ -120,7 +120,7 @@
                                         <label class="form-check-label" for="termsCheck">
                                             <span v-show="errors.has('terms')" class="help text-danger">*</span>
                                             He leido y acepto los
-                                            <router-link class="text-success link" to="/terms">Terminos y condiciones de uso</router-link>
+                                            <router-link class="text-success link" to="/termini">Terminos y condiciones de uso</router-link>
                                         </label>
                                     </div>
                                 </form>

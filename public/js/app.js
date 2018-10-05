@@ -103055,7 +103055,7 @@ var render = function() {
                               expression: "form.name"
                             }
                           ],
-                          staticClass: "form-control",
+                          staticClass: "form-control form-material",
                           class: { "text-danger": _vm.errors.has("fullname") },
                           attrs: {
                             id: "fullname",
@@ -103134,7 +103134,7 @@ var render = function() {
                               expression: "form.email"
                             }
                           ],
-                          staticClass: "form-control",
+                          staticClass: "form-control form-material",
                           class: { "text-danger": _vm.errors.has("email") },
                           attrs: {
                             id: "email",
@@ -103213,7 +103213,7 @@ var render = function() {
                               expression: "form.phone"
                             }
                           ],
-                          staticClass: "form-control",
+                          staticClass: "form-control form-material",
                           class: { "text-danger": _vm.errors.has("phone") },
                           attrs: {
                             id: "phone",
@@ -103292,7 +103292,7 @@ var render = function() {
                               expression: "form.subject"
                             }
                           ],
-                          staticClass: "form-control",
+                          staticClass: "form-control form-material",
                           class: { "text-danger": _vm.errors.has("subject") },
                           attrs: {
                             id: "subject",
@@ -103371,7 +103371,7 @@ var render = function() {
                               expression: "'required|min:2|max:150'"
                             }
                           ],
-                          staticClass: "form-control",
+                          staticClass: "form-control form-material",
                           class: { "is-danger": _vm.errors.has("message") },
                           attrs: {
                             id: "message",
@@ -103673,7 +103673,11 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* formulario booking */\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\n\tmin-width: 100%;\n\tdisplay: block;\n\tmargin: 0;\n}\n.form-booking .form-control[data-v-66d06953]{\n\tborder: 0px solid transparent;\n}\n.form-booking .form-control[data-v-66d06953]:focus {\n    color: #495057;\n    background-color: #fff;\n    border-color: transparent;\n    outline: 0;\n    -webkit-box-shadow: 0 0 0 0.2rem transparent;\n            box-shadow: 0 0 0 0.2rem transparent;\n}\n.hr[data-v-66d06953]{\n\twidth: 100%;\n    height: 1px;\n    background-color: transparent;\n    border: 0.5px solid #555;\n}\n.form-booking .btn-primary[data-v-66d06953]{\n\tbackground-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-primary[data-v-66d06953]:hover {\n    color: #fff;\n    background-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-primary.focus[data-v-66d06953], .form-booking .btn-primary[data-v-66d06953]:focus{\n\t-webkit-box-shadow: 0 0 0 0.2rem #2ac0938a;\n\t        box-shadow: 0 0 0 0.2rem #2ac0938a;\n}\n.form-booking .btn-primary[data-v-66d06953]:not(:disabled):not(.disabled):active{\n\tcolor: #fff;\n    background-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-lg[data-v-66d06953] {\n    padding: .3rem 1rem;\n    font-size: 1.25rem;\n    line-height: 1.2;\n    border-radius: 1rem;\n}\n.form-booking select.form-control[data-v-66d06953] {\n\ttext-align-last:center;\n}\n@media screen and (min-width: 992px){\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\n\t\tmin-width: 180px;\n\t\twidth: auto;\n\t\tdisplay: block;\n\t\tmargin: 0;\n}\n}\n", ""]);
+=======
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* formulario booking */\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\n\tmin-width: 100%;\n\tdisplay: block;\n\tmargin: 0;\n}\n.form-booking .form-control[data-v-66d06953]{\n\tborder: 0px solid transparent;\n}\n.form-booking .form-control[data-v-66d06953]:focus {\n    color: #495057;\n    background-color: #fff;\n    border-color: transparent;\n    outline: 0;\n    -webkit-box-shadow: 0 0 0 0.2rem transparent;\n            box-shadow: 0 0 0 0.2rem transparent;\n}\n.hr[data-v-66d06953]{\n\twidth: 100%;\n    height: 1px;\n    background-color: transparent;\n    border: 0.5px solid #555;\n}\n.form-booking .btn-primary[data-v-66d06953]{\n\tbackground-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-primary[data-v-66d06953]:hover {\n    color: #fff;\n    background-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-primary.focus[data-v-66d06953], .form-booking .btn-primary[data-v-66d06953]:focus{\n\t-webkit-box-shadow: 0 0 0 0.2rem #2ac0938a;\n\t        box-shadow: 0 0 0 0.2rem #2ac0938a;\n}\n.form-booking .btn-primary[data-v-66d06953]:not(:disabled):not(.disabled):active{\n\tcolor: #fff;\n    background-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-lg[data-v-66d06953] {\n    padding: .3rem 1rem;\n    font-size: 1.25rem;\n    line-height: 1.2;\n    border-radius: 1rem;\n}\n.form-booking select.form-control[data-v-66d06953] {\n\ttext-align-last:center;\n}\n@media screen and (min-width: 992px){\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\n\t\tmin-width: 180px;\n\t\twidth: auto;\n\t\tdisplay: block;\n\t\tmargin: 0;\n}\n}\n", ""]);
+>>>>>>> 52c6bb1bdd2a026933a7a93414e39ec7f5313b42
 
 // exports
 
@@ -103690,6 +103694,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_ctk_date_time_picker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_ctk_date_time_picker__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_ctk_date_time_picker_dist_vue_ctk_date_time_picker_min_css__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_ctk_date_time_picker_dist_vue_ctk_date_time_picker_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_ctk_date_time_picker_dist_vue_ctk_date_time_picker_min_css__);
+//
 //
 //
 //
@@ -104787,6 +104792,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("div", { attrs: { id: "chisiamo" } }),
+    _vm._v(" "),
     _c("section", { staticClass: "py-3 bg-white" }, [
       _c("div", { staticClass: "container h-100 p-0" }, [
         _c(
@@ -105105,6 +105112,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -105120,6 +105148,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.isAuth) {
                 return '/myAccount';
             } else return '/clientLogin';
+        }
+    },
+
+    methods: {
+        scrollFix: function scrollFix(hash) {
+            setTimeout(function () {
+                return $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 2000);
+            }, 1);
+        },
+        redirectToHome: function redirectToHome() {
+            return this.$router.push('/');
+        },
+        validateLogin: function validateLogin() {
+            var authenticated = this.$store.getters.getauthenticated;
+            if (authenticated) {
+                this.isAuth = true;
+            }
+        },
+        logout: function logout() {
+            var _this = this;
+
+            axios.post('/logout').then(function (res) {
+                if (res.status === 200) {
+                    _this.$store.dispatch('deleteSession');
+                    location.href = '/';
+                }
+            }).catch(function (error) {});
         }
     }
 });
@@ -105169,12 +105226,12 @@ var render = function() {
                   [
                     _c("img", {
                       attrs: {
-                        src: "/images/iconos/facebook.png",
+                        src: "/images/iconos/world.svg",
                         alt: "facebook",
                         width: "24"
                       }
                     }),
-                    _vm._v("\n                         "),
+                    _vm._v(" \n                         "),
                     _c("span", { staticClass: "text-uppercase" }, [
                       _vm._v(_vm._s(_vm.lang))
                     ])
@@ -105190,32 +105247,122 @@ var render = function() {
                 attrs: { id: "navbarNav" }
               },
               [
-                _c("ul", { staticClass: "navbar-nav text-center" }, [
-                  _vm._m(5),
-                  _vm._v(" "),
-                  _vm._m(6),
-                  _vm._v(" "),
-                  _vm._m(7),
-                  _vm._v(" "),
-                  _vm._m(8),
-                  _vm._v(" "),
-                  _vm._m(9),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "nav-item py-md-2" }, [
+                _c(
+                  "ul",
+                  { staticClass: "navbar-nav text-center" },
+                  [
                     _c(
-                      "a",
+                      "router-link",
                       {
-                        staticClass: "nav-link",
-                        attrs: { href: _vm.GetRoute }
+                        staticClass: "nav-item py-md-2",
+                        attrs: { to: "/#chisiamo", exact: "" },
+                        nativeOn: {
+                          click: function($event) {
+                            _vm.scrollFix("#chisiamo")
+                          }
+                        }
                       },
                       [
-                        _vm.isAuth
-                          ? _c("span", [_vm._v("Il mio account")])
-                          : _c("span", [_vm._v("Accedi al tuo account")])
+                        _c("a", { staticClass: "nav-link" }, [
+                          _vm._v(
+                            "\n                            Chi Siamo\n                        "
+                          )
+                        ])
                       ]
-                    )
-                  ])
-                ])
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-item py-md-2",
+                        attrs: { to: "/#camera", exact: "" },
+                        nativeOn: {
+                          click: function($event) {
+                            _vm.scrollFix("#camera")
+                          }
+                        }
+                      },
+                      [
+                        _c("a", { staticClass: "nav-link" }, [
+                          _vm._v(
+                            "\n                            Suites\n                        "
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-item py-md-2",
+                        attrs: { to: "/#servizi", exact: "" },
+                        nativeOn: {
+                          click: function($event) {
+                            _vm.scrollFix("#servizi")
+                          }
+                        }
+                      },
+                      [
+                        _c("a", { staticClass: "nav-link" }, [
+                          _vm._v(
+                            "\n                            Servizi\n                        "
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-item py-md-2",
+                        attrs: { to: "/#esperienze", exact: "" },
+                        nativeOn: {
+                          click: function($event) {
+                            _vm.scrollFix("#esperienze")
+                          }
+                        }
+                      },
+                      [
+                        _c("a", { staticClass: "nav-link" }, [
+                          _vm._v(
+                            "\n                            Esperienze\n                        "
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-item py-md-2",
+                        attrs: { to: "/contactUs", exact: "" }
+                      },
+                      [
+                        _c("a", { staticClass: "nav-link" }, [
+                          _vm._v(
+                            "\n                            contatti\n                        "
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item py-md-2" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { href: _vm.GetRoute }
+                        },
+                        [
+                          _vm.isAuth
+                            ? _c("span", [_vm._v("Il mio account")])
+                            : _c("span", [_vm._v("Accedi al tuo account")])
+                        ]
+                      )
+                    ])
+                  ],
+                  1
+                )
               ]
             )
           ]
@@ -105232,27 +105379,43 @@ var staticRenderFns = [
     return _c("aside", { staticClass: "top-info d-none d-md-block bg-black" }, [
       _c("div", { staticClass: "container header-black" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-6" }, [
+          _c("div", { staticClass: "col-6 py-2" }, [
             _c(
               "a",
               {
                 attrs: {
                   href: "https://goo.gl/maps/V6ZaLt3XSM22",
-                  target: "_black"
+                  target: "_black "
                 }
               },
               [_vm._v("Via alessandro nanni 58, Italia, Olbia")]
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-6 text-right" }, [
+          _c("div", { staticClass: "col-6 text-right py-2" }, [
             _c("a", { attrs: { href: "tel:07891710013" } }, [
               _vm._v("0789-1710013")
             ]),
             _vm._v(" | "),
             _c("a", { attrs: { href: "tel3471757188" } }, [
               _vm._v("34-71757188")
-            ])
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              attrs: {
+                src: "/images/iconos/facebook-logo.svg",
+                alt: "facebook",
+                width: "27"
+              }
+            }),
+            _vm._v(" "),
+            _c("img", {
+              attrs: {
+                src: "/images/iconos/instagram-logo.svg",
+                alt: "instagram",
+                width: "27"
+              }
+            })
           ])
         ])
       ])
@@ -105293,16 +105456,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "text-white", attrs: { href: "#" } }, [
-      _c("img", {
-        attrs: {
-          src: "/images/iconos/facebook.png",
-          alt: "facebook",
-          width: "24"
-        }
-      }),
-      _vm._v("  ")
-    ])
+    return _c(
+      "a",
+      { staticClass: "font-2 d-md-none pr-1 mr-1", attrs: { href: "#" } },
+      [
+        _c("img", {
+          attrs: {
+            src: "/images/iconos/instagram-logo.svg",
+            alt: "instagram",
+            width: "27"
+          }
+        })
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -105322,56 +105488,6 @@ var staticRenderFns = [
         _vm._v(" |\n                    ")
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item py-md-2" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#chisiamo" } }, [
-        _vm._v("Chi Siamo")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item py-md-2" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#camera" } }, [
-        _vm._v("Suites")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item py-md-2" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#servizi" } }, [
-        _vm._v("Servizi")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item py-md-2" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#esperienze" } }, [
-        _vm._v("Esperienze")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item py-md-2" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "/contactUs" } }, [
-        _vm._v("contatti")
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -108499,7 +108615,7 @@ var render = function() {
                                     expression: "form.name"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger": _vm.errors.has("name")
                                 },
@@ -108573,7 +108689,7 @@ var render = function() {
                                     expression: "form.lastname"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger": _vm.errors.has("lastname")
                                 },
@@ -108650,7 +108766,7 @@ var render = function() {
                                     expression: "form.phone"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger": _vm.errors.has("phone")
                                 },
@@ -108726,7 +108842,7 @@ var render = function() {
                                     expression: "form.optionalPhone"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger": _vm.errors.has("optionalPhone")
                                 },
@@ -108806,7 +108922,7 @@ var render = function() {
                                     expression: "form.email"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger":
                                     _vm.errors.has("email") || _vm.errorMail
@@ -108882,7 +108998,7 @@ var render = function() {
                                     expression: "form.fiscalCode"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger": _vm.errors.has("fiscalCode")
                                 },
@@ -108959,7 +109075,7 @@ var render = function() {
                                   }
                                 ],
                                 ref: "password",
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger": _vm.errors.has("password")
                                 },
@@ -109037,7 +109153,7 @@ var render = function() {
                                     expression: "form.passwordConfirm"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control form-material",
                                 class: {
                                   "text-danger":
                                     _vm.errors.has("passwordConfirm") ||
@@ -109178,7 +109294,7 @@ var render = function() {
                                 "router-link",
                                 {
                                   staticClass: "text-success link",
-                                  attrs: { to: "/terms" }
+                                  attrs: { to: "/termini" }
                                 },
                                 [_vm._v("Terminos y condiciones de uso")]
                               )
@@ -109796,7 +109912,7 @@ var render = function() {
                               expression: "form.email"
                             }
                           ],
-                          staticClass: "form-control",
+                          staticClass: "form-control form-material",
                           class: { "text-danger": _vm.errors.has("email") },
                           attrs: {
                             id: "email",
@@ -109875,7 +109991,7 @@ var render = function() {
                               expression: "'required|min:8|max:16'"
                             }
                           ],
-                          staticClass: "form-control",
+                          staticClass: "form-control form-material",
                           class: { "text-danger": _vm.errors.has("password") },
                           attrs: {
                             id: "password",
