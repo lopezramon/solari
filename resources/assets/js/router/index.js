@@ -88,7 +88,6 @@ import myOrderDetail from '../components/myaccount/myOrderDetail.vue';
 import Error404 from '../components/general/error404.vue';
 import Error500 from '../components/general/error500.vue';
 
-
 /*
  * Components
  */
