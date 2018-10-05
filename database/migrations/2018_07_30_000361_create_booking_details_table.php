@@ -24,7 +24,7 @@ class CreateBookingDetailsTable extends Migration
 
             $table->integer('adult_quantity');
 
-            $table->unsignedInteger('form_data_id')->comment('The form data for this object model booked');
+            $table->unsignedInteger('form_data_id')->nullable()->default(null)->comment('The form data for this object model booked');
             $table->foreign('form_data_id')->references('id')->on('form_data');
 
             $table->double('iva_item', 12, 2);

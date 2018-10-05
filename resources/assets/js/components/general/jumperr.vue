@@ -6,18 +6,15 @@
                     <div class="row">
                         <div class="col-12 col-md-9">
                             <p class="text-white text-center text-md-left">
-                                 © 2018 Doble A  Luxury Room | <br class="d-md-none">
+                                 © 2018 Doble A  Luxury Room<br class="d-md-none">  | 
 
-                                <a href="/terms" class="text-white">
-                                Politica Sulla Riservatezza |
-                                </a>
-                                <a href="/policies" class="text-white">
-                                Termini e Condizioni |&nbsp;
-                                </a> <br class="d-md-none">
+                                <a href="/termini" class="text-white">
+                                Politica Sulla Riservatezza</a> |
+                                <a href="/termini" class="text-white">
+                                Termini e Condizioni</a> |&nbsp; <br class="d-md-none">
 
-                                <a href="/terms" class="text-white">
-                                Regolamento Generale
-                                </a>
+                                <a href="/termini" class="text-white">
+                                Regolamento Generale</a>
                             </p>
                         </div>
                         <div class="col-12 col-md-3 ml-auto text-center text-md-right">

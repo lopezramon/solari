@@ -3,6 +3,8 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Admin\Booking;
+use App\Models\Admin\Room;
+use App\User;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
@@ -36,6 +38,7 @@ class BookingRepository extends BaseRepository
      */
     protected $customDefaultColumns = [
         'id',
+        'code',
         'user_id',
         'checkin_date',
         'checkout_date',
@@ -43,6 +46,12 @@ class BookingRepository extends BaseRepository
         'iva',
         'total',
         'comment',
+
+        'responsable_name',
+        'responsable_email',
+        'responsable_phone',
+        'responsable_identification',
+
         'status_id'
     ];
 
@@ -52,6 +61,119 @@ class BookingRepository extends BaseRepository
     public function model()
     {
         return Booking::class;
+    }
+
+    public function createCustomized( $data )
+    {
+        // montos
+        $total  = 0;
+        $iva    = 0;
+
+        // Save Booking
+        $booking = $this->setBookingModel( $data );
+
+        foreach ($data['datos_reserva'] as $key => $roomItem) {
+
+            // Save BookingDetail
+            $bookingDetail = $this->setBookingDetailModel($roomItem, $booking);
+
+            // Save FormData
+            $formData = $this->setFormDataModel( $roomItem, $bookingDetail );
+
+            // montos para el BookingDetail
+            $total  += $bookingDetail->total_item;
+            $iva    += $bookingDetail->iva_item;
+        }
+
+        // Update Booking (para guardar los montos y generar codigo)
+        $bookingData = [];
+        $bookingData['subtotal']    = $total - $iva;
+        $bookingData['iva']         = $iva;
+        $bookingData['total']       = $total;
+        $bookingData['code']        = $this->generateCode($booking->id);
+        $booking = $this->update($bookingData, $booking->id);
+
+        return $booking;
+    }
+
+    /**
+     * Set and store the booking.
+     *
+     * @param array $data
+     *
+     * @return Booking
+     */
+    private function setBookingModel( $data )
+    {
+        $booking                    = [];
+
+        // RELACION CON MODELO USER
+        $user                       = User::find($data['user_id']);
+        $booking['user_id']         = $user->id ?? null;
+
+        // DATOS DE LA ORDEN
+        $booking['checkin_date']    = $data['cart']['checkin'];
+        $booking['checkout_date']   = $data['cart']['checkout'];
+        $booking['comment']         = $data['comentario'];
+
+        // DATOS DEL RESPONSABLE
+        $booking['responsable_name']            = $data['cart']['responsable']['name'];
+        $booking['responsable_email']           = $data['cart']['responsable']['email'];
+        $booking['responsable_phone']           = $data['cart']['responsable']['phone'];
+        $booking['responsable_identification']  = $data['cart']['responsable']['identidad'];
+
+        return $this->create($booking);
+    }
+
+    /**
+     * Set and store the booking detail.
+     *
+     * @param object    $roomItem
+     * @param Order     $booking
+     *
+     * @return BookingDetail
+     */
+    private function setBookingDetailModel( $roomItem, $booking )
+    {
+        $roomId = $roomItem['idroom'];
+        $room = Room::find($roomId);
+
+        // booking datail
+        $bookingDetail                      = [];
+        $bookingDetail['booking_id']        = $booking->id;
+        $bookingDetail['row_id']            = $room->row->id;
+        $bookingDetail['adult_quantity']    = $roomItem['numero'];
+
+        // montos
+        $dates = [
+            'checkin'   => $booking->checkin_date->toDateString(),
+            'checkout'  => $booking->checkout_date->toDateString()
+        ];
+        $ivaAndPrice = $room->getCurrentIvaAndPrice($room, $dates);
+        $bookingDetail['total_item']        = $ivaAndPrice['price'];
+        $bookingDetail['iva_item']          = $ivaAndPrice['iva'];
+
+        return $booking->bookingDetails()->create($bookingDetail);
+    }
+
+    /**
+     * Set and store the form data for the given booking detail.
+     *
+     * @param object    $roomItem
+     *
+     * @return FormData
+     */
+    private function setFormDataModel( $roomItem, $bookingDetail )
+    {
+        $formData           = [];
+        $formData['name']   = $roomItem['name'];
+        $formData['email']  = $roomItem['email'];
+
+        $formDataModel = $bookingDetail->formInfo()->create($formData);
+
+        $bookingDetail->update(['form_data_id' => $formDataModel->id]);
+
+        return $formDataModel;
     }
 
     /**
@@ -102,7 +224,7 @@ class BookingRepository extends BaseRepository
      *
      * @return array
      */
-    public function findCustomized($id, $columns = null)
+    public function findCustomized( $id, $columns = null )
     {
         $columns = $columns ?? $this->customDefaultColumns;
 
@@ -113,41 +235,6 @@ class BookingRepository extends BaseRepository
 
         return $array;
     }
-
-    /**
-     * Get the relations.
-     */
-    /*public function getBookingWithRelations( $booking )
-    {
-        // $finalBooking = (object)[];
-
-        // // DATOS DEL BOOKING
-        // $finalBooking->id               = $booking->id;
-        // $finalBooking->code             = $booking->code;
-        // $finalBooking->subtotal         = $booking->subtotal;
-        // $finalBooking->iva              = $booking->iva;
-        // $finalBooking->total            = $booking->total;
-        // $finalBooking->comment          = $booking->comment;
-
-        // FECHA Y ESTATUS
-        $booking->date               = $booking->created_at->format('l d/m/Y');
-        $booking->status             = $booking->status->statusTranslation()->name;
-
-        // DATOS DEL USUARIO QUE REALIZA EL BOOKING
-        // $finalBooking->formulario             = (object)[];
-        // $finalBooking->formulario->email      = $booking->form_email;
-        // $finalBooking->formulario->name       = $booking->form_name;
-        // $finalBooking->formulario->lastName   = $booking->form_lastname;
-        // $finalBooking->formulario->phone      = $booking->form_phone;
-
-        // datos de las rooms del booking (bookingDetails)
-        // $booking->rooms = $this->getBookingDetails($booking);
-
-        // ID DEL USUARIO (O NULL)
-        // $finalBooking->user_id    = $booking->user_id;
-
-        return $booking;
-    }*/
 
     /**
      * Clear unnecesary columns in collection or objet model.

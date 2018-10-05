@@ -26,12 +26,13 @@ class UtilsAPIFrontController extends AppBaseController
     */
     public function contactUs(Request $request)
     {
+
         try{
             $request['textmail'] = 'Titulo';
             $request['textmail_sub'] = 'Sub titulo';
             $flag="ERROR NO ENVIO";
 
-            $send = MailController::sendMail($request->all(),'tests');
+            $send = MailController::sendMail($request->all(),'contacto');
 
             if($send=='OK'){
                 $flag="FINO";
@@ -58,7 +59,7 @@ class UtilsAPIFrontController extends AppBaseController
             $exist = $this->newsletterUserRepository->findByField('email',$request->email)->first();
             if(!$exist){
                 $newsletterUsers = $this->newsletterUserRepository->create($request->all());
-                $send=MailController::sendMail($request->all(),'tests');
+                $send=MailController::sendMail($request->all(),'newsletter');
                 if($send=='OK'){
                     return $this->sendResponse($newsletterUsers->toArray(), 'Newsletter Utente salvato correttamente');
                 }
@@ -85,9 +86,8 @@ class UtilsAPIFrontController extends AppBaseController
             if(empty($newsletter)){
                 return response()->json(["success"=>true,"message"=>"El email no existe..!"],301);
             }
-            $newsletter->delete();
-            // $newsletter->forceDelete();
-            return response()->json(["success"=>true,"message"=>$newsletter,"delete"=>'on'],200);
+            $newsletter->forceDelete();
+            return response()->json(["success"=>true,"message"=>$newsletter],200);
         }catch(Exeption $e){
             return response()->json(["success"=>true,"message"=>$e->message()],500);
         }

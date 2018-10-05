@@ -11,7 +11,16 @@ Vue.use(VueAwesomeSwiper, {});
 
 // Vee-Validate
 import VeeValidate from 'vee-validate';
-Vue.use(VeeValidate);
+// import VeeValidateEn from '../../js/vee-validate-languaje/en';
+// import VeeValidateIt from '../../js/vee-validate-languaje/it';
+Vue.use(VeeValidate, {
+    // locale: 'it',
+    fieldsBagName: 'veeFields',
+    // dictionary: {
+    //     it: VeeValidateIt,
+    //     en: VeeValidateEn
+    // }
+});
 
 // Sweetalert2
 import VueSweetalert2 from 'vue-sweetalert2';
@@ -30,6 +39,7 @@ import esperience from '../components/landing/esperience';
 import galleryHorizontal from '../components/landing/galleryHorizontal';
 import mapa from '../components/landing/mapa';
 import newsletter from '../components/landing/newsletter';
+import unsubscribeNewsletter from '../components/landing/unsubscribenewsletter';
 import aboutUs from '../components/landing/aboutUs';
 import homeCamere from '../components/landing/homeCamere';
 import contactUs from '../components/landing/contactUs';
@@ -39,6 +49,7 @@ import formBooking from '../components/landing/form';
 import navbar from '../components/general/navbar';
 import footer from '../components/general/footer';
 import jumperr from '../components/general/jumperr';
+import termini from '../components/general/termini';
 
 // Suites
 import suites from '../components/suites/suites';
@@ -110,6 +121,7 @@ Vue.component('navaccount', navaccount);
 Vue.component('headerAccount', headerAccount);
 
 
+
 // Routes
 let router = new Router({
     mode:'history',
@@ -140,7 +152,7 @@ let router = new Router({
             component: account_table
         },
         {
-            path: '/my-order-detail',
+            path: '/my-order-detail/:id',
             name: 'myOrderDetail',
             component: myOrderDetail
         },
@@ -161,7 +173,7 @@ let router = new Router({
             component: stepDos
         },
         {
-            path: '/booking/step-3',
+            path: '/booking/step-3/:id',
             name: 'stepTres',
             component: stepTres
         },
@@ -194,6 +206,16 @@ let router = new Router({
             path: '/error500',
             name: 'error500',
             component: Error500
+        },
+        {
+            path: '/unsubscribeNewsletter/:email',
+            name: 'unsubscribeNewsletter',
+            component: unsubscribeNewsletter
+        },
+        {
+            path: '/termini',
+            name: 'termini',
+            component: termini
         },
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }

@@ -1,11 +1,16 @@
 export default {
     state: {
       booking:{
-         checkin:'2018-09-18',
-         checkout:'2018-09-25',
-         adult:2,
+         checkin:null,
+         checkout:null,
          cart:[],
          total:0,
+         responsable:{
+          name:null,
+          phone:null,
+          identidad:null,
+          email:null,
+         }
       },
     },
     actions:{
@@ -24,16 +29,46 @@ export default {
        },
        getTotal: state => {
         return state.booking.total;
-       }
+       },
+       getBooking: state => {
+        return state.booking;
+       },
     },
     mutations:{
+      deleteAll(state,{ list }){ 
+        for(var a in list){
+          var list_cart=state.booking.cart;
+          for(var i in list_cart){
+            if(list_cart[i].id==list[a].id){
+               Vue.delete(state.booking.cart,i);
+               Vue.set(state.booking, 'total',Math.abs(state.booking.total-list[a].price));
+            }
+          }
+        }
+      },
+      destroyState (state){ 
+        Vue.set(state.booking,'checkin',null);
+        Vue.set(state.booking,'checkout',null);
+        Vue.set(state.booking,'cart',[]); 
+        Vue.set(state.booking,'total',0); 
+        Vue.set(state.booking.responsable,'name',null); 
+        Vue.set(state.booking.responsable,'phone',null); 
+        Vue.set(state.booking.responsable,'identidad',null); 
+        Vue.set(state.booking.responsable,'email',null); 
+      },
+      setResponReser(state,{ list }){ 
+        Vue.set(state.booking.responsable,'name',list.name_reserva); 
+        Vue.set(state.booking.responsable,'phone',list.telef_reserva); 
+        Vue.set(state.booking.responsable,'identidad',list.identidad_reserva);
+        Vue.set(state.booking.responsable,'email',list.email);
+      },
       setFilter(state,{ list }){ 
         Vue.set(state.booking,'checkin',list.checkin);
         Vue.set(state.booking,'checkout',list.checkout); 
       },
       addCart(state,{ list }){
         var total=state.booking.total;
-        total=+parseFloat(list.price);
+        total+=parseFloat(list.price);
         state.booking.cart.push(list);
         Vue.set(state.booking,'total',total); 
       },

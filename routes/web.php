@@ -12,6 +12,9 @@
 */
 Auth::routes();
 
+Route::post('/paypal', 'PaypalController@payWithpaypal');
+Route::get('status', 'PaypalController@getPaymentStatus');
+
 Route::post('register', 'Auth\RegisterController@register');
 
 Route::middleware(['auth','hasrole:admin'])->group(function () {
@@ -47,7 +50,7 @@ Route::middleware(['auth','hasrole:admin'])->group(function () {
     Route::get('admin/productCategories/create', ['as'=> 'admin.productCategories.create', 'uses' => 'Admin\ProductCategoryController@create']);
     Route::get('admin/productCategories/{productCategories}', ['as'=> 'admin.productCategories.show', 'uses' => 'Admin\ProductCategoryController@show']);
     Route::get('admin/productCategories/{productCategories}/edit', ['as'=> 'admin.productCategories.edit', 'uses' => 'Admin\ProductCategoryController@edit']);
-	    
+
 	    Route::post('admin/productCategories', ['as'=> 'admin.productCategories.store', 'uses' => 'Admin\ProductCategoryController@store']);
 	    Route::put('admin/productCategories/{productCategories}', ['as'=> 'admin.productCategories.update', 'uses' => 'Admin\ProductCategoryController@update']);
 	    Route::patch('admin/productCategories/{productCategories}', ['as'=> 'admin.productCategories.update', 'uses' => 'Admin\ProductCategoryController@update']);
@@ -59,7 +62,7 @@ Route::middleware(['auth','hasrole:admin'])->group(function () {
     Route::get('admin/productSubcategories/create', ['as'=> 'admin.productSubcategories.create', 'uses' => 'Admin\ProductSubcategoryController@create']);
     Route::get('admin/productSubcategories/{productSubcategories}', ['as'=> 'admin.productSubcategories.show', 'uses' => 'Admin\ProductSubcategoryController@show']);
     Route::get('admin/productSubcategories/{productSubcategories}/edit', ['as'=> 'admin.productSubcategories.edit', 'uses' => 'Admin\ProductSubcategoryController@edit']);
-    
+
 	    Route::post('admin/productSubcategories', ['as'=> 'admin.productSubcategories.store', 'uses' => 'Admin\ProductSubcategoryController@store']);
 	    Route::patch('admin/productSubcategories/{productSubcategories}', ['as'=> 'admin.productSubcategories.update', 'uses' => 'Admin\ProductSubcategoryController@update']);
     	Route::delete('admin/productSubcategories/{productSubcategories}', ['as'=> 'admin.productSubcategories.destroy', 'uses' => 'Admin\ProductSubcategoryController@destroy']);
@@ -70,7 +73,7 @@ Route::middleware(['auth','hasrole:admin'])->group(function () {
 	Route::get('admin/additionalCategories/create', ['as'=> 'admin.additionalCategories.create', 'uses' => 'Admin\AdditionalCategoryController@create']);
 	Route::get('admin/additionalCategories/{additionalCategories}', ['as'=> 'admin.additionalCategories.show', 'uses' => 'Admin\AdditionalCategoryController@show']);
 	Route::get('admin/additionalCategories/{additionalCategories}/edit', ['as'=> 'admin.additionalCategories.edit', 'uses' => 'Admin\AdditionalCategoryController@edit']);
-		
+
 		Route::post('admin/additionalCategories', ['as'=> 'admin.additionalCategories.store', 'uses' => 'Admin\AdditionalCategoryController@store']);
 		Route::put('admin/additionalCategories/{additionalCategories}', ['as'=> 'admin.additionalCategories.update', 'uses' => 'Admin\AdditionalCategoryController@update']);
 		Route::patch('admin/additionalCategories/{additionalCategories}', ['as'=> 'admin.additionalCategories.update', 'uses' => 'Admin\AdditionalCategoryController@update']);
@@ -94,7 +97,7 @@ Route::middleware(['auth','hasrole:admin'])->group(function () {
 	Route::get('admin/productFeatures/create', ['as'=> 'admin.productFeatures.create', 'uses' => 'Admin\ProductFeatureController@create']);
 	Route::get('admin/productFeatures/{productFeatures}', ['as'=> 'admin.productFeatures.show', 'uses' => 'Admin\ProductFeatureController@show']);
 	Route::get('admin/productFeatures/{productFeatures}/edit', ['as'=> 'admin.productFeatures.edit', 'uses' => 'Admin\ProductFeatureController@edit']);
-		
+
 		Route::post('admin/productFeatures', ['as'=> 'admin.productFeatures.store', 'uses' => 'Admin\ProductFeatureController@store']);
 		Route::put('admin/productFeatures/{productFeatures}', ['as'=> 'admin.productFeatures.update', 'uses' => 'Admin\ProductFeatureController@update']);
 		Route::patch('admin/productFeatures/{productFeatures}', ['as'=> 'admin.productFeatures.update', 'uses' => 'Admin\ProductFeatureController@update']);
@@ -106,7 +109,7 @@ Route::middleware(['auth','hasrole:admin'])->group(function () {
 	Route::get('admin/productPresentations/create', ['as'=> 'admin.productPresentations.create', 'uses' => 'Admin\ProductPresentationController@create']);
 	Route::get('admin/productPresentations/{productPresentations}', ['as'=> 'admin.productPresentations.show', 'uses' => 'Admin\ProductPresentationController@show']);
 	Route::get('admin/productPresentations/{productPresentations}/edit', ['as'=> 'admin.productPresentations.edit', 'uses' => 'Admin\ProductPresentationController@edit']);
-		
+
 		Route::post('admin/productPresentations', ['as'=> 'admin.productPresentations.store', 'uses' => 'Admin\ProductPresentationController@store']);
 		Route::put('admin/productPresentations/{productPresentations}', ['as'=> 'admin.productPresentations.update', 'uses' => 'Admin\ProductPresentationController@update']);
 		Route::patch('admin/productPresentations/{productPresentations}', ['as'=> 'admin.productPresentations.update', 'uses' => 'Admin\ProductPresentationController@update']);
@@ -118,7 +121,7 @@ Route::middleware(['auth','hasrole:admin'])->group(function () {
 	Route::get('admin/products/create', ['as'=> 'admin.products.create', 'uses' => 'Admin\ProductController@create']);
 	Route::get('admin/products/{products}', ['as'=> 'admin.products.show', 'uses' => 'Admin\ProductController@show']);
 	Route::get('admin/products/{products}/edit', ['as'=> 'admin.products.edit', 'uses' => 'Admin\ProductController@edit']);
-		
+
 		Route::post('admin/products', ['as'=> 'admin.products.store', 'uses' => 'Admin\ProductController@store']);
 		Route::put('admin/products/{products}', ['as'=> 'admin.products.update', 'uses' => 'Admin\ProductController@update']);
 		Route::patch('admin/products/{products}', ['as'=> 'admin.products.update', 'uses' => 'Admin\ProductController@update']);
@@ -387,3 +390,7 @@ Route::patch('admin/formDatas/{formDatas}', ['as'=> 'admin.formDatas.update', 'u
 Route::delete('admin/formDatas/{formDatas}', ['as'=> 'admin.formDatas.destroy', 'uses' => 'Admin\FormDataController@destroy']);
 Route::get('admin/formDatas/{formDatas}', ['as'=> 'admin.formDatas.show', 'uses' => 'Admin\FormDataController@show']);
 Route::get('admin/formDatas/{formDatas}/edit', ['as'=> 'admin.formDatas.edit', 'uses' => 'Admin\FormDataController@edit']);
+
+Route::get('password/reseted/{token}', function(){
+	return;
+})->name('password.reset');
