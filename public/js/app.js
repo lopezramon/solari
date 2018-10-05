@@ -105152,7 +105152,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             setTimeout(function () {
                 return $('html, body').animate({
                     scrollTop: $(hash).offset().top
-                }, 2000);
+                }, 3000);
             }, 1);
         },
         redirectToHome: function redirectToHome() {
@@ -105194,7 +105194,7 @@ var render = function() {
           "nav",
           {
             staticClass:
-              "navbar navbar-dark navbar-expand-md py-md-2 text-uppercase"
+              "navbar navbar-dark navbar-expand-md py-md-2 text-uppercase sticky-top"
           },
           [
             _vm._m(1),
