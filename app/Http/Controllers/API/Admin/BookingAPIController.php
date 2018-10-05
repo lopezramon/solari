@@ -104,13 +104,13 @@ class BookingAPIController extends AppBaseController
                 'cart'  => [
                     'id' => 1
                 ],
-                'total'     => 59.05
-            ],
-            'responsable' => [
-              'name'        => 'Carla',
-              'email'       => 'steven.sucre@jumperr.com',
-              'phone'       => '323232232323',
-              'identidad'   => '2332233223'
+                'total'     => 59.05,
+                'responsable' => [
+                  'name'        => 'Carla',
+                  'email'       => 'steven.sucre@jumperr.com',
+                  'phone'       => '323232232323',
+                  'identidad'   => '2332233223'
+                ]
             ],
             'user_id'       => 2,
         ];*/
