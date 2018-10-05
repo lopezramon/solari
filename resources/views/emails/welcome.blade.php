@@ -321,9 +321,15 @@
                                                                                             <tbody>
                                                                                                 <tr style="padding:0;text-align:left;vertical-align:top">
                                                                                                     <th style="Margin:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:left">
-                                                                                                        <h2 class="text-center" style="Margin:0;Margin-bottom:10px;color:inherit;font-family:Helvetica,Arial,sans-serif;font-size:32px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:center;word-wrap:normal">Grazzie</h2>
-                                                                                                        <p style="margin:0;margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:18px;font-weight:400;line-height:1.3;margin-bottom:10px;padding:0;text-align:center;"> La tua password è stata resettata con successo</p>
+                                                                                                        <h2 class="text-center" style="Margin:0;Margin-bottom:10px;color:inherit;font-family:Helvetica,Arial,sans-serif;font-size:32px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:center;word-wrap:normal">Benvenuto {{$name}}</h2>
+                                                                                                        <p style="margin:0;margin-bottom:10px;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:18px;font-weight:400;line-height:1.3;margin-bottom:10px;padding:0;text-align:center;">Grazie per esserti iscritto a Luxury</p>
                                                                                                         <table class="spacer" style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+                                                                                                            <tbody>
+                                                                                                                <tr style="padding:0;text-align:left;vertical-align:top">
+                                                                                                                    <td height="16px" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;hyphens:auto;line-height:16px;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">&nbsp;</td>
+                                                                                                                </tr>
+                                                                                                            </tbody>
+                                                                                                        </table>
                                                                                                     </th>
                                                                                                 </tr>
                                                                                             </tbody>
