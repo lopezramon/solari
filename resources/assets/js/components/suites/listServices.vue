@@ -6,7 +6,7 @@
                     <div class="col-12">
                         <h3 class="text-uppercase">Informazioni Generali del Bed and breakfast</h3>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-3" v-for="item in informazioni" :key="item">
+                    <div class="col-12 col-md-6 col-lg-3" v-for="item in informazioni">
                         <p>
                             <img src="/images/suites/icon/baseline-done-24px.svg" alt="check-list">
                             {{item.title}}
@@ -18,12 +18,14 @@
             <section class="p-3 mb-4">
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="text-uppercase">Suite Di 20 M<span class="elevado">2</span> </h3>
+                        <h3 class="text-uppercase">{{subtitle2}} 
+                            <!-- <span class="elevado">2</span>  -->
+                        </h3>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-3" v-for="item in services" :key="item">
+                    <div class="col-12 col-md-6 col-lg-3" v-for="(item, clave) in services" :key="clave">
                         <p>
                             <img src="/images/suites/icon/baseline-done-24px.svg" alt="check-list">
-                            {{item.title}}
+                            {{item.name}}
                         </p>
                     </div>
                 </div>
@@ -49,6 +51,7 @@
 </template>
 <script>
 export default {
+    props: ['services','subtitle2'],
     data(){
         return {
             informazioni: [
@@ -68,30 +71,6 @@ export default {
                 {title: 'Canoa'},
                 {title: 'Escursionismo'},
                 {title: 'Banco escursioni'},
-            ],
-            services: [
-                {title: 'Terrazo'},
-                {title: 'Canali pay  per view'},
-                {title: 'Armadio / Guardaroba'},
-                {title: 'Vassoio di cortesia'},
-                {title: '1 trés grand lit  double'},
-                {title: 'Prodotti da bagno in omaggio'},
-                {title: 'Televisione'},
-                {title: 'Camere in sonorizzate'},
-                {title: 'Stendibiancheria'},
-                {title: 'Scrivania'},
-                {title: 'Doccia'},
-                {title: 'Asciugacapelli'},
-                {title: 'Machina da Caffè'},
-                {title: 'Canali via cavo / satellite'},
-                {title: 'Aria condizionata'},
-                {title: 'Mini bar'},
-                {title: 'Asciugamani'},
-                {title: 'Radio'},
-                {title: 'Carta igienica'},
-                {title: 'Tolette'},
-                {title: 'Biancheria per la casa'},
-                {title: 'Vista città'},
             ]
         }
     }

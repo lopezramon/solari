@@ -1,11 +1,10 @@
 <template>
     <div>
         <div class="info">
-            <h3 class="text-uppercase">Suite (2)</h3>
-            <p class="m-0 lead font-weight-bold"><strong>€200</strong></p>
-            <p class="">
-                Camera matrimoniale climatizzata
-                con minibar e pavimento piastrellato / in marmo.
+            <h3 class="text-uppercase" v-text="subtitle1"></h3>
+            <p class="m-0 lead font-weight-bold"><strong>€{{price}}</strong></p>
+            <p class="" v-text="description">
+                
             </p>
         </div>
         <div class="reserva py-3">
@@ -62,6 +61,17 @@
         </div>
     </div>
 </template>
+<script>
+export default {
+    props: ['subtitle1','price','description'],
+    data() {
+        return {
+            
+        }
+    }
+}
+</script>
+
 <style scoped>
 /*form*/
   .form-control {

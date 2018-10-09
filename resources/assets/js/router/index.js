@@ -132,7 +132,7 @@ let router = new Router({
             component: AppContent
         },
         {
-            path: '/suites',
+            path: '/suites/room/:id',
             name: 'suites',
             component: suites
         },
