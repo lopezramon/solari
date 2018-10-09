@@ -78,7 +78,7 @@ class RegisterController extends Controller
         $this->userDetails($user, $data);
 
         $data['msg'] = "Se ha registrado con éxito";
-        MailController::sendMail($data,'tests');
+        MailController::sendMail($data,'welcome');
 
         return $user;
     }

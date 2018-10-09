@@ -11,7 +11,7 @@
             </aside>
 
             <div class="container">
-                <nav class="navbar navbar-dark navbar-expand-md py-md-2 text-uppercase">
+                <nav class="navbar navbar-dark navbar-expand-md py-md-2 text-uppercase sticky-top">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-ellipsis-v"></i>
                     </button>
@@ -94,7 +94,7 @@ methods: {
             scrollFix(hash) {
               setTimeout(() => $('html, body').animate({
               scrollTop: $(hash).offset().top
-              }, 2000), 1)
+              }, 3000), 1)
             },
             redirectToHome() { return this.$router.push('/'); },
             validateLogin() {

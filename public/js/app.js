@@ -103673,7 +103673,11 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
+<<<<<<< HEAD
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* formulario booking */\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\n\tmin-width: 100%;\n\tdisplay: block;\n\tmargin: 0;\n}\n.form-booking .form-control[data-v-66d06953]{\n\tborder: 0px solid transparent;\n}\n.form-booking .form-control[data-v-66d06953]:focus {\n    color: #495057;\n    background-color: #fff;\n    border-color: transparent;\n    outline: 0;\n    -webkit-box-shadow: 0 0 0 0.2rem transparent;\n            box-shadow: 0 0 0 0.2rem transparent;\n}\n.hr[data-v-66d06953]{\n\twidth: 100%;\n    height: 1px;\n    background-color: transparent;\n    border: 0.5px solid #555;\n}\n.form-booking .btn-primary[data-v-66d06953]{\n\tbackground-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-primary[data-v-66d06953]:hover {\n    color: #fff;\n    background-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-primary.focus[data-v-66d06953], .form-booking .btn-primary[data-v-66d06953]:focus{\n\t-webkit-box-shadow: 0 0 0 0.2rem #2ac0938a;\n\t        box-shadow: 0 0 0 0.2rem #2ac0938a;\n}\n.form-booking .btn-primary[data-v-66d06953]:not(:disabled):not(.disabled):active{\n\tcolor: #fff;\n    background-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-lg[data-v-66d06953] {\n    padding: .3rem 1rem;\n    font-size: 1.25rem;\n    line-height: 1.2;\n    border-radius: 1rem;\n}\n.form-booking select.form-control[data-v-66d06953] {\n\ttext-align-last:center;\n}\n@media screen and (min-width: 992px){\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\n\t\tmin-width: 180px;\n\t\twidth: auto;\n\t\tdisplay: block;\n\t\tmargin: 0;\n}\n}\n", ""]);
+=======
 exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* formulario booking */\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\n\tmin-width: 100%;\n\tdisplay: block;\n\tmargin: 0;\n}\n.form-booking .form-control[data-v-66d06953]{\n\tborder: 0px solid transparent;\n}\n.form-booking .form-control[data-v-66d06953]:focus {\n    color: #495057;\n    background-color: #fff;\n    border-color: transparent;\n    outline: 0;\n    -webkit-box-shadow: 0 0 0 0.2rem transparent;\n            box-shadow: 0 0 0 0.2rem transparent;\n}\n.hr[data-v-66d06953]{\n\twidth: 100%;\n    height: 1px;\n    background-color: transparent;\n    border: 0.5px solid #555;\n}\n.form-booking .btn-primary[data-v-66d06953]{\n\tbackground-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-primary[data-v-66d06953]:hover {\n    color: #fff;\n    background-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-primary.focus[data-v-66d06953], .form-booking .btn-primary[data-v-66d06953]:focus{\n\t-webkit-box-shadow: 0 0 0 0.2rem #2ac0938a;\n\t        box-shadow: 0 0 0 0.2rem #2ac0938a;\n}\n.form-booking .btn-primary[data-v-66d06953]:not(:disabled):not(.disabled):active{\n\tcolor: #fff;\n    background-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-lg[data-v-66d06953] {\n    padding: .3rem 1rem;\n    font-size: 1.25rem;\n    line-height: 1.2;\n    border-radius: 1rem;\n}\n.form-booking select.form-control[data-v-66d06953] {\n\ttext-align-last:center;\n}\n@media screen and (min-width: 992px){\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\n\t\tmin-width: 180px;\n\t\twidth: auto;\n\t\tdisplay: block;\n\t\tmargin: 0;\n}\n}\n", ""]);
+>>>>>>> 52c6bb1bdd2a026933a7a93414e39ec7f5313b42
 
 // exports
 
@@ -105152,7 +105156,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             setTimeout(function () {
                 return $('html, body').animate({
                     scrollTop: $(hash).offset().top
-                }, 2000);
+                }, 3000);
             }, 1);
         },
         redirectToHome: function redirectToHome() {
@@ -105194,7 +105198,7 @@ var render = function() {
           "nav",
           {
             staticClass:
-              "navbar navbar-dark navbar-expand-md py-md-2 text-uppercase"
+              "navbar navbar-dark navbar-expand-md py-md-2 text-uppercase sticky-top"
           },
           [
             _vm._m(1),
