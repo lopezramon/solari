@@ -102328,19 +102328,19 @@ var staticRenderFns = [
       _c("div", { staticClass: "container gray-us" }, [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-8" }, [
+            _c("div", { staticClass: "col-md-6" }, [
               _c("img", {
                 staticClass: "image-aboutus img-fluid",
                 attrs: { src: "/images/home/about-us/about-us.png" }
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-8 top" }, [
+            _c("div", { staticClass: "col-md-6 top" }, [
               _c("h1", [_vm._v("DOBLE A LUXURY ROOM")]),
-              _c("p"),
-              _c("span", [
+              _vm._v(" "),
+              _c("p", [
                 _vm._v(
-                  "double a luxury room si trova nel cuore di olbia in una delle più suggestive vie del centro storico. a soli 500 metri dal porto e 100 metri dalla stazione ferroviaria di olbia la nostra struttura è circondata da parcheggi, fermate di tutti gli autobus e tram. le nostre camere sono tutte rifinite con finiture di pregio in resina,  e di nuovissima costruzione  arredate con uno stile moderno e unico nel suo genere, dotate di tutti i comfort per regalarvi un soggiorno indimenticabile."
+                  "Double a luxury room si trova nel cuore di olbia in una delle più suggestive vie del centro storico. \n            A soli 500 metri dal porto e 100 metri dalla stazione ferroviaria di olbia la nostra struttura è circondata da parcheggi, \n            fermate di tutti gli autobus e tram. le nostre camere sono tutte rifinite con finiture di pregio in resina,  \n            e di nuovissima costruzione  arredate con uno stile moderno e unico nel suo genere, dotate di tutti i comfort per regalarvi un \n            soggiorno indimenticabile.\n        "
                 )
               ])
             ]),
@@ -102447,7 +102447,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.black[data-v-01225392] {\nbackground-color: #000000;\n}\n.imagen-room[data-v-01225392]{\n\tposition: relative;\n\toverflow: hidden;\n\tpadding-top: 30px;\n}\n.imagen-room > img[data-v-01225392]{\n\twidth: 100%;\n\theight: 100%;\n}\n.content-room-image[data-v-01225392]{\n\tposition: absolute;\n\ttop: -200%;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground-color: rgba(0,0,0,0.7);\n\t-webkit-transition:all 1s ease;\n\ttransition:all 1s ease;\n\t-moz-transition: all 1s ease;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-pack: center;\n\t    -ms-flex-pack: center;\n\t        justify-content: center;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n}\n.imagen-room:hover .content-room-image[data-v-01225392]{\n\ttop: 0;\n}\n.myButton[data-v-01225392] {\n\tbackground-color:#ffffff;\n\tborder-radius:41px;\n\tdisplay:inline-block;\n\tcursor:pointer;\n\tcolor:#000000;\n\tfont-family:Arial;\n\tfont-size:16px;\n\tpadding:5px 18px;\n\ttext-decoration:none;\n\ttext-shadow:0px 1px 0px #2f6627;\n}\n.myButton[data-v-01225392]:hover {\n\tbackground-color:#ffffff;\n\ttext-decoration: none;\n\tcolor:#000000;\n}\n.myButton[data-v-01225392]:active {\n\tposition:relative;\n\ttop:1px;\n}\n\n", ""]);
+exports.push([module.i, "\n.black[data-v-01225392] {\nbackground-color: #000000;\n}\n.imagen-room[data-v-01225392]{\n\tposition: relative;\n\toverflow: hidden;\n\tpadding-top: 30px;\n}\n.imagen-room > img[data-v-01225392]{\n\twidth: 100%;\n\theight: 100%;\n}\n.content-room-image[data-v-01225392]{\n\tposition: absolute;\n\ttop: -200%;\n\tleft: 0;\n\twidth: 100%;\n\theight: 100%;\n\tbackground-color: rgba(0,0,0,0.7);\n\t-webkit-transition:all 1s ease;\n\ttransition:all 1s ease;\n\t-moz-transition: all 1s ease;\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-pack: center;\n\t    -ms-flex-pack: center;\n\t        justify-content: center;\n\t-webkit-box-align: center;\n\t    -ms-flex-align: center;\n\t        align-items: center;\n}\n.imagen-room:hover .content-room-image[data-v-01225392]{\n\ttop: 0;\n}\n@media (max-width: 767.98px) {\n.content-room-image[data-v-01225392]{\n\t\ttop: 0;\n}\n}\n.myButton[data-v-01225392] {\n\tbackground-color:#ffffff;\n\tborder-radius:41px;\n\tdisplay:inline-block;\n\tcursor:pointer;\n\tcolor:#000000;\n\tfont-family:Arial;\n\tfont-size:16px;\n\tpadding:5px 18px;\n\ttext-decoration:none;\n\ttext-shadow:0px 1px 0px #2f6627;\n}\n.myButton[data-v-01225392]:hover {\n\tbackground-color:#ffffff;\n\ttext-decoration: none;\n\tcolor:#000000;\n}\n.myButton[data-v-01225392]:active {\n\tposition:relative;\n\ttop:1px;\n}\n\n", ""]);
 
 // exports
 
@@ -102516,9 +102516,14 @@ var staticRenderFns = [
                       _vm._v("ROOM 101")
                     ]),
                     _vm._v(" "),
-                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
-                      _vm._v("VEDI TUTTO")
-                    ])
+                    _c(
+                      "a",
+                      {
+                        staticClass: "myButton",
+                        attrs: { href: "/suites/room/1" }
+                      },
+                      [_vm._v("VEDI TUTTO")]
+                    )
                   ])
                 ])
               ])
@@ -102546,9 +102551,14 @@ var staticRenderFns = [
                       _vm._v("ROOM 102")
                     ]),
                     _vm._v(" "),
-                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
-                      _vm._v("VEDI TUTTO")
-                    ])
+                    _c(
+                      "a",
+                      {
+                        staticClass: "myButton",
+                        attrs: { href: "/suites/room/2" }
+                      },
+                      [_vm._v("VEDI TUTTO")]
+                    )
                   ])
                 ])
               ])
@@ -102576,9 +102586,14 @@ var staticRenderFns = [
                       _vm._v("ROOM 103")
                     ]),
                     _vm._v(" "),
-                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
-                      _vm._v("VEDI TUTTO")
-                    ])
+                    _c(
+                      "a",
+                      {
+                        staticClass: "myButton",
+                        attrs: { href: "/suites/room/3" }
+                      },
+                      [_vm._v("VEDI TUTTO")]
+                    )
                   ])
                 ])
               ])
@@ -102606,9 +102621,14 @@ var staticRenderFns = [
                       _vm._v("ROOM 104")
                     ]),
                     _vm._v(" "),
-                    _c("a", { staticClass: "myButton", attrs: { href: "#" } }, [
-                      _vm._v("VEDI TUTTO")
-                    ])
+                    _c(
+                      "a",
+                      {
+                        staticClass: "myButton",
+                        attrs: { href: "/suites/room/4" }
+                      },
+                      [_vm._v("VEDI TUTTO")]
+                    )
                   ])
                 ])
               ])
@@ -103673,7 +103693,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* formulario booking */\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\n\tmin-width: 100%;\n\tdisplay: block;\n\tmargin: 0;\n}\n.form-booking .form-control[data-v-66d06953]{\n\tborder: 0px solid transparent;\n}\n.form-booking .form-control[data-v-66d06953]:focus {\n    color: #495057;\n    background-color: #fff;\n    border-color: transparent;\n    outline: 0;\n    -webkit-box-shadow: 0 0 0 0.2rem transparent;\n            box-shadow: 0 0 0 0.2rem transparent;\n}\n.hr[data-v-66d06953]{\n\twidth: 100%;\n    height: 1px;\n    background-color: transparent;\n    border: 0.5px solid #555;\n}\n.form-booking .btn-primary[data-v-66d06953]{\n\tbackground-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-primary[data-v-66d06953]:hover {\n    color: #fff;\n    background-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-primary.focus[data-v-66d06953], .form-booking .btn-primary[data-v-66d06953]:focus{\n\t-webkit-box-shadow: 0 0 0 0.2rem #2ac0938a;\n\t        box-shadow: 0 0 0 0.2rem #2ac0938a;\n}\n.form-booking .btn-primary[data-v-66d06953]:not(:disabled):not(.disabled):active{\n\tcolor: #fff;\n    background-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-lg[data-v-66d06953] {\n    padding: .3rem 1rem;\n    font-size: 1.25rem;\n    line-height: 1.2;\n    border-radius: 1rem;\n}\n.form-booking select.form-control[data-v-66d06953] {\n\ttext-align-last:center;\n}\n@media screen and (min-width: 992px){\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\n\t\tmin-width: 180px;\n\t\twidth: auto;\n\t\tdisplay: block;\n\t\tmargin: 0;\n}\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* formulario booking */\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\n\tmin-width: 100%;\n\tdisplay: block;\n\tmargin: 0;\n}\n.form-booking .form-control[data-v-66d06953]{\n\tborder: 0px solid transparent;\n}\n.form-booking .form-control[data-v-66d06953]:focus {\n    color: #495057;\n    background-color: #fff;\n    border-color: transparent;\n    outline: 0;\n    -webkit-box-shadow: 0 0 0 0.2rem transparent;\n            box-shadow: 0 0 0 0.2rem transparent;\n}\n.hr[data-v-66d06953]{\n\twidth: 100%;\n    height: 1px;\n    background-color: transparent;\n    border: 0.5px solid #555;\n}\n.form-booking .btn-primary[data-v-66d06953]{\n\tbackground-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-primary[data-v-66d06953]:hover {\n    color: #fff;\n    background-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-primary.focus[data-v-66d06953], .form-booking .btn-primary[data-v-66d06953]:focus{\n\t-webkit-box-shadow: 0 0 0 0.2rem #2ac0938a;\n\t        box-shadow: 0 0 0 0.2rem #2ac0938a;\n}\n.form-booking .btn-primary[data-v-66d06953]:not(:disabled):not(.disabled):active{\n\tcolor: #fff;\n    background-color: #2ac093;\n    border-color: #2ac093;\n}\n.form-booking .btn-lg[data-v-66d06953] {\n    padding: .3rem 1rem;\n    font-size: 1.25rem;\n    line-height: 1.2;\n    border-radius: 1rem;\n}\n.form-booking select.form-control[data-v-66d06953] {\n\ttext-align-last:center;\n}\n@media screen and (min-width: 992px){\n.form-booking .form-group[data-v-66d06953], .form-control[data-v-66d06953]{\n\t\t\n\t\tdisplay: block;\n\t\tmargin: 0;\n}\n}\n", ""]);
 
 // exports
 
@@ -103690,18 +103710,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_ctk_date_time_picker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_ctk_date_time_picker__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_ctk_date_time_picker_dist_vue_ctk_date_time_picker_min_css__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_ctk_date_time_picker_dist_vue_ctk_date_time_picker_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_ctk_date_time_picker_dist_vue_ctk_date_time_picker_min_css__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -104791,22 +104799,20 @@ var render = function() {
     _c("div", { attrs: { id: "chisiamo" } }),
     _vm._v(" "),
     _c("section", { staticClass: "py-3 bg-white" }, [
-      _c("div", { staticClass: "container h-100 p-0" }, [
-        _c(
-          "div",
-          { staticClass: "row justify-content-center align-items-center" },
-          [
-            _c(
-              "form",
-              {
-                staticClass:
-                  "col-md-12 form-inline form-booking flex-column flex-md-row justify-content-center"
-              },
-              [
-                _c("div", { staticClass: "form-group d-flex" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("form", { staticClass: "form-booking" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-12" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "form-group d-flex flex-column flex-md-row justify-content-center"
+                },
+                [
                   _c(
                     "div",
-                    { staticClass: "w-50" },
+                    { staticClass: "mr-md-2 mb-2 mb-md-0" },
                     [
                       _c("vue-ctk-date-time-picker", {
                         directives: [
@@ -104860,7 +104866,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "w-50" },
+                    { staticClass: "ml-md-2 mb-2 mb-md-0" },
                     [
                       _c("vue-ctk-date-time-picker", {
                         directives: [
@@ -104910,39 +104916,31 @@ var render = function() {
                       )
                     ],
                     1
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "form-group text-center justify-content-center"
-                  },
-                  [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary text-uppercase",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            _vm.filterData()
-                          }
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary text-uppercase mx-2",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.filterData()
                         }
-                      },
-                      [
-                        _vm._v(
-                          "\n                            Cerca\n                        "
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            )
-          ]
-        )
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                    Cerca\n                                "
+                      )
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
       ])
     ])
   ])
@@ -107463,7 +107461,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*form*/\n.form-control[data-v-80fc7554] {\n    display: block;\n    width: 100%;\n    height: calc(2.19rem + 2px);\n    padding: 0.375rem 0.75rem;\n    font-size: 0.9rem;\n    line-height: 1.6;\n    color: #495057;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid #ced4da;\n    border-radius: 0rem;\n}\n.reserva[data-v-80fc7554]{\n      border: 1px solid #ccc;\n}\nlabel[data-v-80fc7554]{\n      font-family: 'Josefin Sans', sans-serif;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*form*/\n.form-control[data-v-80fc7554] {\n    display: block;\n    width: 100%;\n    height: calc(2.19rem + 2px);\n    padding: 0.375rem 0.75rem;\n    font-size: 0.9rem;\n    line-height: 1.6;\n    color: #495057;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid #ced4da;\n    border-radius: 0rem;\n}\n.reserva[data-v-80fc7554]{\n      border: 1px solid #ccc;\n}\nlabel[data-v-80fc7554]{\n      font-family: 'Josefin Sans', sans-serif;\n}\n", ""]);
 
 // exports
 
@@ -107474,6 +107472,17 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_moment__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_ctk_date_time_picker__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_ctk_date_time_picker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_ctk_date_time_picker__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_ctk_date_time_picker_dist_vue_ctk_date_time_picker_min_css__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_ctk_date_time_picker_dist_vue_ctk_date_time_picker_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_ctk_date_time_picker_dist_vue_ctk_date_time_picker_min_css__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -107538,11 +107547,64 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+    components: { VueCtkDateTimePicker: __WEBPACK_IMPORTED_MODULE_1_vue_ctk_date_time_picker___default.a },
     props: ['subtitle1', 'price', 'description'],
     data: function data() {
-        return {};
+        return {
+            checkin: null,
+            checkout: null,
+            minCheckout: null
+        };
+    },
+
+    methods: {
+        filtersData: function filtersData() {
+            var data = this.$store.getters.getDataFilter;
+            if (data.checkin != null) {
+                this.checkin = Vue.moment(data.checkin).format('YYYY/MM/DD');
+                this.minCheckout = Vue.moment(this.checkin).add(1, 'day').format('YYYY/MM/DD');
+            }
+            if (data.checkout != null) {
+                this.checkout = Vue.moment(data.checkout).format('YYYY/MM/DD');
+            }
+        },
+        filterData: function filterData() {
+            var _this = this;
+
+            this.$validator.validateAll().then(function (result) {
+                if (result) {
+                    var obj = {};
+                    obj.checkin = _this.checkin;
+                    obj.checkout = _this.checkout;
+                    _this.$store.commit('setFilter', { list: obj });
+                    _this.$router.push('/booking/step-1');
+                }
+            }).catch(function () {
+                console.log('error form');
+            });
+        }
+    }, mounted: function mounted() {
+        this.filtersData();
+    },
+    computed: {
+        minDate: function minDate() {
+            if (this.checkin != null) {
+                this.minCheckout = Vue.moment(this.checkin).add(1, 'day').format('YYYY/MM/DD');
+                if (Vue.moment(this.checkin) >= Vue.moment(this.checkout)) {
+                    this.checkout = null;
+                }
+                return this.checkin;
+            } else {
+                return Vue.moment().format('MM/DD/YYYY');
+            }
+        }
     }
+
 });
 
 /***/ }),
@@ -107567,115 +107629,137 @@ var render = function() {
       _c("p", { domProps: { textContent: _vm._s(_vm.description) } })
     ]),
     _vm._v(" "),
-    _vm._m(0)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "reserva py-3" }, [
+    _c("div", { staticClass: "reserva py-3" }, [
       _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-12" }, [
-            _c("h3", { staticClass: "text-center" }, [_vm._v("Reservation")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12" }, [
-            _c("form", { staticClass: "form-row" }, [
-              _c("div", { staticClass: "form-group col-12" }, [
-                _c("label", { attrs: { for: "in" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: "images/suites/icon/calendar.svg",
-                      alt: "calendar"
-                    }
-                  }),
-                  _vm._v(
-                    "\n                                Check-in\n                            "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: { name: "in", type: "text", placeholder: "19/08/2019" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-12" }, [
-                _c("label", { attrs: { for: "out" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: "images/suites/icon/calendar.svg",
-                      alt: "calendar"
-                    }
-                  }),
-                  _vm._v(
-                    "\n                                Check-out\n                            "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: {
-                    name: "out",
-                    type: "text",
-                    placeholder: "20/08/2019"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-12 col-lg-6" }, [
-                _c("label", { attrs: { for: "adulti" } }, [_vm._v("Adulti")]),
+        _c("form", { staticClass: "form-booking" }, [
+          _c("div", { staticClass: "row" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 text-center" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c(
+                  "div",
+                  { staticClass: "mb-2" },
+                  [
+                    _c("vue-ctk-date-time-picker", {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required",
+                          expression: "'required'"
+                        }
+                      ],
+                      class: { "is-danger": _vm.errors.has("checkin") },
+                      attrs: {
+                        "disable-time": "",
+                        "enable-button-validate": "",
+                        locale: "it",
+                        formated: "DD/MM/YYYY",
+                        format: "YYYY-MM-DD",
+                        label: "Data di prenotazione",
+                        name: "checkin",
+                        "data-vv-as": "Data",
+                        color: "gray",
+                        "min-date": _vm.minDate
+                      },
+                      model: {
+                        value: _vm.checkin,
+                        callback: function($$v) {
+                          _vm.checkin = $$v
+                        },
+                        expression: "checkin"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("checkin"),
+                            expression: "errors.has('checkin')"
+                          }
+                        ],
+                        staticClass: "help text-danger"
+                      },
+                      [_vm._v(_vm._s(_vm.errors.first("checkin")))]
+                    )
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c(
-                  "select",
-                  { staticClass: "form-control", attrs: { name: "adulti" } },
+                  "div",
+                  { staticClass: "mb-2" },
                   [
-                    _c("option", [_vm._v("1")]),
+                    _c("vue-ctk-date-time-picker", {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required",
+                          expression: "'required'"
+                        }
+                      ],
+                      class: { "is-danger": _vm.errors.has("checkout") },
+                      attrs: {
+                        "disable-time": "",
+                        "enable-button-validate": "",
+                        locale: "it",
+                        formated: "DD/MM/YYYY",
+                        format: "YYYY-MM-DD",
+                        label: "Data di prenotazione",
+                        name: "checkout",
+                        "data-vv-as": "Data",
+                        color: "gray",
+                        "min-date": _vm.minCheckout
+                      },
+                      model: {
+                        value: _vm.checkout,
+                        callback: function($$v) {
+                          _vm.checkout = $$v
+                        },
+                        expression: "checkout"
+                      }
+                    }),
                     _vm._v(" "),
-                    _c("option", [_vm._v("2")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("3")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("4")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("5")])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-12 col-lg-6" }, [
-                _c("label", { attrs: { for: "bambino" } }, [_vm._v("Bambino")]),
+                    _c(
+                      "span",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("checkout"),
+                            expression: "errors.has('checkout')"
+                          }
+                        ],
+                        staticClass: "help text-danger"
+                      },
+                      [_vm._v(_vm._s(_vm.errors.first("checkout")))]
+                    )
+                  ],
+                  1
+                ),
                 _vm._v(" "),
-                _c(
-                  "select",
-                  { staticClass: "form-control", attrs: { name: "bambino" } },
-                  [
-                    _c("option", [_vm._v("1")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("2")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("3")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("4")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("5")])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group col-12 text-center" }, [
                 _c(
                   "button",
                   {
                     staticClass: "btn btn-primary text-uppercase",
-                    attrs: { type: "button" }
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.filterData()
+                      }
+                    }
                   },
                   [
                     _vm._v(
-                      "\n                                Cerca\n                            "
+                      "\n                                    Cerca\n                                "
                     )
                   ]
                 )
@@ -107684,6 +107768,16 @@ var staticRenderFns = [
           ])
         ])
       ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("h3", { staticClass: "text-center" }, [_vm._v("Reservation")])
     ])
   }
 ]
