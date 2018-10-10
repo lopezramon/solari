@@ -1,13 +1,36 @@
 <template>
     <div>
         <nav class="d-none d-md-flex">
-            <a href="#" class="active">ROOM 101</a>
-            <a href="#">ROOM 102</a>
-            <a href="#">ROOM 103</a>
-            <a href="#">ROOM 104</a>
+            <a href="/suites/room/1" :class="{'active': url('/suites/room/1')}">ROOM 101</a>
+            <a href="/suites/room/2" :class="{'active': url('/suites/room/2')}">ROOM 102</a>
+            <a href="/suites/room/3" :class="{'active': url('/suites/room/3')}">ROOM 103</a>
+            <a href="/suites/room/4" :class="{'active': url('/suites/room/4')}">ROOM 104</a>
         </nav>
     </div>
 </template>
+<script>
+    export default {
+        data() {
+            return {
+                pathname: null,
+                name_menu: null,
+            }
+        },
+        mounted() {
+            this.pathname = window.location.pathname;
+        },
+        methods: {
+            url(urlactual) {
+                if (urlactual == this.pathname) {
+                    console.log(`activa ${urlactual}`)
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+          }
+    }
+</script>
 <style scoped>
 nav{
     display: flex;
