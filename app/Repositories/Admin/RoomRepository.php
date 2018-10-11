@@ -4,6 +4,7 @@ namespace App\Repositories\Admin;
 
 use App\Models\Admin\Room;
 use Carbon\Carbon;
+use Carbon\CarbonImmutable;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
@@ -54,10 +55,17 @@ class RoomRepository extends BaseRepository
      */
     public function getCustomized($columns = null, $dates = null)
     {
-        // dd($dates);
         $columns = $columns ?? $this->customDefaultColumns;
 
-        $dataAll = $this->all($columns);
+        // $dataAll = $this->all($columns);
+
+        // EN ESTE PUNTO SE BUSCAN SOLAMENTE LAS ROOMS CUYO LOCKED_AT SEA NULL O MENOR A HACE TRES MINUTOS
+        $threeMinutesAgo = Carbon::now()->subMinutes(3); #PENDIENTE que este valor (3) sea administrable
+        $where = [
+            ['locked_at', '=', null],
+            ['locked_at', '<', $threeMinutesAgo]
+        ];
+        $dataAll = $this->findWhere($where, $columns);
 
         // SI VIENEN DATES
         $data = $dataAll->transform(function($room, $key) use($dates) {
@@ -138,5 +146,23 @@ class RoomRepository extends BaseRepository
         }
 
         return $array;
+    }
+
+    /**
+     * Applies the given where conditions to the model with or operator.
+     *
+     * @param array $where
+     * @return void
+     */
+    protected function applyConditions(array $where)
+    {
+        foreach ($where as $field => $value) {
+            if (is_array($value)) {
+                list($field, $condition, $val) = $value;
+                $this->model = $this->model->orWhere($field, $condition, $val);
+            } else {
+                $this->model = $this->model->where($field, '=', $value);
+            }
+        }
     }
 }

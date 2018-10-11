@@ -14,19 +14,45 @@
                             <strong class="m-0 text-uppercase">Numero de reserva:</strong> {{}}
                         </div> -->
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Reservado por:</strong>
-                            <input v-if="!getAuthenticated" type="text" v-model="user.name_reserva" class="form-control">
+                            <!-- <strong class="m-0 text-uppercase">Reservado por:</strong> -->
+                            <label for="name_reserva" class="font-weight-bold">  
+                                <span class="text-success" :class="{'text-danger': errors.has('name_reserva') }">*</span>
+                                Reservado Para
+                            </label>
+                            <input v-if="!getAuthenticated"  v-validate="'required'" type="text" name="name_reserva" v-model="user.name_reserva" class="form-control">
                             <span v-if="getAuthenticated" class="font-weight-bold">{{user.name_reserva}}</span>
+                            <small v-show="errors.has('name_reserva')" class="help text-danger">{{ errors.first('name_reserva') }}</small>
+
                         </div>
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Numero de identidad:</strong>
-                            <input v-if="!getAuthenticated" type="text" v-model="user.identidad_reserva" class="form-control">
+                             <label for="identidad_reserva" class="font-weight-bold">  
+                                <span class="text-success" :class="{'text-danger': errors.has('identidad_reserva') }">*</span>
+                               Numero de identidad:
+                            </label>
+                           <!--  <strong class="m-0 text-uppercase">Numero de identidad:</strong> -->
+                            <input v-if="!getAuthenticated" type="text" name="identidad_reserva" v-validate="'required|numeric'" v-model="user.identidad_reserva" class="form-control">
                             <span v-if="getAuthenticated"class="font-weight-bold">{{user.identidad_reserva}}</span>
+                            <small v-show="errors.has('identidad_reserva')" class="help text-danger">{{ errors.first('identidad_reserva') }}</small>
                         </div>
                         <div class="border-bottom p-2">
-                            <strong class="m-0 text-uppercase">Telefono:</strong>
-                            <input v-if="!getAuthenticated" type="text" v-model="user.telef_reserva" class="form-control">
+                            <label for="telef_reserva" class="font-weight-bold">  
+                                <span class="text-success" :class="{'text-danger': errors.has('telef_reserva') }">*</span>
+                               Telefono:
+                            </label>
+                            <!-- <strong class="m-0 text-uppercase">Telefono:</strong> -->
+                            <input v-validate="'required|numeric'" name="telef_reserva" v-if="!getAuthenticated" type="text" v-model="user.telef_reserva" class="form-control">
                             <span v-if="getAuthenticated" class="font-weight-bold">{{user.telef_reserva}}</span>
+                            <small v-show="errors.has('telef_reserva')" class="help text-danger">{{ errors.first('telef_reserva') }}</small>
+                        </div>
+                         <div class="border-bottom p-2">
+                            <label for="telef_reserva" class="font-weight-bold">  
+                                <span class="text-success" :class="{'text-danger': errors.has('email') }">*</span>
+                               Email:
+                            </label>
+                            <!-- <strong class="m-0 text-uppercase">Email:</strong> -->
+                            <input v-validate="'required|email'" name="email" v-if="!getAuthenticated" type="email" v-model="user.email" class="form-control">
+                            <span v-if="getAuthenticated" class="font-weight-bold">{{user.email}}</span>
+                            <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
                         </div>
                     </div>
 
@@ -110,11 +136,15 @@
                     <div class="border bg-secondary">
                         <template v-for="room in listRooms">
                             <div class="border-bottom p-2 d-flex justify-content-between">
+                                <span>&nbsp;<input type="checkbox" :value="room.id" v-model="eliminar_all" title="eliminar"></span>
                                 <strong class="m-0 text-uppercase">{{room.name}}</strong> 
                                 <span>€ {{room.price}}</span> 
-                                <a class="pointer" @click.prevent="deleteItem(room)" ><img width="22" src="/images/iconos/delete.svg" alt="delete" class="pointer"></a>
+                                <!-- <a class="pointer" @click.prevent="deleteItem(room)" ><img width="22" src="/images/iconos/delete.svg" alt="delete" class="pointer"></a> -->
                             </div>
                         </template>
+                         <div class="border-bottom p-2 d-flex justify-content-between">
+                            <button type="button" class="btn btn-primary btn-sm" @click.prevent="deleteAll()">Eliminar seleccionados</button>
+                        </div>
                     </div>
 
                     <div class="text-center mt-4">
@@ -149,6 +179,7 @@ export default {
                 telef_reserva:null,
                 identidad_reserva:null,
                 id:null,
+                email:null,
             },
             cant_visitantes:0,
             comentario:null,
@@ -157,6 +188,7 @@ export default {
             color: '#4fcaa5',
             size: '20px',
             loading: false,
+            eliminar_all:[]
             // disabledActivo: false,
             // terminos:false
         }
@@ -190,9 +222,11 @@ export default {
         getDataUser(){
             let data=this.$store.getters.getSession;
             if(data[0]!=undefined){
+                console.log(data[0]);
                 this.user.name_reserva=data[0].name+' '+data[0].lastname;
                 this.user.telef_reserva=data[0].phone;
                 this.user.identidad_reserva=data[0].fiscalCode;
+                this.user.email=data[0].email;
                 this.user.id=data[0].id;
             }
             
@@ -206,6 +240,30 @@ export default {
                 showConfirmButton: false,
                 showCloseButton: true,
             })
+        },
+        deleteAll(){
+           if(this.eliminar_all.length>0){
+             var arr=[];
+             let data=this.$store.getters.getCart;
+
+             for (var i in data){
+                var element=data[i].id;
+                for (var a in this.eliminar_all){
+                    if(this.eliminar_all[a]==element){
+                       arr.push(data[i]);
+                    }
+
+                }
+             }
+             if(arr.length>0){
+               this.$store.commit('deleteAll',{list:arr}); 
+               if(this.$store.getters.getCart.length==0){
+                this.$router.push('/booking/step-1');
+               }  
+             }
+           }else{
+             this.showAlert('error', 'Errore!!', 'Debe seleccionar un producto')
+           }
         },
         deleteItem(item){
            this.$store.commit('removerItem',{list: item}); 

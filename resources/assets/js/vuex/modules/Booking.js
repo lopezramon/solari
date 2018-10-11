@@ -9,6 +9,7 @@ export default {
           name:null,
           phone:null,
           identidad:null,
+          email:null,
          }
       },
     },
@@ -34,6 +35,17 @@ export default {
        },
     },
     mutations:{
+      deleteAll(state,{ list }){ 
+        for(var a in list){
+          var list_cart=state.booking.cart;
+          for(var i in list_cart){
+            if(list_cart[i].id==list[a].id){
+               Vue.delete(state.booking.cart,i);
+               Vue.set(state.booking, 'total',Math.abs(state.booking.total-list[a].price));
+            }
+          }
+        }
+      },
       destroyState (state){ 
         Vue.set(state.booking,'checkin',null);
         Vue.set(state.booking,'checkout',null);
@@ -42,11 +54,13 @@ export default {
         Vue.set(state.booking.responsable,'name',null); 
         Vue.set(state.booking.responsable,'phone',null); 
         Vue.set(state.booking.responsable,'identidad',null); 
+        Vue.set(state.booking.responsable,'email',null); 
       },
       setResponReser(state,{ list }){ 
         Vue.set(state.booking.responsable,'name',list.name_reserva); 
         Vue.set(state.booking.responsable,'phone',list.telef_reserva); 
         Vue.set(state.booking.responsable,'identidad',list.identidad_reserva);
+        Vue.set(state.booking.responsable,'email',list.email);
       },
       setFilter(state,{ list }){ 
         Vue.set(state.booking,'checkin',list.checkin);
@@ -54,7 +68,7 @@ export default {
       },
       addCart(state,{ list }){
         var total=state.booking.total;
-        total=+parseFloat(list.price);
+        total+=parseFloat(list.price);
         state.booking.cart.push(list);
         Vue.set(state.booking,'total',total); 
       },

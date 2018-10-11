@@ -4,11 +4,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <title></title>
 </head>
 
 <body style="-moz-box-sizing:border-box;-ms-text-size-adjust:100%;-webkit-box-sizing:border-box;-webkit-text-size-adjust:100%;Margin:0;background:#f3f3f3!important;box-sizing:border-box;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;min-width:100%;padding:0;text-align:left;width:100%!important">
     <style type="text/css" align="center" class="float-center">
+
+
     @media only screen {
         html {
             min-height: 100%;
@@ -271,6 +274,7 @@
             min-width: 0
         }
     }
+
     </style><span class="preheader" style="color:#f3f3f3;display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;mso-hide:all!important;opacity:0;overflow:hidden;visibility:hidden"></span>
     <table class="body" style="Margin:0;background:#f3f3f3!important;border-collapse:collapse;border-spacing:0;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;height:100%;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;width:100%">
         <tbody>
@@ -288,7 +292,8 @@
                                                         <table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
                                                             <tbody>
                                                                 <tr style="padding:0;text-align:left;vertical-align:top">
-                                                                    <th style="margin:auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:center"><img src="{{ asset('/images/home/logo_footer.svg') }}" style="-ms-interpolation-mode:bicubic;clear:both;display:block;max-width:500%;outline:0;text-decoration:none;width: auto; margin: auto;"></th>
+                                                                    <th style="margin:auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:center"><img src="{{ asset('/images/logos/logo2-medium.png') }}" style="-ms-interpolation-mode:bicubic;clear:both;display:block;max-width:500%;outline:0;text-decoration:none;width: 80px; margin: auto;"></th>
+                                                                    <th style="margin:auto;text-align:left; font-family: 'Nunito', sans-serif; vertical-align: middle;"><h2 class="text-center" style="Margin:0;Margin-bottom:10px;color:#fff;font-family: 'Nunito', sans-serif;font-size:30px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left;word-wrap:normal">Luxury Room</h2></th>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -327,20 +332,20 @@
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
+                                                                        @if(!empty($name))
+                                                                        <p style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word"><strong>Nome:</strong> {{$name}}</p>
+                                                                        <br> @endif @if(!empty($email))
+                                                                        <p style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word"><strong>Mail:</strong> {{$email}}</p>
+                                                                        <br> @endif @if(!empty($phone))
+                                                                        <p style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word"><strong>Mail:</strong> {{$phone}}</p>
+                                                                        <br> @endif @if(!empty($subject))
+                                                                        <p style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word"><strong>Soggetto:</strong> {{$subject}}</p>
+                                                                        <br> @endif @if(!empty($msg))
+                                                                        <p style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word"><strong>Messaggio:</strong> {{$msg}}</p>
+                                                                        @endif
                                                                         <table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
                                                                             <tbody>
-                                                                                <tr style="padding:0;text-align:left;vertical-align:top;">
-                                                                                    @if(!empty($name))
-                                                                                    <p style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word"><strong>Nome:</strong> {{$name}}</p><br>
-                                                                                    @endif @if(!empty($email))
-                                                                                    <p style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word"><strong>Mail:</strong> {{$email}}</p><br>
-                                                                                    @endif @if(!empty($subject))
-                                                                                    <p style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word"><strong>Soggetto:</strong> {{$subject}}</p><br>
-                                                                                    @endif @if(!empty($msg))
-                                                                                    <p style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:top;word-wrap:break-word"><strong>Messaggio:</strong> {{$msg}}</p>
-                                                                                    @endif
-                                                                                </tr>
-
+                                                                                <tr style="padding:0;text-align:left;vertical-align:top;"></tr>
                                                                             </tbody>
                                                                         </table>
                                                                         <table class="spacer" style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
@@ -354,16 +359,6 @@
                                                                             <tbody>
                                                                                 <tr style="padding:0;text-align:left;vertical-align:top">
                                                                                     <td height="64px" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;hyphens:auto;line-height:16px;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">&nbsp;</td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                        <table class="row footer text-center" style="background-color:#080808;border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:center;vertical-align:top;width:100%">
-                                                                            <tbody>
-                                                                                <tr style="padding:0;text-align:left;vertical-align:top">
-                                                                                    <th class="small-12 large-3 columns first" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-left:16px;padding-right:8px;padding-top:16px;text-align:left;width:129px">
-                                                                                        <p class="text-center" style="Margin:0;Margin-bottom:10px;color:#fff;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:center"><b>© Zu'pietru 2018 | <a href="{{url('/')}}/policies" style="color:#fff;"> Informativa sulla Privacy</a> | <a href="{{url('/')}}/terms" style="color:#fff;">Termini e Condizioni</a> </b></p>
-                                                                                        <center data-parsed="" style="min-width:97px;width:100%"><a href="{{ url(/) }}"><img width="160px" height="43px" src="{{ asset('/images/home/jumperr-logo-fondo-negro.svg') }}" style="-ms-interpolation-mode:bicubic;clear:both;display:block;max-width:100%;outline:0;text-decoration:none;width:auto"></a></center>
-                                                                                    </th>
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
@@ -371,6 +366,16 @@
                                                                 </tr>
                                                             </tbody>
                                                         </table>
+                                                    </th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="row footer text-center" style="background-color:#080808;border-collapse:collapse;border-spacing:0;display:table;padding:0;position:relative;text-align:center;vertical-align:top;width:100%">
+                                            <tbody style="background-color: #000000;">
+                                                <tr style="padding:0;text-align:left;vertical-align:top">
+                                                    <th class="small-12 large-3 columns first" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-left:16px;padding-right:8px;padding-top:16px;text-align:left;width:129px">
+                                                        <p class="text-center" style="Margin:0;Margin-bottom:10px;color:#fff;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:center"><b>© Luxury 2018 | <a href="{{url('/')}}/policies" style="color:#fff;"> Informativa sulla Privacy</a> | <a href="{{url('/')}}/terms" style="color:#fff;">Termini e Condizioni</a> </b></p>
+                                                        <center data-parsed="" style="min-width:97px;width:100%"><a href="{{ url('/') }}"><img width="160px" height="43px" src="{{ asset('/images/logos/jumperr.png') }}" style="-ms-interpolation-mode:bicubic;clear:both;display:block;max-width:100%;outline:0;text-decoration:none;width:auto"></a></center>
                                                     </th>
                                                 </tr>
                                             </tbody>

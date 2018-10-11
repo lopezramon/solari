@@ -242,6 +242,7 @@ class RoomsTableSeeder extends Seeder
                     'name'          => '/storage/galery/room101_2.jpg', //multimedias.id => 4
                     'description'   => 'Imagine 2 da ROOM 101' // title de la imagen
                 ]
+                
             ]);
             DB::table('rows_multimedias')->insert([
                 [
@@ -405,6 +406,38 @@ class RoomsTableSeeder extends Seeder
                 [
                     'row_id'        => 4, //id del rows.id
                     'multimedia_id' => 8  //id del multimedias.id
+                ]
+            ]);
+
+
+            // imagenes extra para room 102
+            DB::table('multimedias')->insert([
+                [
+                    'name'          => '/storage/galery/room101_3.jpg', //multimedias.id => 9
+                    'description'   => 'Imagine 1 da ROOM 101' // title de la imagen
+                ],
+                [
+                    'name'          => '/storage/galery/room101_4.jpg', //multimedias.id => 10
+                    'description'   => 'Imagine 2 da ROOM 101' // title de la imagen
+                ],
+                [
+                    'name'          => '/storage/galery/room101_5.jpg', //multimedias.id => 11
+                    'description'   => 'Imagine 2 da ROOM 101' // title de la imagen
+                ]
+                
+            ]);
+            DB::table('rows_multimedias')->insert([
+                [
+                    'row_id'        => 2, //id del rows.id
+                    'multimedia_id' => 9  //id del multimedias.id
+                ],
+                [
+                    'row_id'        => 2, //id del rows.id
+                    'multimedia_id' => 10  //id del multimedias.id
+                ],
+                [
+                    'row_id'        => 2, //id del rows.id
+                    'multimedia_id' => 11  //id del multimedias.id
                 ]
             ]);
     }

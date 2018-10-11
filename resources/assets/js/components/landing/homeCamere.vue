@@ -18,7 +18,7 @@
 			      			<img src="/images/home/camere/Logo_Luxury_pequeño.png" alt="logo luxury">
 			      		</div>
 			      		<h3 class="text-white">ROOM 101</h3>
-			      		 <a href="#" class="myButton">VEDI TUTTO</a>
+			      		 <a href="/suites/room/1" class="myButton">VEDI TUTTO</a>
 					</div>
 	      	</div>
       	</div>
@@ -33,7 +33,7 @@
 		      			<img src="/images/home/camere/Logo_Luxury_pequeño.png" alt="logo luxury">
 		      		</div>
 		      		<h3 class="text-white">ROOM 102</h3>
-		      		<a href="#" class="myButton">VEDI TUTTO</a>
+		      		<a href="/suites/room/2" class="myButton">VEDI TUTTO</a>
 				</div>	
 	      	</div>
       	</div>
@@ -47,7 +47,7 @@
 		      			<img src="/images/home/camere/Logo_Luxury_pequeño.png" alt="logo luxury">
 		      		</div>
 		      		<h3 class="text-white">ROOM 103</h3>
-		      		<a href="#" class="myButton">VEDI TUTTO</a>
+		      		<a href="/suites/room/3" class="myButton">VEDI TUTTO</a>
 		      	</div>
 	      	</div>
       	</div>
@@ -61,7 +61,7 @@
 		      			<img src="/images/home/camere/Logo_Luxury_pequeño.png" alt="logo luxury">
 		      		</div>
 		      		<h3 class="text-white">ROOM 104</h3>
-		      		<a href="#" class="myButton">VEDI TUTTO</a>
+		      		<a href="/suites/room/4" class="myButton">VEDI TUTTO</a>
 				</div>
 	      	</div>
       	</div>
@@ -104,6 +104,11 @@ background-color: #000000;
 }
 .imagen-room:hover .content-room-image{
 	top: 0;
+}
+@media (max-width: 767.98px) {
+	.content-room-image{
+		top: 0;
+	}
 }
 .myButton {
 	background-color:#ffffff;

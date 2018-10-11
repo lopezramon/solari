@@ -23,11 +23,15 @@
                     <div class="border-bottom">
                         <strong class="text-capitalize">Name room</strong>
                         <div class="d-flex justify-content-between" v-for="room in getListCart" >
+                            <span>&nbsp;<input type="checkbox" :value="room.id" v-model="eliminar_all" title="eliminar"></span>
                             <span class="title">{{room.name}}</span>
                             <span class="price">€ {{room.price}}</span>
-                            <div>
+                           <!--  <div>
                                <button type="button" class="btn btn-primary btn-sm" @click.prevent="remover(room)">remover</button> 
-                            </div>
+                            </div> -->
+                        </div>
+                        <div class="border-bottom">
+                            <button type="button" class="btn btn-primary btn-sm" @click.prevent="deleteAll()">Eliminar seleccionados</button>
                         </div>
                         
                     </div>
@@ -55,11 +59,44 @@ export default {
         return {
             botonActivo: false,
             rooms_cart:[],
+            eliminar_all:[]
         }
     },
     methods: {
         remover(item){
             this.$store.commit('removerItem',{list: item});
+        },deleteAll(){
+           if(this.eliminar_all.length>0){
+             var arr=[];
+             let data=this.$store.getters.getCart;
+
+             for (var i in data){
+                var element=data[i].id;
+                for (var a in this.eliminar_all){
+                    if(this.eliminar_all[a]==element){
+                       arr.push(data[i]);
+                    }
+
+                }
+             }
+             if(arr.length>0){
+               this.$store.commit('deleteAll',{list:arr}); 
+             }
+           }else{
+             this.showAlert('error', 'Errore!!', 'Debe seleccionar un producto')
+           }
+        },showAlert(type, title, text) {
+            this.$swal({
+                position: 'center',
+                type: type,
+                title: title,
+                text: text,
+                showConfirmButton: false,
+                showCloseButton: true,
+            })
+            .then((value) => {
+              this.$router.push('/');
+            });
         }
     },
     mounted(){

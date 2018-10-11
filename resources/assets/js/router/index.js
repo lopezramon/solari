@@ -11,7 +11,16 @@ Vue.use(VueAwesomeSwiper, {});
 
 // Vee-Validate
 import VeeValidate from 'vee-validate';
-Vue.use(VeeValidate);
+// import VeeValidateEn from '../../js/vee-validate-languaje/en';
+// import VeeValidateIt from '../../js/vee-validate-languaje/it';
+Vue.use(VeeValidate, {
+    // locale: 'it',
+    fieldsBagName: 'veeFields',
+    // dictionary: {
+    //     it: VeeValidateIt,
+    //     en: VeeValidateEn
+    // }
+});
 
 // Sweetalert2
 import VueSweetalert2 from 'vue-sweetalert2';
@@ -40,6 +49,7 @@ import formBooking from '../components/landing/form';
 import navbar from '../components/general/navbar';
 import footer from '../components/general/footer';
 import jumperr from '../components/general/jumperr';
+import termini from '../components/general/termini';
 
 // Suites
 import suites from '../components/suites/suites';
@@ -78,7 +88,6 @@ import myOrderDetail from '../components/myaccount/myOrderDetail.vue';
 import Error404 from '../components/general/error404.vue';
 import Error500 from '../components/general/error500.vue';
 
-
 /*
  * Components
  */
@@ -112,6 +121,7 @@ Vue.component('navaccount', navaccount);
 Vue.component('headerAccount', headerAccount);
 
 
+
 // Routes
 let router = new Router({
     mode:'history',
@@ -122,7 +132,7 @@ let router = new Router({
             component: AppContent
         },
         {
-            path: '/suites',
+            path: '/suites/room/:id',
             name: 'suites',
             component: suites
         },
@@ -142,7 +152,7 @@ let router = new Router({
             component: account_table
         },
         {
-            path: '/my-order-detail',
+            path: '/my-order-detail/:id',
             name: 'myOrderDetail',
             component: myOrderDetail
         },
@@ -201,6 +211,11 @@ let router = new Router({
             path: '/unsubscribeNewsletter/:email',
             name: 'unsubscribeNewsletter',
             component: unsubscribeNewsletter
+        },
+        {
+            path: '/termini',
+            name: 'termini',
+            component: termini
         },
     ],scrollBehavior (to, from, savedPosition) {
       return { x: 0, y: 0 }

@@ -1,9 +1,10 @@
 <?php
 namespace App\Http\Controllers;
 use App\Http\Controllers\API\Admin\OrderAPIController;
-use App\Http\Controllers\Admin\MailController;
+use App\Http\Controllers\MailController;
 use App\Mail\OrderMailable;
 use App\Models\Admin\Order;
+use App\Repositories\Admin\BookingRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -22,7 +23,6 @@ use PayPal\Rest\ApiContext;
 use Redirect;
 use Session;
 use URL;
-use App\Repositories\Admin\BookingRepository;
 
 class PaypalController extends Controller
 {
@@ -48,6 +48,8 @@ class PaypalController extends Controller
     {
         $data = $request->all();
         $request->session()->put('data_order',$data);
+        // $booking = $this->bookingRepository->createCustomized($data);
+        // dd("aqui");
         $total = $data["cart"]["total"];
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
@@ -115,14 +117,53 @@ class PaypalController extends Controller
         $payment = Payment::get($payment_id, $this->_api_context);
         $execution = new PaymentExecution();
         $execution->setPayerId(Input::get('PayerID'));
+
         /**Execute the payment **/
         $result = $payment->execute($execution, $this->_api_context);
         if ($result->getState() == 'approved') {
             $data=Session::get('data_order');
             Session::forget('data_order');
+
+            // GUARDAR EL BOOKING!!!!!
             $booking = $this->bookingRepository->createCustomized($data);
-            \Session::put('success', 'Payment success');
+
+            // ENVIAR CORREOOO
+            // Get BookingWithRelations
+            $bookingWithRelations = $this->bookingRepository->findCustomized($booking->id);
+
+            // Enviar Correo
+            $sended = $this->sendMail($bookingWithRelations, 'order'); #PENDIENTE
+
+            if( $sended == 'OK' ){
+                $message = 'Payment success, Booking saved successfully, email sended';
+            }
+            else{
+                $message = 'Payment success, Booking saved successfully, email not sended';
+            }
+
+
+            \Session::put('success', $message);
             return Redirect::to('/booking/step-3/'.$booking->code);
         }
+    }
+
+    /**
+     * Send the mail of the invoice and the purchase BOOKING
+     * @param array $bookingWithRelations
+     * @param string $template
+     * @return void
+     */
+    public function sendMail( $bookingWithRelations, $template )
+    {
+        $request = [
+            'subject'   => 'Subject TEST',
+            'msg'       => json_encode($bookingWithRelations),
+            'email'     => $bookingWithRelations['responsable']['email'],
+            'data'      => (array)$bookingWithRelations
+        ];
+
+        // dd($bookingWithRelations['responsable']);
+
+        return MailController::sendMail($request, $template);
     }
 }

@@ -99,7 +99,7 @@ class OrderAPIController extends AppBaseController
     {
         $input = $request->all();
 
-        $array_store = [
+        /*$array_store = [
             "data" => [
                 "products_cart" => [
                     0 =>  [
@@ -183,7 +183,7 @@ class OrderAPIController extends AppBaseController
                 "user_id" => 3
             ]
         ];
-        $input = $array_store;
+        $input = $array_store;*/
 
         $data = $input['data'];
 
