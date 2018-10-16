@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header>
+        <section class="head-user">
             <div class="container">
                 <div class="row mb-0 mb-md-5">
                     <div class="col-12 col-md-6 text-left align-items-center d-flex">
@@ -10,9 +10,10 @@
                             <a href="#" @click.prevent="logout" class="text-danger lead d-block text-center">Desconectar</a>
                         </div>
                     </div>
+
                 </div>
             </div>
-        </header>
+        </section>
     </div>
 </template>
 <script>
@@ -36,7 +37,7 @@
     }
 </script>
 <style scoped>
-header{
+.head-user{
     background-color: #fff;
     width: 100%;
     height: 130px;
@@ -44,16 +45,18 @@ header{
     justify-content: center;
     align-items: flex-end;
     text-align: center;
+    margin-top:155px;
 }
 @media (max-width: 768px) {
     .alto{
         width: 50px;
     }
+    .head-user{
+        margin-top:77px;
+    }
 }
 @media (min-width: 768px) {
-    header{
-        height: 280px;
-    }
+
     .alto{
         width: 100px;
     }

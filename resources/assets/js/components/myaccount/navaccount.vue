@@ -1,5 +1,5 @@
 <template>
-  <nav >
+  <nav>
     <router-link  to="/myaccount" :class="{'active-menu':url('/myaccount')}">MY ACCOUNT</router-link>    
     <router-link to="/account_table" >DETALLES FACTURA</router-link>
     <router-link to="/delate_account" >ELIMINAR CUENTA</router-link>

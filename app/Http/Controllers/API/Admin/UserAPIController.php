@@ -165,7 +165,7 @@ class UserAPIController extends AppBaseController
         $update = $this->updateUser($user, null);
 
         if($update->save()){
-            MailController::sendMail($data,'tests');
+            MailController::sendMail($data,'deleteaccount');
 
             $update->userDetails();
 

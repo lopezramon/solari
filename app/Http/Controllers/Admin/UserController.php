@@ -182,7 +182,7 @@ class UserController extends AppBaseController
         $update = $this->updateUser($user);
 
         if($update->save()){
-            MailController::sendMail($data,'tests');
+            MailController::sendMail($data,'deleteaccount');
             if($id == Auth::user()->id)
                 Session::flush();
             
