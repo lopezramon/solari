@@ -2,19 +2,20 @@
     <div>
         <article v-for="room in rooms" class="mb-5 border-bottom">
             <div class="container-fluid">
-                <div class="row position-relative ">
-                    <div class="ribbon ribbon-top-right">        
-                        <span>Disponible</span>
-                    </div>
+                <div class="row  ">
+
                     <div class="col-12">
                         <h2 v-text="room.name"></h2>
                         <h3 v-text="room.subtitle1"></h3>
                         <p v-text="room.description"></p>
                     </div>
                     <!-- slider -->
-                    <div class="col-12 col-lg-8 mb-3">
-                        <swiper :options="swiperOption ">
-                            <swiper-slide v-for="(slide, index) in room.galery" :key="index">
+                    <div class="col-12 col-lg-8 mb-3 ">
+                        <swiper :options="swiperOption " >
+                            <swiper-slide v-for="(slide, index) in room.galery" :key="index" class="position-relative">
+                        <div class="ribbon ribbon-top-right">        
+                            <span>Disponible</span> 
+                        </div>
                                 <img class="img-fluid" :src="slide.image" alt="">
                             </swiper-slide>
                             <div class="swiper-pagination" slot="pagination"></div>
@@ -119,37 +120,16 @@ export default {
 
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Lato:700);
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #f0f0f0;
-}
-.box {
-  position: relative;
-  max-width: 600px;
-  width: 90%;
-  height: 400px;
-  background: #fff;
-  box-shadow: 0 0 15px rgba(0,0,0,.1);
-}
+
 
 /* common */
 .ribbon {
-  width: 150px;
-  height: 150px;
+  width: 132px;
+  height: 138px;
   overflow: hidden;
   position: absolute;
 }
-.ribbon::before,
-.ribbon::after {
-  position: absolute;
-  z-index: -1;
-  content: '';
-  display: block;
-  border: 5px solid #2980b9;
-}
+
 .ribbon span {
   position: absolute;
   display: block;
@@ -167,21 +147,10 @@ body {
 /* top right*/
 .ribbon-top-right {
   top: -10px;
-  right: -10px;
+  right: 1px;
 }
-.ribbon-top-right::before,
-.ribbon-top-right::after {
-  border-top-color: transparent;
-  border-right-color: transparent;
-}
-.ribbon-top-right::before {
-  top: 0;
-  left: 0;
-}
-.ribbon-top-right::after {
-  bottom: 0;
-  right: 0;
-}
+
+
 .ribbon-top-right span {
   left: -25px;
   top: 30px;
