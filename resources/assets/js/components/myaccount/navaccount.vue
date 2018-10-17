@@ -1,9 +1,27 @@
 <template>
-  <nav>
-    <router-link  to="/myaccount" :class="{'active-menu':url('/myaccount')}">MY ACCOUNT</router-link>    
-    <router-link to="/account_table" >DETALLES FACTURA</router-link>
-    <router-link to="/delate_account" >ELIMINAR CUENTA</router-link>
-  </nav>
+<div>
+    <nav>
+        <router-link  to="/myAccount" :class="{'active-menu':url('/myAccount')}">MY ACCOUNT</router-link>    
+        <router-link to="/account_table" >DETALLES FACTURA</router-link>
+        <router-link to="/delate_account" >ELIMINAR CUENTA</router-link>
+    </nav>
+
+    <div class="container mb-3 mt-5 d-sm-block d-md-none">
+        <div>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                MENU CATEGORY
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <router-link  to="/myAccount" :class="{'active-menu':url('/myAccount')} " class="dropdown-item"> MY ACCOUNT</router-link>    
+                    <router-link to="/account_table" class="dropdown-item">DETALLES FACTURA</router-link>
+                    <router-link to="/delate_account" class="dropdown-item">ELIMINAR CUENTA</router-link>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
 </template>
 
 <style scoped>
@@ -31,6 +49,23 @@ a.router-link-exact-active.router-link-active{
 a:hover{
     text-decoration: none;
     background-color: #4fcaa5;
+}
+.dropdown-toggle{
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+}
+.dropdown-menu.show {
+    display: block;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.dropdown-item {
+    font-weight: bold;
+
 }
 @media (min-width: 768px){
   nav{
