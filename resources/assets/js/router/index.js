@@ -43,7 +43,6 @@ import unsubscribeNewsletter from '../components/landing/unsubscribenewsletter';
 import aboutUs from '../components/landing/aboutUs';
 import homeCamere from '../components/landing/homeCamere';
 import contactUs from '../components/landing/contactUs';
-import formBooking from '../components/landing/form';
 
 // general
 import navbar from '../components/general/navbar';
@@ -95,7 +94,6 @@ Vue.component('navbar', navbar);
 Vue.component('gfooter', footer);
 Vue.component('jumperr', jumperr);
 Vue.component('header_landing', headerLanding);
-Vue.component('form_booking',formBooking);
 Vue.component('slider_olbia', sliderOlbia);
 Vue.component('services', services);
 Vue.component('esperience', esperience);
@@ -217,8 +215,6 @@ let router = new Router({
             name: 'termini',
             component: termini
         },
-    ],scrollBehavior (to, from, savedPosition) {
-      return { x: 0, y: 0 }
-    }
+    ]
 });
 export default router
