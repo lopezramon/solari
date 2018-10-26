@@ -4,6 +4,7 @@
 
         <header_landing/>
         <form_booking/>
+        <float-count/>
         <aboutus/>
         <home_camere/>
         <slider_olbia/>
