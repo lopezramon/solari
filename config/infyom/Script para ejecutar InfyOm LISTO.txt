@@ -225,3 +225,9 @@ php artisan infyom:api_scaffold UserAddress                         --prefix=adm
 php artisan infyom:rollback $MODEL_NAME $COMMAND_TYPE
 $MODEL_NAME - Its a model name for which you want to delete files
 $COMMAND_TYPE - Command type from api, scaffold or api_scaffold
+
+
+
+
+
+php artisan infyom:api_scaffold LockedRoom      --prefix=admin --fromTable --tableName=locked_rooms         --skip=migration,views,tests,menu,dump-autoload

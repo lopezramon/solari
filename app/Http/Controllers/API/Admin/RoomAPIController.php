@@ -36,12 +36,11 @@ class RoomAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-       // dd('s');
         $this->roomRepository->pushCriteria(new RequestCriteria($request));
         $this->roomRepository->pushCriteria(new LimitOffsetCriteria($request));
 
         $input = $request->all();
-        // http://localhost:8011/api/admin/rooms?checkin=2018-06-10&checkout=2018-06-25&adult_quantity=3
+        // http://localhost:8011/api/admin/rooms?checkin=2018-06-10&checkout=2018-06-25
         // dd($input);
 
         $rooms = $this->roomRepository->getCustomized(null, $input);
@@ -82,6 +81,35 @@ class RoomAPIController extends AppBaseController
         if (empty($room)) {
             return $this->sendError('Room not found');
         }
+
+        return $this->sendResponse(['room' => $room], 'Room retrieved successfully');
+    }
+
+    /**
+     * Lock the specified Room in the given range (checkin_date, checkout_date).
+     * $request = [
+     *     'roomId'        => 1,
+     *     'checkinDate'   => '2018-06-23',
+     *     'checkoutDate'  => '2018-06-25'
+     * ];
+     * POST /rooms/lock
+     *
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function lock(Request $request)
+    {
+        $data = $request->all();
+
+        /** @var Room $room */
+        $room = $this->roomRepository->findWithoutFail($data['roomId']);
+
+        if (empty($room)) {
+            return $this->sendError('Room not found');
+        }
+
+        dd('PENDIENTE');
 
         return $this->sendResponse(['room' => $room], 'Room retrieved successfully');
     }

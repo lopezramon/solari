@@ -149,7 +149,7 @@ class RoomRepository extends BaseRepository
     }
 
     /**
-     * Applies the given where conditions to the model with or operator.
+     * Applies the given where conditions to the model WITH OR OPERATOR.
      *
      * @param array $where
      * @return void

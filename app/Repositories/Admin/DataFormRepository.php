@@ -2,19 +2,19 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Admin\FormData;
+use App\Models\Admin\DataForm;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class FormDataRepository
+ * Class DataFormRepository
  * @package App\Repositories\Admin
  * @version September 20, 2018, 10:35 pm CEST
  *
- * @method FormData findWithoutFail($id, $columns = ['*'])
- * @method FormData find($id, $columns = ['*'])
- * @method FormData first($columns = ['*'])
+ * @method DataForm findWithoutFail($id, $columns = ['*'])
+ * @method DataForm find($id, $columns = ['*'])
+ * @method DataForm first($columns = ['*'])
 */
-class FormDataRepository extends BaseRepository
+class DataFormRepository extends BaseRepository
 {
     /**
      * @var array
@@ -31,6 +31,6 @@ class FormDataRepository extends BaseRepository
      **/
     public function model()
     {
-        return FormData::class;
+        return DataForm::class;
     }
 }

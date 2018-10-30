@@ -17,7 +17,7 @@ Route::get('status', 'PaypalController@getPaymentStatus');
 
 Route::post('register', 'Auth\RegisterController@register');
 
-Route::middleware(['auth','hasrole:admin'])->group(function () {
+Route::middleware(['auth','hasrole:admin'])->group(function() {
 
 	Route::get('/home', 'HomeController@index')->name('home');
 
@@ -355,7 +355,7 @@ Route::middleware(['auth','hasrole:admin'])->group(function () {
 	// Route::get('admin/events/{events}/edit', ['as'=> 'admin.events.edit', 'uses' => 'Admin\EventController@edit']);
 
 
-/**************************************************************************************************************************************************************/
+    /**************************************************************************************************************************************************************/
 	Route::get('admin/roles', ['as'=> 'admin.roles.index', 'uses' => 'Admin\RoleController@index']);
 	Route::post('admin/roles', ['as'=> 'admin.roles.store', 'uses' => 'Admin\RoleController@store']);
 	Route::get('admin/roles/create', ['as'=> 'admin.roles.create', 'uses' => 'Admin\RoleController@create']);
@@ -366,16 +366,16 @@ Route::middleware(['auth','hasrole:admin'])->group(function () {
 	Route::get('admin/roles/{roles}/edit', ['as'=> 'admin.roles.edit', 'uses' => 'Admin\RoleController@edit']);
 
 	Route::get('admin/requestCategories', ['as'=> 'admin.requestCategories.index', 'uses' => 'Admin\RequestCategoryController@index']);
-Route::post('admin/requestCategories', ['as'=> 'admin.requestCategories.store', 'uses' => 'Admin\RequestCategoryController@store']);
-Route::get('admin/requestCategories/create', ['as'=> 'admin.requestCategories.create', 'uses' => 'Admin\RequestCategoryController@create']);
-Route::put('admin/requestCategories/{requestCategories}', ['as'=> 'admin.requestCategories.update', 'uses' => 'Admin\RequestCategoryController@update']);
-Route::patch('admin/requestCategories/{requestCategories}', ['as'=> 'admin.requestCategories.update', 'uses' => 'Admin\RequestCategoryController@update']);
-Route::delete('admin/requestCategories/{requestCategories}', ['as'=> 'admin.requestCategories.destroy', 'uses' => 'Admin\RequestCategoryController@destroy']);
-Route::get('admin/requestCategories/{requestCategories}', ['as'=> 'admin.requestCategories.show', 'uses' => 'Admin\RequestCategoryController@show']);
-Route::get('admin/requestCategories/{requestCategories}/edit', ['as'=> 'admin.requestCategories.edit', 'uses' => 'Admin\RequestCategoryController@edit']);
+    Route::post('admin/requestCategories', ['as'=> 'admin.requestCategories.store', 'uses' => 'Admin\RequestCategoryController@store']);
+    Route::get('admin/requestCategories/create', ['as'=> 'admin.requestCategories.create', 'uses' => 'Admin\RequestCategoryController@create']);
+    Route::put('admin/requestCategories/{requestCategories}', ['as'=> 'admin.requestCategories.update', 'uses' => 'Admin\RequestCategoryController@update']);
+    Route::patch('admin/requestCategories/{requestCategories}', ['as'=> 'admin.requestCategories.update', 'uses' => 'Admin\RequestCategoryController@update']);
+    Route::delete('admin/requestCategories/{requestCategories}', ['as'=> 'admin.requestCategories.destroy', 'uses' => 'Admin\RequestCategoryController@destroy']);
+    Route::get('admin/requestCategories/{requestCategories}', ['as'=> 'admin.requestCategories.show', 'uses' => 'Admin\RequestCategoryController@show']);
+    Route::get('admin/requestCategories/{requestCategories}/edit', ['as'=> 'admin.requestCategories.edit', 'uses' => 'Admin\RequestCategoryController@edit']);
 });
 
-Route::get('{any}',function(){
+Route::get('{any}',function() {
     return view('home.index');
 })->where('any','.*');
 
@@ -394,3 +394,12 @@ Route::get('admin/formDatas/{formDatas}/edit', ['as'=> 'admin.formDatas.edit', '
 Route::get('password/reseted/{token}', function(){
 	return;
 })->name('password.reset');
+
+Route::get('admin/lockedRooms', ['as'=> 'admin.lockedRooms.index', 'uses' => 'Admin\LockedRoomController@index']);
+Route::post('admin/lockedRooms', ['as'=> 'admin.lockedRooms.store', 'uses' => 'Admin\LockedRoomController@store']);
+Route::get('admin/lockedRooms/create', ['as'=> 'admin.lockedRooms.create', 'uses' => 'Admin\LockedRoomController@create']);
+Route::put('admin/lockedRooms/{lockedRooms}', ['as'=> 'admin.lockedRooms.update', 'uses' => 'Admin\LockedRoomController@update']);
+Route::patch('admin/lockedRooms/{lockedRooms}', ['as'=> 'admin.lockedRooms.update', 'uses' => 'Admin\LockedRoomController@update']);
+Route::delete('admin/lockedRooms/{lockedRooms}', ['as'=> 'admin.lockedRooms.destroy', 'uses' => 'Admin\LockedRoomController@destroy']);
+Route::get('admin/lockedRooms/{lockedRooms}', ['as'=> 'admin.lockedRooms.show', 'uses' => 'Admin\LockedRoomController@show']);
+Route::get('admin/lockedRooms/{lockedRooms}/edit', ['as'=> 'admin.lockedRooms.edit', 'uses' => 'Admin\LockedRoomController@edit']);

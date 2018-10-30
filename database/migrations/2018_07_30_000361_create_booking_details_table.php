@@ -22,10 +22,14 @@ class CreateBookingDetailsTable extends Migration
             $table->unsignedInteger('row_id')->comment('The object model that is being booked.');
             $table->foreign('row_id')->references('id')->on('rows');
 
-            $table->integer('adult_quantity');
+            $table->integer('persons_quantity');
 
-            $table->unsignedInteger('form_data_id')->nullable()->default(null)->comment('The form data for this object model booked');
-            $table->foreign('form_data_id')->references('id')->on('form_data');
+            $table->date('checkin_date');
+            $table->date('checkout_date');
+
+            // DATOS DEL RESPONSABLE
+            $table->unsignedInteger('data_form_id')->nullable()->default(null)->comment('The data of the person responsible for this object model booked');
+            $table->foreign('data_form_id')->references('id')->on('data_forms');
 
             $table->double('iva_item', 12, 2);
             $table->double('total_item', 12, 2);

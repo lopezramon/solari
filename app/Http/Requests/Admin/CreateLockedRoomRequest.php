@@ -3,9 +3,9 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\FormData;
+use App\Models\Admin\LockedRoom;
 
-class UpdateFormDataRequest extends FormRequest
+class CreateLockedRoomRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class UpdateFormDataRequest extends FormRequest
      */
     public function rules()
     {
-        return FormData::$rules;
+        return LockedRoom::$rules;
     }
 }

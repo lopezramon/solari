@@ -76,17 +76,12 @@ class Booking extends Model
     public $fillable = [
         'code',
         'user_id',
-        'checkin_date',
-        'checkout_date',
         'subtotal',
         'iva',
         'total',
         'comment',
 
-        'responsable_name',
-        'responsable_email',
-        'responsable_phone',
-        'responsable_identification',
+        'data_form_id',
 
         'show_to_user',
         'status_id'
@@ -106,14 +101,12 @@ class Booking extends Model
         'id' => 'integer',
         'code' => 'string',
         'user_id' => 'integer',
-
-        'checkin_date' => 'date',
-        'checkout_date' => 'date',
-
         'subtotal' => 'float',
         'iva' => 'float',
         'total' => 'float',
         'comment' => 'string',
+        'data_form_id' => 'integer',
+        'show_to_user' => 'integer',
         'status_id' => 'integer'
     ];
 

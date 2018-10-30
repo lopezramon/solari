@@ -6,7 +6,7 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class FormData
+ * Class DataForm
  * @package App\Models\Admin
  * @version September 20, 2018, 10:35 pm CEST
  *
@@ -58,12 +58,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string lastname
  * @property string phone
  */
-class FormData extends Model
+class DataForm extends Model
 {
     use SoftDeletes;
 
     public $table = 'form_data';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -72,10 +72,11 @@ class FormData extends Model
 
 
     public $fillable = [
-        'email',
         'name',
         'lastname',
-        'phone'
+        'email',
+        'phone',
+        'fiscal_code'
     ];
 
     /**
@@ -85,10 +86,11 @@ class FormData extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'email' => 'string',
         'name' => 'string',
         'lastname' => 'string',
-        'phone' => 'string'
+        'email' => 'string',
+        'phone' => 'string',
+        'fiscal_code' => 'string'
     ];
 
     /**
@@ -97,7 +99,7 @@ class FormData extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

@@ -316,8 +316,6 @@ class Room extends Model
 
                 // levanto el flag de que el rango sobrepasa la temporada actual
                 $isTwoSeasons = true;
-                // dd($price);
-                // break;
             }
 
             // valido si el rango sobrepasa la temporada actual
@@ -336,9 +334,7 @@ class Room extends Model
                     $iva    += $iva2;
                     $days   += $days2;
                 }
-                // dd('c');
             }
-            // dd('s');
         }
 
         return [

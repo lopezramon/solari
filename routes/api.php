@@ -37,11 +37,7 @@ Route::post('newsletter', 'API\UtilsAPIFrontController@newsLetter');
 Route::get('unsubscribe/newsletter/{user}', 'API\UtilsAPIFrontController@unsubscribeNewsletter');
 
 
-
-// Route::post('login', 'Auth\LoginController@login');
-// Route::post('logout', 'Auth\LoginController@logout');
 Route::post('forgotPassword','Auth\ForgotPasswordController@forgotPassword');
-// Route::post('register', 'Auth\RegisterController@register');
 Route::post('password/reset','Auth\ResetPasswordController@resetFront');
 
 
@@ -50,83 +46,28 @@ Route::post('password/reset','Auth\ResetPasswordController@resetFront');
 // });
 
 
-// // ProductCategory
-// Route::get('admin/product_categories', 'API\Admin\ProductCategoryAPIController@index');
-// Route::post('admin/product_categories', 'API\Admin\ProductCategoryAPIController@store')->middleware('auth');
-// Route::get('admin/product_categories/{product_categories}', 'API\Admin\ProductCategoryAPIController@show');
-// Route::put('admin/product_categories/{product_categories}', 'API\Admin\ProductCategoryAPIController@update')->middleware('auth');
-// Route::patch('admin/product_categories/{product_categories}', 'API\Admin\ProductCategoryAPIController@update')->middleware('auth');
-// Route::delete('admin/product_categories/{product_categories}', 'API\Admin\ProductCategoryAPIController@destroy')->middleware('auth');
-
-// // ProductSubcategory
-// Route::get('admin/product_subcategories', 'API\Admin\ProductSubcategoryAPIController@index');
-// Route::post('admin/product_subcategories', 'API\Admin\ProductSubcategoryAPIController@store')->middleware('auth');
-// Route::get('admin/product_subcategories/{product_subcategories}', 'API\Admin\ProductSubcategoryAPIController@show');
-// Route::put('admin/product_subcategories/{product_subcategories}', 'API\Admin\ProductSubcategoryAPIController@update')->middleware('auth');
-// Route::patch('admin/product_subcategories/{product_subcategories}', 'API\Admin\ProductSubcategoryAPIController@update')->middleware('auth');
-// Route::delete('admin/product_subcategories/{product_subcategories}', 'API\Admin\ProductSubcategoryAPIController@destroy')->middleware('auth');
-
-// // Product
-// Route::get('admin/products', 'API\Admin\ProductAPIController@index');
-// Route::post('admin/products', 'API\Admin\ProductAPIController@store')->middleware('auth');
-// Route::get('admin/products/{products}', 'API\Admin\ProductAPIController@show');
-// Route::put('admin/products/{products}', 'API\Admin\ProductAPIController@update')->middleware('auth');
-// Route::patch('admin/products/{products}', 'API\Admin\ProductAPIController@update')->middleware('auth');
-// Route::delete('admin/products/{products}', 'API\Admin\ProductAPIController@destroy')->middleware('auth');
-
-// // AdditionalCategory
-// Route::get('admin/additional_categories', 'API\Admin\AdditionalCategoryAPIController@index');
-// Route::post('admin/additional_categories', 'API\Admin\AdditionalCategoryAPIController@store');
-// Route::get('admin/additional_categories/{additional_categories}', 'API\Admin\AdditionalCategoryAPIController@show');
-// Route::put('admin/additional_categories/{additional_categories}', 'API\Admin\AdditionalCategoryAPIController@update');
-// Route::patch('admin/additional_categories/{additional_categories}', 'API\Admin\AdditionalCategoryAPIController@update');
-// Route::delete('admin/additional_categories/{additional_categories}', 'API\Admin\AdditionalCategoryAPIController@destroy');
-
-// // ProductFeatureCategory
-// Route::get('admin/product_feature_categories', 'API\Admin\ProductFeatureCategoryAPIController@index');
-// Route::post('admin/product_feature_categories', 'API\Admin\ProductFeatureCategoryAPIController@store');
-// Route::get('admin/product_feature_categories/{product_feature_categories}', 'API\Admin\ProductFeatureCategoryAPIController@show');
-// Route::put('admin/product_feature_categories/{product_feature_categories}', 'API\Admin\ProductFeatureCategoryAPIController@update');
-// Route::patch('admin/product_feature_categories/{product_feature_categories}', 'API\Admin\ProductFeatureCategoryAPIController@update');
-// Route::delete('admin/product_feature_categories/{product_feature_categories}', 'API\Admin\ProductFeatureCategoryAPIController@destroy');
-
-// // RUTA GENERAL QUE DEVUELVE: ProductCategory, ProductSubcategory, Product, AdditionalCategory, FeatureProduct
-// Route::get('admin/catalog', 'API\Admin\ProductAPIController@catalog');
-
-// // Product, AdditionalCategory, FeatureProduct
-// Route::get('admin/products_general/{product_subcategory_id?}', 'API\Admin\ProductAPIController@productsGeneral');
-
-// // SEARCH: Product, AdditionalCategory, FeatureProduct
-// Route::get('admin/products_search/{word}', 'API\Admin\ProductAPIController@productsSearch');
-
-// // Suggestions
-// Route::get('admin/suggestions', 'API\Admin\ProductAPIController@suggestions');
-
-// // Order
-// Route::get('admin/orders/user/{user_id}', 'API\Admin\OrderAPIController@index')/*->middleware('auth:api')*/;
-// Route::post('admin/orders', 'API\Admin\OrderAPIController@store')/*->middleware('auth')*/;
-// Route::get('admin/orders/{orders}', 'API\Admin\OrderAPIController@show');
-// Route::put('admin/orders/hide/{orders}', 'API\Admin\OrderAPIController@hide')/*->middleware('auth')*/;
-// // Route::patch('admin/orders/{orders}', 'API\Admin\OrderAPIController@update')->middleware('auth');
-// // Route::delete('admin/orders/{orders}', 'API\Admin\OrderAPIController@destroy')->middleware('auth');
-
+//  ____
+// |  _ \    ___     ___    _ __ ___    ___
+// | |_) |  / _ \   / _ \  | '_ ` _ \  / __|
+// |  _ <  | (_) | | (_) | | | | | | | \__ \
+// |_| \_\  \___/   \___/  |_| |_| |_| |___/
+//
 
 // Room
 Route::post('admin/rooms', 'API\Admin\RoomAPIController@index');
-// Route::post('admin/rooms', 'API\Admin\RoomAPIController@store');
-Route::get('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@show');
-// Route::put('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@update');
-// Route::patch('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@update');
-// Route::delete('admin/rooms/{rooms}', 'API\Admin\RoomAPIController@destroy');
+Route::get('admin/rooms/{room}', 'API\Admin\RoomAPIController@show');
+Route::post('admin/rooms/lock', 'API\Admin\RoomAPIController@lock');
+
 
 // Booking
 Route::get('admin/bookings/user/{user_id}', 'API\Admin\BookingAPIController@index');
 Route::post('admin/bookings', 'API\Admin\BookingAPIController@store');
-Route::get('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@show');
-Route::put('admin/bookings/hide/{bookings}', 'API\Admin\BookingAPIController@hide');
-// Route::put('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@update');
-// Route::patch('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@update');
-// Route::delete('admin/bookings/{bookings}', 'API\Admin\BookingAPIController@destroy');
+Route::get('admin/bookings/{booking}', 'API\Admin\BookingAPIController@show');
+Route::put('admin/bookings/hide/{booking}', 'API\Admin\BookingAPIController@hide');
+
+
+
+
 
 
 // Route::get('admin/blogs', 'API\Admin\BlogAPIController@index');
@@ -135,49 +76,6 @@ Route::put('admin/bookings/hide/{bookings}', 'API\Admin\BookingAPIController@hid
 // Route::put('admin/blogs/{blogs}', 'API\Admin\BlogAPIController@update');
 // Route::patch('admin/blogs/{blogs}', 'API\Admin\BlogAPIController@update');
 // Route::delete('admin/blogs/{blogs}', 'API\Admin\BlogAPIController@destroy');
-
-
-// Route::get('admin/activity_categories', 'API\Admin\ActivityCategoryAPIController@index');
-// Route::post('admin/activity_categories', 'API\Admin\ActivityCategoryAPIController@store');
-// Route::get('admin/activity_categories/{activity_categories}', 'API\Admin\ActivityCategoryAPIController@show');
-// Route::put('admin/activity_categories/{activity_categories}', 'API\Admin\ActivityCategoryAPIController@update');
-// Route::patch('admin/activity_categories/{activity_categories}', 'API\Admin\ActivityCategoryAPIController@update');
-// Route::delete('admin/activity_categories/{activity_categories}', 'API\Admin\ActivityCategoryAPIController@destroy');
-
-
-// Route::get('admin/activities', 'API\Admin\ActivityAPIController@index');
-// Route::post('admin/activities', 'API\Admin\ActivityAPIController@store');
-// Route::get('admin/activities/{activities}', 'API\Admin\ActivityAPIController@show');
-// Route::put('admin/activities/{activities}', 'API\Admin\ActivityAPIController@update');
-// Route::patch('admin/activities/{activities}', 'API\Admin\ActivityAPIController@update');
-// Route::delete('admin/activities/{activities}', 'API\Admin\ActivityAPIController@destroy');
-
-
-
-
-// Route::get('admin/brands', 'API\Admin\BrandAPIController@index');
-// Route::post('admin/brands', 'API\Admin\BrandAPIController@store');
-// Route::get('admin/brands/{brands}', 'API\Admin\BrandAPIController@show');
-// Route::put('admin/brands/{brands}', 'API\Admin\BrandAPIController@update');
-// Route::patch('admin/brands/{brands}', 'API\Admin\BrandAPIController@update');
-// Route::delete('admin/brands/{brands}', 'API\Admin\BrandAPIController@destroy');
-
-
-
-// Route::get('admin/product_presentations', 'API\Admin\ProductPresentationAPIController@index');
-// Route::post('admin/product_presentations', 'API\Admin\ProductPresentationAPIController@store');
-// Route::get('admin/product_presentations/{product_presentations}', 'API\Admin\ProductPresentationAPIController@show');
-// Route::put('admin/product_presentations/{product_presentations}', 'API\Admin\ProductPresentationAPIController@update');
-// Route::patch('admin/product_presentations/{product_presentations}', 'API\Admin\ProductPresentationAPIController@update');
-// Route::delete('admin/product_presentations/{product_presentations}', 'API\Admin\ProductPresentationAPIController@destroy');
-
-
-// Route::get('admin/order_details', 'API\Admin\OrderDetailAPIController@index');
-// Route::post('admin/order_details', 'API\Admin\OrderDetailAPIController@store');
-// Route::get('admin/order_details/{order_details}', 'API\Admin\OrderDetailAPIController@show');
-// Route::put('admin/order_details/{order_details}', 'API\Admin\OrderDetailAPIController@update');
-// Route::patch('admin/order_details/{order_details}', 'API\Admin\OrderDetailAPIController@update');
-// Route::delete('admin/order_details/{order_details}', 'API\Admin\OrderDetailAPIController@destroy');
 
 
 // Route::get('admin/room_categories', 'API\Admin\RoomCategoryAPIController@index');
@@ -210,14 +108,6 @@ Route::put('admin/bookings/hide/{bookings}', 'API\Admin\BookingAPIController@hid
 // Route::put('admin/services/{services}', 'API\Admin\ServiceAPIController@update');
 // Route::patch('admin/services/{services}', 'API\Admin\ServiceAPIController@update');
 // Route::delete('admin/services/{services}', 'API\Admin\ServiceAPIController@destroy');
-
-
-// Route::get('admin/event_categories', 'API\Admin\EventCategoryAPIController@index');
-// Route::post('admin/event_categories', 'API\Admin\EventCategoryAPIController@store');
-// Route::get('admin/event_categories/{event_categories}', 'API\Admin\EventCategoryAPIController@show');
-// Route::put('admin/event_categories/{event_categories}', 'API\Admin\EventCategoryAPIController@update');
-// Route::patch('admin/event_categories/{event_categories}', 'API\Admin\EventCategoryAPIController@update');
-// Route::delete('admin/event_categories/{event_categories}', 'API\Admin\EventCategoryAPIController@destroy');
 
 
 // Route::get('admin/booking_details', 'API\Admin\BookingDetailAPIController@index');
@@ -298,3 +188,11 @@ Route::get('admin/form_datas/{form_datas}', 'Admin\FormDataAPIController@show');
 Route::put('admin/form_datas/{form_datas}', 'Admin\FormDataAPIController@update');
 Route::patch('admin/form_datas/{form_datas}', 'Admin\FormDataAPIController@update');
 Route::delete('admin/form_datas/{form_datas}', 'Admin\FormDataAPIController@destroy');
+
+
+Route::get('admin/locked_rooms', 'Admin\LockedRoomAPIController@index');
+Route::post('admin/locked_rooms', 'Admin\LockedRoomAPIController@store');
+Route::get('admin/locked_rooms/{locked_rooms}', 'Admin\LockedRoomAPIController@show');
+Route::put('admin/locked_rooms/{locked_rooms}', 'Admin\LockedRoomAPIController@update');
+Route::patch('admin/locked_rooms/{locked_rooms}', 'Admin\LockedRoomAPIController@update');
+Route::delete('admin/locked_rooms/{locked_rooms}', 'Admin\LockedRoomAPIController@destroy');

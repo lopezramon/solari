@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\API\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Admin\FormData;
+use App\Models\Admin\LockedRoom;
+use InfyOm\Generator\Request\APIRequest;
 
-class CreateFormDataRequest extends FormRequest
+class CreateLockedRoomAPIRequest extends APIRequest
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -25,6 +24,6 @@ class CreateFormDataRequest extends FormRequest
      */
     public function rules()
     {
-        return FormData::$rules;
+        return LockedRoom::$rules;
     }
 }
