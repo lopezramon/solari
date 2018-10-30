@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 
 Route::post('setLanguage','LanguageController@setLanguage');
 Route::post('getLanguage','LanguageController@getLanguage');
+Route::post('get_env', 'API\ConfigAPIController@getEnv');
 
 Route::get('admin/tag_translations', 'API\Admin\TagTranslationAPIController@index')->middleware('auth:api');
 Route::get('admin/tag_translations', 'API\Admin\TagTranslationAPIController@index')->middleware('auth:api');

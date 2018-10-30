@@ -140,6 +140,7 @@
                                         </button>
                                     </router-link>
                                 </div>
+                                <captcha/>                               
                             </div>
                         </template>
                     </div>
@@ -236,6 +237,7 @@
                     passwordConfirm: null,
                     terms: null
                 },
+                /*production: null,*/
                 errorPassword: null,
                 errorMail: null,
                 regex: /^[a-zA-ZàèéìíîòóùúÀÈÉÌÍÎÒÓÙÚáéíñóúüÁÉÍÑÓÚÜ\-'\s]+$/i,
@@ -243,11 +245,16 @@
                 size: '15px',
                 loading: false,
             }
-        },
+        },/*mounted() {
+            const enviroment = this.$store.getters.getEnviroment;
+            if (enviroment.env === 'production') {
+                return this.production = true
+            } else  return this.production = false
+        },*/
         computed: {
             isDisabled() {
                 return !this.form.name || !this.form.lastname || !this.form.email || !this.form.phone || !this.form.password || !this.form.passwordConfirm || !this.form.fiscalCode || !this.form.terms
-            }
+            }            
         },
         methods: {
             saveUser() {
