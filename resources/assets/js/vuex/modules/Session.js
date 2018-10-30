@@ -2,6 +2,7 @@ export default {
     state: {
         user: [],
         authenticated: false,
+        enviroment: {},
     },
 
     actions: {
@@ -13,7 +14,14 @@ export default {
         },
         testSession({commit}, item) {
             console.log(item);
-        }
+        },
+        getEnviroment({commit}) {
+            axios.post('/api/get_env').then((response) => {
+                commit('getEnviroment', { list: response.data })
+            }).catch((error) => {
+                console.log(error.data);
+            })
+        }        
     },
     getters:{
         getSession: state => {
@@ -21,6 +29,9 @@ export default {
         },
         getauthenticated: state => {
             return state.authenticated;
+        },
+        getEnviroment: state => {
+            return state.enviroment;
         }
     },
     mutations:{
@@ -42,6 +53,9 @@ export default {
         deleteSession(state, {list}) {
             state.authenticated = false;
             state.user = [];
+        },
+        setEnviroment(state, {list}) {
+            Vue.set(state, "enviroment", list)
         }
     }
 }

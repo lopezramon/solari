@@ -51,6 +51,7 @@ import footer from '../components/general/footer';
 import jumperr from '../components/general/jumperr';
 import termini from '../components/general/termini';
 import floatCount from '../components/general/float-count';
+import captcha from '../components/general/captcha.vue';
 
 // Suites
 import suites from '../components/suites/suites';
