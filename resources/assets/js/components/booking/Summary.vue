@@ -7,7 +7,7 @@
                 </div>
 
                 <!-- fecha -->
-                <div class="col-12">
+               <!-- <div class="col-12">
                     <div class="d-flex justify-content-between">
                         <span class="tag font-weight-bold">Check-in</span>
                         <span class="date">{{ getCheckin }}</span>
@@ -16,14 +16,14 @@
                         <span class="tag font-weight-bold">Check-out</span>
                         <span class="date">{{ getCheckout }}</span>
                     </div>
-                </div>
+                </div>-->
 
                 <!-- room select -->
-                <div class="col-12 mt-2" v-if="getListCart.length>0">
+                <div class="col-12 mt-2" v-if="getRoomsSelected.length>0">
                     <div class="border-bottom">
                         <strong class="text-capitalize">Rooms:</strong>
 
-                        <div class="d-flex justify-content-between" v-for="room in getListCart">
+                        <div class="d-flex justify-content-between" v-for="room in roomsSelected">
                             <span>&nbsp;<input type="checkbox" :value="room.id" v-model="roomsToDelete" title="select room to delete"></span>
                             <span class="title">{{ room.name }}</span>
                             <span class="price">{{ room.price }} €</span>
@@ -47,9 +47,10 @@
 </template>
 <script>
     export default {
+        name: 'summary-booking',
         data() {
             return {
-                rooms_cart: [],
+                roomsSelected: [],
                 roomsToDelete: []
             }
         },
@@ -62,21 +63,19 @@
                 let data = this.$store.getters.getDataFilter;
                 return Vue.moment(data.checkout).format('YYYY/MMM/DD').toUpperCase();
             },
-            getListCart() {
-                let data = this.$store.getters.getCart;
-                this.rooms_cart = data;
-                console.log(this.rooms_cart.length);
-                return this.rooms_cart;
+            getRoomsSelected() {
+                this.roomsSelected = this.$store.getters.getRooms;
+                return this.roomsSelected;
             },
             getTotal() {
-                return this.$store.getters.getTotal.toFixed(2);
+                return parseFloat(this.$store.getters.getTotal).toFixed(2);
             }
         },
         methods: {
             deleteAll() {
                 if (this.roomsToDelete.length > 0) {
                     let arr = [];
-                    let data = this.$store.getters.getCart;
+                    let data = this.$store.getters.getRooms;
 
                     for (let i in data) {
                         let element = data[i].id;
@@ -91,7 +90,7 @@
                     if (arr.length > 0) {
                         this.$store.commit('deleteAll', {list: arr});
                     }
-                } else this.showAlert('warning', 'asd', 'Select a room for delete')
+                } else this.showAlert('warning', 'Select a room firt for delete')
 
             },
             showAlert(type, title, text) {

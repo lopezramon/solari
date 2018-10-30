@@ -37,7 +37,7 @@
                             <span class="font-weight-bold">{{ room.price }} €</span>
                         </div>
 
-                    <!--    <calendar-disabled-days v-if="room.id === 1" :disabledDates="disabledDates"/>-->
+                        <!--<calendar-disabled-days v-if="room.id === 2" :disabledDates="disabledDates"/>-->
 
                         <button type="button" :disabled="checkDisabled(room)" @click.prevent="addRoom(room)" class="btn btn-primary btn-block m-2">
                             <span class="text-uppercase">Add</span>
@@ -64,17 +64,18 @@
 
         }
         },
-        mounted() {
+        beforeMount() {
             this.root = window.location.origin;
-            this.getBooking();
+            this.getRooms();
         },
         methods: {
             getRooms() {
                 let data = this.$store.getters.getDataFilter;
 
-                let form = {};
-                form.checkin = Vue.moment(data.checkin).format('YYYY-MM-DD');
-                form.checkout = Vue.moment(data.checkout).format('YYYY-MM-DD');
+                let form = {
+                    checkin: Vue.moment(data.checkin).format('YYYY-MM-DD'),
+                    checkout: Vue.moment(data.checkout).format('YYYY-MM-DD')
+                };
 
                 let slf = this;
 
@@ -85,7 +86,8 @@
                 }).catch(() => this.showAlert('error', 'Errore!!', 'refrescar la pagina'))
             },
             checkDisabled(item) {
-                let data = this.$store.getters.getCart;
+                let data = this.$store.getters.getRooms;
+
                 for (let i in data) {
                     if (data[i].id === item.id) {
                         return true;
@@ -95,10 +97,8 @@
                 return false;
             },
             addRoom(item) {
-                this.$store.dispatch('setRoom', {list: item});
-
-                this.showAlert('success', 'Room added with success', '')
-
+                this.$store.dispatch('setRoom', item);
+                this.showAlert('success', 'Room added with success');
             },
             showAlert(type, title, text) {
                 this.$swal({

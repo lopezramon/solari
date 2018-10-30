@@ -73,7 +73,7 @@ import stepTres from '../components/booking/stepTres';
 import headerBooking from '../components/booking/headerBooking';
 import navBooking from '../components/booking/navBooking';
 import formConsulta from '../components/booking/formConsulta';
-import resumen from '../components/booking/resumen';
+import Summary from '../components/booking/Summary';
 import rooms from '../components/booking/rooms';
 
 // My account
@@ -110,7 +110,7 @@ Vue.component('iconsServices', iconsServices);
 Vue.component('generalServices', generalServices);
 Vue.component('listServices', listServices);
 Vue.component('rooms', rooms);
-Vue.component('resumen', resumen);
+Vue.component('summary-booking', Summary);
 Vue.component('form_consulta', formConsulta);
 Vue.component('nav_booking', navBooking);
 Vue.component('header_booking', headerBooking);

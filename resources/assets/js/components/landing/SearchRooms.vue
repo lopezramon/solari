@@ -46,7 +46,7 @@
                                     <small v-show="errors.has('checkout')" class="help text-danger">{{ errors.first('checkout') }}</small>
                                 </div>
 
-                                <button type="button" @click.prevent="filterData()" class="btn btn-primary mx-2">
+                                <button type="button" @click.prevent="searchRooms()" class="btn btn-primary mx-2">
                                     <span class="text-uppercase font-weight-bold">Search</span>
                                 </button>
                             </div>
@@ -72,9 +72,6 @@
                 minCheckout: null,
             }
         },
-        mounted() {
-            this.filtersData();
-        },
         computed: {
             minDate() {
                 if (this.checkin != null) {
@@ -88,17 +85,7 @@
             }
         },
         methods: {
-            filtersData() {
-                let searchData = this.$store.getters.getDataFilter;
-                if (searchData.checkin != null) {
-                    this.checkin = Vue.moment(data.checkin).format('YYYY/MM/DD');
-                    this.minCheckout = Vue.moment(this.checkin).add(1, 'day').format('YYYY/MM/DD');
-                }
-                if (searchData.checkout != null) {
-                    this.checkout = Vue.moment(data.checkout).format('YYYY/MM/DD');
-                }
-            },
-            filterData() {
+            searchRooms() {
                 this.$validator.validateAll().then((result) => {
                     if (result) {
                         let obj = { checkin: this.checkin, checkout: this.checkout };

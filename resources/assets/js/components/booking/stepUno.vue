@@ -10,15 +10,16 @@
                 </div>
                 <div class="col-12 col-lg-3">
                     <form_consulta/>
-                    <resumen/>
+
+                    <summary-booking/>
 
                     <div class="form-group">
                         <input id="terms" v-model="terms" type="checkbox" name="terms" required>
-                        <label for="terms">Accetto termini e condizioni</label>
+                        <label for="terms">Accept the terms and conditions</label>
                     </div>
 
                     <div class="text-center">
-                        <button type="button" @click.prevent="nextStep()" :disabled="!terms" class="btn btn-primary text-uppercase">Continuo</button>
+                        <button type="button" @click.prevent="nextStep()" :disabled="!terms" class="btn btn-primary text-uppercase">Next step</button>
                     </div>
                 </div>
             </div>

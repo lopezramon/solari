@@ -21,7 +21,7 @@
                         :class="{'is-danger': errors.has('checkin')}"
                         :min-date="minDate"
                     />
-                    <small v-show="errors.has('checkin')" class="help text-danger">{{ errors.first('checkin') }}</small>
+                    <span v-show="errors.has('checkin')" class="help text-danger">{{ errors.first('checkin') }}</span>
                 </div>
 
                 <div class="form-group col-12">
@@ -43,11 +43,13 @@
                         :class="{'is-danger': errors.has('checkout')}"
                         :min-date="minCheckout"
                     />
-                    <small v-show="errors.has('checkout')" class="help text-danger">{{ errors.first('checkout') }}</small>
+                    <span v-show="errors.has('checkout')" class="help text-danger">{{ errors.first('checkout') }}</span>
                 </div>
 
                 <div class="form-group col-12 text-center">
-                    <button type="button" @click.prevent="filterData()" class="btn btn-primary text-uppercase">Cerca</button>
+                    <button type="button" @click.prevent="filterData()" class="btn btn-primary">
+                        <span class="text-uppercase font-weight-bold">Search</span>
+                    </button>
                 </div>
             </form>
         </aside>
@@ -68,7 +70,7 @@
             }
         },
         mounted() {
-            this.filtersData();
+            this.getDates();
         },
         computed: {
             minDate() {
@@ -84,7 +86,7 @@
             }
         },
         methods: {
-            filtersData() {
+            getDates() {
                 let data = this.$store.getters.getDataFilter;
                 this.checkin = Vue.moment(data.checkin).format('YYYY/MM/DD');
                 this.checkout = Vue.moment(data.checkout).format('YYYY/MM/DD');
