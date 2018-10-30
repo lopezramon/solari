@@ -1,9 +1,7 @@
 <template>
     <div>
-
-
         <header_landing/>
-        <form_booking/>
+        <search-rooms/>
         <float-count/>
         <aboutus/>
         <home_camere/>
@@ -13,7 +11,11 @@
         <newsletter/>
         <gallery_horizontal/>
         <mapa/>
-
-
     </div>
 </template>
+<script>
+    import SearchRooms from "./SearchRooms";
+    export default {
+        components: { SearchRooms }
+    }
+</script>
