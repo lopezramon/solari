@@ -60,26 +60,26 @@
                     pagination: { el: '.swiper-pagination' }
                 },
                 rooms: [],
+                bookingDate: {},
                 disabledDates: ['2018-10-30', '2018-10-27', '2018-11-24', '2018-11-13', '2018-11-07', '2018-11-20', '2018-11-11', '2018-11-01']
-
-        }
+            }
         },
         beforeMount() {
             this.root = window.location.origin;
+
+            this.bookingDate = {
+                checkin: Vue.moment(this.$store.getters.getDataFilter.checkin).format('YYYY-MM-DD'),
+                checkout: Vue.moment(this.$store.getters.getDataFilter.checkout).format('YYYY-MM-DD')
+            };
+        },
+        mounted() {
             this.getRooms();
         },
         methods: {
             getRooms() {
-                let data = this.$store.getters.getDataFilter;
-
-                let form = {
-                    checkin: Vue.moment(data.checkin).format('YYYY-MM-DD'),
-                    checkout: Vue.moment(data.checkout).format('YYYY-MM-DD')
-                };
-
                 let slf = this;
 
-                axios.post(this.root + '/api/admin/rooms', form).then((res) => {
+                axios.post(this.root + '/api/admin/rooms', this.bookingDate).then((res) => {
                     if (res.status === 200) {
                         slf.rooms = res.data.data.rooms;
                     }
@@ -89,7 +89,7 @@
                 let data = this.$store.getters.getRooms;
 
                 for (let i in data) {
-                    if (data[i].id === item.id) {
+                    if (data[i].roomId === item.id) {
                         return true;
                         break;
                     }
@@ -97,8 +97,22 @@
                 return false;
             },
             addRoom(item) {
-                this.$store.dispatch('setRoom', item);
-                this.showAlert('success', 'Room added with success');
+                let data = {
+                    name: item.name,
+                    roomId: item.id,
+                    personResponsible: {
+                        name: null,
+                        email: null,
+                        phone: null,
+                        fiscalCode: null
+                    },
+                    personsQuantity: null,
+                    totalItem: item.price
+                };
+
+                data.bookingDate = this.bookingDate;
+
+                this.$store.dispatch('setRoom', data).then(() => this.showAlert('success', 'Room added with success'));
             },
             showAlert(type, title, text) {
                 this.$swal({

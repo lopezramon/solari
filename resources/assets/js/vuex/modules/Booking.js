@@ -92,11 +92,11 @@ export default {
             let data = state.booking.rooms;
 
             if (data.length > 0) {
-                const response = data.find(key => key.id === list.id);
+                const response = data.find(key => key.roomId === list.roomId);
 
                 if (response === null || response === undefined) {
                     let total = state.booking.totalAmount;
-                    total += parseFloat(list.price);
+                    total += parseFloat(list.totalItem);
 
                     state.booking.rooms.push(list);
                     Vue.set(state.booking, 'totalAmount', total);
@@ -104,7 +104,7 @@ export default {
 
             } else {
                 let total = state.booking.totalAmount;
-                total += parseFloat(list.price);
+                total += parseFloat(list.totalItem);
 
                 state.booking.rooms.push(list);
                 Vue.set(state.booking, 'totalAmount', total);
@@ -115,9 +115,9 @@ export default {
 
             for (let a in list) {
                 for (let i in data) {
-                    if (data[i].id === list[a].id) {
+                    if (data[i].roomId === list[a].roomId) {
                         Vue.delete(state.booking.rooms, i);
-                        Vue.set(state.booking, 'totalAmount', Math.abs(state.booking.totalAmount - list[a].price));
+                        Vue.set(state.booking, 'totalAmount', Math.abs(state.booking.totalAmount - list[a].totalItem));
                     }
                 }
             }

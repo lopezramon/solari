@@ -7,7 +7,7 @@
                 </div>
 
                 <!-- fecha -->
-               <!-- <div class="col-12">
+                <div class="col-12">
                     <div class="d-flex justify-content-between">
                         <span class="tag font-weight-bold">Check-in</span>
                         <span class="date">{{ getCheckin }}</span>
@@ -16,7 +16,7 @@
                         <span class="tag font-weight-bold">Check-out</span>
                         <span class="date">{{ getCheckout }}</span>
                     </div>
-                </div>-->
+                </div>
 
                 <!-- room select -->
                 <div class="col-12 mt-2" v-if="getRoomsSelected.length>0">
@@ -24,9 +24,9 @@
                         <strong class="text-capitalize">Rooms:</strong>
 
                         <div class="d-flex justify-content-between" v-for="room in roomsSelected">
-                            <span>&nbsp;<input type="checkbox" :value="room.id" v-model="roomsToDelete" title="select room to delete"></span>
+                            <span>&nbsp;<input type="checkbox" :value="room.roomId" v-model="roomsToDelete" title="select room to delete"></span>
                             <span class="title">{{ room.name }}</span>
-                            <span class="price">{{ room.price }} €</span>
+                            <span class="price">{{ room.totalItem }} €</span>
                         </div>
 
                         <div class="border-bottom text-center">
@@ -78,7 +78,7 @@
                     let data = this.$store.getters.getRooms;
 
                     for (let i in data) {
-                        let element = data[i].id;
+                        let element = data[i].roomId;
 
                         for (let a in this.roomsToDelete) {
                             if (this.roomsToDelete[a] === element) {
