@@ -116,13 +116,14 @@ class BookingAPIController extends AppBaseController
             'user_id'       => 2,
         ];*/
 
-        /*$input = [
+        $input = [
             'booking' => [
                 'personResponsible' => [
                     'name' => 'Steven Sucre',
                     'email' => 'steven.sucre@jumperr.com',
                     'phone' => '+584269292922',
                     'fiscalCode' => '12345678901234567890'
+                    'userId' => null,
                 ],
                 'rooms' => [
                     [
@@ -157,10 +158,9 @@ class BookingAPIController extends AppBaseController
                     ]
                 ],
                 'total' => 305.50,
-                'userId' => null,
                 'comment' => 'I want breakfast.'
             ]
-        ];*/
+        ];
 
         $data = $input['booking'];
 

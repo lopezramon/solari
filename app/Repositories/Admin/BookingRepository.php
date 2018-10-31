@@ -111,7 +111,7 @@ class BookingRepository extends BaseRepository
         $booking = [];
 
         // Save user_id
-        $user                   = User::find($data['userId']);
+        $user                   = User::find($data['personResponsible']['userId']);
         $booking['user_id']     = $user->id ?? null;
 
         // Save comment
