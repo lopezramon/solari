@@ -144,6 +144,15 @@ class Booking extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function formInfo()
+    {
+        // dd($this->belongsTo(\App\Models\Admin\DataForm::class));
+        return $this->belongsTo(\App\Models\Admin\DataForm::class, 'data_form_id');
+    }
+
+    /**
      * Get the BookingDetail of the Booking.
      *
      * @return array
@@ -153,11 +162,12 @@ class Booking extends Model
         return $this->bookingDetails->transform(function($bookingDet, $key){
             return (object)[
                 'id'                => $bookingDet->id,
-                'adult_quantity'    => $bookingDet->adult_quantity,
+                'adult_quantity'    => $bookingDet->persons_quantity,
+                'row_id'            => $bookingDet->row_id,
                 'room'              => $bookingDet->room,
-                'form_data'          => $bookingDet->formInfo,
+                'data_form'         => $bookingDet->formInfo,
                 'iva_item'          => $bookingDet->iva_item,
-                'total_item'        => $bookingDet->total_item,
+                'total_item'        => $bookingDet->total_item
             ];
         });
     }
@@ -170,10 +180,10 @@ class Booking extends Model
     public function getResponsableAttribute()
     {
         return [
-            'name'          => $this->responsable_name,
-            'email'         => $this->responsable_email,
-            'phone'         => $this->responsable_phone,
-            'identidad'     => $this->responsable_identification,
+            'name'          => $this->formInfo->name,
+            'email'         => $this->formInfo->email,
+            'phone'         => $this->formInfo->phone,
+            'identidad'     => $this->formInfo->fiscal_code,
         ];
     }
 

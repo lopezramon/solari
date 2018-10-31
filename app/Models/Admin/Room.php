@@ -161,7 +161,12 @@ class Room extends Model
     {
         $language = Language::where('code', \App::getLocale())->first();
         return $this->roomTranslations->filter(function($roomTranslation) use($language){
-            return $roomTranslation->language_id == $language->id;
+            if ( $roomTranslation->language_id == $language->id && $roomTranslation->room_id == $this->id ) {
+                return true;
+            }
+            else {
+                return false;
+            }
         })->first();
     }
 
@@ -281,14 +286,6 @@ class Room extends Model
             // OBTENGO LOS VALORES DEL RANGO A BUSCAR (con Carbon)
             $checkin_request = Carbon::createFromFormat('Y-m-d H', $dates['checkin'].' 0');
             $checkout_request = Carbon::createFromFormat('Y-m-d H', $dates['checkout'].' 0');
-
-            // dd($season->start_date);
-            // dd($checkin_request);
-            // dd($season->start_date->lessThanOrEqualTo($checkin_request));
-            // dd($season->end_date);
-            // dd($checkout_request);
-            // dd($season->end_date->greaterThanOrEqualTo($checkout_request));
-            // dd($season->end_date->lessThan($checkout_request));
 
             // SI ENTRA EN ESTE IF: EL RANGO DE CONSULTA SE ENCUENTRA EN UNA SOLA TEMPORADA
             if ( $season->start_date->lessThanOrEqualTo($checkin_request) &&

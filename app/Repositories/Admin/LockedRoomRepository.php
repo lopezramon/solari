@@ -3,6 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Admin\LockedRoom;
+use Carbon\Carbon;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
@@ -32,5 +33,28 @@ class LockedRoomRepository extends BaseRepository
     public function model()
     {
         return LockedRoom::class;
+    }
+
+    /**
+     * Lock the specified Room in the given range (checkin_date, checkout_date).
+     *
+     * @param int       $room_id
+     * @param string    $checkin_date
+     * @param string    $checkout_date
+     *
+     * @return App\Models\Admin\LockedRoom
+     */
+    public function lockRoom( $room_id, $checkin_date, $checkout_date )
+    {
+        $data = [
+            'room_id'       => $room_id,
+            'checkin_date'  => $checkin_date,
+            'checkout_date' => $checkout_date,
+            'locked_at'     => Carbon::now()->format('Y-m-d H:i:s')
+        ];
+
+        $lockedRoom = $this->create($data);
+
+        return $lockedRoom;
     }
 }

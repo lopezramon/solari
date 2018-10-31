@@ -22,8 +22,10 @@ class BookingDetailRepository extends BaseRepository
     protected $fieldSearchable = [
         'booking_id',
         'row_id',
-        'adult_quantity',
+        'persons_quantity',
+
         'form_data_id',
+
         'payment_method_id',
         'iva_item',
         'total_item'

@@ -60,12 +60,13 @@ class RoomRepository extends BaseRepository
         // $dataAll = $this->all($columns);
 
         // EN ESTE PUNTO SE BUSCAN SOLAMENTE LAS ROOMS CUYO LOCKED_AT SEA NULL O MENOR A HACE TRES MINUTOS
-        $threeMinutesAgo = Carbon::now()->subMinutes(3); #PENDIENTE que este valor (3) sea administrable
-        $where = [
-            ['locked_at', '=', null],
-            ['locked_at', '<', $threeMinutesAgo]
-        ];
-        $dataAll = $this->findWhere($where, $columns);
+        // $threeMinutesAgo = Carbon::now()->subMinutes(3); #PENDIENTE que este valor (3) sea administrable
+        // $where = [
+        //     ['locked_at', '=', null],
+        //     ['locked_at', '<', $threeMinutesAgo]
+        // ];
+        // $dataAll = $this->findWhere($where, $columns);
+        $dataAll = $this->all($columns);
 
         // SI VIENEN DATES
         $data = $dataAll->transform(function($room, $key) use($dates) {
@@ -90,9 +91,8 @@ class RoomRepository extends BaseRepository
     /**
      * Find customized data of repository.
      *
+     * @param array $id
      * @param array $columns
-     * @param array $where
-     * @param array $ids
      *
      * @return array
      */

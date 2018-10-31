@@ -62,7 +62,7 @@ class DataForm extends Model
 {
     use SoftDeletes;
 
-    public $table = 'form_data';
+    public $table = 'data_forms';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';

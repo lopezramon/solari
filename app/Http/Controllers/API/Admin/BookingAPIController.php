@@ -9,7 +9,7 @@ use App\Http\Requests\API\Admin\UpdateBookingAPIRequest;
 use App\Models\Admin\Booking;
 use App\Repositories\Admin\BookingDetailRepository;
 use App\Repositories\Admin\BookingRepository;
-use App\Repositories\Admin\FormDataRepository;
+use App\Repositories\Admin\DataFormRepository;
 use App\Repositories\Admin\RoomRepository;
 use App\Repositories\Admin\UserRepository;
 use Illuminate\Http\Request;
@@ -30,8 +30,8 @@ class BookingAPIController extends AppBaseController
     /** @var  BookingDetailRepository */
     private $bookingDetailRepository;
 
-    /** @var  FormDataRepository */
-    private $formDataRepository;
+    /** @var  DataFormRepository */
+    private $dataFormRepository;
 
     /** @var  UserRepository */
     private $userRepository;
@@ -41,13 +41,13 @@ class BookingAPIController extends AppBaseController
 
     public function __construct(BookingRepository $bookingRepo,
         BookingDetailRepository $bookingDetailRepo,
-        FormDataRepository $formDataRepo,
+        DataFormRepository $dataFormRepo,
         UserRepository $userRepo,
         RoomRepository $roomRepo)
     {
         $this->bookingRepository = $bookingRepo;
         $this->bookingDetailRepository = $bookingDetailRepo;
-        $this->formDataRepository = $formDataRepo;
+        $this->dataFormRepository = $dataFormRepo;
         $this->userRepository = $userRepo;
         $this->roomRepository = $roomRepo;
     }
@@ -87,7 +87,8 @@ class BookingAPIController extends AppBaseController
     public function store(CreateBookingAPIRequest $request)
     {
         $input = $request->all();
-        /*$input = [
+
+        /*$inputOld = [
             'comentario'    => 'Hola 2',
             'datos_reserva' => [
                 [
@@ -115,13 +116,61 @@ class BookingAPIController extends AppBaseController
             'user_id'       => 2,
         ];*/
 
-        $data = (array)$input;
+        /*$input = [
+            'booking' => [
+                'personResponsible' => [
+                    'name' => 'Steven Sucre',
+                    'email' => 'steven.sucre@jumperr.com',
+                    'phone' => '+584269292922',
+                    'fiscalCode' => '12345678901234567890'
+                ],
+                'rooms' => [
+                    [
+                        'roomId' => 3,
+                        'personResponsible' => [
+                            'name' => 'Steven Sucre',
+                            'email' => 'steven.sucre@jumperr.com',
+                            'phone' => '+584269292922',
+                            'fiscalCode' => '12345678901234567890'
+                        ],
+                        'personsQuantity' => 2,
+                        'bookingDate' => [
+                            'checkin' => '2018-11-24',
+                            'checkout' => '2018-11-27'
+                        ],
+                        'totalItem' => 100.25
+                    ],
+                    [
+                        'roomId' => 2,
+                        'personResponsible' => [
+                            'name' => 'John Doe',
+                            'email' => 'john.doe@jumperr.com',
+                            'phone' => '+584262325566',
+                            'fiscalCode' => '98765432310981231232'
+                        ],
+                        'personsQuantity' => 2,
+                        'bookingDate' => [
+                            'checkin' => '2018-11-27',
+                            'checkout' => '2018-11-29'
+                        ],
+                        'totalItem' => 205.25
+                    ]
+                ],
+                'total' => 305.50,
+                'userId' => null,
+                'comment' => 'I want breakfast.'
+            ]
+        ];*/
+
+        $data = $input['booking'];
 
         // Save Booking
         $booking = $this->bookingRepository->createCustomized($data);
 
-        // Get BookingWithRelations
+        // Get Booking with BookingDetails
         $bookingWithRelations = $this->bookingRepository->findCustomized($booking->id);
+
+        // return response()->json($bookingWithRelations);
 
         // Enviar Correo
         $sended = $this->sendMail($bookingWithRelations, 'order'); #PENDIENTE
@@ -175,7 +224,7 @@ class BookingAPIController extends AppBaseController
         // $bookingWithRelations = $this->bookingRepository->getBookingWithRelations($booking);
         $bookingWithRelations = $this->bookingRepository->findCustomized($booking->id);
 
-        return $this->sendResponse(['booking' => $bookingWithRelations], 'Booking retrieved successfully');
+        return $this->sendResponse(['booking' => $bookingWithRelations], 'Booking2 retrieved successfully');
     }
 
     /**

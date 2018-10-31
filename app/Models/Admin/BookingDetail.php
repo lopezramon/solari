@@ -144,8 +144,8 @@ class BookingDetail extends Model
      **/
     public function formInfo()
     {
-        // dd($this->belongsTo(\App\Models\Admin\FormData::class));
-        return $this->belongsTo(\App\Models\Admin\FormData::class, 'data_form_id');
+        // dd($this->belongsTo(\App\Models\Admin\DataForm::class));
+        return $this->belongsTo(\App\Models\Admin\DataForm::class, 'data_form_id');
     }
 
     /**
@@ -155,7 +155,8 @@ class BookingDetail extends Model
      */
     public function getRoomAttribute()
     {
-        $room           = $this->row->rowable->select('id', 'image')->first()->toArray();
+        $room           = $this->row->rowable->toArray();
+        // dd($room);
         $column_index   = count($room)-1;
         $column_index2  = count($room)-2;
         $column_index3  = count($room)-3;
@@ -171,7 +172,7 @@ class BookingDetail extends Model
     }
 
     /**
-     * Get the FormData of the BookingDetail.
+     * Get the DataForm of the BookingDetail.
      *
      * @return array
      */

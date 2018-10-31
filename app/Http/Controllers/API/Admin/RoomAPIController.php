@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\API\Admin;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\Admin\CreateRoomAPIRequest;
 use App\Http\Requests\API\Admin\UpdateRoomAPIRequest;
 use App\Models\Admin\Room;
+use App\Repositories\Admin\LockedRoomRepository;
 use App\Repositories\Admin\RoomRepository;
 use Illuminate\Http\Request;
-use App\Http\Controllers\AppBaseController;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
@@ -22,9 +23,14 @@ class RoomAPIController extends AppBaseController
     /** @var  RoomRepository */
     private $roomRepository;
 
-    public function __construct(RoomRepository $roomRepo)
+    /** @var  LockedRoomRepository */
+    private $lockedRoomRepository;
+
+    public function __construct(RoomRepository $roomRepo,
+        LockedRoomRepository $lockedRoomRepo)
     {
         $this->roomRepository = $roomRepo;
+        $this->lockedRoomRepository = $lockedRoomRepo;
     }
 
     /**
@@ -56,14 +62,14 @@ class RoomAPIController extends AppBaseController
      *
      * @return Response
      */
-    // public function store(CreateRoomAPIRequest $request)
-    // {
-    //     $input = $request->all();
+    /*public function store(CreateRoomAPIRequest $request)
+    {
+        $input = $request->all();
 
-    //     $rooms = $this->roomRepository->create($input);
+        $rooms = $this->roomRepository->create($input);
 
-    //     return $this->sendResponse($rooms->toArray(), 'Room saved successfully');
-    // }
+        return $this->sendResponse($rooms->toArray(), 'Room saved successfully');
+    }*/
 
     /**
      * Display the specified Room.
@@ -87,11 +93,13 @@ class RoomAPIController extends AppBaseController
 
     /**
      * Lock the specified Room in the given range (checkin_date, checkout_date).
+     *
      * $request = [
      *     'roomId'        => 1,
      *     'checkinDate'   => '2018-06-23',
      *     'checkoutDate'  => '2018-06-25'
      * ];
+     *
      * POST /rooms/lock
      *
      * @param Request $request
@@ -109,9 +117,10 @@ class RoomAPIController extends AppBaseController
             return $this->sendError('Room not found');
         }
 
-        dd('PENDIENTE');
+        // Bloquear la habitacion
+        $lockedRoom = $this->lockedRoomRepository->lockRoom($room->id, $data['checkinDate'], $data['checkoutDate']);
 
-        return $this->sendResponse(['room' => $room], 'Room retrieved successfully');
+        return $this->sendResponse(['room' => $room], 'Room locked successfully');
     }
 
     /**
@@ -123,21 +132,21 @@ class RoomAPIController extends AppBaseController
      *
      * @return Response
      */
-    // public function update($id, UpdateRoomAPIRequest $request)
-    // {
-    //     $input = $request->all();
+    /*public function update($id, UpdateRoomAPIRequest $request)
+    {
+        $input = $request->all();
 
-    //     /** @var Room $room */
-    //     $room = $this->roomRepository->findWithoutFail($id);
+        // * @var Room $room
+        $room = $this->roomRepository->findWithoutFail($id);
 
-    //     if (empty($room)) {
-    //         return $this->sendError('Room not found');
-    //     }
+        if (empty($room)) {
+            return $this->sendError('Room not found');
+        }
 
-    //     $room = $this->roomRepository->update($input, $id);
+        $room = $this->roomRepository->update($input, $id);
 
-    //     return $this->sendResponse($room->toArray(), 'Room updated successfully');
-    // }
+        return $this->sendResponse($room->toArray(), 'Room updated successfully');
+    }*/
 
     /**
      * Remove the specified Room from storage.
@@ -147,17 +156,17 @@ class RoomAPIController extends AppBaseController
      *
      * @return Response
      */
-    // public function destroy($id)
-    // {
-    //     /** @var Room $room */
-    //     $room = $this->roomRepository->findWithoutFail($id);
+    /*public function destroy($id)
+    {
+        // * @var Room $room
+        $room = $this->roomRepository->findWithoutFail($id);
 
-    //     if (empty($room)) {
-    //         return $this->sendError('Room not found');
-    //     }
+        if (empty($room)) {
+            return $this->sendError('Room not found');
+        }
 
-    //     $room->delete();
+        $room->delete();
 
-    //     return $this->sendResponse($id, 'Room deleted successfully');
-    // }
+        return $this->sendResponse($id, 'Room deleted successfully');
+    }*/
 }

@@ -24,12 +24,14 @@ class BookingRepository extends BaseRepository
     protected $fieldSearchable = [
         'code',
         'user_id',
-        'checkin_date',
-        'checkout_date',
         'subtotal',
         'iva',
         'total',
         'comment',
+
+        'data_form_id',
+
+        'show_to_user',
         'status_id'
     ];
 
@@ -40,18 +42,14 @@ class BookingRepository extends BaseRepository
         'id',
         'code',
         'user_id',
-        'checkin_date',
-        'checkout_date',
         'subtotal',
         'iva',
         'total',
         'comment',
 
-        'responsable_name',
-        'responsable_email',
-        'responsable_phone',
-        'responsable_identification',
+        'data_form_id',
 
+        'show_to_user',
         'status_id'
     ];
 
@@ -72,20 +70,25 @@ class BookingRepository extends BaseRepository
         // Save Booking
         $booking = $this->setBookingModel( $data );
 
-        foreach ($data['datos_reserva'] as $key => $roomItem) {
+        // Save data_form_id for Booking
+        $dataForm = $this->setDataFormModel( $data['personResponsible'], $booking );
+        $booking = $this->update(['data_form_id' => $dataForm->id], $booking->id);
+
+        foreach ($data['rooms'] as $key => $roomItem) {
 
             // Save BookingDetail
             $bookingDetail = $this->setBookingDetailModel($roomItem, $booking);
 
-            // Save FormData
-            $formData = $this->setFormDataModel( $roomItem, $bookingDetail );
+            // Save data_form_id for BookingDetail
+            $dataForm = $this->setDataFormModel( $roomItem['personResponsible'], $bookingDetail );
+            $bookingDetail->update(['data_form_id' => $dataForm->id]);
 
-            // montos para el BookingDetail
+            // montos para el Booking
             $total  += $bookingDetail->total_item;
             $iva    += $bookingDetail->iva_item;
         }
 
-        // Update Booking (para guardar los montos y generar codigo)
+        // Update Booking (para guardar los montos y generar code)
         $bookingData = [];
         $bookingData['subtotal']    = $total - $iva;
         $bookingData['iva']         = $iva;
@@ -105,22 +108,14 @@ class BookingRepository extends BaseRepository
      */
     private function setBookingModel( $data )
     {
-        $booking                    = [];
+        $booking = [];
 
-        // RELACION CON MODELO USER
-        $user                       = User::find($data['user_id']);
-        $booking['user_id']         = $user->id ?? null;
+        // Save user_id
+        $user                   = User::find($data['userId']);
+        $booking['user_id']     = $user->id ?? null;
 
-        // DATOS DE LA ORDEN
-        $booking['checkin_date']    = $data['cart']['checkin'];
-        $booking['checkout_date']   = $data['cart']['checkout'];
-        $booking['comment']         = $data['comentario'];
-
-        // DATOS DEL RESPONSABLE
-        $booking['responsable_name']            = $data['cart']['responsable']['name'];
-        $booking['responsable_email']           = $data['cart']['responsable']['email'];
-        $booking['responsable_phone']           = $data['cart']['responsable']['phone'];
-        $booking['responsable_identification']  = $data['cart']['responsable']['identidad'];
+        // Save comment
+        $booking['comment']     = $data['comment'];
 
         return $this->create($booking);
     }
@@ -135,23 +130,23 @@ class BookingRepository extends BaseRepository
      */
     private function setBookingDetailModel( $roomItem, $booking )
     {
-        $roomId = $roomItem['idroom'];
+        $roomId = $roomItem['roomId'];
         $room = Room::find($roomId);
 
         // booking datail
         $bookingDetail                      = [];
         $bookingDetail['booking_id']        = $booking->id;
         $bookingDetail['row_id']            = $room->row->id;
-        $bookingDetail['adult_quantity']    = $roomItem['numero'];
+        $bookingDetail['persons_quantity']  = $roomItem['personsQuantity'];
 
-        // montos
-        $dates = [
-            'checkin'   => $booking->checkin_date->toDateString(),
-            'checkout'  => $booking->checkout_date->toDateString()
-        ];
-        $ivaAndPrice = $room->getCurrentIvaAndPrice($room, $dates);
-        $bookingDetail['total_item']        = $ivaAndPrice['price'];
+        // Save amounts
+        $ivaAndPrice = $room->getCurrentIvaAndPrice($room, $roomItem['bookingDate']);
         $bookingDetail['iva_item']          = $ivaAndPrice['iva'];
+        $bookingDetail['total_item']        = $ivaAndPrice['price'];
+
+        // Save checkin & checkout
+        $bookingDetail['checkin_date']      = $roomItem['bookingDate']['checkin'];
+        $bookingDetail['checkout_date']     = $roomItem['bookingDate']['checkout'];
 
         return $booking->bookingDetails()->create($bookingDetail);
     }
@@ -159,21 +154,16 @@ class BookingRepository extends BaseRepository
     /**
      * Set and store the form data for the given booking detail.
      *
-     * @param object    $roomItem
+     * @param array                                                         $data
+     * @param App\Models\Admin\Booking | App\Models\Admin\BookingDetail     $model
      *
-     * @return FormData
+     * @return DataForm
      */
-    private function setFormDataModel( $roomItem, $bookingDetail )
+    private function setDataFormModel( $data, $model )
     {
-        $formData           = [];
-        $formData['name']   = $roomItem['name'];
-        $formData['email']  = $roomItem['email'];
+        $dataFormModel = $model->formInfo()->create($data);
 
-        $formDataModel = $bookingDetail->formInfo()->create($formData);
-
-        $bookingDetail->update(['form_data_id' => $formDataModel->id]);
-
-        return $formDataModel;
+        return $dataFormModel;
     }
 
     /**
@@ -192,34 +182,35 @@ class BookingRepository extends BaseRepository
      *
      * @return array
      */
-    public function getCustomized( $columns = null )
+    /*public function getCustomized( $columns = null )
     {
         $columns = $columns ?? $this->customDefaultColumns;
 
         $dataAll = $this->all($columns);
 
         // SI VIENEN DATES
-        /*$data = $dataAll->transform(function($room, $key) use($dates) {
+        // $data = $dataAll->transform(function($room, $key) use($dates) {
 
-            // ASIGNO EL PRICE CORRESPONDIENTE SEGUN LA(S)
-            // TEMPORADA(S) EN LA(S) QUE SE ENCUENTRE EL RANGO DEL REQUEST
-            $ivaAndPrice    = $this->getCurrentIvaAndPrice($room, $dates);
-            $room->price    = $ivaAndPrice['price'];
-            $room->iva      = $ivaAndPrice['iva'];
+        //     // ASIGNO EL PRICE CORRESPONDIENTE SEGUN LA(S)
+        //     // TEMPORADA(S) EN LA(S) QUE SE ENCUENTRE EL RANGO DEL REQUEST
+        //     $ivaAndPrice    = $this->getCurrentIvaAndPrice($room, $dates);
+        //     $room->price    = $ivaAndPrice['price'];
+        //     $room->iva      = $ivaAndPrice['iva'];
 
-            return $room;
-        });*/
+        //     return $room;
+        // });
         $data = $dataAll;
 
         // helper personalizado para eliminar el model translation (ultimo index de cada elemento de la coleccion)
         $array = $this->clearUnusedColumns($data->toArray());
 
         return $array;
-    }
+    }*/
 
     /**
      * Find customized data of repository.
      *
+     * @param int   $id
      * @param array $columns
      *
      * @return array
