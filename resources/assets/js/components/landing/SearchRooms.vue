@@ -86,10 +86,12 @@
         },
         methods: {
             searchRooms() {
+                this.$store.dispatch('deleteRooms');
                 this.$validator.validateAll().then((result) => {
                     if (result) {
                         let obj = { checkin: this.checkin, checkout: this.checkout };
-                        this.$store.dispatch('setFilter', obj).then(() => this.$router.push('/booking/step-1'));
+
+                        this.$store.dispatch('setFilterDates', obj).then(() => this.$router.push('/booking/step-1'));
                     }
                 }).catch(() => console.log('error form'));
             }

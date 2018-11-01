@@ -13,7 +13,7 @@ let store = new Vuex.Store({
         Booking,
     },plugins: [
          createPersistedState({
-             paths: ['Session.user', 'Session.authenticated', 'Booking.booking', 'Booking.dataFilter', 'Session.enviroment'],
+             paths: ['Session.user', 'Session.authenticated', 'Booking.booking', 'Booking.filter', 'Session.enviroment'],
              getItem: key => Cookies.get(key),
              setItem: (key, value) => Cookies.set(key, value, { expires: 3, secure: true }),
              removeItem: key => Cookies.remove(key)
