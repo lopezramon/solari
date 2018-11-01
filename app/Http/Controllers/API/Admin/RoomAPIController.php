@@ -6,6 +6,7 @@ use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\Admin\CreateRoomAPIRequest;
 use App\Http\Requests\API\Admin\UpdateRoomAPIRequest;
 use App\Models\Admin\Room;
+use App\Repositories\Admin\BookingDetailRepository;
 use App\Repositories\Admin\LockedRoomRepository;
 use App\Repositories\Admin\RoomRepository;
 use Illuminate\Http\Request;
@@ -26,16 +27,22 @@ class RoomAPIController extends AppBaseController
     /** @var  LockedRoomRepository */
     private $lockedRoomRepository;
 
+    /** @var  BookingDetail */
+    private $bookingDetailRepository;
+
     public function __construct(RoomRepository $roomRepo,
-        LockedRoomRepository $lockedRoomRepo)
+        LockedRoomRepository $lockedRoomRepo,
+        BookingDetailRepository $bookingDetailRepo)
     {
         $this->roomRepository = $roomRepo;
         $this->lockedRoomRepository = $lockedRoomRepo;
+        $this->bookingDetailRepository = $bookingDetailRepo;
     }
 
     /**
      * Display a listing of the Room.
      * GET|HEAD /rooms
+     * @see http://localhost:8011/api/admin/rooms?checkin=2018-11-10&checkout=2018-11-25
      *
      * @param Request $request
      * @return Response
@@ -46,8 +53,13 @@ class RoomAPIController extends AppBaseController
         $this->roomRepository->pushCriteria(new LimitOffsetCriteria($request));
 
         $input = $request->all();
-        // http://localhost:8011/api/admin/rooms?checkin=2018-06-10&checkout=2018-06-25
-        // dd($input);
+        $checkin = $input['checkin'];
+        $checkout = $input['checkout'];
+
+        $availableBookingDetailRooms = $this->bookingDetailRepository->findAvailableRoomsInRange($checkin, $checkout);
+
+
+        $availableLockedRoomRooms;
 
         $rooms = $this->roomRepository->getCustomized(null, $input);
 

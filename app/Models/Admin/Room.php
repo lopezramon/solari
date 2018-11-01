@@ -280,12 +280,12 @@ class Room extends Model
         $isOneSeason  = false; // flag para saber si el rango esta en una temporada
         $isTwoSeasons = false; // flag para saber si el rango esta en dos temporadas
 
+        // OBTENGO LOS VALORES DEL RANGO A BUSCAR (con Carbon)
+        $checkin_request = Carbon::createFromFormat('Y-m-d H', $dates['checkin'].' 0');
+        $checkout_request = Carbon::createFromFormat('Y-m-d H', $dates['checkout'].' 0');
+
         // recorro cada una de las temporadas de la habitacion
         foreach ($room->roomSeasons->sortBy('start_date') as $key => $season) {
-
-            // OBTENGO LOS VALORES DEL RANGO A BUSCAR (con Carbon)
-            $checkin_request = Carbon::createFromFormat('Y-m-d H', $dates['checkin'].' 0');
-            $checkout_request = Carbon::createFromFormat('Y-m-d H', $dates['checkout'].' 0');
 
             // SI ENTRA EN ESTE IF: EL RANGO DE CONSULTA SE ENCUENTRA EN UNA SOLA TEMPORADA
             if ( $season->start_date->lessThanOrEqualTo($checkin_request) &&

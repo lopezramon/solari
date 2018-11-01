@@ -68,7 +68,7 @@ class RoomRepository extends BaseRepository
         // $dataAll = $this->findWhere($where, $columns);
         $dataAll = $this->all($columns);
 
-        // SI VIENEN DATES
+        // CALCULAR PRECIO SEGUN TEMPORADA
         $data = $dataAll->transform(function($room, $key) use($dates) {
             $roomTransformed = $room->toArray();
 
@@ -83,7 +83,6 @@ class RoomRepository extends BaseRepository
 
         // helper personalizado para eliminar el model translation (ultimo index de cada elemento de la coleccion)
         $array = $this->clearUnusedColumns($data->toArray());
-        // $array = $data->toArray();
 
         return $array;
     }

@@ -55,14 +55,14 @@ Route::post('password/reset','Auth\ResetPasswordController@resetFront');
 //
 
 // Room
-Route::post('admin/rooms', 'API\Admin\RoomAPIController@index');// API Listado de ROOM
+Route::post('admin/rooms', 'API\Admin\RoomAPIController@index');// API Listado de ROOM (DISPONIBILIDAD)
 Route::get('admin/rooms/{room}', 'API\Admin\RoomAPIController@show'); // API Obtener detalle de ROOM
-Route::post('admin/rooms/lock', 'API\Admin\RoomAPIController@lock'); // API Bloquear temporalmente ROOM
+Route::post('admin/rooms/lock', 'API\Admin\RoomAPIController@lock'); // API Bloquear temporalmente ROOM (BLOQUEO TEMPORAL)
 
 
 // Booking
 Route::get('admin/bookings/user/{user_id}', 'API\Admin\BookingAPIController@index');
-Route::post('admin/bookings', 'API\Admin\BookingAPIController@store');
+Route::post('admin/bookings', 'API\Admin\BookingAPIController@store'); // (BOOKING)
 Route::get('admin/bookings/{booking}', 'API\Admin\BookingAPIController@show');
 Route::put('admin/bookings/hide/{booking}', 'API\Admin\BookingAPIController@hide');
 
