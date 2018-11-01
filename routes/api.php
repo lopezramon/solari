@@ -55,7 +55,7 @@ Route::post('password/reset','Auth\ResetPasswordController@resetFront');
 //
 
 // Room
-Route::post('admin/rooms', 'API\Admin\RoomAPIController@index');// API Listado de ROOM (DISPONIBILIDAD)
+Route::get('admin/rooms', 'API\Admin\RoomAPIController@index');// API Listado de ROOM (DISPONIBILIDAD)
 Route::get('admin/rooms/{room}', 'API\Admin\RoomAPIController@show'); // API Obtener detalle de ROOM
 Route::post('admin/rooms/lock', 'API\Admin\RoomAPIController@lock'); // API Bloquear temporalmente ROOM (BLOQUEO TEMPORAL)
 

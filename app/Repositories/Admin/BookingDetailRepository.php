@@ -43,41 +43,67 @@ class BookingDetailRepository extends BaseRepository
     /**
      * Get available rooms in given checkin and checkout dates.
      *
-     * @param string $checkin
-     * @param string $checkout
+     * Case 1:
+     * |---- Date Range A ----|                   _
+     * _                   |---- Date Range B ----|
+     *
+     *
+     * Case 2:
+     * _                   |---- Date Range A ----|
+     * |---- Date Range B ----|                   _
+     *
+     *
+     * Case 3:
+     * _         |---- Date Range A ----|         _
+     * |-------------- Date Range B --------------|
+     *
+     *
+     * Case 4:
+     * |-------------- Date Range A --------------|
+     * _         |---- Date Range B ----|         _
+     *
+     *
+     * Case 5: ( SUCCESSFUL )
+     * _                           |---- Date Range A ----|                           _
+     * |---- Date Range B ----|                                |---- Date Range B ----|
+     *
+     *
+     * @param string    $checkin
+     * @param string    $checkout
+     * @param int       $slack Indica la holgura que se tendra en la busqueda contra los booking ya realizados.
      *
      * @return
      */
-    public function findAvailableRoomsInRange( $checkin, $checkout )
+    public function findAvailableRoomsInRange( $checkin, $checkout, $slack = 3 )
     {
         $checkin_request    = Carbon::createFromFormat('Y-m-d H', $checkin . ' 0');
         $checkout_request   = Carbon::createFromFormat('Y-m-d H', $checkout . ' 0');
 
-        $start_range    = $checkin_request->subMonths(3);
-        $end_range      = $checkout_request->addMonths(3);
+        $start_range    = Carbon::createFromFormat('Y-m-d H', $checkin . ' 0')->subMonths($slack);
+        $end_range      = Carbon::createFromFormat('Y-m-d H', $checkout . ' 0')->addMonths($slack);
 
-        // filtros para obtener un rango de busqueda mas centrado (mas o menos 3 meses el rango indicado por el usuario)
-        $where = [
-            ['checkin_date',  '>=', $start_range],
-            ['checkout_date', '<=', $end_range]
-        ];
-        $bookingDetails = $this->findWhere($where);
+        // filtros para obtener un rango de busqueda mas centrado (mas o menos 3 <default> meses el rango indicado por el usuario)
+        $bookingDetails = $this->findWhere([
+            ['checkin_date',  '>', $start_range],
+            ['checkout_date', '<', $end_range]
+        ]);
 
-        dd($checkin_request);
-        dd($bookingDetails);
-
-        $filteredBookingDetails = $bookingDetails->filter(function($bookingDeta) use($checkin, $checkout) {
-
-            if ( $this->checkIfOverlap() ) {
-                # code...
+        $filteredBookingDetails = $bookingDetails->filter(function($bookingDeta) use($checkin_request, $checkout_request) {
+            // Check if overlap (Cases 1, 2 and 3)
+            if ( $checkin_request->between($bookingDeta->checkin_date, $bookingDeta->checkout_date) ||
+                    $checkout_request->between($bookingDeta->checkin_date, $bookingDeta->checkout_date) ) {
+                return false;
             }
 
-            dd($bookingDeta->checkout_date);
-            dd($checkin);
+            // Check if overlap (Case 4)
+            if ( $bookingDeta->checkin_date->between($checkin_request, $checkout_request) &&
+                    $bookingDeta->checkout_date->between($checkin_request, $checkout_request) ) {
+                return false;
+            }
 
             return true;
         });
 
-        dd($filteredBookingDetails);
+        dd($filteredBookingDetails->toArray());
     }
 }

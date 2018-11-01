@@ -241,11 +241,11 @@ class Room extends Model
      */
     public function getServicesAttribute()
     {
-        return $this->roomsServices->transform(function($serv, $key){
-            $service        = (object)[];
-            $service->id    = $serv->id;
-            $service->name  = $serv->service->serviceTranslation()->name;
-            return $service;
+        return $this->roomsServices->transform(function($serv, $key) {
+
+            $serv->name  = $serv->service->serviceTranslation()->name;
+
+            return $serv;
         });
     }
 
@@ -257,11 +257,10 @@ class Room extends Model
     public function getGaleryAttribute()
     {
         return $this->row->rowsMultimedia->transform(function($multim, $key){
-            $image = (object)[];
-            $image->id      = $multim->id;
-            $image->image   = $multim->multimedia->name;
-            $image->title   = $multim->multimedia->description;
-            return $image;
+            $multim->image   = $multim->multimedia->name;
+            $multim->title   = $multim->multimedia->description;
+
+            return $multim;
         });
     }
 
