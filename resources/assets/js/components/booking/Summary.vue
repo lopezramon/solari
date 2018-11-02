@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="border-bottom text-center">
-                            <button type="button" class="btn btn-primary btn-xs mb-1" @click.prevent="deleteAll">Delete selected</button>
+                            <button type="button" class="btn btn-primary btn-xs mb-1" @click.prevent="deleteRoom">Delete selected</button>
                         </div>
                     </div>
                 </div>
@@ -51,16 +51,17 @@
         data() {
             return {
                 roomsSelected: [],
-                roomsToDelete: []
+                roomsToDelete: [],
+                bookingDate: {}
             }
         },
         computed: {
             getCheckin() {
-                let data = this.$store.getters.getDataFilter;
+                let data = this.$store.getters.getFilter;
                 return Vue.moment(data.checkin).format('YYYY/MMM/DD').toUpperCase();
             },
             getCheckout() {
-                let data = this.$store.getters.getDataFilter;
+                let data = this.$store.getters.getFilter;
                 return Vue.moment(data.checkout).format('YYYY/MMM/DD').toUpperCase();
             },
             getRoomsSelected() {
@@ -72,7 +73,7 @@
             }
         },
         methods: {
-            deleteAll() {
+            deleteRoom() {
                 if (this.roomsToDelete.length > 0) {
                     let arr = [];
                     let data = this.$store.getters.getRooms;
@@ -88,9 +89,9 @@
                         }
                     }
                     if (arr.length > 0) {
-                        this.$store.commit('deleteAll', {list: arr});
+                        this.$store.dispatch('deleteRoom', arr);
                     }
-                } else this.showAlert('warning', 'Select a room firt for delete')
+                } else this.showAlert('warning', 'Select a room first for delete it')
 
             },
             showAlert(type, title, text) {

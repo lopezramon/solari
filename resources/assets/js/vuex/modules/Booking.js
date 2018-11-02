@@ -1,52 +1,8 @@
 export default {
     state: {
-/*{
-    "booking": {
-    "personResponsible": {
-        "name": "Steven Sucre",
-            "email": "steven.sucre@jumperr.com",
-            "phone": "+584269292922",
-            "fiscalCode": "12345678901234567890"
-    },
-    "rooms": [
-        {
-            "roomId": 1,
-            "personResponsible": {
-                "name": "Steven Sucre",
-                "email": "steven.sucre@jumperr.com",
-                "phone": "+584269292922",
-                "fiscalCode": "12345678901234567890"
-            },
-            "personsQuantity": 2,
-            "bookingDate": {
-                "checkin": "2018-11-24",
-                "checkout": "2018-11-27"
-            },
-            "totalItem": 100.25
-        },
-        {
-            "roomId": 4,
-            "personResponsible": {
-                "name": "John Doe",
-                "email": "john.doe@jumperr.com",
-                "phone": "+584262325566",
-                "fiscalCode": "98765432310981231232"
-            },
-            "personsQuantity": 2,
-            "bookingDate": {
-                "checkin": "2018-11-27",
-                "checkout": "2018-11-29"
-            },
-            "totalItem": 205.25
-        }
-    ],
-        "total": 305.50,
-        "userId": null,
-        "comment": "I want breakfast."
-}
-}*/
         booking: {
             personResponsible: {
+                userId: null,
                 name: null,
                 email: null,
                 phone: null,
@@ -54,25 +10,40 @@ export default {
             },
             rooms: [],
             totalAmount: 0,
-            userId: null,
             comment: null,
         },
-        dataFilter: {}
+        filter: {
+            checkin: null,
+            checkout: null,
+            rooms: []
+        }
     },
     actions: {
-        setFilter({commit}, item) {
-            commit('setFilter', {list: item});
+        setFilterDates({commit}, item) {
+            commit('setFilterDates', {list: item});
+        },
+        setFilterRooms({commit}, item) {
+            commit('setFilterRooms', {list: item});
         },
         setRoom({commit}, item) {
             commit('setRoom', {list: item});
         },
         deleteRoom({commit}, item) {
-            commit('setRoom', {list: item});
+            commit('deleteRoom', {list: item});
+        },
+        deleteBooking({commit}, item) {
+            commit('deleteBooking', {list: item});
+        },
+        setPersonResponsible({commit}, item) {
+            commit('setPersonResponsible', {list: item});
+        },
+        setRoomsWithResponsible({commit}, item) {
+            commit('setRoomsWithResponsible', {list: item});
         },
     },
     getters: {
-        getDataFilter: state => {
-            return state.dataFilter;
+        getFilter: state => {
+            return state.filter;
         },
         getRooms: state => {
             return state.booking.rooms;
@@ -85,8 +56,12 @@ export default {
         },
     },
     mutations: {
-        setFilter(state, {list}) {
-            Vue.set(state, 'dataFilter', list);
+        setFilterDates(state, {list}) {
+            Vue.set(state.filter, 'checkin', list.checkin);
+            Vue.set(state.filter, 'checkout', list.checkout);
+        },
+        setFilterRooms(state, {list}) {
+            Vue.set(state.filter, 'rooms', list);
         },
         setRoom(state, {list}) {
             let data = state.booking.rooms;
@@ -110,7 +85,7 @@ export default {
                 Vue.set(state.booking, 'totalAmount', total);
             }
         },
-        deleteAll(state, {list}) {
+        deleteRoom(state, {list}) {
             let data = state.booking.rooms;
 
             for (let a in list) {
@@ -122,31 +97,32 @@ export default {
                 }
             }
         },
-        destroyState(state) {
-            Vue.set(state.booking, 'checkin', null);
-            Vue.set(state.booking, 'checkout', null);
-            Vue.set(state.booking, 'cart', []);
-            Vue.set(state.booking, 'total', 0);
-            Vue.set(state.booking.responsable, 'name', null);
-            Vue.set(state.booking.responsable, 'phone', null);
-            Vue.set(state.booking.responsable, 'identidad', null);
-            Vue.set(state.booking.responsable, 'email', null);
+        deleteBooking(state) {
+            Vue.set(state.booking.personResponsible,  'userId', null);
+            Vue.set(state.booking.personResponsible, 'name', null);
+            Vue.set(state.booking.personResponsible, 'email', null);
+            Vue.set(state.booking.personResponsible, 'phone', null);
+            Vue.set(state.booking.personResponsible, 'fiscalCode', null);
+
+            Vue.set(state.booking, 'rooms', []);
+            Vue.set(state.booking, 'totalAmount', 0);
+
+            Vue.set(state.booking,  'comment', null);
+
         },
-        setResponReser(state, {list}) {
-            Vue.set(state.booking.responsable, 'name', list.name_reserva);
-            Vue.set(state.booking.responsable, 'phone', list.telef_reserva);
-            Vue.set(state.booking.responsable, 'identidad', list.identidad_reserva);
-            Vue.set(state.booking.responsable, 'email', list.email);
+        setPersonResponsible(state, {list}) {
+            if (list.userId !== null) Vue.set(state.booking.personResponsible, 'userId', list.userId);
+
+            Vue.set(state.booking.personResponsible, 'name', list.name);
+            Vue.set(state.booking.personResponsible, 'email', list.email);
+            Vue.set(state.booking.personResponsible, 'phone', list.phone);
+            Vue.set(state.booking.personResponsible, 'fiscalCode', list.fiscalCode);
         },
-        removerItem(state, {list}) {
-            var list_cart = state.booking.cart;
-            for (var i in list_cart) {
-                if (list_cart[i].id == list.id) {
-                    Vue.delete(state.booking.cart, i);
-                    Vue.set(state.booking, 'total', state.booking.total - list.price);
-                    break;
-                }
-            }
+        setRoomsWithResponsible(state, {list}) {
+            console.log(list);
+            Vue.set(state.booking, 'personResponsible', list.personResponsible);
+            Vue.set(state.booking, 'rooms', list.rooms);
+            Vue.set(state.booking, 'comment', list.comment);
         }
     }
 }

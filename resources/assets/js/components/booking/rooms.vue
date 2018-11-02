@@ -68,8 +68,8 @@
             this.root = window.location.origin;
 
             this.bookingDate = {
-                checkin: Vue.moment(this.$store.getters.getDataFilter.checkin).format('YYYY-MM-DD'),
-                checkout: Vue.moment(this.$store.getters.getDataFilter.checkout).format('YYYY-MM-DD')
+                checkin: Vue.moment(this.$store.getters.getFilter.checkin).format('YYYY-MM-DD'),
+                checkout: Vue.moment(this.$store.getters.getFilter.checkout).format('YYYY-MM-DD')
             };
         },
         mounted() {
@@ -77,11 +77,11 @@
         },
         methods: {
             getRooms() {
-                let slf = this;
-
                 axios.post(this.root + '/api/admin/rooms', this.bookingDate).then((res) => {
                     if (res.status === 200) {
-                        slf.rooms = res.data.data.rooms;
+                        let obj = res.data.data.rooms;
+
+                        this.rooms = obj;
                     }
                 }).catch(() => this.showAlert('error', 'Errore!!', 'refrescar la pagina'))
             },
@@ -104,9 +104,8 @@
                         name: null,
                         email: null,
                         phone: null,
-                        fiscalCode: null
                     },
-                    personsQuantity: null,
+                    personsQuantity: 0,
                     totalItem: item.price
                 };
 

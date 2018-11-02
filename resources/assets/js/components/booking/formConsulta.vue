@@ -87,7 +87,7 @@
         },
         methods: {
             getDates() {
-                let data = this.$store.getters.getDataFilter;
+                let data = this.$store.getters.getFilter;
                 this.checkin = Vue.moment(data.checkin).format('YYYY/MM/DD');
                 this.checkout = Vue.moment(data.checkout).format('YYYY/MM/DD');
                 this.minCheckout = Vue.moment(this.checkin).add(1, 'day').format('YYYY/MM/DD');
@@ -96,7 +96,13 @@
                 this.$validator.validateAll().then((result) => {
                     if (result) {
                         let obj = { checkin: this.checkin, checkout: this.checkout };
-                        this.$store.dispatch('setFilter', obj)
+
+                        let data = this.$store.getters.getDataFilter;
+
+                        if (data.checkin !== obj.checkin || data.checkout !== obj.checkout) {
+                            this.$store.dispatch('deleteBooking');
+                            setTimeout(() => this.$store.dispatch('setFilterDates', obj), 3000);
+                        }
                     }
                 }).catch(() => console.log('error form'));
             }

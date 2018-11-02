@@ -9,7 +9,7 @@
                     <rooms/>
                 </div>
                 <div class="col-12 col-lg-3">
-                    <form_consulta/>
+                    <!--<form_consulta/>-->
 
                     <summary-booking/>
 
@@ -19,7 +19,9 @@
                     </div>
 
                     <div class="text-center">
-                        <button type="button" @click.prevent="nextStep()" :disabled="!terms" class="btn btn-primary text-uppercase">Next step</button>
+                        <button type="button" @click.prevent="nextStep()" :disabled="!terms" class="btn btn-primary ">
+                            <span class="text-uppercase font-weight-bold">Next step</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -35,7 +37,7 @@
             }
         },
         beforeMount() {
-            let dataFilter = this.$store.getters.getDataFilter;
+            let dataFilter = this.$store.getters.getFilter;
             if (dataFilter.checkin == null || dataFilter.checkout == null) {
                 this.$router.push('/');
             }

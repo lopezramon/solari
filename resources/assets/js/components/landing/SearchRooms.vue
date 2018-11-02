@@ -20,7 +20,7 @@
                                         v-validate="'required'"
                                         name="checkin"
                                         data-vv-as="Data"
-                                        color="gray"
+                                        color="#2ac093"
                                         :class="{'is-danger': errors.has('checkin')}"
                                         :min-date="minDate"
                                     />
@@ -39,7 +39,7 @@
                                         v-validate="'required'"
                                         name="checkout"
                                         data-vv-as="Data"
-                                        color="gray"
+                                        color="#2ac093"
                                         :class="{'is-danger': errors.has('checkout')}"
                                         :min-date="minCheckout"
                                     />
@@ -86,7 +86,7 @@
         },
         methods: {
             searchRooms() {
-                this.$store.dispatch('deleteRooms');
+                this.$store.dispatch('deleteBooking');
                 this.$validator.validateAll().then((result) => {
                     if (result) {
                         let obj = { checkin: this.checkin, checkout: this.checkout };
