@@ -53,7 +53,7 @@ class RoomRepository extends BaseRepository
      *
      * @return array
      */
-    public function getCustomized($columns = null, $dates = null)
+    public function getCustomized($columns = null, $dates = null, $unavailableRooms = [])
     {
         $columns = $columns ?? $this->customDefaultColumns;
 
@@ -66,7 +66,8 @@ class RoomRepository extends BaseRepository
         //     ['locked_at', '<', $threeMinutesAgo]
         // ];
         // $dataAll = $this->findWhere($where, $columns);
-        $dataAll = $this->all($columns);
+        // $dataAll = $this->all($columns);
+        $dataAll = $this->findWhereNotIn( 'id', $unavailableRooms, $columns );
 
         // CALCULAR PRECIO SEGUN TEMPORADA
         $data = $dataAll->transform(function($room, $key) use($dates) {

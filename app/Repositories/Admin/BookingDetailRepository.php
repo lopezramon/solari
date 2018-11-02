@@ -74,15 +74,16 @@ class BookingDetailRepository extends BaseRepository
      *
      * @return
      */
-    public function findAvailableRoomsInRange( $checkin, $checkout, $slack = 3 )
+    public function findUnavailableBookingDetailRoomsInRange( $checkin, $checkout, $slack = 3 )
     {
         $checkin_request    = Carbon::createFromFormat('Y-m-d H', $checkin . ' 0');
         $checkout_request   = Carbon::createFromFormat('Y-m-d H', $checkout . ' 0');
 
+        // holgura que se tendra en la busqueda contra los booking ya realizados.
         $start_range    = Carbon::createFromFormat('Y-m-d H', $checkin . ' 0')->subMonths($slack);
         $end_range      = Carbon::createFromFormat('Y-m-d H', $checkout . ' 0')->addMonths($slack);
 
-        // filtros para obtener un rango de busqueda mas centrado (mas o menos 3 <default> meses el rango indicado por el usuario)
+        // filtros para obtener un rango de busqueda mas centrado (mas o menos 3 <holgura default> meses el rango indicado por el usuario)
         $bookingDetails = $this->findWhere([
             ['checkin_date',  '>', $start_range],
             ['checkout_date', '<', $end_range]
@@ -92,18 +93,23 @@ class BookingDetailRepository extends BaseRepository
             // Check if overlap (Cases 1, 2 and 3)
             if ( $checkin_request->between($bookingDeta->checkin_date, $bookingDeta->checkout_date) ||
                     $checkout_request->between($bookingDeta->checkin_date, $bookingDeta->checkout_date) ) {
-                return false;
+                return true;
             }
 
             // Check if overlap (Case 4)
             if ( $bookingDeta->checkin_date->between($checkin_request, $checkout_request) &&
                     $bookingDeta->checkout_date->between($checkin_request, $checkout_request) ) {
-                return false;
+                return true;
             }
 
-            return true;
+            return false;
         });
 
-        dd($filteredBookingDetails->toArray());
+        $unavailableRoomsByBookingDetail = [];
+        foreach ($filteredBookingDetails->toArray() as $item) {
+            $unavailableRoomsByBookingDetail[] = $item['room']['id'];
+        }
+
+        return array_unique( $unavailableRoomsByBookingDetail );
     }
 }

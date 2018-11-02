@@ -57,4 +57,80 @@ class LockedRoomRepository extends BaseRepository
 
         return $lockedRoom;
     }
+
+    /**
+     * Get available rooms in given checkin and checkout dates.
+     *
+     * Case 1:
+     * |---- Date Range A ----|                   _
+     * _                   |---- Date Range B ----|
+     *
+     *
+     * Case 2:
+     * _                   |---- Date Range A ----|
+     * |---- Date Range B ----|                   _
+     *
+     *
+     * Case 3:
+     * _         |---- Date Range A ----|         _
+     * |-------------- Date Range B --------------|
+     *
+     *
+     * Case 4:
+     * |-------------- Date Range A --------------|
+     * _         |---- Date Range B ----|         _
+     *
+     *
+     * Case 5: ( SUCCESSFUL )
+     * _                           |---- Date Range A ----|                           _
+     * |---- Date Range B ----|                                |---- Date Range B ----|
+     *
+     *
+     * @param string    $checkin
+     * @param string    $checkout
+     * @param int       $slack Indica la holgura que se tendra en la busqueda contra los booking ya realizados.
+     *
+     * @return
+     */
+    public function findUnavailableLockedRoomRoomsInRange( $checkin, $checkout, $slack = 3 )
+    {
+        $checkin_request    = Carbon::createFromFormat('Y-m-d H', $checkin . ' 0');
+        $checkout_request   = Carbon::createFromFormat('Y-m-d H', $checkout . ' 0');
+
+        // holgura que se tendra en la busqueda contra los booking ya realizados.
+        $start_range    = Carbon::createFromFormat('Y-m-d H', $checkin . ' 0')->subMonths($slack);
+        $end_range      = Carbon::createFromFormat('Y-m-d H', $checkout . ' 0')->addMonths($slack);
+
+        // filtros para obtener un rango de busqueda mas centrado (mas o menos 3 <holgura default> meses el rango indicado por el usuario)
+        $fiveMinutesAgo = Carbon::now()->subMinutes(5); #PENDIENTE que este valor (3) sea administrable
+        $lockedRooms = $this->findWhere([
+            ['checkin_date',    '>', $start_range],
+            ['checkout_date',   '<', $end_range],
+
+            ['locked_at',       '>', $fiveMinutesAgo] // se buscan solo las rooms cuyo locked_at sea mayor a hace cinco minutos
+        ]);
+
+        $filteredLockedRooms = $lockedRooms->filter(function($lockedRoo) use($checkin_request, $checkout_request) {
+            // Check if overlap (Cases 1, 2 and 3)
+            if ( $checkin_request->between($lockedRoo->checkin_date, $lockedRoo->checkout_date) ||
+                    $checkout_request->between($lockedRoo->checkin_date, $lockedRoo->checkout_date) ) {
+                return true;
+            }
+
+            // Check if overlap (Case 4)
+            if ( $lockedRoo->checkin_date->between($checkin_request, $checkout_request) &&
+                    $lockedRoo->checkout_date->between($checkin_request, $checkout_request) ) {
+                return true;
+            }
+
+            return false;
+        });
+
+        $unavailableRoomsByLockedRoom = [];
+        foreach ($filteredLockedRooms->toArray() as $item) {
+            $unavailableRoomsByLockedRoom[] = $item['room']['id'];
+        }
+
+        return array_unique( $unavailableRoomsByLockedRoom );
+    }
 }

@@ -242,7 +242,7 @@ class RoomsTableSeeder extends Seeder
                     'name'          => '/storage/galery/room101_2.jpg', //multimedias.id => 4
                     'description'   => 'Imagine 2 da ROOM 101' // title de la imagen
                 ]
-                
+
             ]);
             DB::table('rows_multimedias')->insert([
                 [
@@ -424,7 +424,7 @@ class RoomsTableSeeder extends Seeder
                     'name'          => '/storage/galery/room101_5.jpg', //multimedias.id => 11
                     'description'   => 'Imagine 2 da ROOM 101' // title de la imagen
                 ]
-                
+
             ]);
             DB::table('rows_multimedias')->insert([
                 [
@@ -438,6 +438,82 @@ class RoomsTableSeeder extends Seeder
                 [
                     'row_id'        => 2, //id del rows.id
                     'multimedia_id' => 11  //id del multimedias.id
+                ]
+            ]);
+
+
+            // QUINTA HABITACIÓN DE PRUEBA
+            DB::table('rooms')->insert( //rooms.id => 1
+                [
+                    'slug'                  => 'room105',
+                    'image'                 => '/storage/multimedia/room_105.jpg',
+                    'room_category_id'      => 1
+                ]
+            );
+            DB::table('room_translations')->insert(
+                [
+                    'room_id'       => 5, //incremental
+                    'language_id'   => 1,
+                    'name'          => 'ROOM 105',
+                    'subtitle1'     => 'Camera di Parlo 105',
+                    'subtitle2'     => 'Camera de 13 M2 105',
+                    'description'   => 'Lorem ipsum di parlo la camara 105 do 13 M2 in Sardegnia.'
+                ]
+            );
+            DB::table('rooms_services')->insert([
+                [
+                    'room_id'       => 5,
+                    'service_id'    => 1,
+                ],
+                [
+                    'room_id'       => 5,
+                    'service_id'    => 3,
+                ]
+            ]);
+            DB::table('room_seasons')->insert([
+                [
+                    'room_id'           => 5,
+                    'start_date'        => '2018/01/01',
+                    'end_date'          => '2018/06/15',
+                    'price'             => 29.99,
+                    'additional_price'  => 8.44,
+                    'pet_price'         => 6.00,
+                    'iva'               => 0.22
+                ],
+                [
+                    'room_id'           => 5,
+                    'start_date'        => '2018/06/16',
+                    'end_date'          => '2018/12/31',
+                    'price'             => 59.99,
+                    'additional_price'  => 10.44,
+                    'pet_price'         => 9.00,
+                    'iva'               => 0.22
+                ]
+            ]);
+            DB::table('rows')->insert( //rows.id => 5
+                [
+                    'rowable_type' => 'App\Models\Admin\Room',
+                    'rowable_id'   => 5 //incremental
+                ]
+            );
+            DB::table('multimedias')->insert([
+                [
+                    'name'          => '/storage/galery/room105_1.jpg', //multimedias.id => 12
+                    'description'   => 'Imagine 1 da ROOM 105' // title de la imagen
+                ],
+                [
+                    'name'          => '/storage/galery/room105_2.jpg', //multimedias.id => 13
+                    'description'   => 'Imagine 2 da ROOM 105' // title de la imagen
+                ]
+            ]);
+            DB::table('rows_multimedias')->insert([
+                [
+                    'row_id'        => 5, //id del rows.id
+                    'multimedia_id' => 12 //id del multimedias.id
+                ],
+                [
+                    'row_id'        => 5, //id del rows.id
+                    'multimedia_id' => 13 //id del multimedias.id
                 ]
             ]);
     }

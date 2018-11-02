@@ -41,7 +41,7 @@ class RoomAPIController extends AppBaseController
 
     /**
      * Display a listing of the Room.
-     * GET|HEAD /rooms
+     * POST /rooms
      * @see http://localhost:8011/api/admin/rooms?checkin=2018-11-10&checkout=2018-11-25
      *
      * @param Request $request
@@ -56,12 +56,19 @@ class RoomAPIController extends AppBaseController
         $checkin = $input['checkin'];
         $checkout = $input['checkout'];
 
-        $availableBookingDetailRooms = $this->bookingDetailRepository->findAvailableRoomsInRange($checkin, $checkout);
+        $unavailableBookingDetailRooms = $this->bookingDetailRepository->findUnavailableBookingDetailRoomsInRange($checkin, $checkout);
 
+        // dd( $unavailableBookingDetailRooms );
 
-        $availableLockedRoomRooms;
+        $unavailableLockedRoomRooms = $this->lockedRoomRepository->findUnavailableLockedRoomRoomsInRange($checkin, $checkout);
 
-        $rooms = $this->roomRepository->getCustomized(null, $input);
+        // dd( $availableLockedRoomRooms );
+
+        $unavailableRooms = array_unique( array_merge($unavailableBookingDetailRooms, $unavailableLockedRoomRooms) );
+
+        // dd( $unavailableRooms );
+
+        $rooms = $this->roomRepository->getCustomized(null, $input, $unavailableRooms);
 
         return $this->sendResponse(['rooms' => $rooms], 'Rooms retrieved successfully');
     }
