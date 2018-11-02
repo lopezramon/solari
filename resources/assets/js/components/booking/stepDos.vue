@@ -299,8 +299,6 @@
                 } else this.showAlert('warning', 'Select a room first for delete it')
             },
             addResponsibleByRoom() {
-                this.loading = true;
-
                 this.$validator.validateAll().then((result) => {
                     if (result) {
                         let rooms = this.roomsSelected; // rooms without obj of personResponsible
