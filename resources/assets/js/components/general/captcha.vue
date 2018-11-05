@@ -1,10 +1,9 @@
 <template v-if="production">
   <div class="g-recaptcha" data-sitekey="6Le7MHMUAAAAAAL0cmEIw0Bxp6G3m3csz2bdkUmR"></div>
 </template>
-<script>
- 
 
- 
+
+<script> 
 export default {
   name: 'captcha',
   data () {

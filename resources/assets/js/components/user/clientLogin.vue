@@ -52,6 +52,7 @@
                                         </button>
                                     </div>
                                 </div>
+                                <captcha/>
                             </form>
                         </template>
                     </div>

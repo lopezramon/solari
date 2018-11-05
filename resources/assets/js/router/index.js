@@ -30,6 +30,9 @@ Vue.use(VueSweetalert2);
  * Imports
  */
 
+//Componente Padre
+import index from '../components/';
+
 // Landing
 import AppContent from '../components/landing/AppContent';
 import headerLanding from '../components/landing/header';
@@ -93,6 +96,7 @@ import Error500 from '../components/general/error500.vue';
 /*
  * Components
  */
+Vue.component('index',index);
 Vue.component('navbar', navbar);
 Vue.component('gfooter', footer);
 Vue.component('jumperr', jumperr);

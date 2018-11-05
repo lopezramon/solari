@@ -17,7 +17,7 @@ export default {
         },
         getEnviroment({commit}) {
             axios.post('/api/get_env').then((response) => {
-                commit('getEnviroment', { list: response.data })
+                commit('setEnviroment', { list: response.data })
             }).catch((error) => {
                 console.log(error.data);
             })
