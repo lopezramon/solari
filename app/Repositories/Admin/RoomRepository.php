@@ -58,15 +58,6 @@ class RoomRepository extends BaseRepository
         $columns = $columns ?? $this->customDefaultColumns;
 
         // $dataAll = $this->all($columns);
-
-        // EN ESTE PUNTO SE BUSCAN SOLAMENTE LAS ROOMS CUYO LOCKED_AT SEA NULL O MENOR A HACE TRES MINUTOS
-        // $threeMinutesAgo = Carbon::now()->subMinutes(3); #PENDIENTE que este valor (3) sea administrable
-        // $where = [
-        //     ['locked_at', '=', null],
-        //     ['locked_at', '<', $threeMinutesAgo]
-        // ];
-        // $dataAll = $this->findWhere($where, $columns);
-        // $dataAll = $this->all($columns);
         $dataAll = $this->findWhereNotIn( 'id', $unavailableRooms, $columns );
 
         // CALCULAR PRECIO SEGUN TEMPORADA
@@ -103,7 +94,6 @@ class RoomRepository extends BaseRepository
         $data = $this->findWithoutFail($id, $columns);
 
         // helper personalizado para eliminar el model translation (ultimo index de cada elemento de la coleccion)
-        // dd($data->toArray());
         $array = $this->clearUnusedColumns($data->toArray());
 
         return $array;
