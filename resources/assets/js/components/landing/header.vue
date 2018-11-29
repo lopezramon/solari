@@ -6,30 +6,27 @@
             <swiper-slide>
                 <div class="caption">
                     <figure class="caption-image text-center">
-                        <img src="/images/logos/logo2-medium.png" alt="Luxury">
+                        <!-- <img src="/images/logos/solaria-logo.png" alt="Luxury"> -->
                     </figure>
                     <div class="caption-title">
-                        <h2 class="text-center">Luxury Room</h2>
                     </div>
                 </div>
             </swiper-slide>
             <swiper-slide>
                 <div class="caption">
                     <figure class="caption-image text-center">
-                        <img src="/images/logos/logo2-medium.png" alt="Luxury">
+                        <!-- <img src="/images/logos/solaria-logo.png" alt="Luxury"> -->
                     </figure>
                     <div class="caption-title">
-                        <h2 class="text-center">Luxury Room</h2>
                     </div>
                 </div>
             </swiper-slide>
             <swiper-slide>
                 <div class="caption">
                     <figure class="caption-image text-center">
-                        <img src="/images/logos/logo2-medium.png" alt="Luxury">
+                        <!-- <img src="/images/logos/solaria-logo.png" alt="Luxury"> -->
                     </figure>
                     <div class="caption-title">
-                        <h2 class="text-center">Luxury Room</h2>
                     </div>
                 </div>
             </swiper-slide>
@@ -48,7 +45,10 @@ export default {
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
-          }
+            },
+            autoplay: {
+                delay: 5000,
+            },
         }
       }
     },

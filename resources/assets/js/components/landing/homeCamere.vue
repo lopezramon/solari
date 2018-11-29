@@ -1,73 +1,75 @@
 <template>
     <div>
 	<div id="camera"></div>	
-<div class="container-fluid black py-5">
-	<div class="container">
+<div class="container-fluid black py-3">
     <div class="row">
       <div class="col-md-12 col-md-offset-2 text-center top">
-		<img src="/images/home/camere/Logo_Luxury_pequeño.png"><p></p><h1 class="text-white">LE NOSTRE CAMERE</h1><p></p><span class="camere-detail text-white">ogni camera è climatizzata, dotata di tende oscuranti, frigo bar, macchina del caffè, tv 40''4k dove è possibile vedere netflix esclusivamente offerto da noi. inoltre ogni camera dispone di un bagno privato dotato di ampio box doccia, asciugacapelli e kit cortesia in omaggio. a disposizione di tutti, una veranda  attrezzata con divanetti e poltroncine dove poter fare un aperitivo con vista sulla cupola della chiesa più storica di olbia. il wi-fi inoltre è accessibile e gratuito in tutta la struttura. </span><p></p>
+		<h2 class="text-white my-0">LE NOSTRE PROPOSTE</h2>
+		<span class="camere-detail text-white">
+			
+		</span>
+		
       </div>
       
-      <div class="col-12 col-md-6 col-lg-6">
+      <div class="col-12 col-md-6 col-lg-6 no-padding-movil">
       	
       	<div class="imagen-room">
-      		<img src="/images/home/camere/22.jpg" class="img-fluid">
+      		<img src="https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/1-villetta-stella-maris-1_list-img.jpg" class="img-fluid">
 	      	<div class="content-room-image text-center">
 					<div class="content-middle">
 			      		<div class="min-log">
-			      			<img src="/images/home/camere/Logo_Luxury_pequeño.png" alt="logo luxury">
+			      			<img src="/images/logos/solaria-logo.png" alt="logo Solaria" width="100">
 			      		</div>
-			      		<h3 class="text-white">ROOM 101</h3>
-			      		 <a href="/suites/room/1" class="myButton">VEDI TUTTO</a>
+			      		<h3 class="text-white mt-2">Villetta Stella Maris</h3>
+			      		 <a href="/vacanze" class="myButton">VEDI TUTTO</a>
 					</div>
 	      	</div>
       	</div>
       	
       </div>
-      <div class="col-12 col-md-6 col-lg-6">
+      <div class="col-12 col-md-6 col-lg-6 no-padding-movil">
       	<div class="imagen-room">
-      		<img src="/images/home/camere/7.jpg" class="img-fluid">
+      		<img src="https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/2-residence-solaria-2_list-img.jpg" class="img-fluid">
 	      	<div class="content-room-image text-center">
 	      		<div class="content-middle">
 		      		<div class="min-log">
-		      			<img src="/images/home/camere/Logo_Luxury_pequeño.png" alt="logo luxury">
+		      			<img src="/images/logos/solaria-logo.png" alt="logo Solaria" width="100">
 		      		</div>
-		      		<h3 class="text-white">ROOM 102</h3>
-		      		<a href="/suites/room/2" class="myButton">VEDI TUTTO</a>
+		      		<h3 class="text-white mt-2">Residence Solaria</h3>
+		      		<a href="/vacanze" class="myButton">VEDI TUTTO</a>
 				</div>	
 	      	</div>
       	</div>
       </div>
-      <div class="col-12 col-md-6 col-lg-6">
+      <div class="col-12 col-md-6 col-lg-6 no-padding-movil">
       	<div class="imagen-room">
-      		<img src="/images/home/camere/12.jpg" class="img-fluid">
+      		<img src="https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/3-villino-bouganville-2_list-img.jpg" class="img-fluid">
 	      	<div class="content-room-image text-center">
 	      		<div class="content-middle">
 		      		<div class="min-log">
-		      			<img src="/images/home/camere/Logo_Luxury_pequeño.png" alt="logo luxury">
+		      			<img src="/images/logos/solaria-logo.png" alt="logo Solaria" width="100">
 		      		</div>
-		      		<h3 class="text-white">ROOM 103</h3>
-		      		<a href="/suites/room/3" class="myButton">VEDI TUTTO</a>
+		      		<h3 class="text-white mt-2">Villetta Bouganville</h3>
+		      		<a href="/vacanze" class="myButton">VEDI TUTTO</a>
 		      	</div>
 	      	</div>
       	</div>
       </div>
-      <div class="col-12 col-md-6 col-lg-6">
+      <div class="col-12 col-md-6 col-lg-6 no-padding-movil">
       	<div class="imagen-room">
-      		<img src="/images/home/camere/0163.jpg" class="img-fluid">
+      		<img src="https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/7-villa-luddui-2_list-img.jpg" class="img-fluid">
 	      	<div class="content-room-image text-center">
 				<div class="content-middle">
 		      		<div class="min-log">
-		      			<img src="/images/home/camere/Logo_Luxury_pequeño.png" alt="logo luxury">
+		      			<img src="/images/logos/solaria-logo.png" alt="logo Solaria" width="100">
 		      		</div>
-		      		<h3 class="text-white">ROOM 104</h3>
-		      		<a href="/suites/room/4" class="myButton">VEDI TUTTO</a>
+		      		<h3 class="text-white mt-2">Villa Ludduì</h3>
+		      		<a href="/vacanze" class="myButton">VEDI TUTTO</a>
 				</div>
 	      	</div>
       	</div>
       </div>
     </div>
-</div>
 </div>
 
 </div>
@@ -77,13 +79,22 @@
 <style scoped>
 
 .black {
-background-color: #000000;
+background-color: #ffd900;
+}
+h2{
+	font-size: 1.4rem;
+    font-weight: bold;
+}
+@media (min-width: 768px) {
+	h2{
+	font-size: 2.4rem;
+	}
 }
 
 .imagen-room{
 	position: relative;
 	overflow: hidden;
-	padding-top: 30px;
+	margin-top: 15px;
 }
 .imagen-room > img{
 	width: 100%;
@@ -133,6 +144,12 @@ background-color: #000000;
 .myButton:active {
 	position:relative;
 	top:1px;
+}
+
+@media (max-width: 580px) {
+	.no-padding-movil{
+		padding: 0px;
+	}
 }
 
 </style>

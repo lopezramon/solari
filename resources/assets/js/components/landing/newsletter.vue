@@ -1,11 +1,12 @@
 <template>
-    <div class="container p-5">
+    <div class="container p-md-5">
 
         <div class="row justify-content-center text-center align-items-center back-image ">
             <div class="col-12">
-                <div class="h-30p pad" style="">
-                    <label class="text-white font-weight-bold"><h2><span class="news-text">ISCRIVITI ALLA NOSTRA NEWSLETTER</span>
-                    </h2></label>
+                <div class="h-30p pad">
+                        <h2 class="title-suscribe text-white font-weight-bold">
+                            ISCRIVITI ALLA NOSTRA NEWSLETTER
+                        </h2>
                 </div>
             </div>
 
@@ -109,9 +110,9 @@
 
         background-position: 0 75%;
 
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/home/newsletter/13.jpeg");
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://www.solariavacanze.com/wp-content/uploads/solaria-agenzia-vacanze-affitto-appartamenti-in-sardegna-1800x500.jpg");
     }
-
+    
     .pad {
         padding-top: 5%;
         padding-bottom: 3%;
@@ -119,6 +120,9 @@
 
     .pad2 {
         padding-bottom: 10%;
+    }
+    .title-suscribe{
+        font-size: 1.4rem;
     }
 
     .radius {
@@ -161,5 +165,8 @@
 
     .news-text {
         letter-spacing: 5px
+    }
+    .form-control:focus{
+        background-color: #fff;
     }
 </style>

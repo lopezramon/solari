@@ -1,9 +1,9 @@
 <template>
   <div>
-      <section id="swipper-olbia-slider" class="py-3 py-md-5">
+      <section id="swipper-olbia-slider" class="py-md-5">
           <div class="container">
               <div class="row">
-                  <div class="col-12">
+                  <div class="col-12 p-0">
                     <swiper :options="swiperOption">
                         <!-- slides -->
                         <swiper-slide>
@@ -11,11 +11,11 @@
 									<div class="container">
 										<div class="row h-100 justify-content-center align-items-end align-items-lg-center">
 					      				<div class="col-12 col-lg-10 mt-2">
-											  <h2 class="caption-title content-middle-3 text-uppercase mb-3">Tavolara con sus picinas naturales</h2>
+											  <h2 class="caption-title content-middle-3 text-uppercase mb-3">Spiagge</h2>
 								      			<p class="caption-description text-left content-middle-2 d-none d-lg-block">
-												  La isla de Tavolara es uno de los mejores lugares para avistar delfines en Cerdeña. 
-                                                  El área marina que protege fauna y flora permite que numerosas especies en vías de extinción 
-                                                  tengan aquí un oasis de protección.
+												  Budoni e San Teodoro sono certamente un punto di arrivo per il viaggiatore, ma 
+                                                  rappresentano anche un ottimo punto di partenza per la scoperta degli angoli nascosti e 
+                                                  delle spiagge tra le più suggestive della Sardegna.
 												  
 												</p>
 											</div>
@@ -28,11 +28,13 @@
 									<div class="container">
 										<div class="row h-100 justify-content-center align-items-end align-items-lg-center">
 					      				<div class="col-12 col-lg-10 mt-2">
-											  <h2 class="caption-title content-middle-3 text-uppercase mb-3">Caprera</h2>
+											  <h2 class="caption-title content-middle-3 text-uppercase mb-3">Escursioni</h2>
 								      			<p class="caption-description text-left content-middle-2 d-none d-lg-block">
-													La isla de Caprera forma parte del archipiélago de la Maddalena, en la costa noroccidental de Cerdeña. 
-                                                    Se trata de una porción de tierra con apenas altura, con 
-                                                    vegetación de macchia mediterránea y con playas de arena blanca en sus 34 km de costa.											  
+													Avrai a disposizione tantissime escursioni con i migliori professionisti del settore: 
+                                                    dalle gite in barca ai tour archeologici, dai percorsi in quad, bici e fuoristrada 
+                                                    ai trekking, dalle attività più rilassanti a quelle più adrenaliniche, troverai quello 
+                                                    che desideri. Prenotare è semplice ed immediato e puoi fare tutto online attraverso il 
+                                                    calendario delle escursioni dove troverai sempre le disponibilità aggiornate.
 												</p>
 											</div>
 										</div>
@@ -44,13 +46,47 @@
 									<div class="container">
 										<div class="row h-100 justify-content-center align-items-end align-items-lg-center">
 					      				<div class="col-12 col-lg-10 mt-2">
-											  <h2 class="caption-title content-middle-3 text-uppercase mb-3">La Maddalena</h2>
+											  <h2 class="caption-title content-middle-3 text-uppercase mb-3">Sport</h2>
 								      			<p class="caption-description text-left content-middle-2 d-none d-lg-block">
-												  La Maddalena, la ciudad más grande en la isla más grande del 
-                                                  archipiélago de Maddalena, es reconocida por sus hermosas playas y 
-                                                  parque nacional. Alquila un barco privado para explorar las islas 
-                                                  aledañas deshabitadas o simplemente relájate en las arenas café au 
-                                                  lait de la Playa Spalmatore.
+												  I due paesi di Budoni e San Teodoro offrono molte possibilità di praticare sport come immersioni, 
+                                                  windsurf, Trekking.equitazione, golf e tennis.
+
+                                                A breve distanza da San Teodoro, circa 10 km a nord,
+                                                 sono presenti i campi da golf del Puntaldia golf club che 
+                                                 fanno da location a tornei e competizioni amichevoli ma sono anche disponibili, 
+                                                 su prenotazione, per allenamenti o partite private.
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+                        </swiper-slide>
+
+                        <swiper-slide>
+                            <div class="content-text-slider">
+									<div class="container">
+										<div class="row h-100 justify-content-center align-items-end align-items-lg-center">
+					      				<div class="col-12 col-lg-10 mt-2">
+											  <h2 class="caption-title content-middle-3 text-uppercase mb-3">Nightlife</h2>
+								      			<p class="caption-description text-left content-middle-2 d-none d-lg-block">
+												  Le serate dell’estate Sarda offrono la risposta a tutte le esigenze. Se dopo una lunga giornata di mare vuoi mangiar fuori, 
+                                                  prendere un aperitivo o passeggiare tra locali e bancarelle sia il centro di Budoni che quello di San Teodoro possono fare al caso tuo.
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+                        </swiper-slide>
+
+                        <swiper-slide>
+                            <div class="content-text-slider">
+									<div class="container">
+										<div class="row h-100 justify-content-center align-items-end align-items-lg-center">
+					      				<div class="col-12 col-lg-10 mt-2">
+											  <h2 class="caption-title content-middle-3 text-uppercase mb-3">Enogastronomia</h2>
+								      			<p class="caption-description text-left content-middle-2 d-none d-lg-block">
+												  Come in molte parti della Sardegna, Budoni e San Teodoro offrono la possibilità di un viaggio tra i sapori antichi e moderni della regione. 
+                                                  Si spazia dai piatti tipici di una cucina di mare a base di pescato fresco servito alla griglia o in piatti elaborati (vedi la zuppa gallurese).
 												</p>
 											</div>
 										</div>
@@ -59,11 +95,11 @@
                         </swiper-slide>
                         <!-- Optional controls -->
                         <!-- <div class="swiper-pagination" slot="pagination"></div> -->
-                    </swiper>
                         <div class="swiper-navigation">
                             <div class="swiper-button-prev" slot="button-prev"></div>
                             <div class="swiper-button-next" slot="button-next"></div>
                         </div>
+                    </swiper>
                   </div>
               </div>
           </div>
@@ -79,7 +115,14 @@ export default {
              navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev'
-            }
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 5000,
+            },
 
         }
       }
@@ -108,6 +151,7 @@ export default {
         letter-spacing: 1px;
         line-height: 1.3;
     }
+    
     @media screen and (min-width: 768px){
         .caption-title{
             font-size: 2rem;

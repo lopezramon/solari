@@ -1,20 +1,6 @@
 <template>
     <div>
         <div class="container">
-            <section class="border p-3 mb-4">
-                <div class="row">
-                    <div class="col-12">
-                        <h3 class="text-uppercase">Informazioni Generali del Bed and breakfast</h3>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3" v-for="item in informazioni">
-                        <p>
-                            <img src="/images/suites/icon/baseline-done-24px.svg" alt="check-list">
-                            {{item.title}}
-                        </p>
-                    </div>
-                </div>
-            </section>
-
             <section class="p-3 mb-4">
                 <div class="row">
                     <div class="col-12">
@@ -25,7 +11,7 @@
                     <div class="col-12 col-md-6 col-lg-3" v-for="(item, clave) in services" :key="clave">
                         <p>
                             <img src="/images/suites/icon/baseline-done-24px.svg" alt="check-list">
-                            {{item.name}}
+                            {{item.title}}
                         </p>
                     </div>
                 </div>

@@ -4,12 +4,12 @@
     height: 8px;
     display: inline-block;
     border-radius: 100%;
-    background: #fff !important;
+    background: #fae84be1 !important;
     opacity: 0.9 !important;
 }
 .swiper-pagination-bullet-active {
     opacity: 1;
-    background: #000 !important;
+    background: rgb(255, 0, 0) !important;
 }
 
 // Slider principal header
@@ -24,13 +24,13 @@
     align-items: center;
 }
 #swipper-header-slider-principal .swiper-slide:nth-child(1){
-    background-image: url('/images/home/header-slider/header-image-1.jpg');
+    background-image: url('/images/home/header-slider/solari-vacanze-2.jpg');
 }
 #swipper-header-slider-principal .swiper-slide:nth-child(2){
-    background-image: url('/images/home/header-slider/header-image-2.jpg');
+    background-image: url('/images/home/header-slider/solari-vacanze-1.jpg');
 }
 #swipper-header-slider-principal .swiper-slide:nth-child(3){
-    background-image: url('/images/home/header-slider/header-image-3.jpg');
+    background-image: url('/images/home/header-slider/solari-vacanze-3.jpg');
 }
 // end
 
@@ -140,3 +140,10 @@
 }
 
 //end
+
+[role='button']{
+    outline: none;
+}
+
+
+

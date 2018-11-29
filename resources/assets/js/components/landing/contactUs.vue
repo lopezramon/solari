@@ -4,11 +4,10 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="rounded bg-form-contact ">
-                        <p class="text-center py-4">¿Tienes alguna pregunta?</p>
-                        <h2 class="text-center text-separation text-uppercase">Contacto</h2>
+                        <p class="text-center mb-2 mt-4 my-md-3">Richiedi un preventivo gratuito</p>
+                        <h2 class="text-center text-uppercase">Contacto</h2>
                         <p class="text-center">
-                            Ogni camera e climatizzata, dotata di tende oscuranti, frigo bar,
-                            macchina del caffe, tv 40"4K dove e possible box doccia, asciugacapelli e kit
+                            Possiamo aiutarti a scegliere la struttura adatta per le tue esigenze
                         </p>
                         <template v-if="loading">
                             <div class="container d-flex justify-content-center">
@@ -23,19 +22,19 @@
                        <template v-else>
                            <form class="py-4">
                                <div class="form-group">
-                                   <label for="fullname" class="text-uppercase">Nombre completo</label>
+                                   <label for="fullname" class="text-uppercase">Nome</label>
                                    <span v-show="errors.has('fullname')" class="help text-danger">*</span>
                                    <input id="fullname" type="text" :maxlength="30" v-validate="'required|alpha_spaces|min:2|max:30'" name="fullname" data-vv-as="Nombre completo"
-                                          :class="{'text-danger': errors.has('fullname') }" v-model="form.name" class="form-control form-material" placeholder="Agrega tu nombre completo">
+                                          :class="{'text-danger': errors.has('fullname') }" v-model="form.name" class="form-control form-material" placeholder="Nome...">
                                    <small v-show="errors.has('fullname')" class="help text-danger">{{ errors.first('fullname') }}</small>
                                </div>
 
                                <div class="form-group">
-                                   <label for="email" class="text-uppercase">Email</label>
+                                   <label for="email" class="text-uppercase">E-mail</label>
                                    <span v-show="errors.has('email')" class="help text-danger">*</span>
                                    <input id="email" type="text" :maxlength="50" v-validate="'required|email|min:9|max:50'" name="email"
                                           data-vv-as="Email" :class="{'text-danger': errors.has('email') }"
-                                          v-model="form.email" class="form-control form-material" placeholder="Email">
+                                          v-model="form.email" class="form-control form-material" placeholder="E-mail...">
                                    <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
                                </div>
 
@@ -44,25 +43,25 @@
                                    <span v-show="errors.has('phone')" class="help text-danger">*</span>
                                    <input id="phone" type="text" :maxlength="16" v-validate="'required|numeric|min:9|max:16'" name="phone"
                                           data-vv-as="Telefono" :class="{'text-danger': errors.has('phone') }"
-                                          v-model="form.phone" class="form-control form-material" placeholder="Telefono">
+                                          v-model="form.phone" class="form-control form-material" placeholder="Telefono...">
                                    <small v-show="errors.has('phone')" class="help text-danger">{{ errors.first('phone') }}</small>
                                </div>
 
                                <div class="form-group">
-                                   <label for="subject" class="text-uppercase">Asunto</label>
+                                   <label for="subject" class="text-uppercase">Faccenda</label>
                                    <span v-show="errors.has('subject')" class="help text-danger">*</span>
                                    <input id="subject" type="text" :maxlength="50" v-validate="'required|min:2|max:50'" name="subject"
                                           data-vv-as="Asunto" :class="{'text-danger': errors.has('subject') }"
-                                          v-model="form.subject" class="form-control form-material" placeholder="Agrega un Asunto">
+                                          v-model="form.subject" class="form-control form-material" placeholder="Faccenda...">
                                    <small v-show="errors.has('subject')" class="help text-danger">{{ errors.first('subject') }}</small>
 
                                </div>
                                <div class="form-group">
-                                   <label for="message" class="text-uppercase">Tu mensaje</label>
+                                   <label for="message" class="text-uppercase">Messaggio</label>
                                    <span v-show="errors.has('message')" class="help text-danger">*</span>
                                    <textarea id="message" v-model="form.msg" :maxlength="150" v-validate="'required|min:2|max:150'"
                                              name="message" data-vv-as="Mensaje" :class="{'is-danger': errors.has('message') }"
-                                             class="form-control form-material" placeholder="Escribe tu mensaje aquí..." rows="3"></textarea>
+                                             class="form-control form-material" placeholder="Messaggio..." rows="3"></textarea>
                                    <small v-show="errors.has('message')" class="help text-danger">{{ errors.first('message') }}</small>
 
                                </div>
@@ -82,79 +81,10 @@
             </div>
 
         </section>
-        <section>
-            <div class="container py-4 hide-movil">
-                <div class="row">
-                    <div class="col-lg-2 d-flex" ></div>
-                    <div class="col-lg-2 d-flex" >
-                        <div class="rounded text-center flex-fill">
-                            <img width="105" src="/images/iconos/team.svg" alt="team"  class="rounded icon-contact">    
-                        </div>
-                    
-                    </div>
-                    
-                    <div class="col-lg-2 d-flex">
-                        <div class="text-center rounded flex-fill">
-                            <img width="105" src="/images/iconos/smartphone.svg" alt="phone"  class="rounded icon-contact">
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-2 d-flex">
-                        <div class="rounded text-center flex-fill" >
-                            <img width="105" src="/images/iconos/email.svg" alt="email" class="rounded icon-contact">
-                            
-                        </div>
-                    </div>    
 
-                    <div class="col-lg-2 d-flex">
-                        <div class="text-center flex-fill" style="">
-                            <img width="105" src="/images/iconos/follow.svg" alt="follow" class="rounded icon-contact">
-                            
-                        </div>
-                        <div class="col-lg-2 d-flex"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="container show-movil">
-                <div class="row">
-                    <div class="col-lg-2 d-flex"></div>
-                    <div class="col-lg-2 d-flex">
-                        <div class="text-center flex-fill">
-                            <h5 class="text-separation">MEET US</h5>
-                            <div>Double A Luxury Room<br>Olbia, Sardegna</div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-2 d-flex">
-                        <div class="text-center flex-fill">
-                            <h5 class="text-separation">PHONE</h5>
-                            <div>0789-1710013<br>0347-1757188</div>
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div class="text-center">
-                            <h5 class="text-separation">EMAIL</h5>
-                            <div>luxuryroomolbia@gmail.com</div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 d-flex">
-                        <div class="text-center flex-fill">
-                            <h5 class="text-separation">FOLLOW US</h5>
-                            <div>aaluxuryroom<br>aaluxuryroom</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 d-flex"></div>
-                </div>
-            </div>
-
-        </section>
+        <information />
+        
+        
         <section class="py-4"></section>
     </div>
 </template>
@@ -229,7 +159,7 @@
         min-height: 620px;
         padding-top: 200px;
         padding-bottom: 100px;
-        background-image: url("/images/home/header-slider/header-image-1.jpg");
+        background-image: url("/images/solaria-vacanze-affitto-ville-appartamenti-sardegna-budoni-san-teodoro.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;

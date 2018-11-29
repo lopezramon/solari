@@ -1,5 +1,9 @@
 import Vue from 'vue'
 
+//youtube
+import VueYoutube from 'vue-youtube'
+Vue.use(VueYoutube)
+
 // Router Vue
 import Router from 'vue-router'
 Vue.use(Router);
@@ -26,6 +30,10 @@ Vue.use(VeeValidate, {
 import VueSweetalert2 from 'vue-sweetalert2';
 Vue.use(VueSweetalert2);
 
+
+
+
+
 /*
  * Imports
  */
@@ -40,6 +48,7 @@ import sliderOlbia from '../components/landing/sliderOlbia';
 import services from '../components/landing/services';
 import esperience from '../components/landing/esperience';
 import galleryHorizontal from '../components/landing/galleryHorizontal';
+import galleryFullWidth from '../components/landing/galleryFullWidth';
 import mapa from '../components/landing/mapa';
 import newsletter from '../components/landing/newsletter';
 import unsubscribeNewsletter from '../components/landing/unsubscribenewsletter';
@@ -55,6 +64,8 @@ import jumperr from '../components/general/jumperr';
 import termini from '../components/general/termini';
 import floatCount from '../components/general/float-count';
 import captcha from '../components/general/captcha.vue';
+import modalShare from '../components/general/modalShare.vue';
+import information from '../components/general/information.vue';
 
 // Suites
 import suites from '../components/suites/suites';
@@ -81,6 +92,7 @@ import navBooking from '../components/booking/navBooking';
 import formConsulta from '../components/booking/formConsulta';
 import resumen from '../components/booking/resumen';
 import rooms from '../components/booking/rooms';
+import booking from '../components/booking/booking';
 
 // My account
 import delate_account from '../components/myaccount/delate_account';
@@ -92,6 +104,15 @@ import myOrderDetail from '../components/myaccount/myOrderDetail.vue';
 // Error pages
 import Error404 from '../components/general/error404.vue';
 import Error500 from '../components/general/error500.vue';
+
+//experience filter
+import indexEsperience from '../components/esperience/indexEsperience.vue';
+import formAttivita from '../components/esperience/formAttivita.vue';
+import itemFilter from '../components/esperience/itemFilter.vue';
+
+// Vacanze
+import vacanzeContainer from '../components/vacanze/container.vue';
+import photoGallery from '../components/vacanze/photoGallery.vue';
 
 /*
  * Components
@@ -126,6 +147,12 @@ Vue.component('user_detail', user_detail);
 Vue.component('navaccount', navaccount);
 Vue.component('headerAccount', headerAccount);
 Vue.component('float-count', floatCount);
+Vue.component('gallery_full_width', galleryFullWidth);
+Vue.component('form_attivita', formAttivita);
+Vue.component('modal_share', modalShare);
+Vue.component('item_filter', itemFilter);
+Vue.component('information', information);
+Vue.component('photo_gallery',photoGallery);
 
 
 
@@ -185,6 +212,11 @@ let router = new Router({
             component: stepTres
         },
         {
+            path: '/booking',
+            name: 'booking',
+            component: booking
+        },
+        {
             path: '/clientLogin',
             name: 'clientLogin',
             component: clientLogin
@@ -224,8 +256,23 @@ let router = new Router({
             name: 'termini',
             component: termini
         },
-    ],scrollBehavior (to, from, savedPosition) {
-      return { x: 0, y: 0 }
+        {
+            path: '/esperienze',
+            name: 'indexEsperience',
+            component: indexEsperience
+        },
+        {
+            path: '/vacanze',
+            name: 'vacanzeContainer',
+            component: vacanzeContainer
+        }
+    ],
+    scrollBehavior (to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            return { x: 0, y: 0 }
+        }
     }
 });
 export default router

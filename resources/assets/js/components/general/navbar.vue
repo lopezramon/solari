@@ -1,65 +1,65 @@
 <template>
     <div>
         <div class="content-nav">
-            <aside class="top-info d-none d-md-block bg-black">
+            <!-- <aside class="top-info d-none d-md-block bg-black">
                     <div class="container header-black">
                         <div class="row">
-                            <div class="col-6 py-2"><a href="https://goo.gl/maps/V6ZaLt3XSM22" target="_black ">Via alessandro nanni 58, Italia, Olbia</a></div>
-                            <div class="col-6 text-right py-2"><a href="tel:07891710013">0789-1710013</a> | <a href="tel3471757188">34-71757188</a> <img src="/images/iconos/facebook-logo.svg" alt="facebook" width="27"> <img src="/images/iconos/instagram-logo.svg" alt="instagram" width="27"></div>
+                            <div class="col-6 py-2"><a href="https://goo.gl/maps/V6ZaLt3XSM22" target="_black ">Via Giovanni XXIII, 7 – 08020 BUDONI (OT)</a></div>
+                            <div class="col-6 text-right py-2">
+                                <a href="tel:+393408831917">+39 3408831917</a> | <a href="mailto:booking@solariavacanze.com">booking@solariavacanze.com</a> <img src="/images/iconos/facebook-logo.svg" alt="facebook" width="27"> <img src="/images/iconos/instagram-logo.svg" alt="instagram" width="27"></div>
                         </div>
                     </div>
-            </aside>
+            </aside> -->
 
             <div class="container">
-                <nav class="navbar navbar-dark navbar-expand-md py-md-2 text-uppercase sticky-top">
+                <nav class="navbar navbar-expand-md py-md-2 text-uppercase sticky-top">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-ellipsis-v"></i>
                     </button>
                     <a class="navbar-brand m-0" href="/">
-                        <img src="/images/logos/logo_luxury_pequeño.png">
-                        <h1 class="d-none d-sm-inline-block">Luxury Room</h1>
+                        <img src="/images/logos/solaria-logo.png" width="100">
                     </a>
 
                     <div class="action-menu ml-auto ml-md-0 order-md-12 d-inline-flex align-items-center">
-                        <a href="#" class="font-2 d-md-none pr-1 mr-1">
-                        <img src="/images/iconos/instagram-logo.svg" alt="instagram" width="27">
+                        <!-- <a href="#" class="font-1 pr-1 mr-1 d-inline-flex align-items-center">
+                        <img src="/images/iconos/instagram-logo.svg" alt="instagram" width="28">
+                        </a> -->
+                        <a href="#" class="font-1 pr-1 mr-1 d-inline-flex align-items-center" data-toggle="modal" data-target="#exampleModal">
+                            <img src="/images/iconos/shared.png" alt="facebook" width="22">
                         </a>
-                        <a href="#" class="font-2 d-md-none pr-1 mr-1">
-                            <img src="/images/iconos/facebook.png" alt="facebook" width="24"> |
-                        </a>
-                        <a href="#" class="text-white font-1 d-inline-flex align-items-center">
-                            <img src="/images/iconos/world.svg" alt="facebook" width="24"> 
+                        <a href="#" class="font-1 d-inline-flex align-items-center">
+                            <img src="/images/iconos/earth-grid-symbol.png" alt="facebook" width="24"> 
                             &nbsp;<span class="text-uppercase">{{ lang }}</span>
                         </a>
                     </div>
 
                     <div class="navbar-collapse collapse justify-content-center" id="navbarNav">
                         <ul class="navbar-nav text-center">
-                            <router-link to="/#chisiamo" @click.native="scrollFix('#chisiamo')" class="nav-item py-md-2" exact>
-                            <a class="nav-link">
+                            <li class="nav-item py-md-2">
+                            <router-link to="/#chisiamo" @click.native="scrollFix('#chisiamo')" class="nav-item nav-link" exact>
                                 Chi Siamo
-                            </a>
                             </router-link>
-                            <router-link to="/#camera" @click.native="scrollFix('#camera')" class="nav-item py-md-2" exact>
-                            <a class="nav-link">
-                                Suites
-                            </a>
+                            </li>
+                            <li class="nav-item py-md-2">
+                            <router-link to="/#camera" @click.native="scrollFix('#camera')" class="nav-item nav-link" exact>
+                                CASE VACANZA
                             </router-link>
-                            <router-link to="/#servizi" @click.native="scrollFix('#servizi')" class="nav-item py-md-2" exact>
-                            <a class="nav-link">
+                            </li>
+                            <li class="nav-item py-md-2">
+                            <router-link to="/#servizi" @click.native="scrollFix('#servizi')" class="nav-item nav-link" exact>
                                 Servizi
-                            </a>
                             </router-link>
-                            <router-link to="/#esperienze" @click.native="scrollFix('#esperienze')" class="nav-item py-md-2" exact>
-                            <a class="nav-link">
+                            </li>
+                            <li class="nav-item py-md-2">
+                            <router-link to="/#esperienze" @click.native="scrollFix('#esperienze')" class="nav-item nav-link" exact>
                                 Esperienze
-                            </a>
                             </router-link>
-                            <router-link to="/contactUs" class="nav-item py-md-2" exact>
-                            <a class="nav-link">
+                            </li>
+                            <li class="nav-item py-md-2">
+                            <router-link to="/contactUs" class="nav-item nav-link" exact>
                                 contatti
-                            </a>
                             </router-link>
+                            </li>
                             <li class="nav-item py-md-2">
                                 <a :href="GetRoute" class="nav-link">
                                     <span v-if="isAuth">Il mio account</span>
@@ -123,7 +123,7 @@ methods: {
         left: 0;
         z-index: 1030;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(57, 115, 152, 0.58);
     }
     .top-info {
         font-family: 'Josefin Sans', sans-serif;
@@ -159,17 +159,21 @@ methods: {
         color: rgba(255, 255, 255, .7);
         border-color: rgba(255, 255, 255, 0);
     }
-    .navbar-dark .navbar-nav .nav-link {
-        color: rgba(255, 255, 255, 1);
+    .navbar-nav .nav-link {
+        color: #ffd900;
+    }
+    .navbar-nav .nav-link:hover {
+        color: #d7392c;
+        font-weight: bold;
     }
     a.font-1,a.font-2{
         text-decoration: none;
-        color: #fff;
+        color: #000;
         font-family: 'Josefin Sans', sans-serif;
         line-height: 1.2;
     }
     a.font-1:hover,a.font-2:hover{
-        color: #fff;
+        color: #000;
         text-decoration: none;
     }
     a.font-1{

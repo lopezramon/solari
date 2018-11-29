@@ -2,66 +2,23 @@
     <div>
         <div class="info">
             <h3 class="text-uppercase" v-text="subtitle1"></h3>
-            <p class="m-0 lead font-weight-bold"><strong>€{{price}}</strong></p>
-            <p class="" v-text="description">
+            <div class="btn-group">
+                <button>
+                    <img src="https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-center.png" alt="">
+                    {{center}}
+                </button>
+                <button>
+                    <img src="https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-sea.png" alt="">
+                    {{ocean}}
+                </button>
+                <button>
+                    <img src="https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-garden.png" alt="">
+                    {{ garden ? 'Si' : 'No'}}
+                </button>
+            </div>
+            <p class="my-3" v-text="description">
                 
             </p>
-        </div>
-        <div class="reserva py-3">
-            <div class="container">
-                    <form class="form-booking">
-                        <div class="row">
-                            <div class="col-12">
-                                <h3 class="text-center">Reservation</h3>
-                            </div>
-                            <div class="col-12 text-center">
-                                    
-                                <div class="form-group">
-                                    <div class="mb-2">
-                                        <vue-ctk-date-time-picker
-                                                disable-time
-                                                enable-button-validate
-                                                locale="it"
-                                                v-model="checkin"
-                                                formated="DD/MM/YYYY"
-                                                format="YYYY-MM-DD"
-                                                label="Data di prenotazione"
-                                                v-validate="'required'"
-                                                name="checkin"
-                                                data-vv-as="Data"
-                                                color="gray"
-                                                :class="{'is-danger': errors.has('checkin')}"
-                                                :min-date="minDate"
-                                        />
-                                        <span v-show="errors.has('checkin')" class="help text-danger">{{ errors.first('checkin') }}</span>
-                                    </div>
-                                    <div class="mb-2">
-                                    <vue-ctk-date-time-picker
-                                                disable-time
-                                                enable-button-validate
-                                                locale="it"
-                                                v-model="checkout"
-                                                formated="DD/MM/YYYY"
-                                                format="YYYY-MM-DD"
-                                                label="Data di prenotazione"
-                                                v-validate="'required'"
-                                                name="checkout"
-                                                data-vv-as="Data"
-                                                color="gray"
-                                                :class="{'is-danger': errors.has('checkout')}"
-                                                :min-date="minCheckout"
-                                        />
-                                        <span v-show="errors.has('checkout')" class="help text-danger">{{ errors.first('checkout') }}</span>
-                                    </div>
-                                    <button type="button" @click.prevent="filterData()" class="btn btn-primary text-uppercase">
-                                        Cerca
-                                    </button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </form>
-            </div>
         </div>
     </div>
 </template>
@@ -73,7 +30,7 @@
 
     export default {
         components: { VueCtkDateTimePicker },
-        props: ['subtitle1','price','description'],
+        props: ['subtitle1','price','description','ocean','center','garden'],
        data(){
         return {
                 checkin:null,
@@ -145,4 +102,29 @@
   label{
       font-family: 'Josefin Sans', sans-serif;
   }
+
+  .btn-group button {
+    background-color: #fbe45d; /* Green background */
+    border: 1px solid #fbe45d; /* Green border */
+    color: #000; /* White text */
+    padding: 4px 8px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+}
+
+.btn-group button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #fbe45d;
+}
 </style>

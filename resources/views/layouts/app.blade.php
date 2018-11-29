@@ -8,11 +8,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Case Vacanze Budoni Sardegna-Solaria Vacanze Immobiliare" />
+    <meta property="og:description" content="Solaria Vacanze opera da anni principalmente nel campo degli affitti, il nostro obiettivo è quello di offrire le migliori residenze estive sul mercato." />
+    <meta property="og:url" content="https://www.solariavacanze.com/" />
+    <meta property="og:site_name" content="Solaria Vacanze Immobiliare" />
+    <meta name="description" content="Solaria Vacanze opera da anni principalmente nel campo degli affitti, il nostro obiettivo è quello di offrire le migliori residenze estive sul mercato.">
+    <meta name="keywords" content="Case Vacanze Budoni Sardegna-Solaria Vacanze Immobiliare">
+    <meta name="author" content="Solaria Vacanze">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Pizzeria Da Adriano') }}</title>
-    <link rel="shortcut icon" type="image/png" href="{{asset('images/home/favicon.png')}}"/>
+    <title>{{ config('app.name', 'Solaria Vacanze') }}</title>
+    <link rel="shortcut icon" type="image/png" href="{{asset('images/logos/solaria-vacanze-affitto-ville-appartamenti-sardegna-favicon.png')}}"/>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Playfair+Display:400,900" rel="stylesheet">

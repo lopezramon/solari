@@ -5,8 +5,8 @@
             <div class="container py-5">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <img src="/images/logos/logo_luxury_pequeño_black.png">
-                        <h1>SERVIZI</h1>
+                        <img src="/images/logos/solaria-logo.png" width="120">
+                        <h1 class="mt-1">SERVIZI</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -55,9 +55,14 @@ export default {
         swiperOption: {
             slidesPerView: 4,
             spaceBetween: 40,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
+            swiperOption: {
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                }
+            },
+            autoplay: {
+                delay: 5000,
             },
             breakpoints: {
                 // when window width is <= 320px
@@ -91,5 +96,28 @@ export default {
 <style scoped>
 .border{
     border: 1px solid #8a8a8a;
+}
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.swiper-pagination {
+    position: relative;
+    text-align: center;
+    -webkit-transition: 300ms opacity;
+    -o-transition: 300ms opacity;
+    transition: 300ms opacity;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    z-index: 10;
+}
+.swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 100%;
+    background: #9E9E9E !important;
+    opacity: 0.9 !important;
 }
 </style>

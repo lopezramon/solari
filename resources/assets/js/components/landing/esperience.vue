@@ -4,16 +4,49 @@
         <section id="swipper-esperience-slider">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 text-center">
-                        <img src="/images/logos/logo_luxury_pequeño.png">
-                        <h1 class="text-white text-uppercase">NELLE NOSTRE ESPERIENZE</h1>
+                    <div class="col-12 text-center mt-4">
+                        <img src="/images/logos/solaria-logo.png" width="120">
+                        <h2 class="text-white text-uppercase mt-1">ESPERIENZE</h2>
                     </div>
                 </div>
             </div>
-            <div class="">
+
+            
+            <div class="container">
+                <div class="row flex-column flex-md-row">
+                    <div class="content-actividad">
+                        <router-link :to="{ name: 'indexEsperience'}" class="actividad a1 d-flex justify-content-center align-items-center">
+                            <h3 class="text-uppercase">Spiagge</h3>
+                        </router-link>
+                    </div>
+                    <div class="content-actividad">
+                        <router-link :to="{ name: 'indexEsperience'}" class="actividad a2 d-flex justify-content-center align-items-center">
+                            <h3 class="text-uppercase">Escursioni</h3>
+                        </router-link>
+                    </div>
+                    <div class="content-actividad">
+                        <router-link :to="{ name: 'indexEsperience'}" class="actividad a3 d-flex justify-content-center align-items-center">
+                            <h3 class="text-uppercase">Sport</h3>
+                        </router-link>
+                    </div>
+                    <div class="content-actividad">
+                        <router-link :to="{ name: 'indexEsperience'}" class="actividad a4 d-flex justify-content-center align-items-center">
+                            <h3 class="text-uppercase">Nightlife</h3>
+                        </router-link>
+                    </div>
+                    <div class="content-actividad">
+                        <router-link :to="{ name: 'indexEsperience'}" class="actividad a5 d-flex justify-content-center align-items-center">
+                            <h3 class="text-uppercase">Enogastronomia</h3>
+                        </router-link>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- se sconde modulo  -->
+            <!-- <div class="d-none">
                 <div class="">
                     <swiper :options="swiperOption">
-                        <!-- slides -->
                         <swiper-slide>
                                     <div class="imagen-slider">
                                         <img class="img-fluid" src="/images/home/esperience-slider/caprera.jpg">
@@ -22,7 +55,7 @@
                                                 <div class="text-white"> 
                                                     Disfruta de nuestros barcos.<br> Ideal para parejas y pequeños grupos. <br> Ubicado en Cerdeña, un entorno excpecional <p></p>
                                                 </div>
-                                                <a href="#" class="myButton">Llamar</a> <a href="#" class="myButton">e-mail</a><p></p>
+                                                <router-link :to="{ name: 'indexEsperience'}" class="myButton">Llamar</a> <router-link :to="{ name: 'indexEsperience'}" class="myButton">e-mail</a><p></p>
                                                 <div class="text-white">
                                                     0789/1710013 <br> 3471757188
                                                 </div>	
@@ -41,7 +74,7 @@
                                             <div class="text-white"> 
                                                 Disfruta de nuestros barcos.<br> Ideal para parejas y pequeños grupos. <br> Ubicado en Cerdeña, un entorno excpecional <p></p>
                                             </div>
-                                            <a href="#" class="myButton">Llamar</a> <a href="#" class="myButton">e-mail</a><p></p>
+                                            <router-link :to="{ name: 'indexEsperience'}" class="myButton">Llamar</a> <router-link :to="{ name: 'indexEsperience'}" class="myButton">e-mail</a><p></p>
                                             <div class="text-white">
                                                 0789/1710013 <br> 3471757188
                                             </div>	
@@ -59,7 +92,7 @@
                                                 <div class="text-white"> 
                                                     Disfruta de nuestros barcos.<br> Ideal para parejas y pequeños grupos. <br> Ubicado en Cerdeña, un entorno excpecional <p></p>
                                                 </div>
-                                                <a href="#" class="myButton">Llamar</a> <a href="#" class="myButton">e-mail</a><p></p>
+                                                <router-link :to="{ name: 'indexEsperience'}" class="myButton">Llamar</a> <router-link :to="{ name: 'indexEsperience'}" class="myButton">e-mail</a><p></p>
                                                 <div class="text-white">
                                                     0789/1710013 <br> 3471757188
                                                 </div>	
@@ -77,7 +110,7 @@
                                         <div class="text-white"> 
                                             Disfruta de nuestros barcos.<br> Ideal para parejas y pequeños grupos. <br> Ubicado en Cerdeña, un entorno excpecional <p></p>
                                         </div>
-                                        <a href="#" class="myButton">Llamar</a> <a href="#" class="myButton">e-mail</a><p></p>
+                                        <router-link :to="{ name: 'indexEsperience'}" class="myButton">Llamar</a> <router-link :to="{ name: 'indexEsperience'}" class="myButton">e-mail</a><p></p>
                                         <div class="text-white">
                                             0789/1710013 <br> 3471757188
                                         </div>	
@@ -95,7 +128,7 @@
                                             <div class="text-white"> 
                                                 Disfruta de nuestros barcos.<br> Ideal para parejas y pequeños grupos. <br> Ubicado en Cerdeña, un entorno excpecional <p></p>
                                             </div>
-                                            <a href="#" class="myButton">Llamar</a> <a href="#" class="myButton">e-mail</a><p></p>
+                                            <router-link :to="{ name: 'indexEsperience'}" class="myButton">Llamar</a> <router-link :to="{ name: 'indexEsperience'}" class="myButton">e-mail</a><p></p>
                                             <div class="text-white">
                                                 0789/1710013 <br> 3471757188
                                             </div>	
@@ -113,7 +146,7 @@
                                         <div class="text-white"> 
                                             Disfruta de nuestros barcos.<br> Ideal para parejas y pequeños grupos. <br> Ubicado en Cerdeña, un entorno excpecional <p></p>
                                         </div>
-                                        <a href="#" class="myButton">Llamar</a> <a href="#" class="myButton">e-mail</a><p></p>
+                                        <router-link :to="{ name: 'indexEsperience'}" class="myButton">Llamar</a> <router-link :to="{ name: 'indexEsperience'}" class="myButton">e-mail</a><p></p>
                                         <div class="text-white">
                                             0789/1710013 <br> 3471757188
                                         </div>	
@@ -123,12 +156,11 @@
                             <div class="text-white block-ligth">MAGDALENA
                             </div>
                         </swiper-slide>
-                        <!-- Optional controls -->
                         <div class="swiper-button-prev" slot="button-prev"></div>
                         <div class="swiper-button-next" slot="button-next"></div>
                     </swiper>
                 </div>
-            </div>
+            </div> -->
         </section>
     </div>
 </template>
@@ -143,6 +175,9 @@ export default {
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev'
+            },
+            autoplay: {
+                delay: 5000,
             },
             breakpoints: {
                 // when window width is <= 320px
@@ -174,6 +209,58 @@ export default {
   }
 </script>
 <style scoped>
+.content-actividad{
+    width: 100%;
+    height: 280px;
+    padding: 0;
+}
+.actividad{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+}
+.actividad:hover{
+    text-decoration: none;
+}
+.actividad h3{
+    font-weight: bold;
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 5px #000000bd;
+}
+.a1{
+    background-image: url('https://www.solariavacanze.com/wp-content/uploads/solaria-vacanze-affitto-ville-appartamenti-sardegna-spiagge.jpg')
+}
+.a2{
+    background-image: url('https://www.solariavacanze.com/wp-content/uploads/solaria-vacanze-affitto-ville-appartamenti-sardegna-escursioni.jpg')
+}
+.a3{
+    background-image:  url('https://www.solariavacanze.com/wp-content/uploads/solaria-vacanze-affitto-ville-appartamenti-sardegna-sport.jpg')
+}
+.a4{
+    background-image:  url('https://www.solariavacanze.com/wp-content/uploads/solaria-vacanze-affitto-ville-appartamenti-sardegna-nightlife.jpg')
+}
+.a5{
+    background-image:  url('https://www.solariavacanze.com/wp-content/uploads/solaria-vacanze-affitto-ville-appartamenti-sardegna-enogastronomia.jpg')
+}
+@media (min-width: 768px) {
+    .content-actividad{
+        width: 50%;
+        height: 320px;
+        padding: 1%;
+    }
+    .content-actividad:nth-child(3n){
+        width: 100%;
+    }
+}
+
+
+
+
 #swipper-esperience-slider{
     background-color: #333;
 }

@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="rounded bg-form-contact ">
-                        <h2 class="text-center text-separation py-4 text-uppercase">Crear cuenta</h2>
+                        <h2 class="text-center text-separation py-4 text-uppercase">Crea un account</h2>
 
                         <template v-if="loading">
                             <div class="container d-flex justify-content-center">
@@ -22,22 +22,22 @@
                                     <div class="row">
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
-                                                <label>Nombre</label>
+                                                <label>Nome</label>
                                                 <span class="text-success" :class="{'text-danger': errors.has('name')}">*</span>
                                                 <input type="text" :maxlength="30" v-validate="'required|alpha|min:2|max:30'" name="name"
                                                        data-vv-as="Nombre" :class="{'text-danger': errors.has('name')}"
-                                                       v-model="form.name" class="form-control form-material" placeholder="Nombre">
+                                                       v-model="form.name" class="form-control form-material" placeholder="Nome">
                                                 <small v-show="errors.has('name')" class="help text-danger">{{ errors.first('name') }}</small>
                                             </div>
                                         </div>
 
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
-                                                <label>Apellido</label>
+                                                <label>Cognome</label>
                                                 <span class="text-success" :class="{'text-danger': errors.has('lastname')}">*</span>
                                                 <input type="text" :maxlength="30" v-validate="'required|alpha|min:2|max:30'"
                                                        name="lastname" data-vv-as="Apellido" :class="{'text-danger': errors.has('lastname')}"
-                                                       v-model="form.lastname" class="form-control form-material" placeholder="Apellido">
+                                                       v-model="form.lastname" class="form-control form-material" placeholder="cognome">
                                                 <small v-show="errors.has('lastname')" class="help text-danger">{{ errors.first('lastname') }}</small>
                                             </div>
                                         </div>
@@ -70,11 +70,11 @@
                                     <div class="row">
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
-                                                <label>Email</label>
+                                                <label>E-mail</label>
                                                 <span class="text-success" :class="{'text-danger': errors.has('email')}">*</span>
                                                 <input type="email" :maxlength="50" v-validate="'required|email|min:9|max:50'" name="email"
                                                        data-vv-as="Email" :class="{ 'text-danger': errors.has('email') || errorMail }"
-                                                       v-model="form.email" class="form-control form-material" placeholder="Email">
+                                                       v-model="form.email" class="form-control form-material" placeholder="E-mail">
                                                 <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
                                             </div>
                                         </div>
@@ -119,8 +119,8 @@
                                         <input class="form-check-input" v-validate="'required'" name="terms" v-model="form.terms" type="checkbox" value="" id="termsCheck">
                                         <label class="form-check-label" for="termsCheck">
                                             <span v-show="errors.has('terms')" class="help text-danger">*</span>
-                                            He leido y acepto los
-                                            <router-link class="text-success link" to="/termini">Terminos y condiciones de uso</router-link>
+                                            Ho letto e accetto il
+                                            <router-link class="text-success link" to="/termini">Terminali e condizioni d'uso</router-link>
                                         </label>
                                     </div>
                                 </form>
@@ -129,14 +129,14 @@
                             <div class="row text-center py-4">
                                 <div class=" col-lg-2 col-sm-4 py-2">
                                     <button type="button" class="btn btn-primary text-bold" :disabled="errors.any() || isDisabled" @click="saveUser">
-                                        <span class="text-btn-white">Crear cuenta</span>
+                                        <span class="text-btn-white">Crea un account</span>
                                     </button>
                                 </div>
 
                                 <div class="col-lg-4 col-sm-8 py-2">
                                     <router-link to="/clientLogin">
                                         <button type="submit" class="btn btn-primary-new text-bold" @click="RedirectToLogin">
-                                            <span class="text-btn-white">¿Ya tienes cuenta? Accede</span>
+                                            <span class="text-btn-white">Hai già un account? accesso</span>
                                         </button>
                                     </router-link>
                                 </div>
@@ -148,75 +148,7 @@
             </div>
 
         </section>
-        <section>
-            <div class="container py-4 hide-movil">
-                <div class="row">
-                    <div class="col-lg-2 d-flex" ></div>
-                    <div class="col-lg-2 d-flex" >
-                        <div class="rounded text-center flex-fill">
-                            <img width="105" src="/images/iconos/team.svg" alt="team"  class="rounded icon-contact">    
-                        </div>
-                    
-                    </div>
-                    
-                    <div class="col-lg-2 d-flex">
-                        <div class="text-center rounded flex-fill">
-                            <img width="105" src="/images/iconos/smartphone.svg" alt="phone"  class="rounded icon-contact">
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-2 d-flex">
-                        <div class="rounded text-center flex-fill" >
-                            <img width="105" src="/images/iconos/email.svg" alt="email" class="rounded icon-contact">
-                            
-                        </div>
-                    </div>
-                    <div class="col-lg-2 d-flex">
-                        <div class="text-center flex-fill" style="">
-                            <img width="105" src="/images/iconos/follow.svg" alt="follow" class="rounded icon-contact">
-                            
-                        </div>
-                        <div class="col-lg-2 d-flex"></div>
-                    </div>
-                </div>    
-            </div>
-        </section>
-        <section>
-            <div class="container show-movil">
-                <div class="row">
-                    <div class="col-lg-2 d-flex"></div>
-                    <div class="col-lg-2 d-flex">
-                        <div class="text-center flex-fill">
-                            <h5 class="text-separation">MEET US</h5>
-                            <div>Double A Luxury Room<br>Olbia, Sardegna</div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 d-flex">
-                        <div class="text-center flex-fill">
-                            <h5 class="text-separation">PHONE</h5>
-                            <div>0789-1710013<br>0347-1757188</div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div class="text-center">
-                            <h5 class="text-separation">EMAIL</h5>
-                            <div>luxuryroomolbia@gmail.com</div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 d-flex">
-                        <div class="text-center flex-fill">
-                            <h5 class="text-separation">FOLLOW US</h5>
-                            <div>aaluxuryroom<br>aaluxuryroom</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 d-flex"></div>
-                </div>
-            </div>
-        </section>
+        <information />
         <section class="py-4"></section>
     </div>
 </template>
@@ -319,7 +251,7 @@
         min-height: 620px;
         padding-top: 200px;
         padding-bottom: 100px;
-        background-image: url("/images/home/gallery-slider-map/23.jpeg");
+        background-image: url("/images/solaria-vacanze-affitto-ville-appartamenti-sardegna-budoni-san-teodoro.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;

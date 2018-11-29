@@ -59,76 +59,8 @@
                 </div>
             </div>
         </section>
-        <section>
-            <div class="container py-4 hide-movil">
-                <div class="row">
-                    <div class="col-lg-2 d-flex"></div>
-                    <div class="col-lg-2 d-flex">
-                        <div class="rounded text-center flex-fill">
-                            <img width="100" src="/images/home/services-slider/neveta.png" alt="neveta" class="rounded icon-contact">
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-2 d-flex">
-                        <div class="text-center rounded flex-fill">
-                            <img width="100" src="/images/home/services-slider/neveta.png" alt="neveta" class="rounded icon-contact">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 d-flex">
-                        <div class="rounded text-center flex-fill">
-                            <img width="100" src="/images/home/services-slider/neveta.png" alt="neveta" class="rounded icon-contact">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 d-flex">
-                        <div class="text-center flex-fill" style="">
-                            <img width="100" src="/images/home/services-slider/nolegio.png" alt="nolegio" class="rounded icon-contact">
-                        </div>
-                    </div>
-                    <div class="col-lg-2 d-flex"></div>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="container show-movil">
-                <div class="row">
-                    <div class="col-lg-2 d-flex"></div>
-                    <div class="col-lg-2 d-flex">
-                        <div class="text-center flex-fill">
-                            <h5 class="text-separation">MEET US</h5>
-                            <div>Double A Luxury Room<br>Olbia, Sardegna</div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 d-flex">
-                        <div class="text-center flex-fill">
-                            <h5 class="text-separation">PHONE</h5>
-                            <div>0789-1710013<br>0347-1757188</div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div class="text-center">
-                            <h5 class="text-separation">EMAIL</h5>
-                            <div>luxuryroomolbia@gmail.com</div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 d-flex">
-                        <div class="text-center flex-fill">
-                            <h5 class="text-separation">FOLLOW US</h5>
-                            <div><!--<img src="/images/iconos/facebook-01.svg" alt="logo luxury" width="30" >-->
-                                aaluxuryroom<br>aaluxuryroom
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 d-flex"></div>
-                </div>
-            </div>
-        </section>
-        <section class="py-4"></section>
+        <information />
+        <section class="py-3"></section>
     </div>
 </template>
 <script>
@@ -203,7 +135,7 @@
         min-height: 620px;
         padding-top: 200px;
         padding-bottom: 100px;
-        background-image: url("/images/home/gallery-slider-map/23.jpeg");
+        background-image: url("/images/solaria-vacanze-affitto-ville-appartamenti-sardegna-budoni-san-teodoro.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;

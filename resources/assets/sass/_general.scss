@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: $font-family-relaway;
     font-size: 0.9rem;
     font-weight: 400;
     line-height: 1.6;
@@ -9,5 +9,18 @@ body {
     background-color: #f8fafc;
 }
 h1,h2,h3,h4,h5,h6{
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: $font-family-caveat;
+}
+label {
+    display: inline-block;
+    margin-bottom: 0rem;
+    margin-top: .8rem;
+}
+label.field-label {
+    display: inline-block;
+    margin-bottom: 0rem;
+    margin-top: 0rem;
+}
+.form-control.form-material{
+    padding: .375rem 0rem !important;
 }

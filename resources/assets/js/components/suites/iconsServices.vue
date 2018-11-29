@@ -1,7 +1,7 @@
 
 <template>
     <div>
-        <aside class="py-3 py-lg-5">
+        <aside class="py-2">
             <div class="container">
                 <div class="row">
                     <div class="col-6 col-md-4 col-lg-2 text-center">

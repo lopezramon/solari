@@ -6,7 +6,7 @@
                     <div class="row">
                         <div class="col-12 col-md-9">
                             <p class="text-white text-center text-md-left">
-                                 © 2018 Doble A  Luxury Room<br class="d-md-none">  | 
+                                 © 2018 Solaria Vacanza<br class="d-md-none">  | 
 
                                 <a href="/termini" class="text-white">
                                 Politica Sulla Riservatezza</a> |

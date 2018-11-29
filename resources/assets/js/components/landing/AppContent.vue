@@ -4,14 +4,15 @@
 
         <header_landing/>
         <form_booking/>
-        <float-count/>
+        <!-- <float-count/> -->
         <aboutus/>
         <home_camere/>
-        <slider_olbia/>
+        <!-- <slider_olbia/> -->
+        <gallery_full_width/>
         <services/>
         <esperience/>
         <newsletter/>
-        <gallery_horizontal/>
+        <!-- <gallery_horizontal/> -->
         <mapa/>
 
 

@@ -8,7 +8,27 @@
                         <div class="col-12">
                                 
                                 <div class="form-group d-flex flex-column flex-md-row justify-content-center">
-                                    <div class="mr-md-2 mb-2 mb-md-0">
+                                    <div class="col-12 col-md-2 mr-md-2 mb-2 mb-md-0">
+
+                                        <select name="" id="" class="form-control arrow-select">
+                                            <option value="tutte">Localidad (tutte)</option>
+                                            <option value="budoni">Budoni</option>
+                                            <option value="loddui">Lodduì</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-2 mr-md-2 mb-2 mb-md-0">
+                                        <select name="" id="" class="form-control arrow-select">
+                                            <option value="1">Ospite 1</option>
+                                            <option value="2">Ospite 2</option>
+                                            <option value="3">Ospite 3</option>
+                                            <option value="3">Ospite 4</option>
+                                            <option value="3">Ospite 5</option>
+                                            <option value="3">Ospite 6</option>
+                                            <option value="3">Ospite 7</option>
+                                            <option value="3">Ospite 8</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-3 mb-2 mb-md-0">
                                         <vue-ctk-date-time-picker
                                                 disable-time
                                                 enable-button-validate
@@ -16,7 +36,7 @@
                                                 v-model="checkin"
                                                 formated="DD/MM/YYYY"
                                                 format="YYYY-MM-DD"
-                                                label="Data di prenotazione"
+                                                label="Check-in"
                                                 v-validate="'required'"
                                                 name="checkin"
                                                 data-vv-as="Data"
@@ -26,7 +46,7 @@
                                         />
                                         <span v-show="errors.has('checkin')" class="help text-danger">{{ errors.first('checkin') }}</span>
                                     </div>
-                                    <div class="ml-md-2 mb-2 mb-md-0">
+                                    <div class="col-12 col-md-3 mb-2 mb-md-0">
                                     <vue-ctk-date-time-picker
                                                 disable-time
                                                 enable-button-validate
@@ -34,7 +54,7 @@
                                                 v-model="checkout"
                                                 formated="DD/MM/YYYY"
                                                 format="YYYY-MM-DD"
-                                                label="Data di prenotazione"
+                                                label="Check-out"
                                                 v-validate="'required'"
                                                 name="checkout"
                                                 data-vv-as="Data"
@@ -44,9 +64,14 @@
                                         />
                                         <span v-show="errors.has('checkout')" class="help text-danger">{{ errors.first('checkout') }}</span>
                                     </div>
-                                    <button type="button" @click.prevent="filterData()" class="btn btn-primary text-uppercase mx-2">
+                                    <div class="col-12 col-md-2 mb-2 mb-md-0">
+                                    <!-- <button type="button" @click.prevent="filterData()" class="btn btn-primary btn-lg btn-block text-uppercase">
                                         Cerca
-                                    </button>
+                                    </button> -->
+                                    <a href="/booking" class="btn btn-primary btn-lg btn-block text-uppercase">
+                                        Cerca
+                                    </a>
+                                    </div>
                                 </div>
 
                         </div>
@@ -122,14 +147,28 @@
 	margin: 0;
 }
 .form-booking .form-control{
-	border: 0px solid transparent;
-}
-.form-booking .form-control:focus {
-    color: #495057;
+    cursor: pointer;
     background-color: #fff;
-    border-color: transparent;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem transparent;
+    transition-duration: .3s;
+    position: relative;
+    width: 100%;
+    height: 42px;
+    min-height: 42px;
+    padding: 0 12px;
+    font-weight: 300;
+    outline: none;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 4px;
+    font-size: 14px;
+    z-index: 0;
+    -webkit-appearance: listbox;
+}
+.form-booking .form-control.arrow-select {
+    background-image: url('/images/iconos/arrow-select.png');
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    background-origin: content-box;
+    background-position: center right;
 }
 .hr{
 	width: 100%;
@@ -162,7 +201,7 @@
     border-radius: 1rem;
 }
 .form-booking select.form-control {
-	text-align-last:center;
+	text-align-last:left;
 }
 
 @media screen and (min-width: 992px){
@@ -172,4 +211,5 @@
 		margin: 0;
 	}
 }
+
 </style>
