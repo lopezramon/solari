@@ -1,87 +1,128 @@
 export default {
     state: {
-      booking:{
-         checkin:null,
-         checkout:null,
-         cart:[],
-         total:0,
-         responsable:{
-          name:null,
-          phone:null,
-          identidad:null,
-          email:null,
-         }
-      },
+        booking: {
+            personResponsible: {
+                userId: null,
+                name: null,
+                email: null,
+                phone: null,
+                fiscalCode: null,
+            },
+            rooms: [],
+            totalAmount: 0,
+            comment: null,
+        },
+        filter: {
+            checkin: null,
+            checkout: null,
+            rooms: []
+        }
     },
-    actions:{
+    actions: {
+        setFilterDates({commit}, item) {
+            commit('setFilterDates', {list: item});
+        },
+        setFilterRooms({commit}, item) {
+            commit('setFilterRooms', {list: item});
+        },
+        setRoom({commit}, item) {
+            commit('setRoom', {list: item});
+        },
+        deleteRoom({commit}, item) {
+            commit('deleteRoom', {list: item});
+        },
+        deleteBooking({commit}, item) {
+            commit('deleteBooking', {list: item});
+        },
+        setPersonResponsible({commit}, item) {
+            commit('setPersonResponsible', {list: item});
+        },
+        setRoomsWithResponsible({commit}, item) {
+            commit('setRoomsWithResponsible', {list: item});
+        },
+    },
+    getters: {
+        getFilter: state => {
+            return state.filter;
+        },
+        getRooms: state => {
+            return state.booking.rooms;
+        },
+        getTotal: state => {
+            return state.booking.totalAmount;
+        },
+        getBooking: state => {
+            return state.booking;
+        },
+    },
+    mutations: {
+        setFilterDates(state, {list}) {
+            Vue.set(state.filter, 'checkin', list.checkin);
+            Vue.set(state.filter, 'checkout', list.checkout);
+        },
+        setFilterRooms(state, {list}) {
+            Vue.set(state.filter, 'rooms', list);
+        },
+        setRoom(state, {list}) {
+            let data = state.booking.rooms;
 
-    },
-    getters:{
-       getDataFilter: state => {
-         var obj={};
-         obj.checkin=state.booking.checkin;
-         obj.checkout=state.booking.checkout;
-         obj.adult=state.booking.adult;
-         return obj;
-       }, 
-       getCart: state => {
-        return state.booking.cart;
-       },
-       getTotal: state => {
-        return state.booking.total;
-       },
-       getBooking: state => {
-        return state.booking;
-       },
-    },
-    mutations:{
-      deleteAll(state,{ list }){ 
-        for(var a in list){
-          var list_cart=state.booking.cart;
-          for(var i in list_cart){
-            if(list_cart[i].id==list[a].id){
-               Vue.delete(state.booking.cart,i);
-               Vue.set(state.booking, 'total',Math.abs(state.booking.total-list[a].price));
+            if (data.length > 0) {
+                const response = data.find(key => key.roomId === list.roomId);
+
+                if (response === null || response === undefined) {
+                    let total = state.booking.totalAmount;
+                    total += parseFloat(list.totalItem);
+
+                    state.booking.rooms.push(list);
+                    Vue.set(state.booking, 'totalAmount', total);
+                }
+
+            } else {
+                let total = state.booking.totalAmount;
+                total += parseFloat(list.totalItem);
+
+                state.booking.rooms.push(list);
+                Vue.set(state.booking, 'totalAmount', total);
             }
-          }
+        },
+        deleteRoom(state, {list}) {
+            let data = state.booking.rooms;
+
+            for (let a in list) {
+                for (let i in data) {
+                    if (data[i].roomId === list[a].roomId) {
+                        Vue.delete(state.booking.rooms, i);
+                        Vue.set(state.booking, 'totalAmount', Math.abs(state.booking.totalAmount - list[a].totalItem));
+                    }
+                }
+            }
+        },
+        deleteBooking(state) {
+            Vue.set(state.booking.personResponsible,  'userId', null);
+            Vue.set(state.booking.personResponsible, 'name', null);
+            Vue.set(state.booking.personResponsible, 'email', null);
+            Vue.set(state.booking.personResponsible, 'phone', null);
+            Vue.set(state.booking.personResponsible, 'fiscalCode', null);
+
+            Vue.set(state.booking, 'rooms', []);
+            Vue.set(state.booking, 'totalAmount', 0);
+
+            Vue.set(state.booking,  'comment', null);
+
+        },
+        setPersonResponsible(state, {list}) {
+            if (list.userId !== null) Vue.set(state.booking.personResponsible, 'userId', list.userId);
+
+            Vue.set(state.booking.personResponsible, 'name', list.name);
+            Vue.set(state.booking.personResponsible, 'email', list.email);
+            Vue.set(state.booking.personResponsible, 'phone', list.phone);
+            Vue.set(state.booking.personResponsible, 'fiscalCode', list.fiscalCode);
+        },
+        setRoomsWithResponsible(state, {list}) {
+            console.log(list);
+            Vue.set(state.booking, 'personResponsible', list.personResponsible);
+            Vue.set(state.booking, 'rooms', list.rooms);
+            Vue.set(state.booking, 'comment', list.comment);
         }
-      },
-      destroyState (state){ 
-        Vue.set(state.booking,'checkin',null);
-        Vue.set(state.booking,'checkout',null);
-        Vue.set(state.booking,'cart',[]); 
-        Vue.set(state.booking,'total',0); 
-        Vue.set(state.booking.responsable,'name',null); 
-        Vue.set(state.booking.responsable,'phone',null); 
-        Vue.set(state.booking.responsable,'identidad',null); 
-        Vue.set(state.booking.responsable,'email',null); 
-      },
-      setResponReser(state,{ list }){ 
-        Vue.set(state.booking.responsable,'name',list.name_reserva); 
-        Vue.set(state.booking.responsable,'phone',list.telef_reserva); 
-        Vue.set(state.booking.responsable,'identidad',list.identidad_reserva);
-        Vue.set(state.booking.responsable,'email',list.email);
-      },
-      setFilter(state,{ list }){ 
-        Vue.set(state.booking,'checkin',list.checkin);
-        Vue.set(state.booking,'checkout',list.checkout); 
-      },
-      addCart(state,{ list }){
-        var total=state.booking.total;
-        total+=parseFloat(list.price);
-        state.booking.cart.push(list);
-        Vue.set(state.booking,'total',total); 
-      },
-      removerItem(state,{ list }){
-        var list_cart=state.booking.cart;
-        for(var i in list_cart){
-          if(list_cart[i].id==list.id){
-             Vue.delete(state.booking.cart,i);
-             Vue.set(state.booking, 'total',state.booking.total-list.price);
-             break;
-          }
-        }
-      }
-      
     }
 }

@@ -43,7 +43,6 @@ import unsubscribeNewsletter from '../components/landing/unsubscribenewsletter';
 import aboutUs from '../components/landing/aboutUs';
 import homeCamere from '../components/landing/homeCamere';
 import contactUs from '../components/landing/contactUs';
-import formBooking from '../components/landing/form';
 
 // general
 import navbar from '../components/general/navbar';
@@ -76,7 +75,7 @@ import stepTres from '../components/booking/stepTres';
 import headerBooking from '../components/booking/headerBooking';
 import navBooking from '../components/booking/navBooking';
 import formConsulta from '../components/booking/formConsulta';
-import resumen from '../components/booking/resumen';
+import Summary from '../components/booking/Summary';
 import rooms from '../components/booking/rooms';
 
 // My account
@@ -97,7 +96,6 @@ Vue.component('navbar', navbar);
 Vue.component('gfooter', footer);
 Vue.component('jumperr', jumperr);
 Vue.component('header_landing', headerLanding);
-Vue.component('form_booking',formBooking);
 Vue.component('slider_olbia', sliderOlbia);
 Vue.component('services', services);
 Vue.component('esperience', esperience);
@@ -114,7 +112,7 @@ Vue.component('iconsServices', iconsServices);
 Vue.component('generalServices', generalServices);
 Vue.component('listServices', listServices);
 Vue.component('rooms', rooms);
-Vue.component('resumen', resumen);
+Vue.component('summary-booking', Summary);
 Vue.component('form_consulta', formConsulta);
 Vue.component('nav_booking', navBooking);
 Vue.component('header_booking', headerBooking);
@@ -220,8 +218,6 @@ let router = new Router({
             name: 'termini',
             component: termini
         },
-    ],scrollBehavior (to, from, savedPosition) {
-      return { x: 0, y: 0 }
-    }
+    ]
 });
 export default router

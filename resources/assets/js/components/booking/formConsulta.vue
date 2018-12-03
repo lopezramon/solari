@@ -3,53 +3,52 @@
         <aside class="p-3 border mb-3">
             <form class="form-row">
                 <div class="form-group col-12">
-                    <label for="in">
-                        <img src="/images/suites/icon/calendar.svg" alt="calendar">
-                        Check-in
-                    </label>
-                    <!-- <input name="in" type="text" class="form-control" placeholder="19/08/2019"> -->
-                     <vue-ctk-date-time-picker
-                            disable-time
-                            enable-button-validate
-                            locale="it"
-                            v-model="checkin"
-                            formated="DD/MM/YYYY"
-                            format="YYYY-MM-DD"
-                            label="Data di prenotazione"
-                            v-validate="'required'"
-                            name="checkin"
-                            data-vv-as="Data"
-                            color="gray"
-                            :class="{'is-danger': errors.has('checkin')}"
-                            :min-date="minDate"
+                    <span v-html="calendarIcon"></span>
+                    <label for="in">Check-in</label>
+                    <vue-ctk-date-time-picker
+                        id="in"
+                        disable-time
+                        enable-button-validate
+                        locale="it"
+                        v-model="checkin"
+                        formated="DD/MM/YYYY"
+                        format="YYYY-MM-DD"
+                        label="Data di prenotazione"
+                        v-validate="'required'"
+                        name="checkin"
+                        data-vv-as="Data"
+                        color="gray"
+                        :class="{'is-danger': errors.has('checkin')}"
+                        :min-date="minDate"
                     />
                     <span v-show="errors.has('checkin')" class="help text-danger">{{ errors.first('checkin') }}</span>
                 </div>
+
                 <div class="form-group col-12">
-                    <label for="out">
-                        <img src="/images/suites/icon/calendar.svg" alt="calendar">
-                        Check-out
-                    </label>
-                     <vue-ctk-date-time-picker
-                            disable-time
-                            enable-button-validate
-                            locale="it"
-                            v-model="checkout"
-                            formated="DD/MM/YYYY"
-                            format="YYYY-MM-DD"
-                            label="Data di prenotazione"
-                            v-validate="'required'"
-                            name="checkout"
-                            data-vv-as="Data"
-                            color="gray"
-                            :class="{'is-danger': errors.has('checkout')}"
-                            :min-date="minCheckout"
+                    <span v-html="calendarIcon"></span>
+                    <label for="out">Check-out</label>
+                    <vue-ctk-date-time-picker
+                        id="out"
+                        disable-time
+                        enable-button-validate
+                        locale="it"
+                        v-model="checkout"
+                        formated="DD/MM/YYYY"
+                        format="YYYY-MM-DD"
+                        label="Data di prenotazione"
+                        v-validate="'required'"
+                        name="checkout"
+                        data-vv-as="Data"
+                        color="gray"
+                        :class="{'is-danger': errors.has('checkout')}"
+                        :min-date="minCheckout"
                     />
                     <span v-show="errors.has('checkout')" class="help text-danger">{{ errors.first('checkout') }}</span>
                 </div>
+
                 <div class="form-group col-12 text-center">
-                    <button type="button" @click.prevent="filterData()" class="btn btn-primary text-uppercase">
-                        Cerca
+                    <button type="button" @click.prevent="filterData()" class="btn btn-primary">
+                        <span class="text-uppercase font-weight-bold">Search</span>
                     </button>
                 </div>
             </form>
@@ -57,82 +56,61 @@
     </div>
 </template>
 <script>
-import VueMoment from 'vue-moment'
-import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
-import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.min.css';
+    import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
+    import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.min.css';
 
-export default {
-   components: { VueCtkDateTimePicker },
-    data(){
-        return {
-            botonActivo: false,
-            checkin:null,
-            checkout:null,
-            adult:null,
-            minCheckout: null,
-        }
-    },
-    methods: {
-        filtersData(){
-            let data=this.$store.getters.getDataFilter;
-            this.checkin=Vue.moment(data.checkin).format('YYYY/MM/DD');
-            this.checkout=Vue.moment(data.checkout).format('YYYY/MM/DD');
-            this.minCheckout=Vue.moment(this.checkin).add(1, 'day').format('YYYY/MM/DD');
-            this.adult=data.adult;
+    export default {
+        components: { VueCtkDateTimePicker },
+        data() {
+            return {
+                checkin: null,
+                checkout: null,
+                minCheckout: null,
+                calendarIcon: '<img src="/images/suites/icon/calendar.svg" alt="calendar">'
+            }
         },
-        filterData(){
-            this.$validator.validateAll().then((result) => {
-                if (result) {
-                    let obj={};
-                    obj.checkin=this.checkin;
-                    obj.checkout=this.checkout;
-                    this.$store.commit('setFilter',{list: obj});
-                }
-            }).catch(() => {
-                console.log('error form')
-            });  
-        }
-    },
-    mounted(){
-        this.filtersData();
-    },computed:{
-        minDate(){
-            if(this.checkin!=null){
-                this.minCheckout=Vue.moment(this.checkin).add(1, 'day').format('YYYY/MM/DD');
-                if(Vue.moment(this.checkin)>=Vue.moment(this.checkout)){
-                     this.checkout=null;
-                }
-                return this.checkin;
-            }else{
-                 return  Vue.moment().format('MM/DD/YYYY');
-            }          
+        mounted() {
+            this.getDates();
+        },
+        computed: {
+            minDate() {
+                if (this.checkin != null) {
+                    this.minCheckout = Vue.moment(this.checkin).add(1, 'day').format('YYYY/MM/DD');
+
+                    if (Vue.moment(this.checkin) >= Vue.moment(this.checkout)) {
+                        this.checkout = null;
+                    }
+                    return this.checkin;
+
+                } else return Vue.moment().format('MM/DD/YYYY');
+            }
+        },
+        methods: {
+            getDates() {
+                let data = this.$store.getters.getFilter;
+                this.checkin = Vue.moment(data.checkin).format('YYYY/MM/DD');
+                this.checkout = Vue.moment(data.checkout).format('YYYY/MM/DD');
+                this.minCheckout = Vue.moment(this.checkin).add(1, 'day').format('YYYY/MM/DD');
+            },
+            filterData() {
+                this.$validator.validateAll().then((result) => {
+                    if (result) {
+                        let obj = { checkin: this.checkin, checkout: this.checkout };
+
+                        let data = this.$store.getters.getDataFilter;
+
+                        if (data.checkin !== obj.checkin || data.checkout !== obj.checkout) {
+                            this.$store.dispatch('deleteBooking');
+                            setTimeout(() => this.$store.dispatch('setFilterDates', obj), 3000);
+                        }
+                    }
+                }).catch(() => console.log('error form'));
+            }
         }
     }
-}
 </script>
-
-
-
 <style scoped>
-/*form*/
-  .form-control {
-    display: block;
-    width: 100%;
-    height: calc(2.19rem + 2px);
-    padding: 0.375rem 0.75rem;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0rem;
-  }
-  .reserva{
-      border: 1px solid #ccc;
-  }
-  label{
-      font-family: 'Josefin Sans', sans-serif;
-  }
+    label {
+        font-family: 'Josefin Sans', sans-serif;
+    }
 </style>
-
