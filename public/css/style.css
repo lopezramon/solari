@@ -9,9 +9,9 @@
     color: #000;
     background-color: transparent;
     background-clip: padding-box;
-    border: 0px solid #000;
+    border: 0 solid #000;
     border-bottom: 1px solid #000;
-    border-radius: 0rem;
+    border-radius: 0m;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
@@ -22,3 +22,10 @@
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0,123,255,0);
 }
+/* Hide arrows of input type number*/
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }

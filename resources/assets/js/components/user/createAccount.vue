@@ -5,7 +5,6 @@
                 <div class="row justify-content-center">
                     <div class="rounded bg-form-contact ">
                         <h2 class="text-center text-separation py-4 text-uppercase">Crea un account</h2>
-
                         <template v-if="loading">
                             <div class="container d-flex justify-content-center">
                                 <div class="row m-5 mb-4">
@@ -46,22 +45,22 @@
                                     <div class="row">
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
-                                                <label>Telefono</label>
+                                                <label for="phone">Phone Number</label>
                                                 <span class="text-success" :class="{'text-danger': errors.has('phone')}">*</span>
-                                                <input type="text" :maxlength="16" v-validate="'required|numeric|min:9|max:16'" name="phone"
-                                                       data-vv-as="Telefono" :class="{'text-danger': errors.has('phone')}"
-                                                       v-model="form.phone" class="form-control form-material" placeholder="Telefono">
+                                                <input id="phone" type="text" :maxlength="16" v-validate="'required|numeric|min:9|max:16'" data-vv-delay="1500"
+                                                       name="phone" data-vv-as="Phone number" :class="{'text-danger': errors.has('phone')}"
+                                                       v-model="form.phone" class="form-control form-material" placeholder="Phone number">
                                                 <small v-show="errors.has('phone')" class="help text-danger">{{ errors.first('phone') }}</small>
                                             </div>
                                         </div>
 
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
-                                                <label>Telefono Opcional</label>
+                                                <label for="optionalPhone">Optional phone number</label>
                                                 <span class="text-success" :class="{'text-danger': errors.has('optionalPhone')}">*</span>
-                                                <input type="text" :maxlength="16" v-validate="'numeric|min:9|max:16'" name="optionalPhone"
-                                                       data-vv-as="Telefono" :class="{'text-danger': errors.has('optionalPhone')}"
-                                                       v-model="form.optionalPhone" class="form-control form-material" placeholder="Telefono">
+                                                <input id="optinalPhone" type="text" :maxlength="16" v-validate="'numeric|min:9|max:16'" data-vv-delay="1500"
+                                                       name="optionalPhone" data-vv-as="Optional phone number" :class="{'text-danger': errors.has('optionalPhone')}"
+                                                       v-model="form.optionalPhone" class="form-control form-material" placeholder="Optional phone number">
                                                 <small v-show="errors.has('optionalPhone')" class="help text-danger">{{ errors.first('optionalPhone') }}</small>
                                             </div>
                                         </div>
@@ -81,11 +80,11 @@
 
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
-                                                <label>Cod Fiscale/P.IVA</label>
+                                                <label for="fiscalCode">Fiscal Code</label>
                                                 <span class="text-success" :class="{'text-danger': errors.has('fiscalCode')}">*</span>
-                                                <input type="text" :maxlength="16" v-validate="'required|alpha_num|min:16|max:16'" name="fiscalCode"
-                                                       data-vv-as="Cod Fiscale/P.IVA" :class="{'text-danger': errors.has('fiscalCode')}"
-                                                       v-model="form.fiscalCode" class="form-control form-material" placeholder="Cod Fiscale/P.IVA">
+                                                <input id="fiscalCode" type="text" :maxlength="16" v-validate="'required|alpha_num|min:16|max:16'" data-vv-delay="1500"
+                                                       name="fiscalCode" data-vv-as="Fiscal Code" :class="{'text-danger': errors.has('fiscalCode')}"
+                                                       v-model="form.fiscalCode" class="form-control form-material" placeholder="Fiscal Code">
                                                 <small v-show="errors.has('fiscalCode')" class="help text-danger">{{  errors.first('fiscalCode') }}</small>
                                             </div>
                                         </div>
@@ -105,11 +104,11 @@
 
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
-                                                <label>Confirma la password</label>
+                                                <label>Password confirm</label>
                                                 <span class="text-success" :class="{'text-danger': errors.has('passwordConfirm')}">*</span>
                                                 <input type="password" :maxlength="16" class="form-control form-material" placeholder="********"
                                                        v-validate="'required|min:8|max:16|confirmed:password'" name="passwordConfirm" v-model="form.passwordConfirm"
-                                                       data-vv-as="Password" :class="{ 'text-danger': (errors.has('passwordConfirm') || errorPassword) }">
+                                                       data-vv-as="Password confirm" :class="{ 'text-danger': (errors.has('passwordConfirm') || errorPassword) }">
                                                 <span v-show="errors.has('passwordConfirm')" class="help text-danger">{{ errors.first('passwordConfirm')}}</span>
                                             </div>
                                         </div>
@@ -140,7 +139,7 @@
                                         </button>
                                     </router-link>
                                 </div>
-                                <captcha/>                               
+                                <captcha/>
                             </div>
                         </template>
                     </div>
@@ -186,7 +185,7 @@
         computed: {
             isDisabled() {
                 return !this.form.name || !this.form.lastname || !this.form.email || !this.form.phone || !this.form.password || !this.form.passwordConfirm || !this.form.fiscalCode || !this.form.terms
-            }            
+            }
         },
         methods: {
             saveUser() {
@@ -208,12 +207,12 @@
                                     slf.$store.dispatch('setSession', data).then(() => {
                                         let slf = this;
                                         this.loading = false;
-                                        this.showAlert('success', 'Cuenta creada con exito!');
+                                        this.showAlert('success', '\' Account created with success!');
                                         slf.$router.push('/');
                                     }).catch(() => {
                                         this.loading = false;
                                         console.log('error store');
-                                        this.showAlert('error', 'Por favor revisa los datos enviados');
+                                        this.showAlert('error', 'Please check the data sent');
                                     });
                                 }
                             })
@@ -223,7 +222,7 @@
                                             let message = error.response.data.error.email[0];
                                             this.errorMail = 'text-danger';
                                             this.loading = false;
-                                            this.showAlert('error', message, 'verifica el correo: ' + this.form.email);
+                                            this.showAlert('error', message, 'Check the email: ' + this.form.email);
                                         }
                                     }
                                 })

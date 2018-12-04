@@ -9,19 +9,19 @@
                     <rooms/>
                 </div>
                 <div class="col-12 col-lg-3">
-                    <form_consulta/>
-                    <resumen/>
+                    <!--<form_consulta/>-->
 
-                    <div>   
-                        <!-- habilatar el link solo cuando se acepten los terminos -->
-                            <div class="form-group">
-                                <input v-model="terminos" type="checkbox" name="terminos" id="" required >
-                                <label for="terminos">Accetto termini e condizioni</label>
-                            </div>
-                            <div class="text-center">
-                               <!--  <a  :class="botonActivo ? '' : 'disabled'" class="btn btn-primary text-uppercase">Continuo</a> -->
-                               <button type="button" @click.prevent="nextStep()" :disabled="!terminos" class="btn btn-primary text-uppercase">Continuo</button>
-                            </div>
+                    <summary-booking/>
+
+                    <div class="form-group">
+                        <input id="terms" v-model="terms" type="checkbox" name="terms" required>
+                        <label for="terms">Accept the terms and conditions</label>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="button" @click.prevent="nextStep()" :disabled="!terms" class="btn btn-primary ">
+                            <span class="text-uppercase font-weight-bold">Next step</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -30,40 +30,35 @@
     </div>
 </template>
 <script>
-export default {
-    data(){
-        return {
-            disabledActivo: false,
-            terminos:false
-        }
-    },mounted(){
-         let data=this.$store.getters.getDataFilter;
-         if(data.checkin==null || data.checkout==null){
-               this.showAlert('error', 'Errore!!', 'carrello vuoto')  
-         }
-    },
-    methods:{
-        nextStep(){
-            let total=this.$store.getters.getTotal;
-            if(this.terminos && total>0){
-                this.$router.push('/booking/step-2');
-            }else{
-                this.showAlert('error', 'Errore!!', 'carrello vuoto')
-            }            
-        },showAlert(type, title, text) {
-            this.$swal({
-                position: 'center',
-                type: type,
-                title: title,
-                text: text,
-                showConfirmButton: false,
-                showCloseButton: true,
-            })
-            .then((value) => {
-              this.$router.push('/');
-            });
+    export default {
+        data() {
+            return {
+                terms: false
+            }
+        },
+        beforeMount() {
+            let dataFilter = this.$store.getters.getFilter;
+            if (dataFilter.checkin == null || dataFilter.checkout == null) {
+                this.$router.push('/');
+            }
+        },
+        methods: {
+            nextStep() {
+                let total = this.$store.getters.getTotal;
+
+                (this.terms && total > 0) ? this.$router.push('/booking/step-2') : this.showAlert('info', 'Select a room first', 'Please select a room to booking to proceed');
+
+             },
+            showAlert(type, title, text) {
+                this.$swal({
+                    position: 'center',
+                    type: type,
+                    title: title,
+                    text: text,
+                    showConfirmButton: false,
+                    showCloseButton: true,
+                })
+            }
         }
     }
-}
 </script>
-

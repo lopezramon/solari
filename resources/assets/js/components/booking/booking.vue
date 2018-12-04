@@ -35,7 +35,7 @@
                 <div class="col-12 col-lg-3">
                     <resumen/>
 
-                    <div>   
+                    <div>
                         <!-- habilatar el link solo cuando se acepten los terminos -->
                             <div class="form-group">
                                 <input v-model="terminos" type="checkbox" name="terminos" id="" required >
@@ -214,15 +214,16 @@ export default {
                         { url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/11-quadrilocale-con-giardino-e-veranda-vista-mare-rif--l--6_thumb-list.jpg' },
                         { url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/11-quadrilocale-con-ampia-veranda-vista-mare-e-minipiscina-idromassaggio-wifi-e-aria-condizionata--60_thumb-list.jpg' },
                         { url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/11-quadrilocale-con-giardino-e-veranda-vista-mare-rif--l--17_thumb-list.jpg' },
-                    ]
+                    ],
                 }
-            ]
+            ],
+            swiperOption: {},
         }
     },mounted(){
-         
+
     },
     methods:{
-        
+
     }
 }
 </script>

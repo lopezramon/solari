@@ -10,7 +10,7 @@
                 <div class="col-12">
                     <div class="d-flex justify-content-between">
                         <span class="tag font-weight-bold">Check-in</span>
-                        <span class="date">{{getCheckin}}</span>
+                        <span class="date">{{getCheckin}}0</span>
                     </div>
                     <div class="d-flex justify-content-between">
                         <span class="tag font-weight-bold">Check-in</span>
@@ -19,7 +19,7 @@
                 </div>
 
                 <!-- room select -->
-                <div class="col-12 mt-2" v-if="getListCart.length>0">
+                <div class="col-12 mt-2" v-if="getListCart && getListCart.length>0">
                     <div class="border-bottom">
                         <strong class="text-capitalize">Name room</strong>
                         <div class="d-flex justify-content-between" v-for="room in getListCart" >
@@ -27,13 +27,13 @@
                             <span class="title">{{room.name}}</span>
                             <span class="price">€ {{room.price}}</span>
                            <!--  <div>
-                               <button type="button" class="btn btn-primary btn-sm" @click.prevent="remover(room)">remover</button> 
+                               <button type="button" class="btn btn-primary btn-sm" @click.prevent="remover(room)">remover</button>
                             </div> -->
                         </div>
                         <div class="border-bottom">
                             <button type="button" class="btn btn-primary btn-sm" @click.prevent="deleteAll()">Eliminar seleccionados</button>
                         </div>
-                        
+
                     </div>
                 </div>
 
@@ -80,7 +80,7 @@ export default {
                 }
              }
              if(arr.length>0){
-               this.$store.commit('deleteAll',{list:arr}); 
+               this.$store.commit('deleteAll',{list:arr});
              }
            }else{
              this.showAlert('error', 'Errore!!', 'Debe seleccionar un producto')
@@ -99,27 +99,32 @@ export default {
             });
         }
     },
-    mounted(){
-       
-    },computed:{
+    computed:{
         getCheckin(){
-            let data=this.$store.getters.getDataFilter;
+            let data = this.$store.state.Booking.filter;
+            if (! data) {
+                return
+            }
             return Vue.moment(data.checkin).format('YYYY/MMM/DD').toUpperCase();
         },
         getCheckout(){
             let data=this.$store.getters.getDataFilter;
+            if (! data) {
+                return
+            }
             return Vue.moment(data.checkout).format('YYYY/MMM/DD').toUpperCase();
         },
         getListCart(){
             let data=this.$store.getters.getCart;
+            if (! data) {
+                return
+            }
             this.rooms_cart=data;
-            console.log(this.rooms_cart.length);
             return this.rooms_cart;
-        },getTotal(){
+        },
+        getTotal(){
             return  this.$store.getters.getTotal.toFixed(2);
         }
     }
 }
 </script>
-
-

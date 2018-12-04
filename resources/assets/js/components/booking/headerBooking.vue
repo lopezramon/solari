@@ -33,16 +33,16 @@ header{
 .linear-wipe {
   text-align: center;
 
-  
+
   background: linear-gradient(to right, #d7392c 20%, #ffd900 40%, #ffd900 60%, #d7392c 80%);
   background-size: 200% auto;
-  
+
   color: #000;
   background-clip: text;
   text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  
+
   animation: shine 2s linear infinite;
 }
 

@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="rounded bg-form-contact ">
-                        <h2 class="text-center text-separation py-4 text-uppercase">Inicio de sesion</h2>
+                        <h2 class="text-center text-separation py-4 text-uppercase">Sign in</h2>
 
                         <template v-if="loading">
                             <div class="container d-flex justify-content-center">
@@ -21,8 +21,8 @@
                                 <div class="form-group">
                                     <label for="email" class="text-uppercase">Email</label>
                                     <span v-show="errors.has('email')" :class="{'text-danger': errors.has('email') }">*</span>
-                                    <input id="email" type="email" :maxlength="50" v-validate="'required|email|min:9|max:50'" name="email"
-                                           data-vv-as="Email" :class="{'text-danger': errors.has('email') }"
+                                    <input id="email" type="email" :maxlength="50" v-validate="'required|email|min:9|max:50'" data-vv-delay="1500"
+                                           name="email" data-vv-as="Email" :class="{'text-danger': errors.has('email') }"
                                            v-model="form.email" class="form-control form-material" placeholder="Email">
                                     <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
                                 </div>
@@ -30,14 +30,13 @@
                                 <div class="form-group">
                                     <label for="password" class="text-uppercase">Password</label>
                                     <span v-show="errors.has('password')" class="help text-danger">*</span>
-                                    <input id="password" type="password" :maxlength="16" v-model="form.password" v-validate="'required|min:8|max:16'"
-                                           name="password" :class="{'text-danger': errors.has('password') }"
-                                           class="form-control form-material" placeholder="Password">
+                                    <input id="password" type="password" :maxlength="16" v-model="form.password" v-validate="'required|min:8|max:16'" data-vv-delay="1500"
+                                           name="password" :class="{'text-danger': errors.has('password') }" class="form-control form-material" placeholder="Password">
                                     <span v-show="errors.has('password')" class="help text-danger">{{ errors.first('password') }}</span>
                                 </div>
 
                                 <div class="col-12">
-                                    <a href="#" @click.prevent="forgotPassword">¿Ha olvidado la contraseña?</a>
+                                    <a href="#" @click.prevent="forgotPassword">Forgot password?</a>
                                 </div>
 
                                 <div class="row text-center py-4">
@@ -48,7 +47,7 @@
                                     </div>
                                     <div class="col-lg-8 py-2">
                                         <button @click="redirectToCreateAccount" type="button" class="btn btn-primary-new text-bold">
-                                            <span class="text-btn-white">¿No tienes cuenta aún? Creala!</span>
+                                            <span class="text-btn-white">Don't you have an account yet? Create it!</span>
                                         </button>
                                     </div>
                                 </div>
@@ -95,23 +94,23 @@
                                 this.$store.dispatch('setSession', res.data).then(() => {
                                     this.loading = false;
                                     let slf = this;
-                                    this.showAlert('success', 'Usuario autenticado con exito');
+                                    this.showAlert('success', 'Successful authenticated user');
                                     setTimeout(() => {
                                         (admin === true) ? location.href = '/home' : slf.$router.push('/')
                                     }, 1800);
 
-                                }).catch(() => {console.log('error store')});
+                                }).catch(() => console.log('error store'));
                             }
                         })
                             .catch((error) => {
                                 switch (error.response.status) {
                                     case 401:
                                         this.loading = false;
-                                        this.showAlert('error', 'El usuario no esta registrado');
+                                        this.showAlert('error', 'The user is not registered');
                                         break;
                                     case 500:
                                         this.loading = false;
-                                        this.showAlert('error', 'Error de conexión');
+                                        this.showAlert('error', 'Connection Error');
                                         break;
                                 }
                             })

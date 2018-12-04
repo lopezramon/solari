@@ -58,41 +58,7 @@ class LockedRoomRepository extends BaseRepository
         return $lockedRoom;
     }
 
-    /**
-     * Get available rooms in given checkin and checkout dates.
-     *
-     * Case 1:
-     * |---- Date Range A ----|                   _
-     * _                   |---- Date Range B ----|
-     *
-     *
-     * Case 2:
-     * _                   |---- Date Range A ----|
-     * |---- Date Range B ----|                   _
-     *
-     *
-     * Case 3:
-     * _         |---- Date Range A ----|         _
-     * |-------------- Date Range B --------------|
-     *
-     *
-     * Case 4:
-     * |-------------- Date Range A --------------|
-     * _         |---- Date Range B ----|         _
-     *
-     *
-     * Case 5: ( SUCCESSFUL )
-     * _                           |---- Date Range A ----|                           _
-     * |---- Date Range B ----|                                |---- Date Range B ----|
-     *
-     *
-     * @param string    $checkin
-     * @param string    $checkout
-     * @param int       $slack Indica la holgura que se tendra en la busqueda contra los booking ya realizados.
-     *
-     * @return
-     */
-    public function findUnavailableLockedRoomRoomsInRange( $checkin, $checkout, $slack = 3 )
+    /*public function findUnavailableLockedRoomRoomsInRange( $checkin, $checkout, $slack = 3 )
     {
         $checkin_request    = Carbon::createFromFormat('Y-m-d H', $checkin . ' 0');
         $checkout_request   = Carbon::createFromFormat('Y-m-d H', $checkout . ' 0');
@@ -132,5 +98,5 @@ class LockedRoomRepository extends BaseRepository
         }
 
         return array_unique( $unavailableRoomsByLockedRoom );
-    }
+    }*/
 }

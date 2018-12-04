@@ -9,6 +9,7 @@ use App\Models\Admin\Room;
 use App\Repositories\Admin\BookingDetailRepository;
 use App\Repositories\Admin\LockedRoomRepository;
 use App\Repositories\Admin\RoomRepository;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -56,21 +57,129 @@ class RoomAPIController extends AppBaseController
         $checkin = $input['checkin'];
         $checkout = $input['checkout'];
 
-        $unavailableBookingDetailRooms = $this->bookingDetailRepository->findUnavailableBookingDetailRoomsInRange($checkin, $checkout);
+        // $unavailableBookingDetailRooms = $this->bookingDetailRepository->findUnavailableBookingDetailRoomsInRange($checkin, $checkout);
 
-        // dd( $unavailableBookingDetailRooms );
+        // // dd( $unavailableBookingDetailRooms );
 
-        $unavailableLockedRoomRooms = $this->lockedRoomRepository->findUnavailableLockedRoomRoomsInRange($checkin, $checkout);
+        // $unavailableLockedRoomRooms = $this->lockedRoomRepository->findUnavailableLockedRoomRoomsInRange($checkin, $checkout);
 
-        // dd( $availableLockedRoomRooms );
+        // // dd( $availableLockedRoomRooms );
+
+        // $unavailableRooms = array_unique( array_merge($unavailableBookingDetailRooms, $unavailableLockedRoomRooms) );
+
+        // // dd( $unavailableRooms );
+
+        // ////////////////////////////
+        // //////////////////////////
+        // ////////////////////////
+
+        $unavailableBookingDetailRooms = $this->findUnavailableRooms($checkin, $checkout, function($start_range_, $end_range_) {
+            return $this->bookingDetailRepository->findWhere([
+                ['checkin_date',    '>', $start_range_],
+                ['checkout_date',   '<', $end_range_]
+            ]);
+        });
+
+        // filtros para obtener un rango de busqueda mas centrado (mas o menos 3 <holgura default> meses el rango indicado por el usuario)
+        $unavailableLockedRoomRooms = $this->findUnavailableRooms($checkin, $checkout, function($start_range_, $end_range_) {
+            return $this->lockedRoomRepository->findWhere([
+                ['checkin_date',    '>', $start_range_],
+                ['checkout_date',   '<', $end_range_],
+
+                # PENDIENTE que este valor (3) sea administrable
+                ['locked_at',       '>', Carbon::now()->subMinutes(5)] // se buscan solo las rooms cuyo locked_at sea mayor a hace cinco minutos
+            ]);
+        });
 
         $unavailableRooms = array_unique( array_merge($unavailableBookingDetailRooms, $unavailableLockedRoomRooms) );
 
         // dd( $unavailableRooms );
 
+        // ////////////////////////
+        // //////////////////////////
+        // ////////////////////////////
+
         $rooms = $this->roomRepository->getCustomized(null, $input, $unavailableRooms);
 
         return $this->sendResponse(['rooms' => $rooms], 'Rooms retrieved successfully');
+    }
+
+    /**
+     * Obtener las habitaciones no disponibles en el rango de fechas indicado.
+
+     * Para este proceso se manejan los siguientes cinco escenarios, del 1 al 4 son casos donde
+     * la habitación no está disponible, en el caso cinco sí lo está.
+     *
+     * En cada uno de los casos, el rango A representa las fechas indicadas por el usuario, mientras que
+     * el rango (o los rangos) B representan las fechas en donde la habitación está bloqueada, bien sea por
+     * un booking ya realizado (tabla booking_details) o por un bloqueo temporal (tabla locked_rooms).
+     *
+     *
+     * Case 1:
+     * |---- Date Range A ----|                   _
+     * _                   |---- Date Range B ----|
+     *
+     *
+     * Case 2:
+     * _                   |---- Date Range A ----|
+     * |---- Date Range B ----|                   _
+     *
+     *
+     * Case 3:
+     * _         |---- Date Range A ----|         _
+     * |-------------- Date Range B --------------|
+     *
+     *
+     * Case 4:
+     * |-------------- Date Range A --------------|
+     * _         |---- Date Range B ----|         _
+     *
+     *
+     * Case 5: ( SUCCESSFUL )
+     * _                           |---- Date Range A ----|                           _
+     * |---- Date Range B ----|                                |---- Date Range B ----|
+     *
+     *
+     * @param string    $checkin
+     * @param string    $checkout
+     * @param int       $callbackModel Retorna el modelo desde el cual se obtendrán las habitaciones no disponibles
+     *
+     * @return
+     */
+    private function findUnavailableRooms( $checkin, $checkout, $callbackModel )
+    {
+        $checkin_request    = Carbon::createFromFormat('Y-m-d H', $checkin . ' 0');
+        $checkout_request   = Carbon::createFromFormat('Y-m-d H', $checkout . ' 0');
+
+        // holgura que se tendra en la busqueda contra los booking ya realizados.
+        $start_range    = Carbon::createFromFormat('Y-m-d H', $checkin . ' 0')->subMonths(3);
+        $end_range      = Carbon::createFromFormat('Y-m-d H', $checkout . ' 0')->addMonths(3);
+
+        // filtros
+        $model = $callbackModel($start_range, $end_range);
+
+        $filteredModel = $model->filter(function($modelItem) use($checkin_request, $checkout_request) {
+            // Check if overlap (Cases 1, 2 and 3)
+            if ( $checkin_request->between($modelItem->checkin_date, $modelItem->checkout_date) ||
+                    $checkout_request->between($modelItem->checkin_date, $modelItem->checkout_date) ) {
+                return true;
+            }
+
+            // Check if overlap (Case 4)
+            if ( $modelItem->checkin_date->between($checkin_request, $checkout_request) &&
+                    $modelItem->checkout_date->between($checkin_request, $checkout_request) ) {
+                return true;
+            }
+
+            return false;
+        });
+
+        $unavailableRooms = [];
+        foreach ($filteredModel->toArray() as $item) {
+            $unavailableRooms[] = $item['room']['id'];
+        }
+
+        return array_unique( $unavailableRooms );
     }
 
     /**

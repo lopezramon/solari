@@ -6,7 +6,7 @@
                 <form class="form-booking">
                     <div class="row">
                         <div class="col-12">
-                                
+
                                 <div class="form-group d-flex flex-column flex-md-row justify-content-center">
                                     <div class="col-12 col-md-2 mr-md-2 mb-2 mb-md-0">
 
@@ -98,6 +98,9 @@
         methods: {
             filtersData(){
                 let data=this.$store.getters.getDataFilter;
+                if (! data) {
+                    return
+                }
                 if(data.checkin!=null){
                     this.checkin=Vue.moment(data.checkin).format('YYYY/MM/DD');
                     this.minCheckout=Vue.moment(this.checkin).add(1, 'day').format('YYYY/MM/DD');
@@ -117,7 +120,7 @@
                     }
                 }).catch(() => {
                     console.log('error form')
-                });  
+                });
             }
         },mounted(){
             this.filtersData();
@@ -131,7 +134,7 @@
                     return this.checkin;
                 }else{
                      return  Vue.moment().format('MM/DD/YYYY');
-                }          
+                }
             }
         }
 
@@ -206,7 +209,7 @@
 
 @media screen and (min-width: 992px){
 	.form-booking .form-group, .form-control{
-		
+
 		display: block;
 		margin: 0;
 	}

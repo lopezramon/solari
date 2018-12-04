@@ -5,7 +5,7 @@
                 <div class="row justify-content-center">
                     <div class="rounded bg-form-contact">
                         <div class="py-2"></div>
-                        <h2 class="text-center text-separation py-4 text-uppercase">Recuperar contraseña</h2>
+                        <h2 class="text-center text-separation py-4 text-uppercase">Change Password</h2>
 
                         <template v-if="loading">
                             <div class="container d-flex justify-content-center">
@@ -19,7 +19,7 @@
 
                         <template v-else>
                             <form>
-                                <div class="text-pwd text-center">Encuentra tu
+                                <div class="text-pwd text-center">Find you
                                     <img src="/images/logos/logo_luxury_pequeño_black.png" alt="logo luxury" width="30">
                                     LUXURY ROOM
                                 </div>
@@ -27,35 +27,35 @@
                                 <div class="form-group">
                                     <label for="email" class="text-uppercase">Email</label>
                                     <span class="text-success" :class="{'text-danger': errors.has('email') }">*</span>
-                                    <input id="email" type="email" :maxlength="50" v-validate="'required|email|min:9|max:50'" name="email"
-                                           data-vv-as="Email" :class="{'text-danger': errors.has('email') }"
+                                    <input id="email" type="email" :maxlength="50" v-validate="'required|email|min:9|max:50'" data-vv-delay="1500"
+                                           name="email" data-vv-as="Email" :class="{'text-danger': errors.has('email') }"
                                            v-model="form.email" class="form-control" placeholder="Email">
                                     <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label>Password</label>
+                                    <label for="password">Password</label>
                                     <span class="text-success" :class="{'text-danger': errors.has('password')}">*</span>
-                                    <input type="password" :maxlength="16" class="form-control" placeholder="********" ref="password" @click.prevent="clickPass"
-                                           v-validate="'required|min:8|max:16'" name="password" data-vv-as="Password"
+                                    <input id="password" type="password" :maxlength="16" class="form-control" placeholder="********" ref="password"
+                                           @click.prevent="clickPass" v-validate="'required|min:8|max:16'" name="password" data-vv-as="Password"
                                            :class="{'text-danger': errors.has('password')}" v-model="form.password">
                                     <span v-show="errors.has('password')" class="help text-danger">{{ errors.first('password') }}</span>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Confirma la password</label>
+                                    <label for="password_confirmation">Password confirm</label>
                                     <span class="text-success" :class="{'text-danger': errors.has('password_confirmation')}">*</span>
-                                    <input type="password" :maxlength="16" class="form-control" placeholder="********" @click.prevent="clickPass"
+                                    <input id="password_confirmation" type="password" :maxlength="16" class="form-control" placeholder="********" @click.prevent="clickPass"
                                            v-validate="'required|min:8|max:16|confirmed:password'" name="password_confirmation" v-model="form.password_confirmation"
-                                           data-vv-as="Password" :class="{ 'text-danger': (errors.has('password_confirmation') || validpass) }">
+                                           data-vv-as="Password confirm" :class="{ 'text-danger': (errors.has('password_confirmation') || validpass) }">
                                     <span v-show="errors.has('password_confirmation')" class="help text-danger">{{ errors.first('password_confirmation')}}</span>
                                 </div>
 
                                 <div class="row text-center py-4">
                                     <div class="col-12 py-2">
                                         <button type="button" :disabled="errors.any() || isDisabled" @click="validationPassword" class="btn btn-primary text-bold">
-                                            <span class="text-btn-white">CONTINUA</span>
+                                            <span class="text-btn-white">Change Password</span>
                                         </button>
                                     </div>
                                 </div>

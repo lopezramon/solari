@@ -56,7 +56,6 @@ import aboutUs from '../components/landing/aboutUs';
 import homeCamere from '../components/landing/homeCamere';
 import contactUs from '../components/landing/contactUs';
 import formBooking from '../components/landing/form';
-
 // general
 import navbar from '../components/general/navbar';
 import footer from '../components/general/footer';
@@ -91,6 +90,7 @@ import headerBooking from '../components/booking/headerBooking';
 import navBooking from '../components/booking/navBooking';
 import formConsulta from '../components/booking/formConsulta';
 import resumen from '../components/booking/resumen';
+import Summary from '../components/booking/Summary';
 import rooms from '../components/booking/rooms';
 import booking from '../components/booking/booking';
 
@@ -140,6 +140,7 @@ Vue.component('generalServices', generalServices);
 Vue.component('listServices', listServices);
 Vue.component('rooms', rooms);
 Vue.component('resumen', resumen);
+Vue.component('summary-booking', Summary);
 Vue.component('form_consulta', formConsulta);
 Vue.component('nav_booking', navBooking);
 Vue.component('header_booking', headerBooking);
