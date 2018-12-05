@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
             ScreensFrontSectionsTableSeeder::class,
             TagTranslationsTableSeeder::class,
             RequestsTableSeeder::class,
+            RoomLocationSeeder::class,
+            RoomCategorySeeder::class,
 
             // Product
             // ProductsTableSeeder::class,

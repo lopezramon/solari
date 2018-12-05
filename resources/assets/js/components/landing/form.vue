@@ -6,26 +6,17 @@
                 <form class="form-booking">
                     <div class="row">
                         <div class="col-12">
-
                                 <div class="form-group d-flex flex-column flex-md-row justify-content-center">
                                     <div class="col-12 col-md-2 mr-md-2 mb-2 mb-md-0">
 
-                                        <select name="" id="" class="form-control arrow-select">
-                                            <option value="tutte">Localidad (tutte)</option>
-                                            <option value="budoni">Budoni</option>
-                                            <option value="loddui">Lodduì</option>
+                                        <select name="" id="" class="form-control arrow-select" v-model="roomLocation">
+                                            <option :value="0">Localidad (tutte)</option>
+                                            <option v-for="location in roomLocations" :value="location.id">{{ location.name }}</option>
                                         </select>
                                     </div>
                                     <div class="col-12 col-md-2 mr-md-2 mb-2 mb-md-0">
-                                        <select name="" id="" class="form-control arrow-select">
-                                            <option value="1">Ospite 1</option>
-                                            <option value="2">Ospite 2</option>
-                                            <option value="3">Ospite 3</option>
-                                            <option value="3">Ospite 4</option>
-                                            <option value="3">Ospite 5</option>
-                                            <option value="3">Ospite 6</option>
-                                            <option value="3">Ospite 7</option>
-                                            <option value="3">Ospite 8</option>
+                                        <select v-model="roomCategory" name="" id="" class="form-control arrow-select">
+                                            <option v-for="category in roomCategories" :value="category.id">{{ category.name }}</option>
                                         </select>
                                     </div>
                                     <div class="col-12 col-md-3 mb-2 mb-md-0">
@@ -88,8 +79,14 @@
 
     export default {
        components: { VueCtkDateTimePicker },
+       created(){
+            this.$store.dispatch('getLocations')
+            this.$store.dispatch('getCategories')
+       },
        data(){
         return {
+                roomLocation: 0,
+                roomCategory: null,
                 checkin:null,
                 checkout:null,
                 minCheckout: null,
@@ -124,7 +121,8 @@
             }
         },mounted(){
             this.filtersData();
-        },computed:{
+        },
+        computed:{
             minDate(){
                 if(this.checkin!=null){
                     this.minCheckout=Vue.moment(this.checkin).add(1, 'day').format('YYYY/MM/DD');
@@ -135,8 +133,19 @@
                 }else{
                      return  Vue.moment().format('MM/DD/YYYY');
                 }
+            },
+            roomLocations(){
+                return this.$store.state.Booking.room_locations
+            },
+            roomCategories(){
+                return this.$store.state.Booking.room_categories
+            },
+        },
+        watch:{
+            roomLocation(val){
+                //function
             }
-        }
+        },
 
     }
 </script>

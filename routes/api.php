@@ -79,7 +79,7 @@ Route::put('admin/bookings/hide/{booking}', 'API\Admin\BookingAPIController@hide
 // Route::delete('admin/blogs/{blogs}', 'API\Admin\BlogAPIController@destroy');
 
 
-// Route::get('admin/room_categories', 'API\Admin\RoomCategoryAPIController@index');
+ Route::get('admin/room_categories', 'API\Admin\RoomCategoryAPIController@index');
 // Route::post('admin/room_categories', 'API\Admin\RoomCategoryAPIController@store');
 // Route::get('admin/room_categories/{room_categories}', 'API\Admin\RoomCategoryAPIController@show');
 // Route::put('admin/room_categories/{room_categories}', 'API\Admin\RoomCategoryAPIController@update');
@@ -197,3 +197,11 @@ Route::get('admin/locked_rooms/{locked_rooms}', 'Admin\LockedRoomAPIController@s
 Route::put('admin/locked_rooms/{locked_rooms}', 'Admin\LockedRoomAPIController@update');
 Route::patch('admin/locked_rooms/{locked_rooms}', 'Admin\LockedRoomAPIController@update');
 Route::delete('admin/locked_rooms/{locked_rooms}', 'Admin\LockedRoomAPIController@destroy');
+
+
+Route::get('admin/room_locations', 'API\Admin\RoomLocationAPIController@index');
+Route::post('admin/room_locations', 'Admin\RoomLocationAPIController@store');
+Route::get('admin/room_locations/{room_locations}', 'Admin\RoomLocationAPIController@show');
+Route::put('admin/room_locations/{room_locations}', 'Admin\RoomLocationAPIController@update');
+Route::patch('admin/room_locations/{room_locations}', 'Admin\RoomLocationAPIController@update');
+Route::delete('admin/room_locations/{room_locations}', 'Admin\RoomLocationAPIController@destroy');

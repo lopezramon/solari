@@ -20,6 +20,9 @@ class CreateRoomCategoriesTable extends Migration
             $table->unsignedInteger('status_id')->default(1);
             $table->foreign('status_id')->references('id')->on('statuses');
 
+            $table->unsignedInteger('room_location_id')->nullable();
+            $table->foreign('room_location_id')->references('id')->on('room_locations');
+
             $table->timestamps();
             $table->softDeletes();
         });

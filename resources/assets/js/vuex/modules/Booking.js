@@ -17,7 +17,8 @@ export default {
             checkout: null,
             rooms: []
         },
-        talfi: 'aja',
+        room_locations: {},
+        room_categories: {},
     },
     actions: {
         setFilterDates({commit}, item) {
@@ -40,6 +41,24 @@ export default {
         },
         setRoomsWithResponsible({commit}, item) {
             commit('setRoomsWithResponsible', {list: item});
+        },
+        getLocations(context){
+            axios.get('api/admin/room_locations')
+                .then(response => {
+                    context.commit('getLocations', response.data.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        },
+        getCategories(context, room_location_id){
+            axios.get('api/admin/room_categories')
+                .then(response => {
+                    context.commit('getCategories', response.data.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         },
     },
     getters: {
@@ -124,6 +143,12 @@ export default {
             Vue.set(state.booking, 'personResponsible', list.personResponsible);
             Vue.set(state.booking, 'rooms', list.rooms);
             Vue.set(state.booking, 'comment', list.comment);
+        },
+        getLocations(state, payload){
+            state.room_locations = payload
+        },
+        getCategories(state, payload){
+            state.room_categories = payload
         }
     }
 }

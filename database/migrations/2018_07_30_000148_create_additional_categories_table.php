@@ -17,6 +17,9 @@ class CreateAdditionalCategoriesTable extends Migration
             $table->increments('id');
             $table->string('code', 10)->nullable()->default(null);
 
+            $table->unsignedInteger('room_location_id');
+            $table->foreign('room_location_id')->references('id')->on('room_locations');
+
             $table->unsignedInteger('status_id')->default(1);
             $table->foreign('status_id')->references('id')->on('statuses');
 

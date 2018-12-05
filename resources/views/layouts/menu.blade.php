@@ -131,3 +131,7 @@
     <a href="{!! route('admin.formDatas.index') !!}"><i class="fa fa-edit"></i><span>Form Datas</span></a>
 </li>
 
+<li class="{{ Request::is('roomLocations*') ? 'active' : '' }}">
+    <a href="{!! route('admin.roomLocations.index') !!}"><i class="fa fa-edit"></i><span>Room Locations</span></a>
+</li>
+

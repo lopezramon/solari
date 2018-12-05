@@ -67,5 +67,8 @@ php artisan infyom:api_scaffold User                               	--prefix=adm
 php artisan infyom:api_scaffold UserAddress                         --prefix=admin	--datatables=true	--fromTable --tableName=user_addresses                                     --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,tests,menu,dump-autoload
 #php artisan infyom:api_scaffold PasswordReset                      --prefix=admin	--datatables=true	--fromTable --tableName=password_resets                                    --skip=migration,model,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
 
-php artisan infyom:api_scaffold RequestCategoryTranslation            --prefix=admin	--datatables=true	--fromTable --tableName=request_category_translations                        --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
-php artisan infyom:api_scaffold RequestCategory                    --prefix=admin	--datatables=true	--fromTable --tableName=request_categories                                   --skip=migration,dump-autoload
+php artisan infyom:api_scaffold RequestCategoryTranslation            --prefix=admin    --datatables=true   --fromTable --tableName=request_category_translations                        --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold RequestCategory
+
+php artisan infyom:api_scaffold RoomLocationTranslation            --prefix=admin	--datatables=true	--fromTable --tableName=room_location_translations                        --skip=migration,controllers,api_controller,scaffold_controller,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload
+php artisan infyom:api_scaffold RoomLocation                    --prefix=admin	--datatables=true	--fromTable --tableName=room_locations                                   --skip=migration,dump-autoload

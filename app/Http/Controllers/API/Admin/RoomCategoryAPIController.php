@@ -36,6 +36,8 @@ class RoomCategoryAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
+        \Log::info($request->all());
+
         $this->roomCategoryRepository->pushCriteria(new RequestCriteria($request));
         $this->roomCategoryRepository->pushCriteria(new LimitOffsetCriteria($request));
         $roomCategories = $this->roomCategoryRepository->all();

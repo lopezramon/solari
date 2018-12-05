@@ -122,7 +122,7 @@ class BookingAPIController extends AppBaseController
                     'name' => 'Steven Sucre',
                     'email' => 'steven.sucre@jumperr.com',
                     'phone' => '+584269292922',
-                    'fiscalCode' => '12345678901234567890'
+                    'fiscalCode' => '12345678901234567890',
                     'userId' => null,
                 ],
                 'rooms' => [

@@ -17,6 +17,8 @@ Route::get('status', 'PaypalController@getPaymentStatus');
 
 Route::post('register', 'Auth\RegisterController@register');
 
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
 Route::middleware(['auth','hasrole:admin'])->group(function() {
 
 	Route::get('/home', 'HomeController@index')->name('home');
@@ -403,3 +405,16 @@ Route::patch('admin/lockedRooms/{lockedRooms}', ['as'=> 'admin.lockedRooms.updat
 Route::delete('admin/lockedRooms/{lockedRooms}', ['as'=> 'admin.lockedRooms.destroy', 'uses' => 'Admin\LockedRoomController@destroy']);
 Route::get('admin/lockedRooms/{lockedRooms}', ['as'=> 'admin.lockedRooms.show', 'uses' => 'Admin\LockedRoomController@show']);
 Route::get('admin/lockedRooms/{lockedRooms}/edit', ['as'=> 'admin.lockedRooms.edit', 'uses' => 'Admin\LockedRoomController@edit']);
+
+
+Route::get('admin/roomLocations', ['as'=> 'admin.roomLocations.index', 'uses' => 'Admin\RoomLocationController@index']);
+Route::post('admin/roomLocations', ['as'=> 'admin.roomLocations.store', 'uses' => 'Admin\RoomLocationController@store']);
+Route::get('admin/roomLocations/create', ['as'=> 'admin.roomLocations.create', 'uses' => 'Admin\RoomLocationController@create']);
+Route::put('admin/roomLocations/{roomLocations}', ['as'=> 'admin.roomLocations.update', 'uses' => 'Admin\RoomLocationController@update']);
+Route::patch('admin/roomLocations/{roomLocations}', ['as'=> 'admin.roomLocations.update', 'uses' => 'Admin\RoomLocationController@update']);
+Route::delete('admin/roomLocations/{roomLocations}', ['as'=> 'admin.roomLocations.destroy', 'uses' => 'Admin\RoomLocationController@destroy']);
+Route::get('admin/roomLocations/{roomLocations}', ['as'=> 'admin.roomLocations.show', 'uses' => 'Admin\RoomLocationController@show']);
+Route::get('admin/roomLocations/{roomLocations}/edit', ['as'=> 'admin.roomLocations.edit', 'uses' => 'Admin\RoomLocationController@edit']);
+
+
+//L

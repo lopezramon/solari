@@ -57,7 +57,7 @@ class RoomCategory extends Model
     use SoftDeletes;
 
     public $table = 'room_categories';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -67,7 +67,8 @@ class RoomCategory extends Model
 
     public $fillable = [
         'code',
-        'status_id'
+        'status_id',
+        'room_location_id',
     ];
 
     /**
@@ -87,7 +88,17 @@ class RoomCategory extends Model
      * @var array
      */
     public static $rules = [
-        
+
+    ];
+
+    /**
+     * Attributes to appends
+     *
+     * @var array
+     */
+    public $appends = [
+        'name',
+        'description',
     ];
 
     /**
@@ -112,5 +123,31 @@ class RoomCategory extends Model
     public function rooms()
     {
         return $this->hasMany(\App\Models\Admin\Room::class);
+    }
+
+    public function getNameAttribute()
+    {
+        if ($this->roomCategoryTranslations->count() == 0) {
+            return '';
+        }
+
+        $lang = Language::where('code', \Lang::locale())->first();
+        $trans = $this->roomCategoryTranslations()->where('language_id', optional($lang)->id);
+        $trans = $trans->count() > 0 ? $trans : $this->roomCategoryTranslations()->where('language_id', 1);
+
+        return $trans->first()->name;
+    }
+
+    public function getDescriptionAttribute()
+    {
+        if ($this->roomCategoryTranslations->count() == 0) {
+            return '';
+        }
+
+        $lang = Language::where('code', \Lang::locale())->first();
+        $trans = $this->roomCategoryTranslations()->where('language_id', optional($lang)->id);
+        $trans = $trans->count() > 0 ? $trans : $this->roomCategoryTranslations()->where('language_id', 1);
+
+        return $trans->first()->description;
     }
 }

@@ -161,7 +161,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Caffeinated\Shinobi\ShinobiServiceProvider::class,
-
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
     ],
 
     /*
