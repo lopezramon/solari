@@ -24,3 +24,11 @@ label.field-label {
 .form-control.form-material{
     padding: .375rem 0rem !important;
 }
+
+input[placeholder*="Check-in"],input[placeholder*="Check-out"]{
+    background-image: url('/images/iconos/calendar.svg');
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: right center;
+    background-origin: content-box;
+}
