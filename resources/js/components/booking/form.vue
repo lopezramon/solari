@@ -59,7 +59,7 @@
                                     <!-- <button type="button" @click.prevent="filterData()" class="btn btn-primary btn-lg btn-block text-uppercase">
                                         Cerca
                                     </button> -->
-                                    <a href="/booking" class="btn btn-primary btn-lg btn-block text-uppercase">
+                                    <a href="##" class="btn btn-primary btn-lg btn-block text-uppercase">
                                         Cerca
                                     </a>
                                     </div>
@@ -90,6 +90,7 @@
                 checkin:null,
                 checkout:null,
                 minCheckout: null,
+                locked_room: null,
             }
         },
         methods: {
@@ -136,6 +137,11 @@
         },
         mounted(){
             this.filtersData();
+            window.Echo.channel('room')
+                .listen('.roomAvailability', (e) => {
+                    console.log(e)
+                    this.locked_room = e.room.id
+                })
         },
         computed:{
             minDate(){
