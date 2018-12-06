@@ -1,7 +1,7 @@
 <template>
     <div>
         <div id="chisiamo"></div>
-        <section class="py-3 bg-white">
+        <section class="py-3 bg-theme">
             <div class="container">
                 <form class="form-booking">
                     <div class="row">
@@ -68,7 +68,7 @@
                                     <!-- <button type="button" @click.prevent="filterData()" class="btn btn-primary btn-lg btn-block text-uppercase">
                                         Cerca
                                     </button> -->
-                                    <a href="/booking" class="btn btn-primary btn-lg btn-block text-uppercase">
+                                    <a href="/booking" class="btn btn-primary btn-lg btn-block text-uppercase font-weight-bold">
                                         Cerca
                                     </a>
                                     </div>
@@ -143,6 +143,11 @@
 
 
 <style scoped>
+.bg-theme{
+    background-color: #cef9f1;
+}
+
+
 /* formulario booking */
 .form-booking .form-group, .form-control{
 	min-width: 100%;
@@ -198,10 +203,10 @@
     border-color: #2ac093;
 }
 .form-booking .btn-lg {
-    padding: .3rem 1rem;
+    padding: .4rem 1rem;
     font-size: 1.25rem;
     line-height: 1.2;
-    border-radius: 1rem;
+    border-radius: 4px;
 }
 .form-booking select.form-control {
 	text-align-last:left;
@@ -214,5 +219,4 @@
 		margin: 0;
 	}
 }
-
 </style>

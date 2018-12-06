@@ -10502,13 +10502,22 @@ label.field-label {
   padding: .375rem 0rem !important;
 }
 
+input[placeholder*="Check-in"],
+input[placeholder*="Check-out"] {
+  background-image: url("/images/iconos/calendar.svg");
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: right center;
+  background-origin: content-box;
+}
+
 .bg-black {
   background-color: #000;
 }
 
 .btn {
   padding: 0.175rem 1.75rem;
-  border-radius: 1.25rem;
+  border-radius: 4px;
 }
 
 .btn-primary {

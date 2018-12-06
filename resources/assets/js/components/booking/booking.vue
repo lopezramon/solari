@@ -3,7 +3,7 @@
         <header_booking/>
         <form_booking/>
         <div class="container my-4">
-            <div class="row my-5 shadow" v-for="(item, clave) in vacanza" :key="clave">
+            <div class="row my-5 bg-white py-3 shadow" v-for="(item, clave) in vacanza" :key="clave">
                 <div class="col-12 col-md-5">
                     <swiper :options="swiperOption">
                         <!-- slides -->
@@ -14,20 +14,25 @@
                     </swiper>
                 </div>
                 <div class="col-12 col-md-7">
-                    <h3>{{item.title}}</h3>
+                    <h3 class="title">{{item.title}}</h3>
+                    <p class="lead m-0">Budoni</p>
+                    <p class="lead m-0">Case Vacanza: <span>Villeta Stella Maris</span></p>
                     <p>{{item.description}}</p>
                     <p><strong>{{item.include}}</strong></p>
-                    <p>
-                        <span v-for="service in item.services" class="d-inline-block py-3 px-2">
-                            <img :src="service.ico" :alt="service.name" :title="service.name">
+                </div>
+                <div class="col-12">
+                    <div class="border-y-green my-2">
+                        <span v-for="service in item.services" class="tooltip d-inline-block py-3 px-3">
+                            <img :src="service.ico" :alt="service.name" :title="service.name" width="36">
                             {{service.info}}
+                            <span class="tooltiptext">Tooltip text</span>
                         </span>
+                    </div>
+                    
+                    <p class="lead text-right m-0">
+                        <strong class="info-price">Prezzo giorno: {{item.priceDay}} €</strong>
+                        <button class="btn btn-primary btn-lg mb-3 text-uppercase font-weight-bold">Prenota ora</button>
                     </p>
-                    <p class="info-price lead">
-                        <strong>Prezzo giorno: {{item.priceDay}} €</strong>
-                        <strong>Prezzo settimana: {{item.priceWeek}} €</strong>
-                    </p>
-                    <button class="btn btn-block btn-lg mb-3">VERIFICA DISPONIBILITÀ</button>
                 </div>
             </div>
 
@@ -66,41 +71,70 @@ export default {
                         description: `2+2 posti letto, 1 camera da letto, 1 bagno con box doccia, soggiorno con angolo cucina, giardino attrezzato per poter mangiare all'aperto. Dispone di WiFi, aria condizionata, Tv-Sat, lavatrice, barbecue, doccetta esterna, posto auto.`,
                         include: 'Consumi luce, acqua e gas inclusi.',
                         priceDay: 54,
-                        priceWeek: 377,
                         services:[
                             {
                                 name: 'camere',
-                                ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img/icon-bed.png',
+                                ico: '/images/iconos/services/010-single-bed.svg',
                                 info: '1',
                             },
                             {
                                 name: 'bagno',
-                                ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-bathroom.png',
+                                ico: '/images/iconos/services/019-deck.svg',
                                 info: '1',
                             },
                             {
                                 name: 'posti',
-                                ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-person.png',
+                                ico: '/images/iconos/services/036-washing-machine.svg',
                                 info: '2+1',
                             },
                             {
                                 name: 'Lavatrice',
-                                ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-dry.png',
+                                ico: '/images/iconos/services/040-parking.svg',
                                 info: '2+1',
                             },
                             {
                                 name: 'Climatizzata',
-                                ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-air.png',
+                                ico: '/images/iconos/services/043-wifi.svg',
                                 info: 'Si',
                             },
                             {
                                 name: 'Tv-Sat',
-                                ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-tv.png',
+                                ico: '/images/iconos/services/044-swimming-pool.svg',
                                 info: 'Si',
                             },
                             {
                                 name: 'Posto auto',
-                                ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-car.png',
+                                ico: '/images/iconos/services/045-air-conditioner.svg',
+                                info: 'Si',
+                            },
+                            {
+                                name: 'Posto auto',
+                                ico: '/images/iconos/services/050-bed.svg',
+                                info: 'Si',
+                            },
+                            {
+                                name: 'Posto auto',
+                                ico: '/images/iconos/services/046-single-bed.svg',
+                                info: 'Si',
+                            },
+                            {
+                                name: 'Posto auto',
+                                ico: '/images/iconos/services/091-beach-umbrella.svg',
+                                info: 'Si',
+                            },
+                            {
+                                name: 'Posto auto',
+                                ico: '/images/iconos/services/097-single-bed-1.svg',
+                                info: 'Si',
+                            },
+                            {
+                                name: 'Posto auto',
+                                ico: '/images/iconos/services/monitor.svg',
+                                info: 'Si',
+                            },
+                            {
+                                name: 'Posto auto',
+                                ico: '/images/iconos/services/120-washing-machine.svg',
                                 info: 'Si',
                             },
                         ],
@@ -123,37 +157,67 @@ export default {
                     services:[
                         {
                             name: 'camere',
-                            ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img/icon-bed.png',
+                            ico: '/images/iconos/services/010-single-bed.svg',
                             info: '1',
                         },
                         {
                             name: 'bagno',
-                            ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-bathroom.png',
+                            ico: '/images/iconos/services/019-deck.svg',
                             info: '1',
                         },
                         {
                             name: 'posti',
-                            ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-person.png',
+                            ico: '/images/iconos/services/036-washing-machine.svg',
                             info: '2+1',
                         },
                         {
                             name: 'Lavatrice',
-                            ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-dry.png',
+                            ico: '/images/iconos/services/040-parking.svg',
                             info: '2+1',
                         },
                         {
                             name: 'Climatizzata',
-                            ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-air.png',
+                            ico: '/images/iconos/services/043-wifi.svg',
                             info: 'Si',
                         },
                         {
                             name: 'Tv-Sat',
-                            ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-tv.png',
+                            ico: '/images/iconos/services/044-swimming-pool.svg',
                             info: 'Si',
                         },
                         {
                             name: 'Posto auto',
-                            ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-car.png',
+                            ico: '/images/iconos/services/045-air-conditioner.svg',
+                            info: 'Si',
+                        },
+                        {
+                            name: 'Posto auto',
+                            ico: '/images/iconos/services/050-bed.svg',
+                            info: 'Si',
+                        },
+                        {
+                            name: 'Posto auto',
+                            ico: '/images/iconos/services/046-single-bed.svg',
+                            info: 'Si',
+                        },
+                        {
+                            name: 'Posto auto',
+                            ico: '/images/iconos/services/091-beach-umbrella.svg',
+                            info: 'Si',
+                        },
+                        {
+                            name: 'Posto auto',
+                            ico: '/images/iconos/services/097-single-bed-1.svg',
+                            info: 'Si',
+                        },
+                        {
+                            name: 'Posto auto',
+                            ico: '/images/iconos/services/monitor.svg',
+                            info: 'Si',
+                        },
+                        {
+                            name: 'Posto auto',
+                            ico: '/images/iconos/services/120-washing-machine.svg',
                             info: 'Si',
                         },
                     ],
@@ -164,58 +228,7 @@ export default {
                         { url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/10-trilocale-4_thumb-list.jpg' },
                     ]
                 },
-                {
-                    id: 2,
-                    caseVacanza: 1,
-                    title: 'Quadrilocale con ampia veranda vista mare e Minipiscina Idromassaggio, WiFi e aria condizionata',
-                    description: `6+2 posti letto, 3 camere da letto + soppalco, 2 bagni con box doccia, ampio soggiorno, cucina e spaziose verande attrezzate e abitabili per poter mangiare all'aperto, Minipiscina Idromassaggio esterna, Solarium, giardino posteriore. Dispone di WiFi, aria condizionata, Tv-Sat, lavatrice, lavastoviglie, barbecue, doccetta esterna, posti auto.`,
-                    include: 'Consumi luce, acqua e gas inclusi.',
-                    priceDay: 85,
-                    priceWeek: 597,
-                    services:[
-                        {
-                            name: 'camere',
-                            ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img/icon-bed.png',
-                            info: '1',
-                        },
-                        {
-                            name: 'bagno',
-                            ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-bathroom.png',
-                            info: '1',
-                        },
-                        {
-                            name: 'posti',
-                            ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-person.png',
-                            info: '2+1',
-                        },
-                        {
-                            name: 'Lavatrice',
-                            ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-dry.png',
-                            info: '2+1',
-                        },
-                        {
-                            name: 'Climatizzata',
-                            ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-air.png',
-                            info: 'Si',
-                        },
-                        {
-                            name: 'Tv-Sat',
-                            ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-tv.png',
-                            info: 'Si',
-                        },
-                        {
-                            name: 'Posto auto',
-                            ico: 'https://www.solariavacanze.com/wp-content/themes/my-dms-hotel/sections/my-vendor-detail/img//icon-car.png',
-                            info: 'Si',
-                        },
-                    ],
-                    gallery: [
-                        { url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/11-quadrilocale-con-ampia-veranda-vista-mare-wifi-e-aria-condizionata--64_thumb-list.jpg' },
-                        { url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/11-quadrilocale-con-giardino-e-veranda-vista-mare-rif--l--6_thumb-list.jpg' },
-                        { url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/11-quadrilocale-con-ampia-veranda-vista-mare-e-minipiscina-idromassaggio-wifi-e-aria-condizionata--60_thumb-list.jpg' },
-                        { url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/11-quadrilocale-con-giardino-e-veranda-vista-mare-rif--l--17_thumb-list.jpg' },
-                    ],
-                }
+               
             ],
             swiperOption: {},
         }
@@ -227,4 +240,58 @@ export default {
     }
 }
 </script>
+<style scoped>
+ .border-y-green{
+     border-top: 1px solid #21b186;
+     border-bottom: 1px solid #21b186;
+ }
+ .info-price{
+     vertical-align: top;
+     font-size: 1.6rem;
+     font-weight: bold;
+ }
+ h3.title{
+     color: #21b186;
+ }
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+</style>
 
