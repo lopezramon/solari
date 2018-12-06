@@ -1,15 +1,6 @@
 <template>
     <div>
         <div class="content-nav">
-            <!-- <aside class="top-info d-none d-md-block bg-black">
-                    <div class="container header-black">
-                        <div class="row">
-                            <div class="col-6 py-2"><a href="https://goo.gl/maps/V6ZaLt3XSM22" target="_black ">Via Giovanni XXIII, 7 – 08020 BUDONI (OT)</a></div>
-                            <div class="col-6 text-right py-2">
-                                <a href="tel:+393408831917">+39 3408831917</a> | <a href="mailto:booking@solariavacanze.com">booking@solariavacanze.com</a> <img src="/images/iconos/facebook-logo.svg" alt="facebook" width="27"> <img src="/images/iconos/instagram-logo.svg" alt="instagram" width="27"></div>
-                        </div>
-                    </div>
-            </aside> -->
 
             <div class="container">
                 <nav class="navbar navbar-expand-md py-md-2 text-uppercase sticky-top">
@@ -21,19 +12,17 @@
                     </a>
 
                     <div class="action-menu ml-auto ml-md-0 order-md-12 d-inline-flex align-items-center">
-                        <!-- <a href="#" class="font-1 pr-1 mr-1 d-inline-flex align-items-center">
-                        <img src="/images/iconos/instagram-logo.svg" alt="instagram" width="28">
-                        </a> -->
-                        <a href="#" class="font-1 pr-1 mr-1 d-inline-flex align-items-center" data-toggle="modal" data-target="#exampleModal">
-                            <img src="/images/iconos/shared.png" alt="facebook" width="22">
-                        </a>
-                        <a href="#" class="font-1 d-inline-flex align-items-center">
+                        <a href="#" class="font-1 d-inline-block border-left pl-2 ml-2 py-1">
                             <img src="/images/iconos/earth-grid-symbol.png" alt="facebook" width="24"> 
                             &nbsp;<span class="text-uppercase">{{ lang }}</span>
                         </a>
+                        <a :href="GetRoute" class="font-1 d-inline-block align-items-center border-left pl-2 ml-2 py-1">
+                                <span v-if="isAuth"><img src="/images/iconos/logout.svg" alt="login" width="26"></span>
+                                <span v-else><img src="/images/iconos/user.svg" alt="login" width="26"></span>                            
+                        </a>
                     </div>
 
-                    <div class="navbar-collapse collapse justify-content-center" id="navbarNav">
+                    <div class="navbar-collapse collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav text-center">
                             <li class="nav-item py-md-2">
                             <router-link to="/#chisiamo" @click.native="scrollFix('#chisiamo')" class="nav-item nav-link" exact>
@@ -59,12 +48,6 @@
                             <router-link to="/contactUs" class="nav-item nav-link" exact>
                                 contatti
                             </router-link>
-                            </li>
-                            <li class="nav-item py-md-2">
-                                <a :href="GetRoute" class="nav-link">
-                                    <span v-if="isAuth">Il mio account</span>
-                                    <span v-else>Accedi al tuo account</span>
-                                </a>
                             </li>
                         </ul>
                     </div>
@@ -123,7 +106,7 @@ methods: {
         left: 0;
         z-index: 1030;
         width: 100%;
-        background-color: rgba(57, 115, 152, 0.58);
+        background-color: #fff;
     }
     .top-info {
         font-family: 'Josefin Sans', sans-serif;
@@ -160,9 +143,9 @@ methods: {
         border-color: rgba(255, 255, 255, 0);
     }
     .navbar-nav .nav-link {
-        color: #ffd900;
+        color: #000;
     }
-    .navbar-nav .nav-link:hover {
+    .navbar-nav .nav-link:hover, .router-link-active {
         color: #d7392c;
         font-weight: bold;
     }
