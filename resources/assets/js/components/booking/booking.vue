@@ -22,8 +22,8 @@
                 </div>
                 <div class="col-12">
                     <div class="border-y-green my-2">
-                        <span v-for="service in item.services" class="tooltip d-inline-block py-3 px-3">
-                            <img :src="service.ico" :alt="service.name" :title="service.name" width="36">
+                        <span v-for="service in item.services" class="tooltip py-3 px-3">
+                            <img :src="service.ico" :alt="service.name" width="36">
                             {{service.info}}
                             <span class="tooltiptext">Tooltip text</span>
                         </span>
@@ -258,20 +258,19 @@ export default {
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
 }
 
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
-    background-color: #555;
+    background-color: #21b186;
     color: #fff;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
+    bottom: 90%;
     left: 50%;
     margin-left: -60px;
     opacity: 1;
@@ -286,12 +285,17 @@ export default {
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: #555 transparent transparent transparent;
+    border-color: #21b186 transparent transparent transparent;
 }
 
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
 }
+
+.tooltip {
+    opacity: 1;
+}
+
 </style>
 
