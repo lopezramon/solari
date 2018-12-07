@@ -2,6 +2,7 @@
     <div>
         <header_booking/>
         <form_booking/>
+        <wizard/>
         <div class="container my-4">
             <div class="row my-5 bg-white py-3 shadow" v-for="(item, clave) in vacanza" :key="clave">
                 <div class="col-12 col-md-5">
@@ -29,13 +30,16 @@
                         </span>
                     </div>
                     
-                    <p class="lead text-right m-0">
+                    <p class="lead text-right m-0" >
                         <strong class="info-price">Prezzo giorno: {{item.priceDay}} €</strong>
-                        <button class="btn btn-primary btn-lg mb-3 text-uppercase font-weight-bold">Prenota ora</button>
+                        <button v-if="activo"class="btn btn-primary btn-lg mb-3 text-uppercase font-weight-bold">Prenota ora</button>
+                        <button v-if="!activo"class="btn btn-secondary btn-lg mb-3 text-uppercase font-weight-bold">Prenota ora</button>
                     </p>
                 </div>
             </div>
-
+                <div class="text-right">
+                    <button class="btn btn-primary btn-lg mb-3 text-uppercase font-weight-bold">Continuare</button>
+                </div>
         </div>
 
     </div>
@@ -46,6 +50,7 @@ export default {
         return {
             disabledActivo: false,
             terminos:false,
+            activo:false,
             vacanza: [
                 {
                         id: 1,
@@ -278,6 +283,10 @@ export default {
 
 .tooltip {
     opacity: 1;
+}
+.btn-secondary{
+    background-color: #f1832b;
+    border-color: #f1832b;
 }
 
 </style>

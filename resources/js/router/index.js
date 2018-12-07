@@ -93,6 +93,7 @@ import resumen from '../components/booking/resumen';
 import Summary from '../components/booking/Summary';
 import rooms from '../components/booking/rooms';
 import booking from '../components/booking/booking';
+import wizard from '../components/booking/wizard'
 
 // My account
 import delate_account from '../components/myaccount/delate_account';
@@ -113,6 +114,9 @@ import itemFilter from '../components/esperience/itemFilter.vue';
 // Vacanze
 import vacanzeContainer from '../components/vacanze/container.vue';
 import photoGallery from '../components/vacanze/photoGallery.vue';
+
+
+
 
 /*
  * Components
@@ -154,7 +158,7 @@ Vue.component('modal_share', modalShare);
 Vue.component('item_filter', itemFilter);
 Vue.component('information', information);
 Vue.component('photo_gallery',photoGallery);
-
+Vue.component('wizard', wizard);
 
 
 // Routes
