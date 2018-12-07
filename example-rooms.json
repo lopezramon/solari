@@ -1,0 +1,181 @@
+[
+  {
+    "id": 1,
+    "idCaseVacanza": 1,
+    "title": "Bilocale con giardino vista mare, WiFi, aria condizionata",
+    "description": "2+2 posti letto, 1 camera da letto, 1 bagno con box doccia, soggiorno con angolo cucina, giardino attrezzato per poter mangiare all'aperto. Dispone di WiFi, aria condizionata, Tv-Sat, lavatrice, barbecue, doccetta esterna, posto auto.",
+    "include": "Consumi luce, acqua e gas inclusi.",
+    "priceDay": 54,
+    "services": [
+      {
+        "name": "camere",
+        "ico": "/images/iconos/services/010-single-bed.svg",
+        "info": "1"
+      },
+      {
+        "name": "bagno",
+        "ico": "/images/iconos/services/019-deck.svg",
+        "info": "1"
+      },
+      {
+        "name": "posti",
+        "ico": "/images/iconos/services/036-washing-machine.svg",
+        "info": "2+1"
+      },
+      {
+        "name": "Lavatrice",
+        "ico": "/images/iconos/services/040-parking.svg",
+        "info": "2+1"
+      },
+      {
+        "name": "Climatizzata",
+        "ico": "/images/iconos/services/043-wifi.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Tv-Sat",
+        "ico": "/images/iconos/services/044-swimming-pool.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Posto auto",
+        "ico": "/images/iconos/services/045-air-conditioner.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Posto auto",
+        "ico": "/images/iconos/services/050-bed.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Posto auto",
+        "ico": "/images/iconos/services/046-single-bed.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Posto auto",
+        "ico": "/images/iconos/services/091-beach-umbrella.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Posto auto",
+        "ico": "/images/iconos/services/097-single-bed-1.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Posto auto",
+        "ico": "/images/iconos/services/monitor.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Posto auto",
+        "ico": "/images/iconos/services/120-washing-machine.svg",
+        "info": "Si"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-con-giardino-vista-mare-wifi-aria-condizionata-16_thumb-list.jpg"
+      },
+      {
+        "url": "https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-7_thumb-list.jpg"
+      },
+      {
+        "url": "https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-8_thumb-list.jpg"
+      },
+      {
+        "url": "https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-5_thumb-list.jpg"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "caseVacanza": 1,
+    "title": "Trilocale con terrazza vista mare , WiFi e aria condizionata",
+    "description": "4+1 posti letto, 2 camere da letto, 1 bagno con box doccia, soggiorno con angolo cucina, terrazza attrezzata e abitabile per poter mangiare all'aperto. Dispone di WiFi, aria condizionata, Tv-Sat, lavatrice, doccetta esterna, posto auto.",
+    "include": "Consumi luce, acqua e gas inclusi.",
+    "priceDay": 54,
+    "priceWeek": 377,
+    "services": [
+      {
+        "name": "camere",
+        "ico": "/images/iconos/services/010-single-bed.svg",
+        "info": "1"
+      },
+      {
+        "name": "bagno",
+        "ico": "/images/iconos/services/019-deck.svg",
+        "info": "1"
+      },
+      {
+        "name": "posti",
+        "ico": "/images/iconos/services/036-washing-machine.svg",
+        "info": "2+1"
+      },
+      {
+        "name": "Lavatrice",
+        "ico": "/images/iconos/services/040-parking.svg",
+        "info": "2+1"
+      },
+      {
+        "name": "Climatizzata",
+        "ico": "/images/iconos/services/043-wifi.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Tv-Sat",
+        "ico": "/images/iconos/services/044-swimming-pool.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Posto auto",
+        "ico": "/images/iconos/services/045-air-conditioner.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Posto auto",
+        "ico": "/images/iconos/services/050-bed.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Posto auto",
+        "ico": "/images/iconos/services/046-single-bed.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Posto auto",
+        "ico": "/images/iconos/services/091-beach-umbrella.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Posto auto",
+        "ico": "/images/iconos/services/097-single-bed-1.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Posto auto",
+        "ico": "/images/iconos/services/monitor.svg",
+        "info": "Si"
+      },
+      {
+        "name": "Posto auto",
+        "ico": "/images/iconos/services/120-washing-machine.svg",
+        "info": "Si"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/10-trilocale-9_thumb-list.jpg"
+      },
+      {
+        "url": "https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/10-trilocale-con-terrazza-vista-mare-wifi-e-aria-condizionata-14_thumb-list.jpg"
+      },
+      {
+        "url": "https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/10-trilocale-1_thumb-list.jpg"
+      },
+      {
+        "url": "https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/10-trilocale-4_thumb-list.jpg"
+      }
+    ]
+  }
+]

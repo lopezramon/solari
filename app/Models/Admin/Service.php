@@ -74,6 +74,11 @@ class Service extends Model
         'status_id'
     ];
 
+    protected $appends = [
+        'name',
+        'description'
+    ];
+
     /**
      * The attributes that should be casted to native types.
      *
@@ -136,8 +141,30 @@ class Service extends Model
     public function serviceTranslation()
     {
         $language = Language::where('code', \App::getLocale())->first();
-        return $this->serviceTranslations->filter(function($serviceTranslation) use($language){
-            return $serviceTranslation->language_id == $language->id;
-        })->first();
+
+        $trans = $this->serviceTranslations()->where( 'language_id', $language->id )->first();;
+
+        return $trans;
     }
+
+    /**
+     * Get the name in the given translation (Accessor).
+     *
+     * @return string
+     */
+    public function getNameAttribute()
+    {
+        return $this->serviceTranslation()->name;
+    }
+
+    /**
+     * Get the description in the given translation (Accessor).
+     *
+     * @return string
+     */
+    public function getDescriptionAttribute()
+    {
+        return $this->serviceTranslation()->description;
+    }
+
 }

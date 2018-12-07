@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="container my-4">
-            <div class="row my-5 bg-white py-3 shadow" v-for="(item, clave) in rooms" :key="clave">
+            <div class="row my-5 bg-white py-3 shadow" v-for="(item, clave) in roomsPrueba" :key="clave">
                 <div class="col-12 col-md-5">
                     <swiper :options="swiperOption">
                         &lt;!&ndash; slides &ndash;&gt;
@@ -16,7 +16,7 @@
                     <p class="lead m-0">Budoni</p>
                     <p class="lead m-0">Case Vacanza: <span>Villeta Stella Maris</span></p>
                     <p>{{item.description}}</p>
-                    <p><strong>{{item.include}}</strong></p>
+                    <p><strong>{{item.Included}}</strong></p>
                 </div>
                 <div class="col-12">
                     <div class="border-y-green my-2">
@@ -104,7 +104,7 @@
                         id: 1,
                         title: 'Bilocale con giardino vista mare, WiFi, aria condizionata',
                         description: `2+2 posti letto, 1 camera da letto, 1 bagno con box doccia, soggiorno con angolo cucina, giardino attrezzato per poter mangiare all'aperto. Dispone di WiFi, aria condizionata, Tv-Sat, lavatrice, barbecue, doccetta esterna, posto auto.`,
-                        include: 'Consumi luce, acqua e gas inclusi.',
+                        Included: 'Consumi luce, acqua e gas inclusi.',
                         price: 40,
                         room_category_id: 1,
                         availability: 1,
