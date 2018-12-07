@@ -58,18 +58,6 @@ class RoomAPIController extends AppBaseController
         $checkin = $input['checkin'];
         $checkout = $input['checkout'];
 
-        // $unavailableBookingDetailRooms = $this->bookingDetailRepository->findUnavailableBookingDetailRoomsInRange($checkin, $checkout);
-
-        // // dd( $unavailableBookingDetailRooms );
-
-        // $unavailableLockedRoomRooms = $this->lockedRoomRepository->findUnavailableLockedRoomRoomsInRange($checkin, $checkout);
-
-        // // dd( $availableLockedRoomRooms );
-
-        // $unavailableRooms = array_unique( array_merge($unavailableBookingDetailRooms, $unavailableLockedRoomRooms) );
-
-        // // dd( $unavailableRooms );
-
         // ////////////////////////////
         // //////////////////////////
         // ////////////////////////
@@ -87,20 +75,18 @@ class RoomAPIController extends AppBaseController
                 ['checkin_date',    '>', $start_range_],
                 ['checkout_date',   '<', $end_range_],
 
-                # PENDIENTE que este valor (3) sea administrable
+                # PENDIENTE que este valor (5) sea administrable
                 ['locked_at',       '>', Carbon::now()->subMinutes(5)] // se buscan solo las rooms cuyo locked_at sea mayor a hace cinco minutos
             ]);
         });
 
         $unavailableRooms = array_unique( array_merge($unavailableBookingDetailRooms, $unavailableLockedRoomRooms) );
 
-        // dd( $unavailableRooms );
-
         // ////////////////////////
         // //////////////////////////
         // ////////////////////////////
 
-        $rooms = $this->roomRepository->getCustomized(null, $input, $unavailableRooms);
+        $rooms = $this->roomRepository->getCustomized($input, $unavailableRooms);
 
         return $this->sendResponse(['rooms' => $rooms], 'Rooms retrieved successfully');
     }
