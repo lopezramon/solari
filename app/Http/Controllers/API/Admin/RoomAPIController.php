@@ -44,7 +44,7 @@ class RoomAPIController extends AppBaseController
     /**
      * Display a listing of the Room.
      * POST /rooms
-     * @see http://localhost:8011/api/admin/rooms?checkin=2018-11-10&checkout=2018-11-25
+     * @see http://localhost:8011/api/admin/rooms?checkin=2018-12-10&checkout=2018-12-25
      *
      * @param Request $request
      * @return Response
