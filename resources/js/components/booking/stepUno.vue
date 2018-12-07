@@ -11,7 +11,7 @@
                 <div class="col-12 col-lg-3">
                     <!--<form_consulta/>-->
 
-                    <summary-booking/>
+                    <!--<summary-booking/>-->
 
                     <div class="form-group">
                         <input id="terms" v-model="terms" type="checkbox" name="terms" required>
@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="text-center">
-                        <button type="button" @click.prevent="nextStep()" :disabled="!terms" class="btn btn-primary ">
+                        <button type="button" @click.prevent="nextStep()" :disabled="!terms" class="btn btn-primary">
                             <span class="text-uppercase font-weight-bold">Next step</span>
                         </button>
                     </div>
@@ -38,9 +38,8 @@
         },
         beforeMount() {
             let dataFilter = this.$store.getters.getFilter;
-            if (dataFilter.checkin == null || dataFilter.checkout == null) {
-                this.$router.push('/');
-            }
+
+            if (dataFilter.checkin == null || dataFilter.checkout == null) this.$router.push('/');
         },
         methods: {
             nextStep() {

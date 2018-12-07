@@ -38,24 +38,24 @@ class RoomCategorySeeder extends Seeder
         // Budoni(id) => 1
         // Loddui(id) => 2
 
-        DB::table('RoomCategory')->insert(
+        DB::table('room_categories')->insert(
         //RoomCategory.id => 1
         [
                 'status_id'             => 1,
                 'room_location_id'      => 1
         ]);
-        DB::table('RoomCategoryTranslation')->insert(
+        DB::table('room_category_translations')->insert(
             [
                 'room_category_id'      => 1, //incremental
                 'language_id'           => 1, //Italiano
                 'name'                  => 'Villetta Stella Maris',
-                'description'           => 'Immersa in un ridente giardino adornato da ulivi e melograni, la Villetta Stella Maris è pensata per chi cerca relax, tranquillità e privacy.Dotata di tutti i comfort e arredata con cura e passione nei minimi dettagli per far sentire gli ospiti amati e coccolati.A un passo dal centro di Budoni e poco distante dalla meravigliosa spiaggia Salamaghe, è la soluzione ideale per scoprire che ''casa'' è ovunque portiamo il cuore e la famiglia.'
+                'description'           => 'Immersa in un ridente giardino adornato da ulivi e melograni, la Villetta Stella Maris è pensata per chi cerca relax, tranquillità e privacy.Dotata di tutti i comfort e arredata con cura e passione nei minimi dettagli per far sentire gli ospiti amati e coccolati.A un passo dal centro di Budoni e poco distante dalla meravigliosa spiaggia Salamaghe, è la soluzione ideale per scoprire che "casa" è ovunque portiamo il cuore e la famiglia.'
             ],
             [
                 'room_category_id'      => 1, //incremental
                 'language_id'           => 2, //English
                 'name'                  => 'Stella Maris small villa',
-                'description'           => 'Immersed in a lovely garden decorated with olive and pomegranate trees, Villetta Stella Maris is designed for those seeking relaxation, tranquility and privacy. Equipped with all the comforts and furnished with care and passion down to the smallest details, all to make guests feel loved and pampered. Just a short step from the centre of Budoni and not far from the wonderful Salamaghe beach, it\'s the ideal solution to discover that ''home'' is wherever we bring our hearts and family.'
+                'description'           => 'Immersed in a lovely garden decorated with olive and pomegranate trees, Villetta Stella Maris is designed for those seeking relaxation, tranquility and privacy. Equipped with all the comforts and furnished with care and passion down to the smallest details, all to make guests feel loved and pampered. Just a short step from the centre of Budoni and not far from the wonderful Salamaghe beach, it\'s the ideal solution to discover that "home" is wherever we bring our hearts and family.'
             ],
             [
                 'room_category_id'      => 1, //incremental
@@ -65,17 +65,17 @@ class RoomCategorySeeder extends Seeder
             ]
         );
         //RoomCategory.id => 2
-        DB::table('RoomCategory')->insert(
+        DB::table('room_categories')->insert(
         [
             'status_id'             => 1,
             'room_location_id'      => 1
         ]);
-        DB::table('RoomCategoryTranslation')->insert(
+        DB::table('room_category_translations')->insert(
             [
                 'room_category_id'      => 2, //incremental
                 'language_id'           => 1, //Italiano
                 'name'                  => 'Residence Solaria',
-                'description'           => 'Immersa in un ridente giardino adornato da ulivi e melograni, la Villetta Stella Maris è pensata per chi cerca relax, tranquillità e privacy. Dotata di tutti i comfort e arredata con cura e passione nei minimi dettagli per far sentire gli ospiti amati e coccolati. A un passo dal centro di Budoni e poco distante dalla meravigliosa spiaggia Salamaghe, è la soluzione ideale per scoprire che ''casa'' è ovunque portiamo il cuore e la famiglia.'
+                'description'           => 'Immersa in un ridente giardino adornato da ulivi e melograni, la Villetta Stella Maris è pensata per chi cerca relax, tranquillità e privacy. Dotata di tutti i comfort e arredata con cura e passione nei minimi dettagli per far sentire gli ospiti amati e coccolati. A un passo dal centro di Budoni e poco distante dalla meravigliosa spiaggia Salamaghe, è la soluzione ideale per scoprire che "casa" è ovunque portiamo il cuore e la famiglia.'
             ],
             [
                 'room_category_id'      => 2, //incremental
@@ -91,17 +91,17 @@ class RoomCategorySeeder extends Seeder
             ]
         );
         //RoomCategory.id => 3
-        DB::table('RoomCategory')->insert(
+        DB::table('room_categories')->insert(
         [
             'status_id'             => 1,
             'room_location_id'      => 1
         ]);
-        DB::table('RoomCategoryTranslation')->insert(
+        DB::table('room_category_translations')->insert(
             [
                 'room_category_id'      => 3, //incremental
                 'language_id'           => 1, //Italiano
                 'name'                  => 'Villetta Bouganville',
-                'description'           => 'Immersa in un ridente giardino adornato da ulivi e melograni, la Villetta Stella Maris è pensata per chi cerca relax, tranquillità e privacy. Dotata di tutti i comfort e arredata con cura e passione nei minimi dettagli per far sentire gli ospiti amati e coccolati. A un passo dal centro di Budoni e poco distante dalla meravigliosa spiaggia Salamaghe, è la soluzione ideale per scoprire che ''casa'' è ovunque portiamo il cuore e la famiglia.'
+                'description'           => 'Immersa in un ridente giardino adornato da ulivi e melograni, la Villetta Stella Maris è pensata per chi cerca relax, tranquillità e privacy. Dotata di tutti i comfort e arredata con cura e passione nei minimi dettagli per far sentire gli ospiti amati e coccolati. A un passo dal centro di Budoni e poco distante dalla meravigliosa spiaggia Salamaghe, è la soluzione ideale per scoprire che "casa" è ovunque portiamo il cuore e la famiglia.'
             ],
             [
                 'room_category_id'      => 3, //incremental
@@ -117,12 +117,12 @@ class RoomCategorySeeder extends Seeder
             ]
         );
         //RoomCategory.id => 4
-        DB::table('RoomCategory')->insert(
+        DB::table('room_categories')->insert(
         [
             'status_id'             => 1,
             'room_location_id'      => 1
         ]);
-        DB::table('RoomCategoryTranslation')->insert(
+        DB::table('room_category_translations')->insert(
             [
                 'room_category_id'      => 4, //incremental
                 'language_id'           => 1, //Italiano
@@ -143,12 +143,12 @@ class RoomCategorySeeder extends Seeder
             ]
         );
         //RoomCategory.id => 5
-        DB::table('RoomCategory')->insert(
+        DB::table('room_categories')->insert(
         [
             'status_id'             => 1,
             'room_location_id'      => 2
         ]);
-        DB::table('RoomCategoryTranslation')->insert(
+        DB::table('room_category_translations')->insert(
             [
                 'room_category_id'      => 5, //incremental
                 'language_id'           => 1, //Italiano

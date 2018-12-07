@@ -3,7 +3,7 @@
         <div class="content-nav">
 
             <div class="container">
-                <nav class="navbar navbar-expand-md py-md-2 text-uppercase sticky-top">
+                <nav class="navbar navbar-expand-md py-md-2 text-uppercase">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-ellipsis-v"></i>
                     </button>
@@ -101,7 +101,7 @@ methods: {
 
 <style scoped>
     .content-nav{
-        position: absolute;
+        position: relative;
         top: 0;
         left: 0;
         z-index: 1030;
