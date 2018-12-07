@@ -142,11 +142,7 @@
         },
         mounted(){
             this.filtersData();
-            window.Echo.channel('room')
-                .listen('.roomAvailability', (e) => {
-                    console.log(e)
-                    this.locked_room = e.room.id
-                })
+
         },
         computed:{
             minDate(){

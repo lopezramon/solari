@@ -205,3 +205,29 @@ Route::get('admin/room_locations/{room_locations}', 'Admin\RoomLocationAPIContro
 Route::put('admin/room_locations/{room_locations}', 'Admin\RoomLocationAPIController@update');
 Route::patch('admin/room_locations/{room_locations}', 'Admin\RoomLocationAPIController@update');
 Route::delete('admin/room_locations/{room_locations}', 'Admin\RoomLocationAPIController@destroy');
+
+
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('login', 'API\Auth\AuthAPIController@login');
+    Route::post('signup', 'API\Auth\AuthAPIController@signup');
+    Route::get('signup/activate/{token}', 'API\Auth\AuthAPIController@signupActivate');
+
+    Route::group(['middleware' => 'auth:api'], function() {
+        Route::post('logout', 'API\Auth\AuthAPIController@logout');
+        Route::get('user', 'API\Auth\AuthAPIController@user');
+    });
+});
+
+
+Route::group(['namespace' => 'Auth', 'middleware' => 'auth:api', 'prefix' => 'password'], function () {
+    /* Envia correo con el token para el cambio de clave */
+    Route::post('send/reset', 'PasswordResetAPIController@create');
+    Route::get('find/{token}', 'PasswordResetAPIController@find');
+    Route::post('reset', 'PasswordResetAPIController@reset');
+});
