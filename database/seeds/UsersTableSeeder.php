@@ -17,43 +17,49 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Admin',
                 'lastname' => 'Admin',
                 'email' => 'admin@backoffice.com',
-		        'password' => Hash::make('12345678'),
-		        'remember_token' => str_random(10),
+                'password' => Hash::make('12345678'),
+                'activation_token' => str_random(60),
+                'active' => 1,
             ],
             [
                 'name' => 'Steven',
                 'lastname' => 'Sucre',
                 'email' => 'steven.sucre@jumperr.com',
                 'password' => Hash::make('12345678'),
-                'remember_token' => str_random(10),
+                'activation_token' => str_random(60),
+                'active' => 1,
             ],
             [
                 'name' => 'Erick',
                 'lastname' => 'Perez',
                 'email' => 'erick.perez@jumperr.com',
                 'password' => Hash::make('12345678'),
-                'remember_token' => str_random(10),
+                'activation_token' => str_random(60),
+                'active' => 1,
             ],
             [
                 'name' => 'Euglis',
                 'lastname' => 'Lopez',
                 'email' => 'euglis.lopez@jumperr.com',
                 'password' => Hash::make('12345678'),
-                'remember_token' => str_random(10),
+                'activation_token' => str_random(60),
+                'active' => 1,
             ],
             [
-                'name' => 'Francisco',
-                'lastname' => 'Hernandez',
-                'email' => 'francisco.hernandez@jumperr.com',
+                'name' => 'Paola',
+                'lastname' => 'Colina',
+                'email' => 'paola.colina@jumperr.com',
                 'password' => Hash::make('12345678'),
-                'remember_token' => str_random(10),
+                'activation_token' => str_random(60),
+                'active' => 1,
             ],
             [
                 'name' => 'Leonel',
                 'lastname' => 'Castellano',
                 'email' => 'leonel.castellano@jumperr.com',
                 'password' => Hash::make('12345678'),
-                'remember_token' => str_random(10),
+                'activation_token' => str_random(60),
+                'active' => 1,
             ],
         ]);
 
@@ -92,6 +98,10 @@ class UsersTableSeeder extends Seeder
             [
                 'role_id' => 3,
                 'user_id' => 2
+            ],
+            [
+                'role_id' => 1,
+                'user_id' => 3
             ],
             [
                 'role_id' => 3,
