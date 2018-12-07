@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-12">
                     <div class="border-y-green my-2">
-                        <span v-for="service in item.services" class="tooltip py-3 px-3">
+                        <span v-for="(service, index) in item.services" :key="index" class="tooltip py-3 px-3">
                             <img :src="service.ico" :alt="service.name" width="36">
                             {{service.info}}
                             <span class="tooltiptext">Tooltip text</span>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-12">
                     <div class="border-y-green my-2">
-                        <span v-for="service in item.services" class="tooltip py-3 px-3">
+                        <span v-for="(service, id) in item.services" :key="id" class="tooltip py-3 px-3">
                             <img :src="service.ico" :alt="service.name" width="36">
                             {{service.info}}
                             <span class="tooltiptext">Tooltip text</span>

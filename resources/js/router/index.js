@@ -95,6 +95,9 @@ import rooms from '../components/booking/rooms';
 import booking from '../components/booking/booking';
 import booking2 from '../components/booking/booking2';
 import boxDataBooking from '../components/booking/boxDataBooking';
+import boxDataBookingPersonal from '../components/booking/boxDataBookingPersonal';
+import boxDataBookingComentario from '../components/booking/boxDataBookingComentario';
+import boxDataBookingInfo  from '../components/booking/boxDataBookingInfo';
 
 // My account
 import delate_account from '../components/myaccount/delate_account';
@@ -157,6 +160,9 @@ Vue.component('item_filter', itemFilter);
 Vue.component('information', information);
 Vue.component('photo_gallery',photoGallery);
 Vue.component('box_data_booking',boxDataBooking);
+Vue.component('box_data_booking_personal',boxDataBookingPersonal);
+Vue.component('box_data_booking_comentario',boxDataBookingComentario);
+Vue.component('box_data_booking_info',boxDataBookingInfo);
 
 
 

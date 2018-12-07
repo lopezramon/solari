@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div class="card">
-            <div class="card-header">
+        <div class="card my-2">
+            <div class="card-header lead text-white font-weight-bold">
                 Inserisci i tuoi dati
             </div>
             <div class="card-body">
-               <form class="needs-validation" novalidate>
+               <form>
                     <div class="form-row">
                         <div class="col-12 col-md-6 mb-3">
                             <label for="name">Nome</label>
@@ -27,11 +27,14 @@
                             <label for="dni">Codice fiscale</label>
                             <input type="text" class="form-control" id="dni" value="">
                         </div>
+                        <div class="col-12 col-md-6 mb-3 text-right">
+                            <label class="d-block" for="dni">Vuoi registrarti</label>
+                            <label class="switch m-0">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
                     </div>
-                    <label class="switch">
-                        <input type="checkbox" checked>
-                        <span class="slider round"></span>
-                    </label>
                     <div class="form-row">
                         <div class="col-12 col-md-6 mb-3">
                             <label for="password">Password</label>
@@ -49,7 +52,6 @@
 </template>
 <script>
 export default {
-    props: ['mensaje'],
     data() {
         return {
 
@@ -59,19 +61,24 @@ export default {
 </script>
 
 <style scoped>
+.card{
+    border-radius: 0rem;
+}
+.card-header{
+    background-color: #21b186;
+    border-radius: 0rem;
+}
 .switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
-
 .switch input { 
   opacity: 0;
   width: 0;
   height: 0;
 }
-
 .slider {
   position: absolute;
   cursor: pointer;
@@ -83,7 +90,6 @@ export default {
   -webkit-transition: .4s;
   transition: .4s;
 }
-
 .slider:before {
   position: absolute;
   content: "";
@@ -95,26 +101,21 @@ export default {
   -webkit-transition: .4s;
   transition: .4s;
 }
-
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #21b186;
 }
-
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #21b186;
 }
-
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
-
 .slider.round:before {
   border-radius: 50%;
 }
