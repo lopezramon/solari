@@ -93,6 +93,11 @@ import resumen from '../components/booking/resumen';
 import Summary from '../components/booking/Summary';
 import rooms from '../components/booking/rooms';
 import booking from '../components/booking/booking';
+import booking2 from '../components/booking/booking2';
+import boxDataBooking from '../components/booking/boxDataBooking';
+import boxDataBookingPersonal from '../components/booking/boxDataBookingPersonal';
+import boxDataBookingComentario from '../components/booking/boxDataBookingComentario';
+import boxDataBookingInfo  from '../components/booking/boxDataBookingInfo';
 
 // My account
 import delate_account from '../components/myaccount/delate_account';
@@ -154,6 +159,10 @@ Vue.component('modal_share', modalShare);
 Vue.component('item_filter', itemFilter);
 Vue.component('information', information);
 Vue.component('photo_gallery',photoGallery);
+Vue.component('box_data_booking',boxDataBooking);
+Vue.component('box_data_booking_personal',boxDataBookingPersonal);
+Vue.component('box_data_booking_comentario',boxDataBookingComentario);
+Vue.component('box_data_booking_info',boxDataBookingInfo);
 
 
 
@@ -216,6 +225,11 @@ let router = new Router({
             path: '/booking',
             name: 'booking',
             component: booking
+        },
+        {
+            path: '/booking2',
+            name: 'booking2',
+            component: booking2
         },
         {
             path: '/clientLogin',
