@@ -59,9 +59,9 @@
                                     <!-- <button type="button" @click.prevent="filterData()" class="btn btn-primary btn-lg btn-block text-uppercase">
                                         Cerca
                                     </button> -->
-                                    <a href="/booking" class="btn btn-primary btn-lg btn-block text-uppercase font-weight-bold">
+                                    <button @click.prevent="setFilterDates" class="btn btn-primary btn-lg btn-block text-uppercase font-weight-bold">
                                         Cerca
-                                    </a>
+                                    </button>
                                     </div>
                                 </div>
 
@@ -90,6 +90,7 @@
                 checkin:null,
                 checkout:null,
                 minCheckout: null,
+                locked_room: null,
             }
         },
         methods: {
@@ -133,9 +134,15 @@
                 }
                 return result
             },
+            setFilterDates(){
+                let params = {checkin: this.checkin, checkout: this.checkout}
+                this.$store.dispatch('setFilterDates', params)
+                this.$router.push('booking')
+            }
         },
         mounted(){
             this.filtersData();
+
         },
         computed:{
             minDate(){

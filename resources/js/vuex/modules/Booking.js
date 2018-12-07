@@ -15,8 +15,8 @@ export default {
         filter: {
             checkin: null,
             checkout: null,
-            rooms: []
         },
+        rooms: [],
         room_locations: {},
         room_categories: {},
     },

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\Admin;
 
+use App\Events\EventRoomAvailability;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\Admin\CreateRoomAPIRequest;
 use App\Http\Requests\API\Admin\UpdateRoomAPIRequest;
@@ -43,7 +44,7 @@ class RoomAPIController extends AppBaseController
     /**
      * Display a listing of the Room.
      * POST /rooms
-     * @see http://localhost:8011/api/admin/rooms?checkin=2018-11-10&checkout=2018-11-25
+     * @see http://localhost:8011/api/admin/rooms?checkin=2018-12-10&checkout=2018-12-25
      *
      * @param Request $request
      * @return Response
@@ -247,6 +248,8 @@ class RoomAPIController extends AppBaseController
 
         // Bloquear la habitacion
         $lockedRoom = $this->lockedRoomRepository->lockRoom($room->id, $data['checkinDate'], $data['checkoutDate']);
+        $room = Room::find(1);
+        event(new EventRoomAvailability($room));
 
         return $this->sendResponse(['room' => $room], 'Room locked successfully');
     }

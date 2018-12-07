@@ -55,7 +55,7 @@ Route::post('password/reset','Auth\ResetPasswordController@resetFront');
 //
 
 // Room
-Route::get('admin/rooms', 'API\Admin\RoomAPIController@index');// API Listado de ROOM (DISPONIBILIDAD)
+Route::post('admin/rooms', 'API\Admin\RoomAPIController@index');// API Listado de ROOM (DISPONIBILIDAD)
 Route::get('admin/rooms/{room}', 'API\Admin\RoomAPIController@show'); // API Obtener detalle de ROOM
 Route::post('admin/rooms/lock', 'API\Admin\RoomAPIController@lock'); // API Bloquear temporalmente ROOM (BLOQUEO TEMPORAL)
 
@@ -205,3 +205,29 @@ Route::get('admin/room_locations/{room_locations}', 'Admin\RoomLocationAPIContro
 Route::put('admin/room_locations/{room_locations}', 'Admin\RoomLocationAPIController@update');
 Route::patch('admin/room_locations/{room_locations}', 'Admin\RoomLocationAPIController@update');
 Route::delete('admin/room_locations/{room_locations}', 'Admin\RoomLocationAPIController@destroy');
+
+
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('login', 'API\Auth\AuthAPIController@login');
+    Route::post('signup', 'API\Auth\AuthAPIController@signup');
+    Route::get('signup/activate/{token}', 'API\Auth\AuthAPIController@signupActivate');
+
+    Route::group(['middleware' => 'auth:api'], function() {
+        Route::post('logout', 'API\Auth\AuthAPIController@logout');
+        Route::get('user', 'API\Auth\AuthAPIController@user');
+    });
+});
+
+
+Route::group(['namespace' => 'Auth', 'middleware' => 'auth:api', 'prefix' => 'password'], function () {
+    /* Envia correo con el token para el cambio de clave */
+    Route::post('send/reset', 'PasswordResetAPIController@create');
+    Route::get('find/{token}', 'PasswordResetAPIController@find');
+    Route::post('reset', 'PasswordResetAPIController@reset');
+});
