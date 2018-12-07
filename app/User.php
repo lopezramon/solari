@@ -5,10 +5,14 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Caffeinated\Shinobi\Traits\ShinobiTrait;
+use Laravel\Passport\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use Notifiable, ShinobiTrait;
+    use Notifiable, ShinobiTrait, SoftDeletes, HasApiTokens;
+
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'lastname', 'email', 'password',
+        'name', 'email', 'password', 'active', 'activation_token'
     ];
 
     /**
@@ -25,7 +29,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'activation_token'
     ];
 
     /**
@@ -39,20 +43,6 @@ class User extends Authenticatable
         // 'email' => 'string|email|max:255|unique:users',
         // 'password' => 'string|min:8|confirmed',
     ];
-
-    /**
-     * Genera un token para dar acceso al usuario
-     * Generate a token to give the user access
-     *
-     * @return api_token
-     */
-    public function generateToken()
-    {
-        $this->api_token = str_random(60);
-        $this->save();
-
-        return $this->api_token;
-    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

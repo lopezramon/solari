@@ -22,19 +22,45 @@
                 Hai selezionato:
             </div>
             <div class="card-body">
+                <div class="row border-bottom">
+                    <div class="col-12 mb-3">
+                        <div>
+                            <strong class="d-block">Stanza riservata:</strong>
+                            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</div>
+                            <div>
+                                <strong>Case Vacanza:</strong> Villeta Bouganville
+                            </div>
+                            <div>
+                                <strong>Destinazione:</strong> Budoni
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between lead">
+                            <a href="#" class="remove text-red">
+                                <img src="/images/iconos/delete.svg" alt="" width="18">
+                                Rimuovere
+                            </a>
+                            <span class="price">75,00€</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body border-top border-success mt-4">
                 <div class="row">
                     <div class="col-12 mb-3">
-                        <div class="item">
-                            <strong class="d-block">Stanza riservata:</strong>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                            <strong>Case Vacanza:</strong> Villeta Bouganville
-                            <strong>Destinazione:</strong> Budoni
-                            <div class="d-flex justify-content-between">
-                                <a href="#" class="remove">
-                                    remuovere
-                                </a>
-                                <span class="price">75,00€</span>
+                        <div>
+                            <div>
+                                <strong>Importo:</strong> 400,00€
                             </div>
+                            <div>
+                                <strong>Iva:</strong> 45,00€
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between lead">
+                            <a href="#" class="remove text-red">
+                                <img src="/images/iconos/delete.svg" alt="" width="18">
+                                Rimuovere
+                            </a>
+                            <span class="price">75,00€</span>
                         </div>
                     </div>
                 </div>
@@ -156,6 +182,10 @@ input:checked + .slider:before {
 }
 .slider.round:before {
   border-radius: 50%;
+}
+.text-red{
+    color: red;
+    text-decoration: none;
 }
 </style>
 
