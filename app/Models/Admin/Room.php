@@ -145,6 +145,14 @@ class Room extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
+     **/
+    public function services()
+    {
+        return $this->belongsToMany(\App\Models\Admin\Service::class, 'rooms_services');
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      */
     public function row()
@@ -160,14 +168,10 @@ class Room extends Model
     public function roomTranslation()
     {
         $language = Language::where('code', \App::getLocale())->first();
-        return $this->roomTranslations->filter(function($roomTranslation) use($language){
-            if ( $roomTranslation->language_id == $language->id && $roomTranslation->room_id == $this->id ) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        })->first();
+
+        $trans = $this->roomTranslations()->where( 'language_id', $language->id )->first();;
+
+        return $trans;
     }
 
     /**
@@ -219,7 +223,7 @@ class Room extends Model
     {
         $dt = Carbon::now();
 
-        $currentRoomSeason = $this->roomSeasons->filter(function($roomSeason)use($dt){
+        $currentRoomSeason = $this->roomSeasons()->get()->filter(function($roomSeason)use($dt){
 
             // si la fecha de inicio de temporada es menor o igual a hoy
             // y si la fecha de fin de temporada es mayor o igual a hoy
@@ -231,7 +235,11 @@ class Room extends Model
             }
         });
 
-        return number_format($currentRoomSeason->first()->price, 2, '.', '');
+        $price = number_format( $currentRoomSeason->first()->price, 2, '.', '' );
+
+        // dd( $price );
+
+        return $price;
     }
 
     /**
@@ -241,12 +249,7 @@ class Room extends Model
      */
     public function getServicesAttribute()
     {
-        return $this->roomsServices->transform(function($serv, $key) {
-
-            $serv->name  = $serv->service->serviceTranslation()->name;
-
-            return $serv;
-        });
+        return $this->services()->get();
     }
 
     /**
@@ -256,7 +259,7 @@ class Room extends Model
      */
     public function getGaleryAttribute()
     {
-        return $this->row->rowsMultimedia->transform(function($multim, $key){
+        return $this->row()->first()->rowsMultimedia->transform(function($multim, $key) {
             $multim->image   = $multim->multimedia->name;
             $multim->title   = $multim->multimedia->description;
 
