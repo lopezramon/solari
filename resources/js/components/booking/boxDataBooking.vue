@@ -30,12 +30,12 @@
                         <div class="col-12 col-md-6 mb-3 text-right">
                             <label class="d-block" for="dni">Vuoi registrarti</label>
                             <label class="switch m-0">
-                                <input type="checkbox" checked>
+                                <input v-model="register" type="checkbox" checked>
                                 <span class="slider round"></span>
                             </label>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div v-if="register" class="form-row">
                         <div class="col-12 col-md-6 mb-3">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" value="">
@@ -54,7 +54,7 @@
 export default {
     data() {
         return {
-
+          register: false,
         }
     }
 }
@@ -74,7 +74,7 @@ export default {
   width: 60px;
   height: 34px;
 }
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;

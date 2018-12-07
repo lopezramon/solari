@@ -30,7 +30,9 @@ Vue.use(VeeValidate, {
 import VueSweetalert2 from 'vue-sweetalert2';
 Vue.use(VueSweetalert2);
 
-
+// Paypal-Checkout
+import PayPal from 'vue-paypal-checkout'
+Vue.component('paypal-checkout', PayPal)
 
 
 

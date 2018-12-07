@@ -5,7 +5,7 @@
                 Responsabile della stanza
             </div>
             <div class="card-body">
-               <form>
+               <form v-if="getRoomsSelected.length > 0" v-for="room in getRoomsSelected">
                     <div class="form-row">
                         <div class="col-12 col-md-6 mb-3">
                             <label for="name">Nome y Cognome</label>
@@ -44,6 +44,12 @@ export default {
         return {
 
         }
+    },
+    computed: {
+        getRoomsSelected() {
+            this.roomsSelected = this.$store.getters.getRooms;
+            return this.roomsSelected;
+        },
     }
 }
 </script>
