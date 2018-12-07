@@ -2,6 +2,7 @@
     <div>
         <header_booking/>
         <form_booking/>
+        
         <div class="container my-4">
             <div class="row my-5 bg-white py-3 shadow" v-for="(item, clave) in vacanza" :key="clave">
                 <div class="col-12 col-md-5">
@@ -15,6 +16,40 @@
                 </div>
                 <div class="col-12 col-md-7">
                     <h3 class="title">{{item.title}}</h3>
+                    <p class="lead m-0">Budoni</p>
+                    <p class="lead m-0">Case Vacanza: <span>Villeta Stella Maris</span></p>
+                    <p>{{item.description}}</p>
+                    <p><strong>{{item.include}}</strong></p>
+                </div>
+                <div class="col-12">
+                    <div class="border-y-green my-2">
+                        <span v-for="service in item.services" class="tooltip py-3 px-3">
+                            <img :src="service.ico" :alt="service.name" width="36">
+                            {{service.info}}
+                            <span class="tooltiptext">Tooltip text</span>
+                        </span>
+                    </div>
+                    
+                    <p class="lead text-right m-0">
+                        <strong class="info-price">Prezzo giorno: {{item.priceDay}} €</strong>
+                        <button class="btn btn-primary btn-lg mb-3 text-uppercase font-weight-bold">Prenota ora</button>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="row my-5 bg-white py-3 shadow" v-for="(item, clave) in vacanza" :key="clave">
+                <div class="col-12 col-md-5">
+                    <swiper :options="swiperOption">
+                        <!-- slides -->
+                        <swiper-slide v-for="(img, imgclave) in item.gallery" :key="imgclave">
+                            <img class="img-fluid" :src="img.url">
+                        </swiper-slide>
+                        <div class="swiper-pagination" slot="pagination"></div>
+                    </swiper>
+                </div>
+                <div class="col-12 col-md-7">
+                    <h3 class="title">Solaria 1: Trilocale piano terra con giardino, aria condizionata e WiFi</h3>
                     <p class="lead m-0">Budoni</p>
                     <p class="lead m-0">Case Vacanza: <span>Villeta Stella Maris</span></p>
                     <p>{{item.description}}</p>
