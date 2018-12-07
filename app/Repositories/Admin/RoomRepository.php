@@ -53,7 +53,7 @@ class RoomRepository extends BaseRepository
      *
      * @return array
      */
-    public function getCustomized($columns = null, $dates = null, $unavailableRooms = [])
+    public function getCustomized($dates = null, $unavailableRooms = [])
     {
         $columns = $columns ?? $this->customDefaultColumns;
 
@@ -61,20 +61,22 @@ class RoomRepository extends BaseRepository
         $dataAll = $this->findWhereNotIn( 'id', $unavailableRooms, $columns );
 
         // CALCULAR PRECIO SEGUN TEMPORADA
-        $data = $dataAll->transform(function($room, $key) use($dates) {
-            $roomTransformed = $room->toArray();
+        ////////// $data = $dataAll->transform(function($room, $key) use($dates) {
+            ////////// $roomTransformed = $room->toArray();
 
             // ASIGNO EL PRICE CORRESPONDIENTE SEGUN LA(S)
             // TEMPORADA(S) EN LA(S) QUE SE ENCUENTRE EL RANGO DEL REQUEST
-            $ivaAndPrice = $this->model->getCurrentIvaAndPrice($room, $dates);
-            $roomTransformed['price']    = $ivaAndPrice['price'];
+            ////////// $ivaAndPrice = $this->model->getCurrentIvaAndPrice($room, $dates);
+            ////////// $roomTransformed['price']    = $ivaAndPrice['price'];
             // $roomTransformed['iva']      = $ivaAndPrice['iva'];
 
-            return $roomTransformed;
-        });
+            ////////// return $roomTransformed;
+        ////////// });
+        $data = $dataAll;
 
         // helper personalizado para eliminar el model translation (ultimo index de cada elemento de la coleccion)
-        $array = $this->clearUnusedColumns($data->toArray());
+        // $array = $this->clearUnusedColumns($data->toArray());
+        $array = $data->toArray();
 
         return $array;
     }

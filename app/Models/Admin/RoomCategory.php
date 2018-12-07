@@ -120,6 +120,14 @@ class RoomCategory extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
+    public function location()
+    {
+        return $this->belongsTo(\App\Models\Admin\RoomLocation::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
     public function rooms()
     {
         return $this->hasMany(\App\Models\Admin\Room::class);
