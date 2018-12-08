@@ -1,87 +1,48 @@
 <template>
     <div>
         <div class="container my-4">
-            <div class="row my-5 bg-white py-3 shadow" v-for="(item, clave) in roomsPrueba" :key="clave">
+            <div class="row my-5 bg-white py-3 shadow" v-for="room in rooms" :class="{ disabled: room.availability === 2}">
                 <div class="col-12 col-md-5">
                     <swiper :options="swiperOption">
-                        &lt;!&ndash; slides &ndash;&gt;
-                        <swiper-slide v-for="(img, imgclave) in item.gallery" :key="imgclave">
-                            <img class="img-fluid" :src="img.url">
+                        <swiper-slide v-for="(slide, index) in room.gallery" :key="index" class="position-relative">
+                            <div class="ribbon ribbon-top-right">
+                                <span v-if="room.availability === 2">Non disponibile</span>
+                            </div>
+                            <img class="img-fluid" :src="slide.url" :alt="'img-' + room.title">
                         </swiper-slide>
                         <div class="swiper-pagination" slot="pagination"></div>
                     </swiper>
                 </div>
                 <div class="col-12 col-md-7">
-                    <h3 class="title">{{item.title}}</h3>
-                    <p class="lead m-0">Budoni</p>
-                    <p class="lead m-0">Case Vacanza: <span>Villeta Stella Maris</span></p>
-                    <p>{{item.description}}</p>
-                    <p><strong>{{item.Included}}</strong></p>
+                    <h3 class="title">{{ room.title }}</h3>
+                    <p class="lead m-0">{{ getLocationNameByRoom(room.room_location_id) }}</p>
+                    <p class="lead m-0">Case Vacanza: <span>{{ getCategoryNameByRoom(room.room_category_id) }}</span></p>
+                    <p>{{ room.description }}</p>
+                    <p><strong>{{ room.included }}</strong></p>
                 </div>
                 <div class="col-12">
                     <div class="border-y-green my-2">
-                        <span v-for="(service, index) in item.services" :key="index" class="tooltip py-3 px-3">
-                            <img :src="service.ico" :alt="service.name" width="36">
-                            {{service.info}}
+                        <span v-for="(service, index) in room.services" :key="index" class="tooltip py-3 px-3">
+                            <img :src="service.icon" :alt="service.name" width="36">
+                            {{ service.info }}
                             <span class="tooltiptext">Tooltip text</span>
                         </span>
                     </div>
 
                     <p class="lead text-right m-0">
-                        <strong class="info-price">Prezzo giorno: {{item.priceDay}} €</strong>
-                        <button v-if="activo"class="btn btn-primary btn-lg mb-3 text-uppercase font-weight-bold">Prenota ora</button>
-                        <button v-if="!activo"class="btn btn-secondary btn-lg mb-3 text-uppercase font-weight-bold">Prenota ora</button>
+                        <span class="font-weigth-bold info-price">Prezzo: €{{ room.price }}</span>
+
+                        <template v-if="room.availability === 1">
+                            <button type="button" :disabled="checkDisabled(room)" @click.prevent="addRoom(room)" class="btn btn-primary btn-lg m-0">
+                                <span class="text-uppercase font-weight-bold">
+                                    <template v-if="checkDisabled(room)"><i class="far fa-check-circle"></i> Selezionato</template>
+                                    <template v-else>Selezionare</template>
+                                </span>
+                            </button>
+                        </template>
                     </p>
                 </div>
             </div>
-        </div>
-
-        <!--<article v-for="room in rooms" class="mb-5 border-bottom">
-            <div class="container-fluid">
-                <div class="row ">
-                    <div class="col-12">
-                        <h2 v-text="room.name"></h2>
-                        <h3 v-text="room.subtitle1"></h3>
-                        <p v-text="room.description"></p>
-                    </div>
-
-                    &lt;!&ndash; slider &ndash;&gt;
-                    <div class="col-12 col-lg-8 mb-3 ">
-                        <swiper :options="swiperOption">
-                            <swiper-slide v-for="(slide, index) in room.galery" :key="index" class="position-relative">
-                                <div class="ribbon ribbon-top-right">
-                                    <span>Disponible</span>
-                                </div>
-                                <img class="img-fluid" :src="slide.image" alt="rooms">
-                            </swiper-slide>
-                            <div class="swiper-pagination" slot="pagination"></div>
-                        </swiper>
-                    </div>
-
-                    &lt;!&ndash; info room&ndash;&gt;
-                    <div class="col-12 col-lg-4">
-                        <h4 v-text="room.subtitle2"></h4>
-                        <p>
-                            <span class="d-block" v-for="service in room.services">
-                                <img src="/images/suites/icon/baseline-done-24px.svg" alt="check-list">
-                                {{ service.name }}
-                            </span>
-                        </p>
-
-                        <div class="d-flex justify-content-between">
-                            <span>From:</span>
-                            <span class="font-weight-bold">{{ room.price }} €</span>
-                        </div>
-
-                        <button type="button" :disabled="checkDisabled(room)" @click.prevent="addRoom(room)" class="btn btn-primary btn-block m-2">
-                            <span class="text-uppercase">Add</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </article>-->
-        <div class="text-right">
-            <button class="btn btn-secondary btn-lg mb-3 text-uppercase font-weight-bold">Continuare</button>
         </div>
     </div>
 </template>
@@ -94,95 +55,7 @@
                 swiperOption: {
                     pagination: { el: '.swiper-pagination' }
                 },
-                rooms: [
-                    {
-
-                    }
-                ],
-                roomsPrueba: [
-                    {
-                        id: 1,
-                        title: 'Bilocale con giardino vista mare, WiFi, aria condizionata',
-                        description: `2+2 posti letto, 1 camera da letto, 1 bagno con box doccia, soggiorno con angolo cucina, giardino attrezzato per poter mangiare all'aperto. Dispone di WiFi, aria condizionata, Tv-Sat, lavatrice, barbecue, doccetta esterna, posto auto.`,
-                        Included: 'Consumi luce, acqua e gas inclusi.',
-                        price: 40,
-                        room_category_id: 1,
-                        availability: 1,
-                        services:[
-                            {
-                                name: 'camere',
-                                ico: '/images/iconos/services/010-single-bed.svg',
-                                info: '1',
-                            },
-                            {
-                                name: 'bagno',
-                                ico: '/images/iconos/services/019-deck.svg',
-                                info: '1',
-                            },
-                            {
-                                name: 'posti',
-                                ico: '/images/iconos/services/036-washing-machine.svg',
-                                info: '2+1',
-                            },
-                            {
-                                name: 'Lavatrice',
-                                ico: '/images/iconos/services/040-parking.svg',
-                                info: '2+1',
-                            },
-                            {
-                                name: 'Climatizzata',
-                                ico: '/images/iconos/services/043-wifi.svg',
-                                info: 'Si',
-                            },
-                            {
-                                name: 'Tv-Sat',
-                                ico: '/images/iconos/services/044-swimming-pool.svg',
-                                info: 'Si',
-                            },
-                            {
-                                name: 'Posto auto',
-                                ico: '/images/iconos/services/045-air-conditioner.svg',
-                                info: 'Si',
-                            },
-                            {
-                                name: 'Posto auto',
-                                ico: '/images/iconos/services/050-bed.svg',
-                                info: 'Si',
-                            },
-                            {
-                                name: 'Posto auto',
-                                ico: '/images/iconos/services/046-single-bed.svg',
-                                info: 'Si',
-                            },
-                            {
-                                name: 'Posto auto',
-                                ico: '/images/iconos/services/091-beach-umbrella.svg',
-                                info: 'Si',
-                            },
-                            {
-                                name: 'Posto auto',
-                                ico: '/images/iconos/services/097-single-bed-1.svg',
-                                info: 'Si',
-                            },
-                            {
-                                name: 'Posto auto',
-                                ico: '/images/iconos/services/monitor.svg',
-                                info: 'Si',
-                            },
-                            {
-                                name: 'Posto auto',
-                                ico: '/images/iconos/services/120-washing-machine.svg',
-                                info: 'Si',
-                            },
-                        ],
-                        gallery: [
-                            { url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-con-giardino-vista-mare-wifi-aria-condizionata-16_thumb-list.jpg' },
-                            { url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-7_thumb-list.jpg' },
-                            { url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-8_thumb-list.jpg' },
-                            { url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-5_thumb-list.jpg' },
-                        ]
-                    }
-                ],
+                rooms: [],
                 bookingDate: {},
             }
         },
@@ -199,7 +72,7 @@
         mounted() {
             window.Echo.channel('room')
                 .listen('.roomAvailability', (e) => {
-                    console.log(e),
+                    console.log(e);
                     this.locked_room = e.room.id
                 });
         },
@@ -207,26 +80,268 @@
             getRooms() {
                 axios.post(this.root + '/api/admin/rooms', this.bookingDate).then((res) => {
                     if (res.status === 200) {
-                        let obj = res.data.data.rooms;
+                        // this.rooms = res.data.data.rooms;
 
-                        this.rooms = obj;
+                        this.rooms = [
+                            {
+                                id: 1,
+                                title: 'Bilocale con giardino vista mare, WiFi, aria condizionata',
+                                description: `2+2 posti letto, 1 camera da letto, 1 bagno con box doccia, soggiorno con angolo cucina, giardino attrezzato per poter mangiare all'aperto. Dispone di WiFi, aria condizionata, Tv-Sat, lavatrice, barbecue, doccetta esterna, posto auto.`,
+                                included: 'Consumi luce, acqua e gas inclusi.',
+                                price: 40,
+                                room_location_id: 1,
+                                room_category_id: 3,
+                                availability: 1,
+                                services: [
+                                    {
+                                        name: 'camere',
+                                        icon: '/images/iconos/services/010-single-bed.svg',
+                                        info: '1',
+                                    },
+                                    {
+                                        name: 'bagno',
+                                        icon: '/images/iconos/services/019-deck.svg',
+                                        info: '1',
+                                    },
+                                    {
+                                        name: 'posti',
+                                        icon: '/images/iconos/services/036-washing-machine.svg',
+                                        info: '2+1',
+                                    },
+                                    {
+                                        name: 'Lavatrice',
+                                        icon: '/images/iconos/services/040-parking.svg',
+                                        info: '2+1',
+                                    },
+                                    {
+                                        name: 'Climatizzata',
+                                        icon: '/images/iconos/services/043-wifi.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Tv-Sat',
+                                        icon: '/images/iconos/services/044-swimming-pool.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/045-air-conditioner.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/050-bed.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/046-single-bed.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/091-beach-umbrella.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/097-single-bed-1.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/monitor.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/120-washing-machine.svg',
+                                        info: 'Si',
+                                    },
+                                ],
+                                gallery: [
+                                    {url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-con-giardino-vista-mare-wifi-aria-condizionata-16_thumb-list.jpg'},
+                                    {url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-7_thumb-list.jpg'},
+                                    {url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-8_thumb-list.jpg'},
+                                    {url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-5_thumb-list.jpg'},
+                                ]
+                            },
+                            {
+                                id: 2,
+                                title: 'Miranda, Petare',
+                                description: `2+2 posti letto, 1 camera da letto, 1 bagno con box doccia, soggiorno con angolo cucina, giardino attrezzato per poter mangiare all'aperto. Dispone di WiFi, aria condizionata, Tv-Sat, lavatrice, barbecue, doccetta esterna, posto auto.`,
+                                included: 'Incluye un viaje de vainas',
+                                price: 40,
+                                room_location_id: 2,
+                                room_category_id: 1,
+                                availability: 2,
+                                services: [
+                                    {
+                                        name: 'camere',
+                                        icon: '/images/iconos/services/010-single-bed.svg',
+                                        info: '1',
+                                    },
+                                    {
+                                        name: 'bagno',
+                                        icon: '/images/iconos/services/019-deck.svg',
+                                        info: '1',
+                                    },
+                                    {
+                                        name: 'posti',
+                                        icon: '/images/iconos/services/036-washing-machine.svg',
+                                        info: '2+1',
+                                    },
+                                    {
+                                        name: 'Lavatrice',
+                                        icon: '/images/iconos/services/040-parking.svg',
+                                        info: '2+1',
+                                    },
+                                    {
+                                        name: 'Climatizzata',
+                                        icon: '/images/iconos/services/043-wifi.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Tv-Sat',
+                                        icon: '/images/iconos/services/044-swimming-pool.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/045-air-conditioner.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/050-bed.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/046-single-bed.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/091-beach-umbrella.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/097-single-bed-1.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/monitor.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/120-washing-machine.svg',
+                                        info: 'Si',
+                                    },
+                                ],
+                                gallery: [
+                                    {url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-con-giardino-vista-mare-wifi-aria-condizionata-16_thumb-list.jpg'},
+                                    {url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-7_thumb-list.jpg'},
+                                    {url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-8_thumb-list.jpg'},
+                                    {url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-5_thumb-list.jpg'},
+                                ]
+                            },
+                            {
+                                id: 3,
+                                title: 'Caracas, Av Panteon',
+                                description: `2+2 posti letto, 1 camera da letto, 1 bagno con box doccia, soggiorno con angolo cucina, giardino attrezzato per poter mangiare all'aperto. Dispone di WiFi, aria condizionata, Tv-Sat, lavatrice, barbecue, doccetta esterna, posto auto.`,
+                                included: 'Incluye Todos los juguetes',
+                                price: 1000,
+                                room_location_id: 1,
+                                room_category_id: 5,
+                                availability: 1,
+                                services: [
+                                    {
+                                        name: 'posti',
+                                        icon: '/images/iconos/services/036-washing-machine.svg',
+                                        info: '2+1',
+                                    },
+                                    {
+                                        name: 'Lavatrice',
+                                        icon: '/images/iconos/services/040-parking.svg',
+                                        info: '2+1',
+                                    },
+                                    {
+                                        name: 'Climatizzata',
+                                        icon: '/images/iconos/services/043-wifi.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Tv-Sat',
+                                        icon: '/images/iconos/services/044-swimming-pool.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/045-air-conditioner.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/050-bed.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/046-single-bed.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/091-beach-umbrella.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/097-single-bed-1.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/monitor.svg',
+                                        info: 'Si',
+                                    },
+                                    {
+                                        name: 'Posto auto',
+                                        icon: '/images/iconos/services/120-washing-machine.svg',
+                                        info: 'Si',
+                                    },
+                                ],
+                                gallery: [
+                                    {url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-con-giardino-vista-mare-wifi-aria-condizionata-16_thumb-list.jpg'},
+                                    {url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-7_thumb-list.jpg'},
+                                    {url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-8_thumb-list.jpg'},
+                                    {url: 'https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/9-bilocale-5_thumb-list.jpg'},
+                                ]
+                            }
+                        ];
                     }
                 }).catch(() => this.showAlert('error', 'Errore!!', 'refrescar la pagina'))
             },
+            getLocationNameByRoom(id) {
+                return this.$store.getters.getLocations(id);
+            },
+            getCategoryNameByRoom(id) {
+                return this.$store.getters.getCategories(id);
+            },
             checkDisabled(item) {
-                let data = this.$store.getters.getRooms;
+                const ROOMS = this.$store.getters.getRooms;
 
-                for (let i in data) {
-                    if (data[i].roomId === item.id) {
-                        return true;
-                        break;
-                    }
-                }
+                if (ROOMS.length > 0) return ROOMS.find(key => key.roomId === item.id);
+
                 return false;
             },
             addRoom(item) {
                 let data = {
-                    name: item.name,
+                    name: item.title,
                     roomId: item.id,
                     personResponsible: {
                         name: null,
@@ -269,7 +384,6 @@
     h3.title {
         color: #21b186;
     }
-
 
     .tooltip {
         position: relative;
@@ -326,7 +440,7 @@
         display: block;
         width: 225px;
         padding: 15px 0;
-        background-color: #3498db;
+        background-color: #f1832b;
         box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
         color: #fff;
         font: 700 18px/1;
@@ -334,8 +448,11 @@
         text-transform: uppercase;
         text-align: center;
     }
-    .btn-secondary{
-       background-color: #f1832b;
+
+    .btn-primary:disabled {
+        color: #fff;
+        background-color: #f1832b;
+        border-color: #f1832b;
     }
     /* top right*/
     .ribbon-top-right {
@@ -347,5 +464,10 @@
         left: -25px;
         top: 30px;
         transform: rotate(45deg);
+    }
+
+    /* Dinamic Classes */
+    .disabled {
+        opacity: 0.4;
     }
 </style>

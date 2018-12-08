@@ -17,8 +17,8 @@ export default {
             checkout: null,
         },
         rooms: [],
-        room_locations: {},
-        room_categories: {},
+        room_locations: [],
+        room_categories: [],
     },
     actions: {
         setFilterDates({commit}, item) {
@@ -74,6 +74,16 @@ export default {
         getBooking: state => {
             return state.booking;
         },
+        getLocations: (state) => (id) => {
+            const RESPONSE = state.room_locations.find(key => key.id === id);
+
+            if (RESPONSE !== null || RESPONSE !== undefined) return RESPONSE.name;
+        },
+        getCategories: (state) => (id) => {
+            const RESPONSE = state.room_categories.find(key => key.id === id);
+
+            if (RESPONSE !== null || RESPONSE !== undefined) return RESPONSE.name;
+        },
     },
     mutations: {
         setFilterDates(state, {list}) {
@@ -84,26 +94,22 @@ export default {
             Vue.set(state.filter, 'rooms', list);
         },
         setRoom(state, {list}) {
-            let data = state.booking.rooms;
-
-            if (data.length > 0) {
-                const response = data.find(key => key.roomId === list.roomId);
-
-                if (response === null || response === undefined) {
-                    let total = state.booking.totalAmount;
-                    total += parseFloat(list.totalItem);
-
-                    state.booking.rooms.push(list);
-                    Vue.set(state.booking, 'totalAmount', total);
-                }
-
-            } else {
+            const ADD_ROOM = () => {
                 let total = state.booking.totalAmount;
                 total += parseFloat(list.totalItem);
 
                 state.booking.rooms.push(list);
                 Vue.set(state.booking, 'totalAmount', total);
-            }
+            };
+
+            let data = state.booking.rooms;
+
+            if (data.length > 0) {
+                const RESPONSE = data.find(key => key.roomId === list.roomId);
+
+                (RESPONSE === null || RESPONSE === undefined) ? ADD_ROOM() : 'already added';
+
+            } else ADD_ROOM()
         },
         deleteRoom(state, {list}) {
             let data = state.booking.rooms;
@@ -128,7 +134,6 @@ export default {
             Vue.set(state.booking, 'totalAmount', 0);
 
             Vue.set(state.booking,  'comment', null);
-
         },
         setPersonResponsible(state, {list}) {
             if (list.userId !== null) Vue.set(state.booking.personResponsible, 'userId', list.userId);
@@ -144,10 +149,10 @@ export default {
             Vue.set(state.booking, 'rooms', list.rooms);
             Vue.set(state.booking, 'comment', list.comment);
         },
-        getLocations(state, payload){
+        getLocations(state, payload) {
             state.room_locations = payload
         },
-        getCategories(state, payload){
+        getCategories(state, payload) {
             state.room_categories = payload
         }
     }
