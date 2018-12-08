@@ -3,25 +3,25 @@
         <header_booking/>
         <form_booking/>
         <wizard/>
-        <div class="container">
-            <div class="row">
+        <div class="container bg-white my-5">
+            <div class="row mb-5">
                 <div class="col-12 col-md-8">
                     <h2>Gianni Lucca, Grazie!
                         <br>
                         La tua prenotazione è stata completata.
                     </h2>
-                    <h4>
+                    <h4 class="">
                         Controlla la tua email per avere una copia della prenotazione.
                         Ti aspettiamo!
                     </h4>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-4 text-md-right">
                     <h2>Ordine: 0014</h2>
-                    <span>Data: 14/11/2018</span>
-                    <span>Tempo: 16:04</span>
+                    <span class="d-block">Data: 14/11/2018</span>
+                    <span class="d-block">Tempo: 16:04</span>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col-12 col-md-8">
                    <div><strong>Nombre:</strong> Gianni Lucca</div>
                    <div><strong>E-mail:</strong> gianni@gmail.com</div>
@@ -29,7 +29,7 @@
                    <div><strong>Telefono:</strong> 0258025555</div>
                    <div><strong>Metodo di pagamento:</strong> Paypal</div>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-4 text-md-right">
                    <div><strong>Arrivo:</strong> martedi 4 dicembre 2018 dalle 14:00</div>
                    <div><strong>Partenza</strong> gianni@gmail.com</div>
                    <div><strong>Durata totale del soggiorno</strong> 10 notti</div>
@@ -148,3 +148,17 @@
         </div>
     </div>
 </template>
+<style scoped>
+.table th, .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: none;
+}
+h2{
+    color: #21b186;
+    font-weight: bold;
+}
+h4{
+    font-weight: bold;
+}
+</style>
