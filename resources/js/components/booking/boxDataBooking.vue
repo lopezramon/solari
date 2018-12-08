@@ -9,36 +9,36 @@
                     <div class="form-row">
                         <div class="col-12 col-md-6 mb-3">
                             <label for="name">Nome</label>
-                            <input type="text" class="form-control" id="name" value="">
+                            <input v-model="value.first_name" type="text" class="form-control" id="name" value="">
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label for="lastname">Cognome</label>
-                            <input type="text" class="form-control" id="lastname" value="">
+                            <input v-model="value.last_name" type="text" class="form-control" id="lastname" value="">
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label for="email">E-mail</label>
-                            <input type="text" class="form-control" id="email" value="">
+                            <input v-model="value.email" type="text" class="form-control" id="email" value="">
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label for="phone">Telefono</label>
-                            <input type="text" class="form-control" id="phone" value="">
+                            <input v-model="value.phone" type="text" class="form-control" id="phone" value="">
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label for="dni">Codice fiscale</label>
-                            <input type="text" class="form-control" id="dni" value="">
+                            <input v-model="value.fiscalCode" type="text" class="form-control" id="dni" value="">
                         </div>
                         <div class="col-12 col-md-6 mb-3 text-right">
                             <label class="d-block" for="dni">Vuoi registrarti</label>
                             <label class="switch m-0">
-                                <input v-model="register" type="checkbox" checked>
+                                <input v-model="value.register" type="checkbox" checked>
                                 <span class="slider round"></span>
                             </label>
                         </div>
                     </div>
-                    <div v-if="register" class="form-row">
+                    <div v-if="value.register" class="form-row">
                         <div class="col-12 col-md-6 mb-3">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" value="">
+                            <input v-model="value.password" type="password" class="form-control" id="password" value="">
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label for="confpassword">Conferma la password</label>
@@ -52,9 +52,10 @@
 </template>
 <script>
 export default {
+    props:['value'],
     data() {
         return {
-          register: false,
+          //
         }
     }
 }

@@ -1,17 +1,6 @@
 export default {
     state: {
-        booking: {
-            personResponsible: {
-                userId: null,
-                name: null,
-                email: null,
-                phone: null,
-                fiscalCode: null,
-            },
-            rooms: [],
-            totalAmount: 0,
-            comment: null,
-        },
+        booking: {},
         filter: {
             checkin: null,
             checkout: null,
@@ -60,6 +49,20 @@ export default {
                     console.log(error)
                 })
         },
+        storeBooking(context, payload){
+            return new Promise((resolve, reject) => {
+                axios.post('/api/admin/bookings', payload)
+                    .then(response => {
+                        context.commit('storeBooking', payload)
+                        resolve(response)
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        reject()
+                    })
+
+            })
+        }
     },
     getters: {
         getFilter: state => {
@@ -154,6 +157,9 @@ export default {
         },
         getCategories(state, payload) {
             state.room_categories = payload
-        }
+        },
+        storeBooking(state, payload){
+            state.booking = payload
+        },
     }
 }

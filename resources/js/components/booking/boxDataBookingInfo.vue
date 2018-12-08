@@ -21,30 +21,32 @@
             <div class="card-header lead text-white font-weight-bold">
                 Hai selezionato:
             </div>
-            <div class="card-body">
+            <div v-for="room in value.rooms" class="card-body">
                 <div class="row border-bottom">
                     <div class="col-12 mb-3">
                         <div>
-                            <strong class="d-block">Stanza riservata:</strong>
-                            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</div>
-                            <div>
-                                <strong>Case Vacanza:</strong> Villeta Bouganville
-                            </div>
-                            <div>
-                                <strong>Destinazione:</strong> Budoni
-                            </div>
+                            <strong class="d-block">{{ room.title }}</strong>
+                            <div>{{ room.description }}</div>
+                            <template v-if="categories.length > 0">
+                              <div>
+                                  <strong>Case Vacanza:</strong> {{ getHouse(room.room_category_id).name }}
+                              </div>
+                              <div>
+                                  <strong>Destinazione:</strong> {{ getLocation(getHouse(room.room_category_id).id).name }}
+                              </div>
+                            </template>
                         </div>
                         <div class="d-flex justify-content-between lead">
                             <a href="#" class="remove text-red">
                                 <img src="/images/iconos/delete.svg" alt="" width="18">
                                 Rimuovere
                             </a>
-                            <span class="price">75,00€</span>
+                            <span class="price">{{ room.price }}€</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card-body border-top border-success mt-4">
+<!--             <div class="card-body border-top border-success mt-4">
                 <div class="row">
                     <div class="col-12 mb-3">
                         <div>
@@ -64,9 +66,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="card-header lead text-white font-weight-bold">
-                <b>Totale:</b> 1.173.00€
+                <b>Totale:</b> {{ value.total }}€
             </div>
             <div class="card-body">
                 <div class="row">
@@ -82,11 +84,12 @@
                             <paypal-checkout
                                 v-if="terms"
                                 env="sandbox"
-                                :amount="75"
+                                :amount="value.total.toString()"
                                 currency="USD"
                                 :client="credentials"
                                 @payment-authorized="authorized"
                                 :button-style="buttonStyle"
+                                :item="myItems"
                             ></paypal-checkout>
                         </div>
                     </div>
@@ -97,29 +100,60 @@
 </template>
 <script>
 export default {
+    props: ['value'],
     data() {
         return {
             terms: false,
-                credentials: {
-                    sandbox: 'AUkwPEHREgCVKE1VkhI5NTUevuEd7kjEmzDLA1xHWiWl2Vq_za0ASHWsUaj-LGHkf9nLkhoVQeW8AMPt',
-                    production: 'Aac3ecuCh12HatIXoZ0FDZGjqrf9B0rEIHnyffygAwBse-eRxV3aLKSbl1Kv3cCowdF4IXdk6_CP_lfg'
+            credentials: {
+                sandbox: 'AUkwPEHREgCVKE1VkhI5NTUevuEd7kjEmzDLA1xHWiWl2Vq_za0ASHWsUaj-LGHkf9nLkhoVQeW8AMPt',
+                production: 'Aac3ecuCh12HatIXoZ0FDZGjqrf9B0rEIHnyffygAwBse-eRxV3aLKSbl1Kv3cCowdF4IXdk6_CP_lfg'
+            },
+            buttonStyle: {
+                label: 'checkout',
+                size:  'medium',
+                shape: 'pill',
+                color: 'silver'
+            },
+            myItems: [
+              {
+                "name": "hat",
+                "description": "Brown hat.",
+                "quantity": "1",
+                "price": "5",
+                "currency": "USD"
                 },
-                buttonStyle: {
-                    label: 'checkout',
-                    size:  'medium',
-                    shape: 'pill',
-                    color: 'silver'
-                },
+                {
+                "name": "handbag",
+                "description": "Black handbag.",
+                "quantity": "1",
+                "price": "5",
+                "currency": "USD"
+                }
+            ]
         }
     },
     methods: {
         authorized(){
-            alert('pago')
-/*            this.$store.dispatch('storeOrder', params)
+            this.$store.dispatch('storeBooking', this.value)
                 .then(response => {
-                    this.$route.push('paso3')
-                })*/
-        }
+                    //this.$route.push('paso3')
+                    console.log(response)
+                })
+        },
+        getHouse(id){
+          return this.categories.find(category => category.id == id)
+        },
+        getLocation(id){
+          return this.locations.find(location => location.id == id)
+        },
+    },
+    computed: {
+      categories(){
+        return this.$store.state.Booking.room_categories
+      },
+      locations(){
+        return this.$store.state.Booking.room_locations
+      },
     }
 }
 </script>

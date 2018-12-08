@@ -1,27 +1,27 @@
 <template>
     <div>
-        <div class="card my-2">
+        <div v-if="value.length > 0" v-for="(room, index) in value" class="card my-2">
             <div class="card-header lead text-white font-weight-bold">
-                Responsabile della stanza
+                Responsabile della stanza #{{ index + 1 }}
             </div>
             <div class="card-body">
-               <form v-if="getRoomsSelected.length > 0" v-for="room in getRoomsSelected">
+               <form>
                     <div class="form-row">
                         <div class="col-12 col-md-6 mb-3">
                             <label for="name">Nome y Cognome</label>
-                            <input type="text" class="form-control" id="name" value="">
+                            <input v-model="room.personResponsible.name" type="text" class="form-control" autocomplete="nope">
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label for="phone">Telefono</label>
-                            <input type="text" class="form-control" id="phone" value="">
+                            <input v-model="room.personResponsible.email" type="text" class="form-control" autocomplete="nope">
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label for="email">E-mail</label>
-                            <input type="text" class="form-control" id="email" value="">
+                            <input v-model="room.personResponsible.phone" type="text" class="form-control" autocomplete="nope">
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label for="dni">Ospiti:</label>
-                            <select class="form-control">
+                            <select v-model="room.personsQuantity" class="form-control">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -40,17 +40,18 @@
 </template>
 <script>
 export default {
-    data() {
-        return {
-
+    props: ['value'],
+    created(){
+        for(let i in this.value){
+            this.value[i].personResponsible = {
+                name: '',
+                email: '',
+                phone: '',
+                fiscalCode: null,
+            }
+            this.value[i].personsQuantity = 1
         }
     },
-    computed: {
-        getRoomsSelected() {
-            this.roomsSelected = this.$store.getters.getRooms;
-            return this.roomsSelected;
-        },
-    }
 }
 </script>
 
