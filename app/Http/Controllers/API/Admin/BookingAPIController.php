@@ -87,6 +87,7 @@ class BookingAPIController extends AppBaseController
     public function store(CreateBookingAPIRequest $request)
     {
         $input = $request->all();
+        \Log::info($input);
 
         /*$inputOld = [
             'comentario'    => 'Hola 2',

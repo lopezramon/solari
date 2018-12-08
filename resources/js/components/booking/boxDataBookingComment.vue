@@ -8,7 +8,7 @@
                <form>
                     <div class="form-row">
                         <div class="col-12 mb-3">
-                            <textarea class="form-control" name="message" id="" rows="3"></textarea>
+                            <textarea v-model="value.text" class="form-control" name="message" id="" rows="3"></textarea>
                         </div>
                     </div>
                </form>
@@ -18,11 +18,7 @@
 </template>
 <script>
 export default {
-    data() {
-        return {
-
-        }
-    }
+    props: ['value']
 }
 </script>
 

@@ -99,7 +99,7 @@ import wizard from '../components/booking/wizard'
 import booking2 from '../components/booking/booking2';
 import boxDataBooking from '../components/booking/boxDataBooking';
 import boxDataBookingPersonal from '../components/booking/boxDataBookingPersonal';
-import boxDataBookingComentario from '../components/booking/boxDataBookingComentario';
+import boxDataBookingComment from '../components/booking/boxDataBookingComment';
 import boxDataBookingInfo  from '../components/booking/boxDataBookingInfo';
 
 
@@ -169,7 +169,7 @@ Vue.component('photo_gallery',photoGallery);
 Vue.component('wizard', wizard);
 Vue.component('box_data_booking',boxDataBooking);
 Vue.component('box_data_booking_personal',boxDataBookingPersonal);
-Vue.component('box_data_booking_comentario',boxDataBookingComentario);
+Vue.component('box_data_booking_comment',boxDataBookingComment);
 Vue.component('box_data_booking_info',boxDataBookingInfo);
 
 
