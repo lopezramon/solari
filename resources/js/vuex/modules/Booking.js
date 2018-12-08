@@ -8,6 +8,7 @@ export default {
         rooms: [],
         room_locations: [],
         room_categories: [],
+        loading: false,
     },
     actions: {
         setFilterDates({commit}, item) {
@@ -19,8 +20,8 @@ export default {
         setRoom({commit}, item) {
             commit('setRoom', {list: item});
         },
-        deleteRoom({commit}, item) {
-            commit('deleteRoom', {list: item});
+        deleteRoom({commit}, index) {
+            commit('deleteRoom', index);
         },
         deleteBooking({commit}, item) {
             commit('deleteBooking', {list: item});
@@ -50,14 +51,17 @@ export default {
                 })
         },
         storeBooking(context, payload){
+            context.state.loading = true
             return new Promise((resolve, reject) => {
                 axios.post('/api/admin/bookings', payload)
                     .then(response => {
                         context.commit('storeBooking', payload)
                         resolve(response)
+                        context.state.loading = false
                     })
                     .catch(error => {
                         console.log(error)
+                        context.state.loading = false
                         reject()
                     })
 
@@ -76,6 +80,9 @@ export default {
         },
         getBooking: state => {
             return state.booking;
+        },
+        getBookingLoading: state => {
+            return state.loading;
         },
         getLocations: (state) => (id) => {
             const RESPONSE = state.room_locations.find(key => key.id === id);
@@ -114,17 +121,8 @@ export default {
 
             } else ADD_ROOM()
         },
-        deleteRoom(state, {list}) {
-            let data = state.booking.rooms;
-
-            for (let a in list) {
-                for (let i in data) {
-                    if (data[i].roomId === list[a].roomId) {
-                        Vue.delete(state.booking.rooms, i);
-                        Vue.set(state.booking, 'totalAmount', Math.abs(state.booking.totalAmount - list[a].totalItem));
-                    }
-                }
-            }
+        deleteRoom(state, index) {
+            Vue.delete(state.booking.rooms, index);
         },
         deleteBooking(state) {
             Vue.set(state.booking.personResponsible,  'userId', null);

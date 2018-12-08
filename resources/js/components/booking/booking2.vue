@@ -6,12 +6,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-8">
-                    <box_data_booking v-model="personResponsible"/>
-                    <box_data_booking_personal v-model="rooms"/>
-                    <box_data_booking_comment v-model="comment"/>
+                    <box_data_booking
+                        v-model="personResponsible"
+                    ></box_data_booking>
+
+                    <box_data_booking_personal
+                        v-model="rooms"
+                    ></box_data_booking_personal>
+
+                    <box_data_booking_comment
+                        v-model="comment"
+                    ></box_data_booking_comment>
                 </div>
                 <div class="col-12 col-md-4">
-                    <box_data_booking_info v-model="booking"/>
+                    <box_data_booking_info
+                        v-model="booking"
+                    ></box_data_booking_info>
                 </div>
             </div>
         </div>
@@ -38,7 +48,7 @@
                     total += this.rooms[i].price
                 }
                 return total
-            }
+            },
         },
         data(){
             return {
@@ -55,10 +65,10 @@
                 rooms: [
                     {
                         id: 1,
-                        title: 'Bilocale con giardino vista mare, WiFi, aria condizionata',
-                        description: `2+2 posti letto, 1 camera da letto, 1 bagno con box doccia, soggiorno con angolo cucina, giardino attrezzato per poter mangiare all'aperto. Dispone di WiFi, aria condizionata, Tv-Sat, lavatrice, barbecue, doccetta esterna, posto auto.`,
+                        title: 'Solaria 1: Trilocale piano terra con giardino, aria condizionata e WiFi',
+                        description: "4+1 posti letto, 2 camere da letto, 1 bagno con box doccia, soggiorno con angolo cucina, veranda e giardino attrezzati e abitabili per poter mangiare all'aperto. Dispone di WiFi, aria condizionata, Tv-Sat, lavatrice, lavastoviglie, barbecue, doccetta esterna, posto auto.",
                         Included: 'Consumi luce, acqua e gas inclusi.',
-                        price: 60,
+                        price: 71,
                         room_category_id: 1,
                         availability: 1,
                         services:[
@@ -137,10 +147,10 @@
                     },
                     {
                         id: 2,
-                        title: 'Bilocale con giardino vista mare, WiFi, aria condizionata',
-                        description: `2+2 posti letto, 1 camera da letto, 1 bagno con box doccia, soggiorno con angolo cucina, giardino attrezzato per poter mangiare all'aperto. Dispone di WiFi, aria condizionata, Tv-Sat, lavatrice, barbecue, doccetta esterna, posto auto.`,
+                        title: 'Solaria 2: Trilocale piano terra con giardino, aria condizionata e WiFi',
+                        description: `4+1 posti letto, 2 camere da letto, 1 bagno con box doccia, soggiorno con angolo cucina, veranda e giardino attrezzati e abitabili per poter mangiare all'aperto. Dispone di WiFi, aria condizionata,Tv-Sat, lavatrice, lavastoviglie, barbecue, doccetta esterna, posto auto.`,
                         Included: 'Consumi luce, acqua e gas inclusi.',
-                        price: 75,
+                        price: 47,
                         room_category_id: 1,
                         availability: 1,
                         services:[

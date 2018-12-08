@@ -22,7 +22,7 @@
                 Hai selezionato:
             </div>
             <div class="items-selected">
-                <div v-for="(room, id) in value.rooms" :key="id" class="card-body">
+                <div v-for="(room, index) in value.rooms" class="card-body">
                     <div class="row border-bottom">
                         <div class="col-12 mb-3">
                             <div>
@@ -38,7 +38,7 @@
                                 </template>
                             </div>
                             <div class="d-flex justify-content-between lead">
-                                <a href="#" class="remove text-red">
+                                <a href="##" @click="deleteRoom(index)" class="remove text-red">
                                     <img src="/images/iconos/delete.svg" alt="" width="18">
                                     Rimuovere
                                 </a>
@@ -48,52 +48,43 @@
                     </div>
                 </div>
             </div>
-<!--             <div class="card-body border-top border-success mt-4">
-                <div class="row">
-                    <div class="col-12 mb-3">
-                        <div>
-                            <div>
-                                <strong>Importo:</strong> 400,00€
-                            </div>
-                            <div>
-                                <strong>Iva:</strong> 45,00€
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between lead">
-                            <a href="#" class="remove text-red">
-                                <img src="/images/iconos/delete.svg" alt="" width="18">
-                                Rimuovere
-                            </a>
-                            <span class="price">75,00€</span>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <div class="card-header lead text-white font-weight-bold text-right">
-                <strong>Totale:</strong> {{ value.total }}€
+            <div class="card-header lead text-white font-weight-bold">
+                <b>Totale:</b> {{ value.total }}€
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-12 mb-3">
-                        <div class="paypaypal">
-                            <label class="d-block" for="dni">Accettare i termini e le condizioni per continuare on il metodo di pagamento</label>
-                            <label class="switch my-2">
-                                <input v-model="terms" type="checkbox" checked>
-                                <span class="slider round"></span>
-                            </label>
-                            
-                            <paypal-checkout
-                                v-if="terms"
-                                env="sandbox"
-                                :amount="value.total.toString()"
-                                currency="USD"
-                                :client="credentials"
-                                @payment-authorized="authorized"
-                                :button-style="buttonStyle"
-                                :item="myItems"
-                                locale="it_IT"
-                            ></paypal-checkout>
-                        </div>
+                        <template v-if="! loading">
+                          <div class="paypaypal">
+                              <label class="d-block" for="dni">Accettare i termini e le condizioni per continuare</label>
+                              <label class="switch my-2">
+                                  <input v-model="terms" type="checkbox" checked>
+                                  <span class="slider round"></span>
+                              </label>
+
+                              <paypal-checkout
+                                  v-if="validForm"
+                                  :env="environment"
+                                  :amount="value.total.toString()"
+                                  currency="EUR"
+                                  :client="credentials"
+                                  @payment-authorized="authorized"
+                                  :button-style="buttonStyle"
+                                  :items="paypalItems"
+                                  locale="it_IT"
+                              ></paypal-checkout>
+                          </div>
+                        </template>
+                        <template v-else>
+                            <div class="container d-flex justify-content-center">
+                                <div class="row m-5 mb-4">
+                                    <div class="col-12">
+                                        <pulse-loader :color="color" :size="size"/>
+                                        <label>Caricamento in corso...</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
                     </div>
                 </div>
             </div>
@@ -101,63 +92,77 @@
     </div>
 </template>
 <script>
-export default {
-    props: ['value'],
-    data() {
-        return {
-            terms: false,
-            credentials: {
-                sandbox: 'AUkwPEHREgCVKE1VkhI5NTUevuEd7kjEmzDLA1xHWiWl2Vq_za0ASHWsUaj-LGHkf9nLkhoVQeW8AMPt',
-                production: 'Aac3ecuCh12HatIXoZ0FDZGjqrf9B0rEIHnyffygAwBse-eRxV3aLKSbl1Kv3cCowdF4IXdk6_CP_lfg'
-            },
-            buttonStyle: {
-                label: 'checkout',
-                size:  'responsive',
-                shape: 'pill',
-                color: 'silver'
-            },
-            myItems: [
-              {
-                "name": "hat",
-                "description": "Brown hat.",
-                "quantity": "1",
-                "price": "5",
-                "currency": "USD"
-                },
-                {
-                "name": "handbag",
-                "description": "Black handbag.",
-                "quantity": "1",
-                "price": "5",
-                "currency": "USD"
-                }
-            ]
+  import { PulseLoader } from 'vue-spinner/dist/vue-spinner.min'
+
+  export default {
+      components: { PulseLoader },
+      props: ['value'],
+      data() {
+          return {
+              terms: false,
+              environment: process.env.MIX_PAYPAL_MODE,
+              credentials: {
+                  sandbox: process.env.MIX_PAYPAL_CLIENT_ID,
+                  production: process.env.MIX_PAYPAL_CLIENT_ID,
+              },
+              buttonStyle: {
+                  label: 'checkout',
+                  size:  'responsive',
+                  shape: 'pill',
+                  color: 'silver'
+              },
+              color: '#1b1b1b',
+              size: '16px',
+          }
+      },
+      methods: {
+          authorized(){
+            this.terms = false
+              this.$store.dispatch('storeBooking', this.value)
+                  .then(response => {
+                      this.$router.push('booking3')
+                      console.log(response)
+                  })
+          },
+          getHouse(id){
+            return this.categories.find(category => category.id == id)
+          },
+          getLocation(id){
+            return this.locations.find(location => location.id == id)
+          },
+          deleteRoom(index){
+            this.value.rooms.splice(index, 1)
+            //this.$store.dispatch('deleteRoom', index)
+          }
+      },
+      computed: {
+        categories(){
+          return this.$store.state.Booking.room_categories
+        },
+        locations(){
+          return this.$store.state.Booking.room_locations
+        },
+        paypalItems(){
+          let items = []
+          for(let i in this.value.rooms){
+            items.push({
+                  'name': this.value.rooms[i].title,
+                  'description': this.value.rooms[i].description,
+                  'quantity': '1',
+                  'price': this.value.rooms[i].price,
+                  'currency': 'EUR',
+                  })
+          }
+          return items
+        },
+        validForm(){
+            return   this.terms && this.errors.items.length == 0
+        },
+        loading(){
+          return this.$store.getters.getBookingLoading
         }
-    },
-    methods: {
-        authorized(){
-            this.$store.dispatch('storeBooking', this.value)
-                .then(response => {
-                    //this.$route.push('paso3')
-                    console.log(response)
-                })
-        },
-        getHouse(id){
-          return this.categories.find(category => category.id == id)
-        },
-        getLocation(id){
-          return this.locations.find(location => location.id == id)
-        },
-    },
-    computed: {
-      categories(){
-        return this.$store.state.Booking.room_categories
-      },
-      locations(){
-        return this.$store.state.Booking.room_locations
-      },
-    }
-}
+      }
+  }
 </script>
 
 <style scoped>
