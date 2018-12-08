@@ -21,27 +21,29 @@
             <div class="card-header lead text-white font-weight-bold">
                 Hai selezionato:
             </div>
-            <div v-for="room in value.rooms" class="card-body">
-                <div class="row border-bottom">
-                    <div class="col-12 mb-3">
-                        <div>
-                            <strong class="d-block">{{ room.title }}</strong>
-                            <div>{{ room.description }}</div>
-                            <template v-if="categories.length > 0">
-                              <div>
-                                  <strong>Case Vacanza:</strong> {{ getHouse(room.room_category_id).name }}
-                              </div>
-                              <div>
-                                  <strong>Destinazione:</strong> {{ getLocation(getHouse(room.room_category_id).id).name }}
-                              </div>
-                            </template>
-                        </div>
-                        <div class="d-flex justify-content-between lead">
-                            <a href="#" class="remove text-red">
-                                <img src="/images/iconos/delete.svg" alt="" width="18">
-                                Rimuovere
-                            </a>
-                            <span class="price">{{ room.price }}€</span>
+            <div class="items-selected">
+                <div v-for="(room, id) in value.rooms" :key="id" class="card-body">
+                    <div class="row border-bottom">
+                        <div class="col-12 mb-3">
+                            <div>
+                                <strong class="d-block">{{ room.title }}</strong>
+                                <div>{{ room.description }}</div>
+                                <template v-if="categories.length > 0">
+                                <div>
+                                    <strong>Case Vacanza:</strong> {{ getHouse(room.room_category_id).name }}
+                                </div>
+                                <div>
+                                    <strong>Destinazione:</strong> {{ getLocation(getHouse(room.room_category_id).id).name }}
+                                </div>
+                                </template>
+                            </div>
+                            <div class="d-flex justify-content-between lead">
+                                <a href="#" class="remove text-red">
+                                    <img src="/images/iconos/delete.svg" alt="" width="18">
+                                    Rimuovere
+                                </a>
+                                <span class="price">{{ room.price }}€</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -67,20 +69,19 @@
                     </div>
                 </div>
             </div> -->
-            <div class="card-header lead text-white font-weight-bold">
-                <b>Totale:</b> {{ value.total }}€
+            <div class="card-header lead text-white font-weight-bold text-right">
+                <strong>Totale:</strong> {{ value.total }}€
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-12 mb-3">
-                        <div class="item">
-                            <label class="d-block" for="dni">Accetta termini e condizioni</label>
-                            <label class="switch m-0">
+                        <div class="paypaypal">
+                            <label class="d-block" for="dni">Accettare i termini e le condizioni per continuare</label>
+                            <label class="switch my-2">
                                 <input v-model="terms" type="checkbox" checked>
                                 <span class="slider round"></span>
                             </label>
-                            <br>
-                            <br>
+                            
                             <paypal-checkout
                                 v-if="terms"
                                 env="sandbox"
@@ -90,6 +91,7 @@
                                 @payment-authorized="authorized"
                                 :button-style="buttonStyle"
                                 :item="myItems"
+                                locale="it_IT"
                             ></paypal-checkout>
                         </div>
                     </div>
@@ -110,7 +112,7 @@ export default {
             },
             buttonStyle: {
                 label: 'checkout',
-                size:  'medium',
+                size:  'responsive',
                 shape: 'pill',
                 color: 'silver'
             },
@@ -221,5 +223,30 @@ input:checked + .slider:before {
     color: red;
     text-decoration: none;
 }
+/**/
+.items-selected{
+    max-height: 360px;
+    overflow-y: scroll;
+}
+.items-selected::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 0px;
+	background-color: #F5F5F5;
+}
+
+.items-selected::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+.items-selected::-webkit-scrollbar-thumb
+{
+	border-radius: 0px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+	background-color: #21b186;
+}
+/**/
 </style>
 
