@@ -21,7 +21,7 @@
             <div class="card-header lead text-white font-weight-bold">
                 Hai selezionato:
             </div>
-            <div v-for="room in value.rooms" class="card-body">
+            <div v-for="(room, index) in value.rooms" class="card-body">
                 <div class="row border-bottom">
                     <div class="col-12 mb-3">
                         <div>
@@ -37,7 +37,7 @@
                             </template>
                         </div>
                         <div class="d-flex justify-content-between lead">
-                            <a href="#" class="remove text-red">
+                            <a href="##" @click="deleteRoom(index)" class="remove text-red">
                                 <img src="/images/iconos/delete.svg" alt="" width="18">
                                 Rimuovere
                             </a>
@@ -46,27 +46,6 @@
                     </div>
                 </div>
             </div>
-<!--             <div class="card-body border-top border-success mt-4">
-                <div class="row">
-                    <div class="col-12 mb-3">
-                        <div>
-                            <div>
-                                <strong>Importo:</strong> 400,00€
-                            </div>
-                            <div>
-                                <strong>Iva:</strong> 45,00€
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between lead">
-                            <a href="#" class="remove text-red">
-                                <img src="/images/iconos/delete.svg" alt="" width="18">
-                                Rimuovere
-                            </a>
-                            <span class="price">75,00€</span>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <div class="card-header lead text-white font-weight-bold">
                 <b>Totale:</b> {{ value.total }}€
             </div>
@@ -82,14 +61,14 @@
                             <br>
                             <br>
                             <paypal-checkout
-                                v-if="terms"
+                                v-if="validForm"
                                 env="sandbox"
                                 :amount="value.total.toString()"
                                 currency="USD"
                                 :client="credentials"
                                 @payment-authorized="authorized"
                                 :button-style="buttonStyle"
-                                :item="myItems"
+                                :items="paypalItems"
                             ></paypal-checkout>
                         </div>
                     </div>
@@ -114,29 +93,13 @@ export default {
                 shape: 'pill',
                 color: 'silver'
             },
-            myItems: [
-              {
-                "name": "hat",
-                "description": "Brown hat.",
-                "quantity": "1",
-                "price": "5",
-                "currency": "USD"
-                },
-                {
-                "name": "handbag",
-                "description": "Black handbag.",
-                "quantity": "1",
-                "price": "5",
-                "currency": "USD"
-                }
-            ]
         }
     },
     methods: {
         authorized(){
             this.$store.dispatch('storeBooking', this.value)
                 .then(response => {
-                    //this.$route.push('paso3')
+                    this.$router.push('booking3')
                     console.log(response)
                 })
         },
@@ -146,6 +109,10 @@ export default {
         getLocation(id){
           return this.locations.find(location => location.id == id)
         },
+        deleteRoom(index){
+          this.value.rooms.splice(index, 1)
+          //this.$store.dispatch('deleteRoom', index)
+        }
     },
     computed: {
       categories(){
@@ -154,6 +121,22 @@ export default {
       locations(){
         return this.$store.state.Booking.room_locations
       },
+      paypalItems(){
+        let items = []
+        for(let i in this.value.rooms){
+          items.push({
+                'name': this.value.rooms[i].title,
+                'description': this.value.rooms[i].description,
+                'quantity': '1',
+                'price': this.value.rooms[i].price,
+                'currency': 'USD',
+                })
+        }
+        return items
+      },
+      validForm(){
+          return this.errors.items.length == 0 && this.terms
+      }
     }
 }
 </script>

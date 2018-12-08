@@ -19,8 +19,8 @@ export default {
         setRoom({commit}, item) {
             commit('setRoom', {list: item});
         },
-        deleteRoom({commit}, item) {
-            commit('deleteRoom', {list: item});
+        deleteRoom({commit}, index) {
+            commit('deleteRoom', index);
         },
         deleteBooking({commit}, item) {
             commit('deleteBooking', {list: item});
@@ -108,17 +108,8 @@ export default {
                 Vue.set(state.booking, 'totalAmount', total);
             }
         },
-        deleteRoom(state, {list}) {
-            let data = state.booking.rooms;
-
-            for (let a in list) {
-                for (let i in data) {
-                    if (data[i].roomId === list[a].roomId) {
-                        Vue.delete(state.booking.rooms, i);
-                        Vue.set(state.booking, 'totalAmount', Math.abs(state.booking.totalAmount - list[a].totalItem));
-                    }
-                }
-            }
+        deleteRoom(state, index) {
+            Vue.delete(state.booking.rooms, index);
         },
         deleteBooking(state) {
             Vue.set(state.booking.personResponsible,  'userId', null);

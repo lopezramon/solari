@@ -8,20 +8,28 @@
                <form>
                     <div class="form-row">
                         <div class="col-12 col-md-6 mb-3">
-                            <label for="name">Nome</label>
-                            <input v-model="value.first_name" type="text" class="form-control" id="name" value="">
+                            <span class="text-success" :class="{'text-danger': errors.has('first_name')}">*</span>
+                            <label for="first_name">Nome</label>
+                            <input v-model="value.first_name" type="text" class="form-control" name="first_name" v-validate.initial="'required|alpha_spaces|min:2|max:30'" data-vv-delay="1500" data-vv-as="First Name" :class="{'text-danger': errors.has('first_name')}">
+                            <small v-show="errors.has('first_name')" class="help text-danger">{{ errors.first('first_name') }}</small>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
-                            <label for="lastname">Cognome</label>
-                            <input v-model="value.last_name" type="text" class="form-control" id="lastname" value="">
+                            <span class="text-success" :class="{'text-danger': errors.has('last_name')}">*</span>
+                            <label for="last_name">Cognome</label>
+                            <input v-model="value.last_name" type="text" class="form-control" name="last_name" v-validate.initial="'required|alpha_spaces|min:2|max:30'" data-vv-delay="1500" data-vv-as="Last Name" :class="{'text-danger': errors.has('last_name')}">
+                            <small v-show="errors.has('last_name')" class="help text-danger">{{ errors.first('last_name') }}</small>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
+                            <span class="text-success" :class="{'text-danger': errors.has('email')}">*</span>
                             <label for="email">E-mail</label>
-                            <input v-model="value.email" type="text" class="form-control" id="email" value="">
+                            <input v-model="value.email" type="text" class="form-control" name="email" v-validate.initial="'required|email'" data-vv-delay="1500" data-vv-as="E-mail" :class="{'text-danger': errors.has('email')}">
+                            <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
+                          <span class="text-success" :class="{'text-danger': errors.has('phone')}">*</span>
                             <label for="phone">Telefono</label>
-                            <input v-model="value.phone" type="text" class="form-control" id="phone" value="">
+                            <input v-model="value.phone" type="text" class="form-control" name="phone" v-validate.initial="'required|numeric|min:9|max:16'" data-vv-delay="1500" data-vv-as="Phone Number" :class="{'text-danger': errors.has('phone')}">
+                            <small v-show="errors.has('phone')" class="help text-danger">{{ errors.first('phone') }}</small>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label for="dni">Codice fiscale</label>
@@ -37,12 +45,16 @@
                     </div>
                     <div v-if="value.register" class="form-row">
                         <div class="col-12 col-md-6 mb-3">
+                            <span class="text-success" :class="{'text-danger': errors.has('password')}">*</span>
                             <label for="password">Password</label>
-                            <input v-model="value.password" type="password" class="form-control" id="password" value="">
+                            <input v-model="value.password" type="password" class="form-control" v-validate.initial="'required|alpha_dash|min:6'" name="password" data-vv-delay="1500" data-vv-as="Password" ref="password">
+                            <small v-show="errors.has('password')" class="help text-danger">{{ errors.first('password') }}</small>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
+                            <span class="text-success" :class="{'text-danger': errors.has('confpassword')}">*</span>
                             <label for="confpassword">Conferma la password</label>
-                            <input type="password" class="form-control" id="confpassword" value="">
+                            <input type="password" class="form-control" v-validate.initial="'required|confirmed:password'" name="confpassword" data-vv-delay="1500" data-vv-as="Confirm Password">
+                            <small v-show="errors.has('confpassword')" class="help text-danger">{{ errors.first('confpassword') }}</small>
                         </div>
                     </div>
                </form>
@@ -53,11 +65,6 @@
 <script>
 export default {
     props:['value'],
-    data() {
-        return {
-          //
-        }
-    }
 }
 </script>
 
