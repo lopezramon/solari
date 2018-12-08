@@ -101,6 +101,7 @@ import boxDataBooking from '../components/booking/boxDataBooking';
 import boxDataBookingPersonal from '../components/booking/boxDataBookingPersonal';
 import boxDataBookingComment from '../components/booking/boxDataBookingComment';
 import boxDataBookingInfo  from '../components/booking/boxDataBookingInfo';
+import booking3  from '../components/booking/booking3';
 
 
 // My account
@@ -237,6 +238,11 @@ let router = new Router({
             path: '/booking2',
             name: 'booking2',
             component: booking2
+        },
+        {
+            path: '/booking3',
+            name: 'booking3',
+            component: booking3
         },
         {
             path: '/clientLogin',

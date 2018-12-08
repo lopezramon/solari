@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="col-12 mb-3">
                         <div class="paypaypal">
-                            <label class="d-block" for="dni">Accettare i termini e le condizioni per continuare</label>
+                            <label class="d-block" for="dni">Accettare i termini e le condizioni per continuare on il metodo di pagamento</label>
                             <label class="switch my-2">
                                 <input v-model="terms" type="checkbox" checked>
                                 <span class="slider round"></span>
