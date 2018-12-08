@@ -90,7 +90,7 @@
         data() {
             return {
                 root: null,
-                activo: false;
+                activo: false,
                 swiperOption: {
                     pagination: { el: '.swiper-pagination' }
                 },
@@ -335,7 +335,7 @@
         text-align: center;
     }
     .btn-secondary{
-       background-color: #f1832b; 
+       background-color: #f1832b;
     }
     /* top right*/
     .ribbon-top-right {
