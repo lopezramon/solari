@@ -21,27 +21,29 @@
             <div class="card-header lead text-white font-weight-bold">
                 Hai selezionato:
             </div>
-            <div v-for="(room, index) in value.rooms" class="card-body">
-                <div class="row border-bottom">
-                    <div class="col-12 mb-3">
-                        <div>
-                            <strong class="d-block">{{ room.title }}</strong>
-                            <div>{{ room.description }}</div>
-                            <template v-if="categories.length > 0">
-                              <div>
-                                  <strong>Case Vacanza:</strong> {{ getHouse(room.room_category_id).name }}
-                              </div>
-                              <div>
-                                  <strong>Destinazione:</strong> {{ getLocation(getHouse(room.room_category_id).id).name }}
-                              </div>
-                            </template>
-                        </div>
-                        <div class="d-flex justify-content-between lead">
-                            <a href="##" @click="deleteRoom(index)" class="remove text-red">
-                                <img src="/images/iconos/delete.svg" alt="" width="18">
-                                Rimuovere
-                            </a>
-                            <span class="price">{{ room.price }}€</span>
+            <div class="items-selected">
+                <div v-for="(room, index) in value.rooms" class="card-body">
+                    <div class="row border-bottom">
+                        <div class="col-12 mb-3">
+                            <div>
+                                <strong class="d-block">{{ room.title }}</strong>
+                                <div>{{ room.description }}</div>
+                                <template v-if="categories.length > 0">
+                                <div>
+                                    <strong>Case Vacanza:</strong> {{ getHouse(room.room_category_id).name }}
+                                </div>
+                                <div>
+                                    <strong>Destinazione:</strong> {{ getLocation(getHouse(room.room_category_id).id).name }}
+                                </div>
+                                </template>
+                            </div>
+                            <div class="d-flex justify-content-between lead">
+                                <a href="##" @click="deleteRoom(index)" class="remove text-red">
+                                    <img src="/images/iconos/delete.svg" alt="" width="18">
+                                    Rimuovere
+                                </a>
+                                <span class="price">{{ room.price }}€</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -52,25 +54,37 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12 mb-3">
-                        <div class="item">
-                            <label class="d-block" for="dni">Accetta termini e condizioni</label>
-                            <label class="switch m-0">
-                                <input v-model="terms" type="checkbox" checked>
-                                <span class="slider round"></span>
-                            </label>
-                            <br>
-                            <br>
-                            <paypal-checkout
-                                v-if="validForm"
-                                env="sandbox"
-                                :amount="value.total.toString()"
-                                currency="USD"
-                                :client="credentials"
-                                @payment-authorized="authorized"
-                                :button-style="buttonStyle"
-                                :items="paypalItems"
-                            ></paypal-checkout>
-                        </div>
+                        <template v-if="! loading">
+                          <div class="paypaypal">
+                              <label class="d-block" for="dni">Accettare i termini e le condizioni per continuare</label>
+                              <label class="switch my-2">
+                                  <input v-model="terms" type="checkbox" checked>
+                                  <span class="slider round"></span>
+                              </label>
+
+                              <paypal-checkout
+                                  v-if="validForm"
+                                  :env="environment"
+                                  :amount="value.total.toString()"
+                                  currency="EUR"
+                                  :client="credentials"
+                                  @payment-authorized="authorized"
+                                  :button-style="buttonStyle"
+                                  :items="paypalItems"
+                                  locale="it_IT"
+                              ></paypal-checkout>
+                          </div>
+                        </template>
+                        <template v-else>
+                            <div class="container d-flex justify-content-center">
+                                <div class="row m-5 mb-4">
+                                    <div class="col-12">
+                                        <pulse-loader :color="color" :size="size"/>
+                                        <label>Caricamento in corso...</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
                     </div>
                 </div>
             </div>
@@ -78,67 +92,77 @@
     </div>
 </template>
 <script>
-export default {
-    props: ['value'],
-    data() {
-        return {
-            terms: false,
-            credentials: {
-                sandbox: 'AUkwPEHREgCVKE1VkhI5NTUevuEd7kjEmzDLA1xHWiWl2Vq_za0ASHWsUaj-LGHkf9nLkhoVQeW8AMPt',
-                production: 'Aac3ecuCh12HatIXoZ0FDZGjqrf9B0rEIHnyffygAwBse-eRxV3aLKSbl1Kv3cCowdF4IXdk6_CP_lfg'
-            },
-            buttonStyle: {
-                label: 'checkout',
-                size:  'medium',
-                shape: 'pill',
-                color: 'silver'
-            },
-        }
-    },
-    methods: {
-        authorized(){
-            this.$store.dispatch('storeBooking', this.value)
-                .then(response => {
-                    this.$router.push('booking3')
-                    console.log(response)
-                })
-        },
-        getHouse(id){
-          return this.categories.find(category => category.id == id)
-        },
-        getLocation(id){
-          return this.locations.find(location => location.id == id)
-        },
-        deleteRoom(index){
-          this.value.rooms.splice(index, 1)
-          //this.$store.dispatch('deleteRoom', index)
-        }
-    },
-    computed: {
-      categories(){
-        return this.$store.state.Booking.room_categories
+  import { PulseLoader } from 'vue-spinner/dist/vue-spinner.min'
+
+  export default {
+      components: { PulseLoader },
+      props: ['value'],
+      data() {
+          return {
+              terms: false,
+              environment: process.env.MIX_PAYPAL_MODE,
+              credentials: {
+                  sandbox: process.env.MIX_PAYPAL_CLIENT_ID,
+                  production: process.env.MIX_PAYPAL_CLIENT_ID,
+              },
+              buttonStyle: {
+                  label: 'checkout',
+                  size:  'responsive',
+                  shape: 'pill',
+                  color: 'silver'
+              },
+              color: '#1b1b1b',
+              size: '16px',
+          }
       },
-      locations(){
-        return this.$store.state.Booking.room_locations
+      methods: {
+          authorized(){
+            this.terms = false
+              this.$store.dispatch('storeBooking', this.value)
+                  .then(response => {
+                      this.$router.push('booking3')
+                      console.log(response)
+                  })
+          },
+          getHouse(id){
+            return this.categories.find(category => category.id == id)
+          },
+          getLocation(id){
+            return this.locations.find(location => location.id == id)
+          },
+          deleteRoom(index){
+            this.value.rooms.splice(index, 1)
+            //this.$store.dispatch('deleteRoom', index)
+          }
       },
-      paypalItems(){
-        let items = []
-        for(let i in this.value.rooms){
-          items.push({
-                'name': this.value.rooms[i].title,
-                'description': this.value.rooms[i].description,
-                'quantity': '1',
-                'price': this.value.rooms[i].price,
-                'currency': 'USD',
-                })
+      computed: {
+        categories(){
+          return this.$store.state.Booking.room_categories
+        },
+        locations(){
+          return this.$store.state.Booking.room_locations
+        },
+        paypalItems(){
+          let items = []
+          for(let i in this.value.rooms){
+            items.push({
+                  'name': this.value.rooms[i].title,
+                  'description': this.value.rooms[i].description,
+                  'quantity': '1',
+                  'price': this.value.rooms[i].price,
+                  'currency': 'EUR',
+                  })
+          }
+          return items
+        },
+        validForm(){
+            return   this.terms && this.errors.items.length == 0
+        },
+        loading(){
+          return this.$store.getters.getBookingLoading
         }
-        return items
-      },
-      validForm(){
-          return this.errors.items.length == 0 && this.terms
       }
-    }
-}
+  }
 </script>
 
 <style scoped>
@@ -204,5 +228,30 @@ input:checked + .slider:before {
     color: red;
     text-decoration: none;
 }
+/**/
+.items-selected{
+    max-height: 360px;
+    overflow-y: scroll;
+}
+.items-selected::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 0px;
+	background-color: #F5F5F5;
+}
+
+.items-selected::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+.items-selected::-webkit-scrollbar-thumb
+{
+	border-radius: 0px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+	background-color: #21b186;
+}
+/**/
 </style>
 

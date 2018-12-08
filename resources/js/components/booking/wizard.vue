@@ -4,12 +4,12 @@
       <div id="form-total" role="application" class="clearfix">
         <div class="steps clearfix">
           <ul role="tablist" class="mb-0">
-            <li role="tab" aria-disabled="false" class="done d-inline-block" aria-selected="true" >
+            <li role="tab" aria-disabled="false" class="done d-inline-block" aria-selected="false" >
               <a>
                 <span class="title">1</span>
               </a>
             </li>
-            <li role="tab" aria-disabled="false" class="" aria-selected="false">
+            <li role="tab" aria-disabled="false" class="" aria-selected="true">
               <a>
                 <span class="title">2</span>
               </a>
@@ -20,7 +20,7 @@
               </a>
             </li>
           </ul>
-          <div class="container ">
+          <div class="container d-none d-md-block">
             <div class="row text-center">
               <div class="col-4">    
                 <span class="title" >Scegli la camera</span>
