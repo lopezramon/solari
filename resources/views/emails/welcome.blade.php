@@ -16,7 +16,7 @@
                 background: #f3f3f3
             }
         }
-        
+
         @media only screen and (max-width:596px) {
             .small-float-center {
                 margin: 0 auto!important;
@@ -33,7 +33,7 @@
                 text-align: right!important
             }
         }
-        
+
         @media only screen and (max-width:596px) {
             .hide-for-large {
                 display: block!important;
@@ -44,7 +44,7 @@
                 line-height: inherit!important
             }
         }
-        
+
         @media only screen and (max-width:596px) {
             table.body table.container .hide-for-large,
             table.body table.container .row.hide-for-large {
@@ -52,14 +52,14 @@
                 width: 100%!important
             }
         }
-        
+
         @media only screen and (max-width:596px) {
             table.body table.container .callout-inner.hide-for-large {
                 display: table-cell!important;
                 width: 100%!important
             }
         }
-        
+
         @media only screen and (max-width:596px) {
             table.body table.container .show-for-large {
                 display: none!important;
@@ -68,7 +68,7 @@
                 overflow: hidden
             }
         }
-        
+
         @media only screen and (max-width:596px) {
             table.body img {
                 width: auto;
@@ -289,8 +289,8 @@
                                                         <table style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
                                                             <tbody>
                                                                 <tr style="padding:0;text-align:left;vertical-align:top">
-                                                                    <th style="margin:auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:center"><img src="{{ asset('/images/logos/logo2-medium.png') }}" style="-ms-interpolation-mode:bicubic;clear:both;display:block;max-width:500%;outline:0;text-decoration:none;width: 80px; margin: auto;"></th>
-                                                                    <th style="margin:auto;text-align:left; font-family: 'Nunito', sans-serif; vertical-align: middle;"><h2 class="text-center" style="Margin:0;Margin-bottom:10px;color:#fff;font-family: 'Nunito', sans-serif;font-size:30px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left;word-wrap:normal">Luxury Room</h2></th>
+                                                                    <th style="margin:auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0;padding:0;text-align:center"><img src="{{ asset('/images/logos/solaria-logo.png') }}" style="-ms-interpolation-mode:bicubic;clear:both;display:block;max-width:500%;outline:0;text-decoration:none;width: 80px; margin: auto;"></th>
+                                                                    <th style="margin:auto;text-align:left; font-family: 'Nunito', sans-serif; vertical-align: middle;"><h2 class="text-center" style="Margin:0;Margin-bottom:10px;color:#fff;font-family: 'Nunito', sans-serif;font-size:30px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:left;word-wrap:normal">Solaria Vacanze</h2></th>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -360,14 +360,14 @@
                                                             <tbody style="background-color: #000000;">
                                                                 <tr style="padding:0;text-align:left;vertical-align:top">
                                                                     <th class="small-12 large-3 columns first" style="Margin:0 auto;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;line-height:1.3;margin:0 auto;padding:0;padding-left:16px;padding-right:8px;padding-top:16px;text-align:left;width:129px">
-                                                                        <p class="text-center" style="Margin:0;Margin-bottom:10px;color:#fff;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:center"><b>© Luxury 2018 | <a href="{{url('/')}}/policies" style="color:#fff;"> Informativa sulla Privacy</a> | <a href="{{url('/')}}/terms" style="color:#fff;">Termini e Condizioni</a></b></p>
+                                                                        <p class="text-center" style="Margin:0;Margin-bottom:10px;color:#fff;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.3;margin:0;margin-bottom:10px;padding:0;text-align:center"><b>© Solary Vacanze 2018 | <a href="{{url('/')}}/policies" style="color:#fff;"> Informativa sulla Privacy</a> | <a href="{{url('/')}}/terms" style="color:#fff;">Termini e Condizioni</a></b></p>
                                                                         <center data-parsed="" style="min-width:97px;width:100%">
                                                                             <a href="{{ url('/') }}"><img width="160px" height="43px" src="{{ asset('images/logos/jumperr.png') }}" style="-ms-interpolation-mode:bicubic;clear:both;display:block;max-width:100%;outline:0;text-decoration:none;width:auto"></a>
                                                                         </center>
                                                                     </th>
                                                                 </tr>
                                                             </tbody>
-                                                        </table>                                                        
+                                                        </table>
                                     </td>
                                     </tr>
                                     </tbody>

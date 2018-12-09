@@ -71,8 +71,8 @@
                                             <label for="chiildren" class="text-uppercase m-0">Children</label>
                                             <span v-show="errors.has('chiildren')" :class="{'text-danger': errors.has('chiildren') }">*</span>
                                             <input id="chiildren" type="text" :maxlength="50" v-validate="'required|max:50'" name="chiildren"
-                                            class="form-control form-material" v-model="form.chiildren"  placeholder="Chiildren">
-                                            <small v-show="errors.has('chiildren')" class="help text-danger">{{ errors.first('chiildren') }}</small>
+                                            class="form-control form-material" v-model="form.children"  placeholder="Children">
+                                            <small v-show="errors.has('chiildren')" class="help text-danger">{{ errors.first('children') }}</small>
                                         </div>
 
                                         <div class="col-12 my-3 col-md-4">
@@ -145,13 +145,13 @@
                     axios.post('/api/experience', this.form).then((res) => {
                         if (res) {
                             this.loading = false;
-                            this.showAlert('success', 'Gracias por contactar  con nosotros, pronto te responderemos.');
+                            this.showAlert('success', 'Grazie per averci contattato, risponderemo presto.');
                             this.cleanForm();
                             this.$router.push('/');
                         }
                     }).catch((error) => {
                         this.loading = false;
-                        this.showAlert('error', 'Por favor verifica los datos enviados.');
+                        this.showAlert('error', 'Si prega di verificare i dati inviati.');
                     })
                 }).catch(() => {
                     console.log('error form')
