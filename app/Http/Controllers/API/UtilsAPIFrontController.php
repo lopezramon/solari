@@ -92,4 +92,31 @@ class UtilsAPIFrontController extends AppBaseController
             return response()->json(["success"=>true,"message"=>$e->message()],500);
         }
     }
+
+        /**
+    * Send the email to contact us.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
+    public function experienceForm(Request $request)
+    {
+        // dd( $request->all() );
+        try{
+            $flag="ERROR NO ENVIO";
+
+            $send = MailController::sendMail($request->all(),'experience');
+
+            if($send=='OK'){
+                $flag="FINO";
+            }
+            else{
+                $flag=var_dump($send);
+            }
+
+            return response()->json(["success"=>true,"message"=>$flag],200);
+        }catch(Exeption $e){
+            return $e->message();
+        }
+    }
 }

@@ -294,6 +294,7 @@ let router = new Router({
             name: 'vacanzeContainer',
             component: vacanzeContainer
         }
+
     ],
     scrollBehavior (to, from, savedPosition) {
         if (savedPosition) {

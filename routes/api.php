@@ -35,6 +35,7 @@ Route::post('change/password', 'API\Admin\UserAPIController@changePassword')->mi
 
 Route::post('contactus', 'API\UtilsAPIFrontController@contactUs');
 Route::post('newsletter', 'API\UtilsAPIFrontController@newsLetter');
+Route::post('experience', 'API\UtilsAPIFrontController@experienceForm');
 Route::get('unsubscribe/newsletter/{user}', 'API\UtilsAPIFrontController@unsubscribeNewsletter');
 
 
