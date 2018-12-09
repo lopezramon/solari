@@ -52,7 +52,6 @@
                                             class="form-control form-material" v-model="form.email" placeholder="Email">
                                             <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
                                         </div>
-
                                         <div class="col-12 my-3 col-md-6">
                                             <label for="activity" class="text-uppercase m-0">Activity</label>
                                             <span v-show="errors.has('activity')" :class="{'text-danger': errors.has('activity') }">*</span>
@@ -60,7 +59,6 @@
                                             class="form-control form-material" v-model="form.activity" placeholder="Activity">
                                             <small v-show="errors.has('activity')" class="help text-danger">{{ errors.first('activity') }}</small>
                                         </div>
-
                                         <div class="col-12 my-3 col-md-4">
                                             <label for="adult" class="text-uppercase m-0">Adult</label>
                                             <span v-show="errors.has('adult')" :class="{'text-danger': errors.has('adult') }">*</span>
@@ -94,7 +92,7 @@
                                         </div>
 
                                         <div class="col-12 my-3 py-2 text-center">
-                                            <button  :disabled="errors.any() || isDisabled" type="button" @click.prevent="sendexper()" class="btn btn-primary btn-lg text-bold">
+                                            <button  type="button" @click.prevent="sendexper()" class="btn btn-primary btn-lg text-bold">
                                                 <span class="text-btn-white">Consultarci</span>
                                             </button>
                                         </div>
@@ -135,7 +133,6 @@
                 loading: false,
             }
         },
-        // console.log('hola');
         computed: {
             isDisabled() {
                 return !this.form.name || !this.form.phone || !this.form.email || !this.form.activity || !this.form.adult || !this.form.children || !this.form.pets || !this.form.msg
