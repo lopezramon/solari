@@ -5,16 +5,16 @@
                 <swiper :options="swiperOption">
                     <!-- slides -->
                     <swiper-slide>
-                        <img class="img-fluid" src="/images/home/gallery-slider-map/spiaggia1.jpg">
+                        <img class="img-fluid" src="/images/home/gallery-slider-map/header-solaria.jpg">
                     </swiper-slide>
                     <swiper-slide>
-                        <img class="img-fluid" src="/images/home/gallery-slider-map/spiaggia2.jpg">
+                        <img class="img-fluid" src="/images/home/gallery-slider-map/header-solaria.jpg">
                     </swiper-slide>
                     <swiper-slide>
-                        <img class="img-fluid" src="/images/home/gallery-slider-map/spiaggia4.jpg">
+                        <img class="img-fluid" src="/images/home/gallery-slider-map/header-solaria.jpg">
                     </swiper-slide>
                     <swiper-slide>
-                        <img class="img-fluid" src="/images/home/gallery-slider-map/spiaggia21.jpg">
+                        <img class="img-fluid" src="/images/home/gallery-slider-map/header-solaria.jpg">
                     </swiper-slide>
                             <div class="swiper-pagination"  slot="pagination"></div>
                     
@@ -32,7 +32,7 @@ export default {
     data() {
       return {
         swiperOption: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 0,
             navigation: {
                 nextEl: '.swiper-button-next',

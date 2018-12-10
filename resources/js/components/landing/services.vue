@@ -5,8 +5,7 @@
             <div class="container py-5">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <img src="/images/logos/solaria-logo.png" width="120">
-                        <h1 class="mt-1">SERVIZI</h1>
+                        <h1 class="mb-3">SERVIZI</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -14,29 +13,40 @@
                         <swiper :options="swiperOption">
                             <!-- slides -->
                             <swiper-slide>
-                                <div class="rounded text-center flex-fill border">
-                                        <img width="150" src="/images/iconos/004-bicycle.svg" alt="nolegio">
-                                        <p>Alquiler de autos, motocicletas,<br> bicicletas, botes</p>
+                                <div class="rounded text-center flex-fill border py-3">
+                                        <img width="100" src="/images/iconos/services/043-wifi.svg" alt="nolegio">
                                 </div>
+                                        <p class="text-center">Wifi</p>
                             </swiper-slide>
                             <swiper-slide>
-                                <div class="rounded text-center flex-fill border">
-                                        <img width="150" src="/images/iconos/005-plane.svg" alt="neveta">
-                                        <p>Alquiler de autos, motocicletas,<br> bicicletas, botes</p>
+                                <div class="rounded text-center flex-fill border py-3">
+                                        <img width="100" src="/images/iconos/services/044-swimming-pool.svg" alt="neveta">
                                 </div>
+                                        <p class="text-center">Minipiscina</p>
                             </swiper-slide>
                             <swiper-slide>
-                                <div class="rounded text-center flex-fill border">
-                                        <!--<img width="120" src="/images/home/services-slider/spa.png" alt="spa">-->
-                                        <img width="150" src="/images/iconos/003-spa.svg" alt="spa">
-                                        <p>Alquiler de autos, motocicletas,<br> bicicletas, botes</p>
+                                <div class="rounded text-center flex-fill border py-3">
+                                        <img width="100" src="/images/iconos/services/monitor.svg" alt="spa">
                                 </div>
+                                        <p class="text-center">Tv Satelital</p>
                             </swiper-slide>
                             <swiper-slide>
-                                <div class="rounded text-center flex-fill border">
-                                        <img width="150" src="/images/iconos/006-map.svg" alt="scursioni">
-                                        <p>Alquiler de autos, motocicletas,<br> bicicletas, botes</p>
+                                <div class="rounded text-center flex-fill border py-3">
+                                        <img width="100" src="/images/iconos/services/019-deck.svg" alt="scursioni">
                                 </div>
+                                        <p class="text-center">Solarium</p>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="rounded text-center flex-fill border py-3">
+                                        <img width="100" src="/images/iconos/services/120-washing-machine.svg" alt="scursioni">
+                                </div>
+                                        <p class="text-center">Lavatrice</p>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="rounded text-center flex-fill border py-3">
+                                        <img width="100" src="/images/iconos/services/045-air-conditioner.svg" alt="scursioni">
+                                </div>
+                                        <p class="text-center">Aria condizionata</p>
                             </swiper-slide>
                             <!-- Optional controls -->
                             <div class="swiper-pagination"  slot="pagination"></div>
@@ -53,7 +63,7 @@ export default {
     data() {
       return {
         swiperOption: {
-            slidesPerView: 4,
+            slidesPerView: 6,
             spaceBetween: 40,
             swiperOption: {
                 pagination: {
@@ -77,7 +87,7 @@ export default {
                 },
                 // when window width is <= 640px
                 992: {
-                slidesPerView: 3,
+                slidesPerView: 4,
                 spaceBetween: 30
                 }
             }
@@ -95,7 +105,8 @@ export default {
 </script>
 <style scoped>
 .border{
-    border: 1px solid #8a8a8a;
+    border: 3px solid #21b186 !important;
+    border-radius: 20px !important;
 }
 .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets {
     bottom: 0;

@@ -1,9 +1,7 @@
 <template>
     <div id="rooms-suites">
         <headerSuites :name="caseVacanza[0].title"/>
-        <div>
-            <button class="btn btn-block btn-lg rounded-0" @click="changeOption()">{{ option ? 'Vedi posto' : 'Vedere le informazioni'}} </button>
-        </div>
+        
         <template v-if="option">
             <div class="container">
                 <div class="row mt-3">

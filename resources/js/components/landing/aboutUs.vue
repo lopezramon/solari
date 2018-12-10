@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="bg-white">
 
     <div id="chisiamo"></div>
 
@@ -7,8 +7,6 @@
         <img src="/images/home/about-us/solaria-vacanze-affitto-ville-appartamenti-sardegna-budoni.jpg" class="image-aboutus img-fluid m-0">
     </div>
 
-    <div class="container gray-us" >
-            
     <div class="container">
         <div class="row">
         <div class="col-md-6 d-none d-md-block">
@@ -16,7 +14,7 @@
             <!-- <youtube video-id="32Cl3CUty0M" ref="youtube"></youtube> -->
         </div>
         <div class="col-md-6">
-            <h1 class="linear-wipe mt-md-5 text-left">Solaria Vacanze</h1>
+            <h1 class="mt-md-5 text-left">Solaria Vacanze</h1>
             <div class="content-chisiamo"> 
                     <p>Solaria Vacanze è un’agenzia immobiliare specializzata nella locazione di ville, case e appartamenti per vacanza nel nord-est della Sardegna. Esperienza, professionalità e profonda conoscenza del territorio sono le basi su cui, da oltre 20 anni, si fonda la nostra attività.</p>
                     
@@ -28,14 +26,16 @@
         <div class="py-4"></div>
         </div>
     </div>
-</div>
+    
 </div>
 
 
 </template>
 
 <style scoped>
-
+p{
+    font-size: 1.1rem;
+}
 .image-aboutus{
 	margin-top:40px; padding-bottom: 10px 
 }

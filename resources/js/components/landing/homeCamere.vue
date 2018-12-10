@@ -2,7 +2,7 @@
     <div>
 	<div id="camera"></div>	
 
-	<section class="bg-white">
+	<section class="bg-gray">
 		<div class="container py-3">
 		<div class="row">
 		<div class="col-md-12 col-md-offset-2 text-center top">
@@ -24,8 +24,19 @@
 				</div>
 				<div class="content-room-image text-center">
 						<div class="content-middle">
-							<div class="min-log">
-								<img src="/images/logos/solaria-logo.png" alt="logo Solaria" width="100">
+							<div class="min-log d-flex justify-content-center">
+								<div class="info-case">
+									<img src="/images/iconos/002-sunset.svg" width="34" alt="map">
+									<span>1000m</span>
+								</div>
+								<div class="info-case">
+									<img src="/images/iconos/001-placeholder.svg" width="34" alt="map">
+									<span>5000m</span>
+								</div>
+								<div class="info-case">
+									<img src="/images/iconos/leaf.svg	" width="34" alt="map">
+									<span>Si</span>
+								</div>
 							</div>
 							<h3 class="text-white mt-2">Villetta Stella Maris</h3>
 							<a href="/vacanze" class="myButton">VEDI TUTTO</a>
@@ -44,9 +55,20 @@
 				</div>
 				<div class="content-room-image text-center">
 					<div class="content-middle">
-						<div class="min-log">
-							<img src="/images/logos/solaria-logo.png" alt="logo Solaria" width="100">
-						</div>
+						<div class="min-log d-flex justify-content-center">
+								<div class="info-case">
+									<img src="/images/iconos/002-sunset.svg" width="34" alt="map">
+									<span>1000m</span>
+								</div>
+								<div class="info-case">
+									<img src="/images/iconos/001-placeholder.svg" width="34" alt="map">
+									<span>5000m</span>
+								</div>
+								<div class="info-case">
+									<img src="/images/iconos/leaf.svg	" width="34" alt="map">
+									<span>Si</span>
+								</div>
+							</div>
 						<h3 class="text-white mt-2">Residence Solaria</h3>
 						<a href="/vacanze" class="myButton">VEDI TUTTO</a>
 					</div>	
@@ -63,9 +85,20 @@
 				<img src="https://mgc-styles.s3.amazonaws.com/foto/solariavacanze/3-villino-bouganville-2_list-img.jpg" class="img-fluid">
 				<div class="content-room-image text-center">
 					<div class="content-middle">
-						<div class="min-log">
-							<img src="/images/logos/solaria-logo.png" alt="logo Solaria" width="100">
-						</div>
+						<div class="min-log d-flex justify-content-center">
+								<div class="info-case">
+									<img src="/images/iconos/002-sunset.svg" width="34" alt="map">
+									<span>1000m</span>
+								</div>
+								<div class="info-case">
+									<img src="/images/iconos/001-placeholder.svg" width="34" alt="map">
+									<span>5000m</span>
+								</div>
+								<div class="info-case">
+									<img src="/images/iconos/leaf.svg	" width="34" alt="map">
+									<span>Si</span>
+								</div>
+							</div>
 						<h3 class="text-white mt-2">Villetta Bouganville</h3>
 						<a href="/vacanze" class="myButton">VEDI TUTTO</a>
 					</div>
@@ -82,8 +115,19 @@
 				</div>
 					<div class="content-room-image text-center">
 						<div class="content-middle">
-							<div class="min-log">
-								<img src="/images/logos/solaria-logo.png" alt="logo Solaria" width="100">
+							<div class="min-log d-flex justify-content-center">
+								<div class="info-case">
+									<img src="/images/iconos/002-sunset.svg" width="34" alt="map">
+									<span>1000m</span>
+								</div>
+								<div class="info-case">
+									<img src="/images/iconos/001-placeholder.svg" width="34" alt="map">
+									<span>5000m</span>
+								</div>
+								<div class="info-case">
+									<img src="/images/iconos/leaf.svg	" width="34" alt="map">
+									<span>Si</span>
+								</div>
 							</div>
 							<h3 class="text-white mt-2">Villa Ludduì</h3>
 							<a href="/vacanze" class="myButton">VEDI TUTTO</a>
@@ -102,8 +146,19 @@
 				</div>
 					<div class="content-room-image text-center">
 						<div class="content-middle">
-							<div class="min-log">
-								<img src="/images/logos/solaria-logo.png" alt="logo Solaria" width="100">
+							<div class="min-log d-flex justify-content-center">
+								<div class="info-case">
+									<img src="/images/iconos/002-sunset.svg" width="34" alt="map">
+									<span>1000m</span>
+								</div>
+								<div class="info-case">
+									<img src="/images/iconos/001-placeholder.svg" width="34" alt="map">
+									<span>5000m</span>
+								</div>
+								<div class="info-case">
+									<img src="/images/iconos/leaf.svg	" width="34" alt="map">
+									<span>Si</span>
+								</div>
 							</div>
 							<h3 class="text-white mt-2">Villa Ludduì</h3>
 							<a href="/vacanze" class="myButton">VEDI TUTTO</a>
@@ -137,11 +192,13 @@ background-color: #ffd900;
 }
 h2{
 	font-size: 1.4rem;
-    font-weight: bold;
+}
+h3{
+	color: #fff;
 }
 @media (min-width: 768px) {
 	h2{
-	font-size: 2.4rem;
+	font-size: 1.8rem;
 	}
 }
 
@@ -160,7 +217,7 @@ h2{
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: #21b186e5;
+	background-color: rgba(0, 0, 0, 0.898);
 	transition:all 1s ease;
 	-moz-transition: all 1s ease;
 	display: flex;
@@ -205,5 +262,13 @@ h2{
 		padding: 0px;
 	}
 }
-
+.info-case{
+	color: #fff;
+	font-size: .8rem;
+	text-align: center;
+	margin: 0rem .8rem;
+}
+.info-case span{
+	display: block;
+}
 </style>

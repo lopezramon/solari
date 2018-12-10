@@ -10484,6 +10484,7 @@ h4,
 h5,
 h6 {
   font-family: "Raleway", sans-serif;
+  color: #21b186;
 }
 
 label {
@@ -10576,11 +10577,11 @@ input[placeholder*="Check-out"] {
 }
 
 #swipper-header-slider-principal .swiper-slide:nth-child(1) {
-  background-image: url("/images/home/header-slider/solari-vacanze-2.jpg");
+  background-image: url("/images/home/header-slider/solari-vacanze-1.jpg");
 }
 
 #swipper-header-slider-principal .swiper-slide:nth-child(2) {
-  background-image: url("/images/home/header-slider/solari-vacanze-1.jpg");
+  background-image: url("/images/home/header-slider/solari-vacanze-2.jpg");
 }
 
 #swipper-header-slider-principal .swiper-slide:nth-child(3) {

@@ -1,5 +1,5 @@
 <template>
-    <div class="container p-md-5">
+    <div class="container-fluid p-md-5">
 
         <div class="row justify-content-center text-center align-items-center back-image ">
             <div class="col-12">
@@ -39,7 +39,7 @@
 
                         <div class="form-check pad2">
                             <input v-validate="'required'" name="terms" v-model="form.terms" type="checkbox" class="form-check-input" id="check">
-                            <label for="check" class="label2 form-check-label text-white pad2">
+                            <label for="check" class="label2 form-check-label text-white pad2 m-0">
                                 <span v-show="errors.has('terms')" class="help text-danger">*</span>
                                 Sì, Tienimi Aggiornato Su Novità, Eventi E Offerte
                             </label>
@@ -110,7 +110,7 @@
 
         background-position: 0 75%;
 
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://www.solariavacanze.com/wp-content/uploads/solaria-agenzia-vacanze-affitto-appartamenti-in-sardegna-1800x500.jpg");
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/home/newsletter/header-solaria.jpg");
     }
     
     .pad {
@@ -142,7 +142,7 @@
     }
 
     .btn-danger {
-        background-color: #6a6a6a !important;
+        background-color: #21b186 !important;
         border-color: #000 !important;
     }
 

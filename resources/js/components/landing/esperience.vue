@@ -1,11 +1,10 @@
 <template>
     <div>
         <div id="esperienze"></div>
-        <section id="swipper-esperience-slider">
+        <section id="swipper-esperience-slider" class="py-4">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 text-center mt-4">
-                        <img src="/images/logos/solaria-logo.png" width="120">
+                    <div class="col-12 text-center">
                         <h2 class="text-white text-uppercase mt-1">ESPERIENZE</h2>
                     </div>
                 </div>
@@ -41,126 +40,6 @@
                     </div>
                 </div>
             </div>
-
-
-            <!-- se sconde modulo  -->
-            <!-- <div class="d-none">
-                <div class="">
-                    <swiper :options="swiperOption">
-                        <swiper-slide>
-                                    <div class="imagen-slider">
-                                        <img class="img-fluid" src="/images/home/esperience-slider/caprera.jpg">
-                                        <div class="content-slider-image text-center">
-                                            <div class="content-middle-slider">
-                                                <div class="text-white"> 
-                                                    Disfruta de nuestros barcos.<br> Ideal para parejas y pequeños grupos. <br> Ubicado en Cerdeña, un entorno excpecional <p></p>
-                                                </div>
-                                                <router-link :to="{ name: 'indexEsperience'}" class="myButton">Llamar</a> <router-link :to="{ name: 'indexEsperience'}" class="myButton">e-mail</a><p></p>
-                                                <div class="text-white">
-                                                    0789/1710013 <br> 3471757188
-                                                </div>	
-                                            </div>	
-                                        </div>
-                                    </div>
-                                    <div class="text-white block-dark">
-                                        CHARTER IN BARCA
-                                    </div>
-                        </swiper-slide>
-                        <swiper-slide>
-                                <div class="imagen-slider">
-                                    <img class="img-fluid" src="/images/home/esperience-slider/carta-e-gommoni.jpg">
-                                    <div class="content-slider-image text-center">
-                                        <div class="content-middle-slider">
-                                            <div class="text-white"> 
-                                                Disfruta de nuestros barcos.<br> Ideal para parejas y pequeños grupos. <br> Ubicado en Cerdeña, un entorno excpecional <p></p>
-                                            </div>
-                                            <router-link :to="{ name: 'indexEsperience'}" class="myButton">Llamar</a> <router-link :to="{ name: 'indexEsperience'}" class="myButton">e-mail</a><p></p>
-                                            <div class="text-white">
-                                                0789/1710013 <br> 3471757188
-                                            </div>	
-                                        </div>	
-                                    </div>
-                                </div>
-                                <div class="text-white block-ligth">CARTA E GOMMONI
-                                </div>
-                        </swiper-slide>
-                        <swiper-slide>
-                                    <div class="imagen-slider">
-                                        <img class="img-fluid" src="/images/home/esperience-slider/charterinbarca.jpg">
-                                        <div class="content-slider-image text-center">
-                                            <div class="content-middle-slider">
-                                                <div class="text-white"> 
-                                                    Disfruta de nuestros barcos.<br> Ideal para parejas y pequeños grupos. <br> Ubicado en Cerdeña, un entorno excpecional <p></p>
-                                                </div>
-                                                <router-link :to="{ name: 'indexEsperience'}" class="myButton">Llamar</a> <router-link :to="{ name: 'indexEsperience'}" class="myButton">e-mail</a><p></p>
-                                                <div class="text-white">
-                                                    0789/1710013 <br> 3471757188
-                                                </div>	
-                                            </div>	
-                                        </div>
-                                    </div>
-                                    <div class="text-white block-dark">TREKKING
-                                    </div>
-                        </swiper-slide>
-                        <swiper-slide>
-                            <div class="imagen-slider">
-                                <img class="img-fluid" src="/images/home/esperience-slider/magdalena.jpg">
-                                <div class="content-slider-image text-center">
-                                    <div class="content-middle-slider">
-                                        <div class="text-white"> 
-                                            Disfruta de nuestros barcos.<br> Ideal para parejas y pequeños grupos. <br> Ubicado en Cerdeña, un entorno excpecional <p></p>
-                                        </div>
-                                        <router-link :to="{ name: 'indexEsperience'}" class="myButton">Llamar</a> <router-link :to="{ name: 'indexEsperience'}" class="myButton">e-mail</a><p></p>
-                                        <div class="text-white">
-                                            0789/1710013 <br> 3471757188
-                                        </div>	
-                                    </div>	
-                                </div>
-                            </div>
-                            <div class="text-white block-ligth">VISITE GUIDATE
-                            </div>
-                        </swiper-slide>
-                        <swiper-slide>
-                                <div class="imagen-slider">
-                                    <img class="img-fluid" src="/images/home/esperience-slider/trekking.jpg">
-                                    <div class="content-slider-image text-center">
-                                        <div class="content-middle-slider">
-                                            <div class="text-white"> 
-                                                Disfruta de nuestros barcos.<br> Ideal para parejas y pequeños grupos. <br> Ubicado en Cerdeña, un entorno excpecional <p></p>
-                                            </div>
-                                            <router-link :to="{ name: 'indexEsperience'}" class="myButton">Llamar</a> <router-link :to="{ name: 'indexEsperience'}" class="myButton">e-mail</a><p></p>
-                                            <div class="text-white">
-                                                0789/1710013 <br> 3471757188
-                                            </div>	
-                                        </div>	
-                                    </div>
-                                </div>
-                                <div class="text-white block-dark">CAPRERA
-                                </div>
-                        </swiper-slide>
-                        <swiper-slide>
-                            <div class="imagen-slider">
-                                <img class="img-fluid" src="/images/home/esperience-slider/visite-guidate.jpg">
-                                <div class="content-slider-image text-center">
-                                    <div class="content-middle-slider">
-                                        <div class="text-white"> 
-                                            Disfruta de nuestros barcos.<br> Ideal para parejas y pequeños grupos. <br> Ubicado en Cerdeña, un entorno excpecional <p></p>
-                                        </div>
-                                        <router-link :to="{ name: 'indexEsperience'}" class="myButton">Llamar</a> <router-link :to="{ name: 'indexEsperience'}" class="myButton">e-mail</a><p></p>
-                                        <div class="text-white">
-                                            0789/1710013 <br> 3471757188
-                                        </div>	
-                                    </div>	
-                                </div>
-                            </div>
-                            <div class="text-white block-ligth">MAGDALENA
-                            </div>
-                        </swiper-slide>
-                        <div class="swiper-button-prev" slot="button-prev"></div>
-                        <div class="swiper-button-next" slot="button-next"></div>
-                    </swiper>
-                </div>
-            </div> -->
         </section>
     </div>
 </template>
@@ -262,7 +141,7 @@ export default {
 
 
 #swipper-esperience-slider{
-    background-color: #333;
+    background-color: #21b186;
 }
 .imagen-slider{
 	position: relative;
@@ -349,5 +228,8 @@ export default {
 .myButton:active {
 	position:relative;
 	top:1px;
+}
+h3{
+    color: #fff;
 }
 </style>
